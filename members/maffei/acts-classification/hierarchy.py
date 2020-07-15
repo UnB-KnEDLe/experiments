@@ -273,7 +273,7 @@ def get_first_title_cands(extracted_blocks, page_width):
     return span_lis, cands
 
 
-def init_hier_final(doc: fitz.Document):
+def init_hier_final(doc: fitz.Document, debug=False):
 
     spans, candidates = get_first_title_cands(
         extracted_blocks=doc[0].getTextPage().extractDICT()['blocks'],
@@ -281,9 +281,10 @@ def init_hier_final(doc: fitz.Document):
     )
     sp = spans[candidates[0][0] + 1]
     title_size = sp['size']
-    print("\t[init_hier] first_title of {}: {} - Size: {}".format(
-        doc.name, sp['text'], title_size
-    ))
+    if debug:
+        print("\t[init_hier] first_title of {}: {} - Size: {}".format(
+            doc.name, sp['text'], title_size
+        ))
     current_section = 'SEÇÃO 0'
     hier = {
         current_section: [

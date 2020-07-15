@@ -52,7 +52,7 @@ class SemEfeitoAposentadoria(Atos):
         "NOMEAR",
         "CONCEDER",
         "EXONERAR",
-        "DESAVERBAR",
+        # "DESAVERBAR",
         "APOSTILAR",
         "RETIFICAR",
     ]
@@ -64,13 +64,15 @@ class SemEfeitoAposentadoria(Atos):
         return no_split_word.replace('\n', ' ')
 
 
-    def __init__(self, file, debug=False, extra_search=True, nlp=None, txt=False):
+    def __init__(self, file, debug=False, extra_search=True,
+                nlp=None, txt=False, max_length=2000):
+        self._max_length = max_length
         self._debug = debug
         self._extra_search = extra_search
         if txt and isinstance(txt, str):
-            self._processed_text = self._pre_process_text(open(file).read())
-        else:
             self._processed_text = self._pre_process_text(txt)
+        else:
+            self._processed_text = self._pre_process_text(open(file).read())
         self._raw_matches = []
         self._nlp = nlp
         super().__init__(file)
@@ -113,10 +115,26 @@ class SemEfeitoAposentadoria(Atos):
             re.search(self._inst_rule, head + tex + end) \
             for tex in lis[1:]]
         lis = [i for i in lis if i]
-        self._raw_matches = lis
+        # drop false positives!
+        true_positive = []
+        for raw_match in lis:
+            flag = True
+            for bad in self._BAD_MATCH_WORDS:
+                s = raw_match.group()
+                if len(s) > self._max_length or bad in s:
+                    flag = False
+            if flag:
+                true_positive.append(raw_match)
+
+        print("TRUE:", len(true_positive))
+        print("FALSE:", len(lis) - len(true_positive))
+
+        self._raw_matches = true_positive
+        # self._raw_matches = lis
         if self._debug:
-            print("DEBUG:", len(lis), 'matches')
-        return [i.group() for i in lis]
+            print("DEBUG:", len(lis), 'generic matches')
+            print("DEBUG:", len(self._raw_matches), 'true matches')
+        return [i.group() for i in self._raw_matches]
 
 
     # TODO: UPDATE WITH SEM EFEITO APOSENTADORIA SPECIFICITIES

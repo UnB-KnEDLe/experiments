@@ -8,9 +8,16 @@ from atos.substituicao import Substituicao
 from atos.cessoes import Cessoes
 from atos.sem_efeito_aposentadoria import SemEfeitoAposentadoria
 
+extractors = [Retirements, Revertions, NomeacaoComissionados, Exoneracao,
+    AbonoPermanencia, RetAposentadoria, Substituicao, Cessoes,
+    SemEfeitoAposentadoria
+]
+
 _dict = {"aposentadoria": Retirements, "reversoes": Revertions, "nomeacao": NomeacaoComissionados,
          "exoneracao": Exoneracao, "abono": AbonoPermanencia, "retificacoes": RetAposentadoria,
-         "substituicao": Substituicao}
+         "substituicao": Substituicao, "cessao": Cessoes,
+         "semEfeitoAposentadoria": SemEfeitoAposentadoria
+}
 
 class Regex:
 
