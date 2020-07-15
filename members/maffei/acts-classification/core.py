@@ -1,3 +1,4 @@
+import atos
 from atos.aposentadoria import Retirements
 from atos.reversoes import Revertions
 from atos.nomeacao import NomeacaoComissionados

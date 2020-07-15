@@ -54,7 +54,7 @@ class Cessoes(Atos):
     def __init__(self, file, debug=False, extra_search = True, txt=False):
         self._debug = debug
         self._extra_search = extra_search
-        if txt and isinstance(txt, str):
+        if isinstance(txt, str):
             self._processed_text = remove_crossed_words(txt)
         else:
             self._processed_text = remove_crossed_words(open(file).read())

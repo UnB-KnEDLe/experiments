@@ -48,7 +48,7 @@ from itertools import zip_longest
 import nltk
 import spacy
 
-_reg = re.compile(r'(?!\d\s)([.])\s(?=[A-Z])')
+_reg = re.compile(r'(?!\d\s)([.])\s+(?=[A-Z])')
 
 sent_tokenizer = nltk.data.load('tokenizers/punkt/portuguese.pickle')
 

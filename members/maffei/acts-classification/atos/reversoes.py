@@ -3,8 +3,8 @@ from atos.base import Atos
 
 class Revertions(Atos):
 
-    def __init__(self, text):
-        super().__init__(text)
+    def __init__(self, text, txt=False):
+        super().__init__(text, txt=txt)
 
     def _regex_flags(self):
         return re.IGNORECASE

@@ -2,8 +2,8 @@ from atos.base import Atos
 
 class Exoneracao(Atos):
     
-    def __init__(self,text):
-        super().__init__(text)
+    def __init__(self,text, txt=False):
+        super().__init__(text, txt=txt)
     
     def _act_name(self):
         return "Exoneração"

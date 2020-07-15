@@ -52,7 +52,7 @@ class SemEfeitoAposentadoria(Atos):
         "NOMEAR",
         "CONCEDER",
         "EXONERAR",
-        # "DESAVERBAR",
+        "DESAVERBAR",
         "APOSTILAR",
         "RETIFICAR",
     ]
@@ -75,7 +75,8 @@ class SemEfeitoAposentadoria(Atos):
             self._processed_text = self._pre_process_text(open(file).read())
         self._raw_matches = []
         self._nlp = nlp
-        super().__init__(file)
+        super().__init__(file, txt=txt)
+
 
     def _act_name(self):
         return "Atos tornados sem efeito - aposentadoria"
@@ -87,12 +88,14 @@ class SemEfeitoAposentadoria(Atos):
 
     def _rule_for_inst(self):
         return (
-        r"TORNAR SEM EFEITO" + \
-        r"([^\n]+\n){0,10}?[^\n]*?(tempo\sde\sservi.o|aposentadoria|aposentou|([Dd][Ee][Ss])?[Aa][Vv][Ee][Rr][Bb][Aa]..[Oo]|(des)?averb(ar?|ou))[\d\D]{0,500}?[.]\s" +\
-        r"(?=[A-Z]{4})"
+        r"TORNAR SEM EFEITO"
+        r"([^\n]+\n){0,10}?[^\n]*?"
+        r"(tempo\sde\sservi.o|aposentadoria|aposentou|([Dd][Ee][Ss])?[Aa][Vv][Ee][Rr][Bb][Aa]..[Oo]|(des)?averb(ar?|ou))"
+        r"[\d\D]{0,500}?[.]\s+"
+        r"(?=[A-Z]{3})"
     )
 
-    # TODO: UPDATE REULES!!!
+
     def _prop_rules(self):
         return {
             'tipo_documento': TIPO_DOCUMENTO,
@@ -108,14 +111,14 @@ class SemEfeitoAposentadoria(Atos):
             a list with all re.Match objects resulted from searching for
         """
         head = "TORNAR SEM EFEITO"
-        end = "CAFEBABE"
-
+        end = " CAFEBABE"   # so that lookeahead does not become a problem
         lis = self._processed_text.split(head)
         lis = [
             re.search(self._inst_rule, head + tex + end) \
-            for tex in lis[1:]]
+            for tex in lis[1:]  # content before first `head occurrence does not matter
+        ]
         lis = [i for i in lis if i]
-        # drop false positives!
+        
         true_positive = []
         for raw_match in lis:
             flag = True
@@ -126,18 +129,13 @@ class SemEfeitoAposentadoria(Atos):
             if flag:
                 true_positive.append(raw_match)
 
-        print("TRUE:", len(true_positive))
-        print("FALSE:", len(lis) - len(true_positive))
-
         self._raw_matches = true_positive
-        # self._raw_matches = lis
         if self._debug:
             print("DEBUG:", len(lis), 'generic matches')
             print("DEBUG:", len(self._raw_matches), 'true matches')
         return [i.group() for i in self._raw_matches]
 
 
-    # TODO: UPDATE WITH SEM EFEITO APOSENTADORIA SPECIFICITIES
     def _get_special_acts(self, lis_dict):
         for i, match in enumerate(self._raw_matches):
             act = match.group()
@@ -178,7 +176,7 @@ class SemEfeitoAposentadoria(Atos):
 
                 # NOTE: -1 is important in case `matricula` end with `,`
                 if 0 <= (matricula_start - (servidor_start + len(servidor.group()))) <= 5:
-                    # cargo does not fit between 'servidor' e 'matricula'
+                    # cargo does not fit between 'servidor' and 'matricula'
                     cargo = re.search(r",(?P<cargo>[^,]+)", act[ matricula_start + len(matricula.group())-1: ])        
                 else:
                     # cargo right after employee's name                    
@@ -219,7 +217,7 @@ class SemEfeitoAposentadoria(Atos):
             the whole match if there are no groups at all or raise
             an exception if there are more than two groups.
         """
-        if not match or type(match) == str:
+        if not match or isinstance(match, str):
             return "nan"
         elif match.groupdict():
             key = list(match.groupdict())[0]
@@ -243,27 +241,11 @@ class SemEfeitoAposentadoria(Atos):
         self._acts_str = found.copy()
         return found
 
+
     def _build_dataframe(self):
         _=re.search(self._name, self._name)
         for dic in self._acts:
             dic["tipo_ato"] = _
         data = [ { k: self._group_solver(v) for k, v in act.items() } for act in self._acts]
         return pd.DataFrame(data)
-
-
-    def _post_process_raw(self):
-        l = []
-        for raw in self._raw_matches:
-            s = raw.group()
-            # Make sure words splitted accross lines are joined together
-            no_split_word = s.replace('-\n', '-')
-            
-            # Makes easier to deal with the text.
-            single_spaces = re.sub(r'\s+', r' ', no_split_word)
-            
-            # Sometimes more than one "TORNAR SEM EFEITO" is captured. Only the last
-            # one hould matter.
-            last_tornar_sem_efeito = single_spaces[single_spaces.rfind("TORNAR SEM EFEITO"):]
-            l.append(last_tornar_sem_efeito)
-        return l
 

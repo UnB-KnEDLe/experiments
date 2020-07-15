@@ -6,9 +6,9 @@ import pandas as pd
 class Atos:
     
     def __init__(self, file, txt=False):
-        if txt and isinstance(txt, str):
+        if isinstance(txt, str):
             self._file_name = ''
-            self._text = txt            
+            self._text = txt
         else:
             fp = open(file, "r")
             self._file_name = file

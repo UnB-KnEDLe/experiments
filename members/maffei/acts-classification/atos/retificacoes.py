@@ -3,8 +3,8 @@ from atos.base import Atos
 
 class RetAposentadoria(Atos):
 
-    def __init__(self, file):
-        super().__init__(file)
+    def __init__(self, file, txt=False):
+        super().__init__(file, txt=txt)
 
     def _regex_flags(self):
         return re.IGNORECASE
