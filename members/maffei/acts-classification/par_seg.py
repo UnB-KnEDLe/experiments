@@ -9,6 +9,7 @@ from fitz.utils import getColor
 
 COLORS = fitz.utils.getColorList()
 NOTWHITE = [i for i in COLORS if 'WHITE' not in i]
+np.random.seed(seed=42)
 np.random.shuffle(NOTWHITE)
 
 FORBIDDEN = [
@@ -38,21 +39,6 @@ def gpk(lis_dic, key):
     return gp
 
 
-def get_lines(doc):
-    _, _, wid, hei = doc[0].MediaBox
-    lines = []
-    for pnum in range(doc.pageCount):
-        d = doc[pnum].getTextPage().extractDICT()
-        for block in d['blocks']:
-            for line in block['lines']:
-                lines.append(
-                    (*line['bbox'],
-                     '\n'.join([sp['text'] for sp in line['spans']]),
-                    2*pnum + (1 if line['bbox'][0] > (wid/2) else 0)
-                    ))
-    return lines
-
-
 def get_spans_lines(doc, glue_horizon = False):
     _, _, wid, hei = doc[0].MediaBox
     spans = []
@@ -61,11 +47,13 @@ def get_spans_lines(doc, glue_horizon = False):
         d = doc[pnum].getTextPage().extractDICT()
         for block in d['blocks']:
             for line in block['lines']:
-                lines.append(
-                    (*line['bbox'],
-                     '\n'.join([sp['text'] for sp in line['spans'] if all([not sp['text'].startswith(i) for i in FORBIDDEN])]),
-                    2*pnum + (1 if line['bbox'][0] > (wid/2) else 0)
-                    ))
+                d = {}
+                d['bbox'] = line['bbox']
+                d['text'] = '\n'.join(
+                         [sp['text'] for sp in line['spans']
+                         if all([not sp['text'].startswith(i) for i in FORBIDDEN])])
+                d['page'] = 2*pnum + (1 if line['bbox'][0] > (wid/2) else 0)
+                lines.append(d)
                 for span in line['spans']:
                     t = span['text']
                     if len(t) > 2 and '....' not in t\
@@ -82,7 +70,7 @@ def get_spans_lines(doc, glue_horizon = False):
                             else:
                                 spans.append(span)
                         else:
-                            spans.append(span)
+                            spans.append(span)       
     return spans, lines
 
 
@@ -111,5 +99,25 @@ def set_dic_par(seq):
                 buf = [sp]
     lis.extend(buf)
     return lis
+
+
+def sort_byreading(lis):
+    """Sort by page, vertical and horizontal position"""
+    return sorted(lis, key=lambda x: (x['page'],  x['bbox'][1], x['bbox'][0]))
+
+def get_par_text(doc, min_linebreak=1, min_parlen=40):
+    spans, lines = get_spans_lines(doc, glue_horizon=True)
+    spans_sorted = sort_byreading(spans)
+    lis = set_dic_par(spans_sorted)
+    acc = 0
+    valid_texts = []
+    for idx, (key, l) in enumerate( gpk( lis, 'par').items() ):
+        whole_tex = '\n'.join([sp['text'] for sp in l])
+        cond1 = whole_tex.count('\n') < min_linebreak
+        cond2 = len(whole_tex) < min_parlen
+        if cond1 or cond2:
+            continue
+        valid_texts.append(whole_tex)
+    return valid_texts
 
 

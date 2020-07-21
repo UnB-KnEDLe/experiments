@@ -100,8 +100,15 @@ def preprocess(s):
     s = re.sub(r'\s{2,}', ' ', s)
     return s
 
+
 def get_all_acts(s):
     ret = {}
     for k, v in core._dict.items():
         ret[k] = v('', txt=s)
     return ret
+
+
+def has_act(s):
+    acts = get_all_acts(s)
+    return any([i.acts_str for i in acts.values()])
+
