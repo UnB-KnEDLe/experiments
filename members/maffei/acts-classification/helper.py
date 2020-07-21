@@ -2,7 +2,7 @@ import os
 import pandas as pd
 from core import Regex
 from os.path import isfile, join
-
+import core
 
 def extract_multiple(files, type, txt_out=False, txt_path="./results"):
     res = []
@@ -59,7 +59,8 @@ nlp.add_pipe(sentencizer, before='parser')
 def sentencize_dodf(s, backend='regex'):
     if backend == 'regex':    
         sents = re.split(_reg, s)
-        return [i[0] + (i[1] if not i[0].endswith('.') else '.') for i in
+        # return [i[0] + (i[1] if not i[0].endswith('.') else '.') for i in
+        return [i[0] + i[1] for i in
             zip_longest(sents[0::2], sents[1::2], fillvalue='.')]
     elif backend == 'nltk':
         return sent_tokenizer.tokenize(s)
@@ -98,3 +99,9 @@ def preprocess(s):
     s = spaced_letters_fix(s)
     s = re.sub(r'\s{2,}', ' ', s)
     return s
+
+def get_all_acts(s):
+    ret = {}
+    for k, v in core._dict.items():
+        ret[k] = v('', txt=s)
+    return ret

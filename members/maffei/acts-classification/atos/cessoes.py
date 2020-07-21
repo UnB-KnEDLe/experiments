@@ -3,23 +3,11 @@ from typing import List, Match
 import pandas as pd
 from atos.base import Atos
 
-def case_insensitive(s: str):
-    """Returns regular expression similar to `s` but case careless.
-
-    Note: strings containing characters set, as `[ab]` will be transformed to `[[Aa][Bb]]`.
-        `s` is espected to NOT contain situations like that.
-    Args:
-        s: the stringregular expression string to be transformed into case careless
-    Returns:
-        the new case-insensitive string
-    """
-
-    return ''.join([c if not c.isalpha() else '[{}{}]'.format(c.upper(), c.lower()) for c in s])
-
 
 def remove_crossed_words(s: str):
     """Any hyfen followed by 1+ spaces are removed.
     """
+    return s
     return re.sub(r'-\s+', '', s)
 
 
@@ -28,8 +16,7 @@ UPPER_LETTER = r"[ÁÀÂÄÉÈẼËÍÌÎÏÓÒÔÖÚÙÛÜÇA-Z]"
 
 DODF = r"(DODF|[Dd]i.rio\s+[Oo]ficial\s+[Dd]o\s+[Dd]istrito\s+[Ff]ederal)"
 
-SIAPE = r"{}\s*(?:n?.?)\s*(?P<siape>[-\d.Xx/\s]+)".format(case_insensitive("siape"))
-# SIAPE = r"(?i:siape)\s*(?:n?.?)\s*(?P<siape>[-\d.Xx/\s]+)"
+SIAPE = r"(?i:siape)\s*(?:n?.?)\s*(?P<siape>[-\d.Xx/\s]+)"
 
 MATRICULA = r"(?:matr.cul.|matr?[.]?\B)[^\d]+(?P<matricula>[-\d.XxZzYz/\s]+)"
 # MATRICULA = r"(?i:matr.cul.|matr?[.]?\B)[^\d]+(?P<matricula>[-\d.XxZzYz/\s]+)"
@@ -41,12 +28,9 @@ SERVIDOR_NOME_COMPLETO = r"(servidor.?|empregad.)[^A-ZÀ-Ž]{0,40}(?P<name>[A-Z�
 NOME_COMPLETO = r"(?P<name>['A-ZÀ-Ž][.'A-ZÀ-Ž\s]{6,}(?=[,.:;]))"
 
 PROCESSO_NUM = r"(?P<processo>[-0-9/.]+)"
-INTERESSADO = r"{}:\s*{}".format(case_insensitive("interessad."), NOME_COMPLETO)
-# INTERESSADO = r"(?i:interessad.):\s*{}".format(NOME_COMPLETO)
-# INTERESSADO = r"(?i:interessad.):\s*" + NOME_COMPLETO
+INTERESSADO = fr"(?i:interessad.):\s*{NOME_COMPLETO}"
 
-ONUS = r"(?P<onus>\b[oôOÔ]{}\b[^.]+[.])".format(case_insensitive("nus"))
-# ONUS = r"(?P<onus>\b[oôOÔ](?i:(nus))\b[^.]+[.])"
+ONUS = r"(?P<onus>\b[oôOÔ](?i:nus)\b[^.]+[.])"
 
 
 class Cessoes(Atos):
@@ -71,11 +55,10 @@ class Cessoes(Atos):
 
     def _rule_for_inst(self):
         return (
-            r"([Pp][Rr][Oo][Cc][Ee][Ss][Ss][Oo][^0-9/]{0,12})([^\n]+?\n){0,2}?"\
-            + r"[^\n]*?[Aa]\s*[Ss]\s*[Ss]\s*[Uu]\s*[Nn]\s*[Tt]\s*[Oo]\s*:?\s*\bCESS.O\b"\
-            + r"([^\n]*\n){0,}?[^\n]*?(?=(?P<look_ahead>PROCESSO|Processo:|PUBLICAR|pertinentes[.]|autoridade cedente|"\
-            + case_insensitive('publique-se') + "))"
-            # + r'(?i:publique-se)' + "))"
+            r"([Pp][Rr][Oo][Cc][Ee][Ss][Ss][Oo][^0-9/]{0,12})([^\n]+?\n){0,2}?"
+            r"[^\n]*?[Aa]\s*[Ss]\s*[Ss]\s*[Uu]\s*[Nn]\s*[Tt]\s*[Oo]\s*:?\s*\bCESS.O\b"
+            r"([^\n]*\n){0,}?[^\n]*?(?=(?P<look_ahead>PROCESSO|Processo:|PUBLICAR|pertinentes[.]|autoridade cedente|"
+            r'(?i:publique-se)'  "))"
         )
 
 

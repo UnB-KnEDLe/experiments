@@ -60,6 +60,8 @@ class SemEfeitoAposentadoria(Atos):
 
     def _pre_process_text(self, s):
         # Make sure words splitted accross lines are joined together
+        return s
+        
         no_split_word = s.replace('-\n', '-')        
         return no_split_word.replace('\n', ' ')
 
