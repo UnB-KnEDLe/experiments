@@ -155,7 +155,7 @@ class SemEfeitoAposentadoria(Atos):
                 dodf_end = 0 if not dodf_mt else dodf_mt.end()
                 servidor = re.search(NOME_COMPLETO, act[dodf_end:])
                 del dodf_mt, dodf_end
-                if not servidor:
+                if not servidor and self._nlp:
                     # Appeal to spacy
                     all_cands = re.findall(NOME_COMPLETO, act)
                     cand_text = 'SEM-SERVIDOR'
