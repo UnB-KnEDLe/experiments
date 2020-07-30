@@ -1,0 +1,56 @@
+id,annotator,tipo,texto,ProcessoSEI,Edital Normativo,Data do Edital Normativo,Número do DODF do Edital Normativo,Data do DODF do Edital Normativo,Edital de Resultado Final,Data do Edital de Resultado Final,Número do DODF do Edital de Resultado Final,Data do DODF do Edital de Resultado Final,Cargo,Carreira,Orgao,Especialidade,"Candidatos (nome, classificacao)",Portador de Necessidades Especiais,"Candidatos PNE (nome, Classificacao)"
+R51,tatianafp,NomeacaoCargoEfetivo,"NOMEAR, em substituição às nomeações tornadas sem efeito, conforme instrução dos autos do
+processo SEI n.º 00410-00020280/2017-14, os candidatos abaixo aprovados no concurso público a que
+se refere o Edital Normativo nº 01, de 22 de janeiro de 2014, publicado no DODF nº 19, de 24 de
+janeiro de 2014 e Edital de Resultado Final nº 12, de 04 de dezembro de 2014, publicado no DODF
+nº 256, de 08 de dezembro de 2014, para exercerem o cargo de Analista de Atividades Culturais, da
+Carreira Atividades Culturais do Quadro de Pessoal do Distrito Federal, conforme a seguir
+(especialidade, nome, classificação):
+CONTABILIDADE: CASSIO FERNANDES NEGREIRO, 13º; AMANDA FERNANDES RABELO,
+14º.
+CONSERVAÇÃO E RESTAURO: GILSEANE CHAVES SILVA, 5º.",00410-00020280/2017-14,01,22 de janeiro de 2014,19,"24 de
+janeiro de 2014",12,04 de dezembro de 2014,Nan,08 de dezembro de 2014,Analista de Atividades Culturais,Atividades Culturais do Quadro de Pessoal do Distrito Federal,Nan,CONTABILIDADE,"['CASSIO FERNANDES NEGREIRO', '13', 'AMANDA FERNANDES RABELO', '14']",nao,[]
+R54,tatianafp,NomeacaoCargoEfetivo,"NOMEAR, em substituição às nomeações tornadas sem efeito, conforme instrução dos autos do
+processo SEI n.º 00410-00020280/2017-14, os candidatos abaixo aprovados no concurso público a que
+se refere o Edital Normativo nº 01, de 22 de janeiro de 2014, publicado no DODF nº 19, de 24 de
+janeiro de 2014 e Edital de Resultado Final nº 12, de 04 de dezembro de 2014, publicado no DODF
+nº 256, de 08 de dezembro de 2014, para exercerem o cargo de Analista de Atividades Culturais, da
+Carreira Atividades Culturais do Quadro de Pessoal do Distrito Federal, conforme a seguir
+(especialidade, nome, classificação):
+CONTABILIDADE: CASSIO FERNANDES NEGREIRO, 13º; AMANDA FERNANDES RABELO,
+14º.
+CONSERVAÇÃO E RESTAURO: GILSEANE CHAVES SILVA, 5º.",00410-00020280/2017-14,01,22 de janeiro de 2014,19,"24 de
+janeiro de 2014",12,04 de dezembro de 2014,Nan,08 de dezembro de 2014,Analista de Atividades Culturais,Atividades Culturais do Quadro de Pessoal do Distrito Federal,Nan,CONSERVAÇÃO E RESTAURO,"['GILSEANE CHAVES SILVA', '5']",nao,[]
+R52,tatianafp,NomeacaoCargoEfetivo,"NOMEAR, em substituição às nomeações tornadas sem efeito, conforme instrução dos autos do
+processo SEI n.º 00410-00020280/2017-14, os candidatos abaixo aprovados no concurso público a que
+se refere o Edital Normativo nº 01, de 22 de janeiro de 2014, publicado no DODF nº 19, de 24 de
+janeiro de 2014 e Edital de Resultado Final nº 07, de 25 de agosto de 2014, publicado no DODF nº
+180, de 29 de agosto de 2014, para exercerem o cargo de Técnico de Atividades Culturais, da Carreira
+Atividades Culturais do Quadro de Pessoal do Distrito Federal, conforme a seguir (especialidade, nome,
+classificação):
+TÉCNICO EM CONTABILIDADE: GUSTAVO DOMINGOS DE OLIVEIRA, 18º.",00410-00020280/2017-14,01,22 de janeiro de 2014,19,"24 de
+janeiro de 2014",07,25 de agosto de 2014,Nan,29 de agosto de 2014,Técnico de Atividades Culturais,Atividades Culturais do Quadro de Pessoal do Distrito Federal,Nan,TÉCNICO EM CONTABILIDADE,"['GUSTAVO DOMINGOS DE OLIVEIRA', '18']",nao,[]
+R53,tatianafp,NomeacaoCargoEfetivo,"NOMEAR, os candidatos abaixo aprovados, conforme instrução dos autos do processo SEI n.º 0041000020280/2017-14, no concurso público a que se refere o Edital Normativo nº 01, de 22 de janeiro de
+2014, publicado no DODF nº 19, de 24 de janeiro de 2014 e Edital de Resultado Final nº 07, de 25
+de agosto de 2014, publicado no DODF nº 180, de 29 de agosto de 2014, para exercerem o cargo de
+Técnico de Atividades Culturais, da Carreira Atividades Culturais do Quadro de Pessoal do Distrito
+Federal, conforme a seguir (especialidade, nome, classificação):
+AGENTE ADMINISTRATIVO: DEBORA APARECIDA DE ALMEIDA REGO, 64º; MARIANA
+OLIVEIRA MACEDO, 65º; PHELIPE MAGO PONCIANO BORGES, 66º.
+Portador de Deficiência: JANAINA AMARAL MAGALHAES, 17º.
+TÉCNICO EM CONTABILIDADE: ROMERO PINTO PEDROSA, 19º.",0041000020280/2017-14,01,"22 de janeiro de
+2014",19,24 de janeiro de 2014,07,"25
+de agosto de 2014",Nan,29 de agosto de 2014,Técnico de Atividades Culturais,"Atividades Culturais do Quadro de Pessoal do Distrito
+Federal",Nan,AGENTE ADMINISTRATIVO,"['DEBORA APARECIDA DE ALMEIDA REGO', '64', 'MARIANA\nOLIVEIRA MACEDO', '65', 'PHELIPE MAGO PONCIANO BORGES', '66']",sim,"['JANAINA AMARAL MAGALHAES', '17']"
+R55,tatianafp,NomeacaoCargoEfetivo,"NOMEAR, os candidatos abaixo aprovados, conforme instrução dos autos do processo SEI n.º 0041000020280/2017-14, no concurso público a que se refere o Edital Normativo nº 01, de 22 de janeiro de
+2014, publicado no DODF nº 19, de 24 de janeiro de 2014 e Edital de Resultado Final nº 07, de 25
+de agosto de 2014, publicado no DODF nº 180, de 29 de agosto de 2014, para exercerem o cargo de
+Técnico de Atividades Culturais, da Carreira Atividades Culturais do Quadro de Pessoal do Distrito
+Federal, conforme a seguir (especialidade, nome, classificação):
+AGENTE ADMINISTRATIVO: DEBORA APARECIDA DE ALMEIDA REGO, 64º; MARIANA
+OLIVEIRA MACEDO, 65º; PHELIPE MAGO PONCIANO BORGES, 66º.
+Portador de Deficiência: JANAINA AMARAL MAGALHAES, 17º.
+TÉCNICO EM CONTABILIDADE: ROMERO PINTO PEDROSA, 19º.",0041000020280/2017-14,01,"22 de janeiro de
+2014",19,24 de janeiro de 2014,07,"25
+de agosto de 2014",Nan,29 de agosto de 2014,Técnico de Atividades Culturais,"Atividades Culturais do Quadro de Pessoal do Distrito
+Federal",Nan,TÉCNICO EM CONTABILIDADE,"['ROMERO PINTO PEDROSA', '19']",nao,[]
