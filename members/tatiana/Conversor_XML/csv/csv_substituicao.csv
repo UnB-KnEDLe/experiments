@@ -1,0 +1,715 @@
+id,anotador,tipo,Ato_Substituicao,nome_servidor_substituto,matricula_substituto,cargo_servidor_substituto,simbolo_cargo_substituto,nome_servidor_substituido,matricula_substituido,cargo_comissionado_objeto,simbolo_cargo_objeto,hierarquia_lotacao,orgao,motivo,vigencia
+R97,tatianafp,Ato_Substituicao,"DESIGNAR IEDA DE
+MEDEIROS SILVA, Matrícula nº 1.692.842-3, Gerente da Gerência de Prestação de Contas, Símbolo
+DFG-14, da Diretoria de Contratos e Convênios, da Coordenação de Orçamento, Finanças e Contratos, da
+Subsecretaria de Administração Geral, para substituir, sem acumular vencimentos e sem prejuízo das suas
+atribuições, TYARA KROPF BARBOSA, matrícula nº 171.842-8, Diretora da Diretoria de Contratos e
+Convênios, Símbolo CNE-07, da Coordenação de Orçamento, Finanças e Contratos, da Subsecretaria de
+Administração Geral, do Gabinete do Vice-Governador, no período de 13/01/2020 a 27/01/2020, por
+motivo de férias regulamentares","IEDA DE
+MEDEIROS SILVA",1.692.842-3,Gerente da Gerência de Prestação de Contas,DFG-14,TYARA KROPF BARBOSA,171.842-8,"Diretora da Diretoria de Contratos e
+Convênios",CNE-07,"Coordenação de Orçamento, Finanças e Contratos, da Subsecretaria de
+Administração Geral",Gabinete do Vice-Governador,férias regulamentares,['13/01/2020 a 27/01/2020']
+R96,tatianafp,Ato_Substituicao,"DESIGNAR BRUNO
+WANDERLEY LEITÃO matrícula 1.691.731-6, Assessor Técnico da Gerência de Administração da
+Residência Oficial, da Coordenação Administrativa, da Assessoria Militar, do Gabinete do ViceGovernador, para substituir, sem acumular vencimentos e sem prejuízo das suas atribuições, DEMILSON
+MOREIRA DOS SANTOS, matrícula nº 1690275-0, Gerente de Apoio Administrativo, Símbolo DFG-14,
+da Coordenação Administrativa, da Assessoria Militar, do Gabinete do Vice-Governador, no período de
+30/12/2019 a 28/01/2020, por motivo de férias regulamentares","BRUNO
+WANDERLEY LEITÃO",1.691.731-6,"Assessor Técnico da Gerência de Administração da
+Residência Oficial",nan,"DEMILSON
+MOREIRA DOS SANTOS",1690275-0,Gerente de Apoio Administrativo,DFG-14,"Coordenação Administrativa, da Assessoria Militar",Gabinete do Vice-Governador,férias regulamentares,['30/12/2019 a 28/01/2020']
+R98,tatianafp,Ato_Substituicao,"DESIGNAR MARIA CLARETE NUNES COSTA, matrícula
+126.005-7, Gestora em Políticas Públicas e Gestão Governamental, para substituir EMIVAL RENATO
+SIMOES, matrícula 1.693.661-2, Diretor da Diretoria de Desenvolvimento e Ordenamento Territorial,
+CNE-07, da Coordenação de Desenvolvimento, da Administração Regional do Gama, no período de
+02/01/2020 a 31/01/2020, por motivo de férias do titular, nos termos do Decreto nº 38.002, de
+24/04/2018",MARIA CLARETE NUNES COSTA,126.005-7,Gestora em Políticas Públicas e Gestão Governamental,nan,"EMIVAL RENATO
+SIMOES",1.693.661-2,Diretor da Diretoria de Desenvolvimento e Ordenamento Territorial,CNE-07,Coordenação de Desenvolvimento,Administração Regional do Gama,férias do titular,['02/01/2020 a 31/01/2020']
+R99,tatianafp,Ato_Substituicao,"DESIGNAR
+JACIANE GREISSY DE FARIA LIRA, matrícula 1689.767.6, Gerente da Gerencia de Políticas Sociais,
+para substituir HELDON EMILIO DE ARAÚJO, matricula 1689.635-1, Diretor, símbolo CNE-07, da
+Diretoria de Articulação, da Coordenação Executiva, da Administração Regional da Candangolândia, no
+período de 20/01/2020 a 29/01/2020, em função de férias do titular",JACIANE GREISSY DE FARIA LIRA,1689.767.6,Gerente da Gerencia de Políticas Sociais,nan,HELDON EMILIO DE ARAÚJO,1689.635-1,Diretor,CNE-07,"Diretoria de Articulação, da Coordenação Executiva",Administração Regional da Candangolândia,férias do titular,['20/01/2020 a 29/01/2020']
+R100,tatianafp,Ato_Substituicao,"DESIGNAR, para fins de
+regularização funcional, RAIMUNDA MOURA DOS SANTOS AMARAL, matrícula nº 108.987-0, para
+substituir JOSELITO DA SILVA DUARTE, matrícula nº 110.621-X, Gerente, Símbolo DFG-14, da
+Agência de Atendimento da Receita - Taguatinga, da Coordenação de Atendimento ao Contribuinte, da
+Subsecretaria da Receita, da Secretaria Executiva de Fazenda, da Secretaria de Estado de Economia do
+Distrito Federal, no período de 06 a 14 de janeiro de 2020, por motivo de férias regulamentares",RAIMUNDA MOURA DOS SANTOS AMARAL,108.987-0,nan,nan,JOSELITO DA SILVA DUARTE,110.621-X,Gerente,DFG-14,"Agência de Atendimento da Receita - Taguatinga, da Coordenação de Atendimento ao Contribuinte, da
+Subsecretaria da Receita, da Secretaria Executiva de Fazenda","Secretaria de Estado de Economia do
+Distrito Federal",férias regulamentares,"['06 a 14 de janeiro de 2020', '06 a 14 de janeiro de 2020']"
+R101,tatianafp,Ato_Substituicao,"DESIGNAR CARLOS
+ANTONIO FREIRE FRANÇA, matrícula nº 32.359-4, para substituir JOSUÉ BALIZA ROCHA
+RIBEIRO, matrícula nº 92.508-X, Gerente, Símbolo DFG-14, da Agência de Atendimento da Receita SIA, da Coordenação de Atendimento ao Contribuinte, da Subsecretaria da Receita, da Secretaria
+Executiva de Fazenda, da Secretaria de Estado de Economia do Distrito Federal, no período de 20 a 29 de
+janeiro de 2020, por motivo de férias regulamentares","CARLOS
+ANTONIO FREIRE FRANÇA",32.359-4,nan,nan,"JOSUÉ BALIZA ROCHA
+RIBEIRO",92.508-X,Gerente,DFG-14,"Agência de Atendimento da Receita SIA, da Coordenação de Atendimento ao Contribuinte, da Subsecretaria da Receita, da Secretaria
+Executiva de Fazenda",Secretaria de Estado de Economia do Distrito Federal,férias regulamentares,"['20 a 29 de\njaneiro de 2020', '20 a 29 de\njaneiro de 2020']"
+R102,tatianafp,Ato_Substituicao,"DESIGNAR DANIEL LEITE
+ALVARENGA, matrícula nº 1.430.756-1, para substituir o Diretor, Símbolo CNE-07, da Diretoria de
+Registro Financeiro, da Coordenação de Gestão de Pessoas, da Subsecretaria de Administração Geral, da
+Secretaria Executiva de Gestão Administrativa, da Secretaria de Estado de Economia do Distrito Federal,
+em seus afastamentos ou impedimentos legais","DANIEL LEITE
+ALVARENGA",1.430.756-1,nan,nan,nan,nan,Diretor,CNE-07,"Diretoria de
+Registro Financeiro, da Coordenação de Gestão de Pessoas, da Subsecretaria de Administração Geral, da
+Secretaria Executiva de Gestão Administrativa",Secretaria de Estado de Economia do Distrito Federal,afastamentos ou impedimentos legais
+R103,tatianafp,Ato_Substituicao,"DESIGNAR, para fins de
+regularização funcional, SEONY BRAZ TEIXEIRA, matrícula nº 39.858-6, para substituir CARLOS
+EDUARDO DE SOUZA, matrícula nº 43.386-1, Gerente, Símbolo DFG-14, da Gerência de Suporte as
+Atividades Plenárias, da Diretoria Executiva, do Gabinete, da Secretaria de Estado de Economia do Distrito
+Federal, no período de 06 a 15 de janeiro de 2020, por motivo de férias regulamentares",SEONY BRAZ TEIXEIRA,39.858-6,nan,nan,"CARLOS
+EDUARDO DE SOUZA",43.386-1,Gerente,DFG-14,"Gerência de Suporte as
+Atividades Plenárias, da Diretoria Executiva, do Gabinete","Secretaria de Estado de Economia do Distrito
+Federal",férias regulamentares,"['06 a 15 de janeiro de 2020', '06 a 15 de janeiro de 2020']"
+R104,tatianafp,Ato_Substituicao,nan,"PAULO
+ROBERTO SOUZA DE PROENÇA GOMES",46.232-2,nan,nan,"EDUARDO LOPES
+FRANCO",110.830-1,Coordenador,CNE-06,"Coordenação de Cobrança
+Tributária, da Subsecretaria da Receita, da Secretaria Executiva de Fazenda","Secretaria de Estado de
+Economia do Distrito Federal",férias regulamentares,"['02 a 11 de janeiro de 2020', '02 a 11 de janeiro de 2020', '12 a 21 de fevereiro de 2020']"
+R105,tatianafp,Ato_Substituicao,"DESIGNAR DENISE FERNANDES NOBRE, matrícula nº 174.644-8, para substituir ESLI GOMES
+BOAVENTURA, matrícula nº 262.477-X, Gerente, Símbolo DFG-14, da Gerência de Gestão de
+Documentos e Acervos, da Diretoria de Gestão Documental e da Informação, da Coordenação de
+Gestão Documental, Informação e Conhecimento, da Subsecretaria de Administração Geral, da
+Secretaria Executiva de Gestão Administrativa, da Secretaria de Estado de Economia do Distrito
+Federal, no período de 20 a 29 de janeiro de 2020, por motivo de férias regulamentares",DENISE FERNANDES NOBRE,174.644-8,nan,nan,"ESLI GOMES
+BOAVENTURA",262.477-X,Gerente,DFG-14,"Gerência de Gestão de
+Documentos e Acervos, da Diretoria de Gestão Documental e da Informação, da Coordenação de
+Gestão Documental, Informação e Conhecimento, da Subsecretaria de Administração Geral, da
+Secretaria Executiva de Gestão Administrativa","Secretaria de Estado de Economia do Distrito
+Federal",férias regulamentares,"['20 a 29 de janeiro de 2020', '20 a 29 de janeiro de 2020', '20 a 29 de janeiro de 2020']"
+R106,tatianafp,Ato_Substituicao,"DESIGNAR MIRTES ROLIM JORGE BADRA GARROTE, matrícula nº 109.114-X, para substituir
+JURANDIR PEREIRA DAVID, matrícula nº 109.067-4, Chefe, Símbolo DFG-12, do Núcleo de
+Benefícios Fiscais, da Gerência de Controle e Acompanhamento de Processos Especiais, da
+Coordenação de Tributação, da Subsecretaria da Receita, da Secretaria Executiva de Fazenda, da
+Secretaria de Estado de Economia do Distrito Federal, no período de 27 de janeiro a 11 de fevereiro
+de 2020, por motivo de licença prêmio por assiduidade",MIRTES ROLIM JORGE BADRA GARROTE,109.114-X,nan,nan,JURANDIR PEREIRA DAVID,109.067-4,Chefe,DFG-12,"Núcleo de
+Benefícios Fiscais, da Gerência de Controle e Acompanhamento de Processos Especiais, da
+Coordenação de Tributação, da Subsecretaria da Receita, da Secretaria Executiva de Fazenda",Secretaria de Estado de Economia do Distrito Federal,licença prêmio por assiduidade,"['27 de janeiro a 11 de fevereiro\nde 2020', '27 de janeiro a 11 de fevereiro\nde 2020', '27 de janeiro a 11 de fevereiro\nde 2020']"
+R107,tatianafp,Ato_Substituicao,"DESIGNAR JOÃO BATISTA NEGREIROS BARROSO, matrícula nº 46.303-5, para substituir
+JURANDIR PEREIRA DAVID, matrícula nº 109.067-4, Chefe, Símbolo DFG-12, do Núcleo de
+Benefícios Fiscais, da Gerência de Controle e Acompanhamento de Processos Especiais, da
+Coordenação de Tributação, da Subsecretaria da Receita, da Secretaria Executiva de Fazenda, da
+Secretaria de Estado de Economia do Distrito Federal, no período de 13 a 25 de fevereiro de 2020,
+por motivo de licença prêmio por assiduidade",JOÃO BATISTA NEGREIROS BARROSO,46.303-5,nan,nan,JURANDIR PEREIRA DAVID,109.067-4,Chefe,DFG-12,"Núcleo de
+Benefícios Fiscais, da Gerência de Controle e Acompanhamento de Processos Especiais, da
+Coordenação de Tributação, da Subsecretaria da Receita, da Secretaria Executiva de Fazenda",Secretaria de Estado de Economia do Distrito Federal,licença prêmio por assiduidade,['13 a 25 de fevereiro de 2020']
+R108,tatianafp,Ato_Substituicao,"DESIGNAR GILDETE INÁCIO DOS SANTOS, matrícula nº 114.9342, para substituir LÚCIO AMÉRICO CORDEIRO, matrícula nº 172.446-0, Diretor, Símbolo CNE-07, da
+Diretoria de Patrimônio Mobiliário, da Coordenação de Gestão Interna, da Subsecretaria de Administração
+Geral, da Secretaria Executiva de Gestão Administrativa, da Secretaria de Estado de Economia do Distrito
+Federal, no período de 20 de janeiro de 2020 a 29 de janeiro de 2020, por motivo de férias
+regulamentares",GILDETE INÁCIO DOS SANTOS,114.9342,nan,nan,LÚCIO AMÉRICO CORDEIRO,172.446-0,Diretor,CNE-07,"Diretoria de Patrimônio Mobiliário, da Coordenação de Gestão Interna, da Subsecretaria de Administração
+Geral, da Secretaria Executiva de Gestão Administrativa","Secretaria de Estado de Economia do Distrito
+Federal","férias
+regulamentares","['20 de janeiro de 2020 a 29 de janeiro de 2020', '20 de janeiro de 2020 a 29 de janeiro de 2020']"
+R109,tatianafp,Ato_Substituicao,"DESIGNAR ADRIANA
+VILELA BATISTA, matrícula nº 175.403-3, para substituir FLAVIA MARIA GONZAGA, matrícula nº
+175.481-5, Coordenador, Símbolo CNE-06, da Coordenação de Análise de Compras, da Subsecretaria de
+Compras Governamentais, da Secretaria Executiva de Gestão Administrativa, da Secretaria de Estado de
+Economia do Distrito Federal, nos períodos de 24 de janeiro de 2020, por motivo de abono de ponto anual
+e de 27 de janeiro a 07 de fevereiro de 2020, por motivo de férias regulamentares","ADRIANA
+VILELA BATISTA",175.403-3,nan,nan,FLAVIA MARIA GONZAGA,175.481-5,Coordenador,CNE-06,"Coordenação de Análise de Compras, da Subsecretaria de
+Compras Governamentais, da Secretaria Executiva de Gestão Administrativa","Secretaria de Estado de
+Economia do Distrito Federal",motivo de abono de ponto anual,"['24 de janeiro de 2020', '24 de janeiro de 2020', '24 de janeiro de 2020']"
+R110,tatianafp,Ato_Substituicao,"DESIGNAR ADRIANA
+VILELA BATISTA, matrícula nº 175.403-3, para substituir FLAVIA MARIA GONZAGA, matrícula nº
+175.481-5, Coordenador, Símbolo CNE-06, da Coordenação de Análise de Compras, da Subsecretaria de
+Compras Governamentais, da Secretaria Executiva de Gestão Administrativa, da Secretaria de Estado de
+Economia do Distrito Federal, nos períodos de 24 de janeiro de 2020, por motivo de abono de ponto anual
+e de 27 de janeiro a 07 de fevereiro de 2020, por motivo de férias regulamentares","ADRIANA
+VILELA BATISTA",175.403-3,nan,nan,FLAVIA MARIA GONZAGA,175.481-5,Coordenador,CNE-06,"Coordenação de Análise de Compras, da Subsecretaria de
+Compras Governamentais, da Secretaria Executiva de Gestão Administrativa","Secretaria de Estado de
+Economia do Distrito Federal",motivo de férias regulamentares,"['27 de janeiro a 07 de fevereiro de 2020', '27 de janeiro a 07 de fevereiro de 2020', '27 de janeiro a 07 de fevereiro de 2020']"
+R111,tatianafp,Ato_Substituicao,"DESIGNAR RICARDO RODRIGUES VERNEQUE,
+matrícula 1.442.925-X, para substituir oficialmente ELIANA DE SOUZA SARDEIRO matrícula
+1.675.072-1, Chefe do Núcleo de Engenharia Clínica e Física Médica, da Gerência de Apoio Operacional,
+da Diretoria Administrativa, do Hospital Materno Infantil de Brasília, no período de 13/01/2020 a
+01/02/2020, por motivo de afastamento para gozo de férias da titular",RICARDO RODRIGUES VERNEQUE,1.442.925-X,nan,nan,ELIANA DE SOUZA SARDEIRO,1.675.072-1,Chefe,nan,"Núcleo de Engenharia Clínica e Física Médica, da Gerência de Apoio Operacional,
+da Diretoria Administrativa",Hospital Materno Infantil de Brasília,afastamento para gozo de férias da titular,"['13/01/2020 a\n01/02/2020', '13/01/2020 a\n01/02/2020', '13/01/2020 a\n01/02/2020']"
+R112,tatianafp,Ato_Substituicao,"DESIGNAR
+o servidor ADRIANO DE OLIVEIRA, matrícula 1436028-4, Enfermeiro, para substituir a Gerente de
+Serviços de Atenção Primária n.º 03 do Guará, da Diretoria Regional de Atenção Primária à Saúde,
+da Superintendência da Região de Saúde Centro-Sul da Secretaria de Estado de Saúde do Distrito
+Federal, em seus afastamentos ou impedimentos legais",ADRIANO DE OLIVEIRA,1436028-4,Enfermeiro,nan,nan,nan,Gerente,nan,"Serviços de Atenção Primária n.º 03 do Guará, da Diretoria Regional de Atenção Primária à Saúde,
+da Superintendência da Região de Saúde Centro-Sul","Secretaria de Estado de Saúde do Distrito
+Federal",nan
+R113,tatianafp,Ato_Substituicao,"DESIGNAR SCHEILLA MARIA DA SILVA FREIRE, matrícula 01799851, Enfermeira, para
+substituir a Gerente, da Gerência de Serviços de Atenção Primária n.º 01 da Estrutural, da Diretoria
+Regional de Atenção Primária à Saúde, da Superintendência da Região de Saúde Centro-Sul, em seus
+afastamentos ou impedimentos legais",SCHEILLA MARIA DA SILVA FREIRE,01799851,Enfermeira,nan,nan,nan,Gerente,nan,"Gerência de Serviços de Atenção Primária n.º 01 da Estrutural, da Diretoria
+Regional de Atenção Primária à Saúde",Superintendência da Região de Saúde Centro-Sul,nan
+R114,tatianafp,Ato_Substituicao,"DESIGNAR EURIPEDES RIBEIRO DA
+SILVA, matrícula 131.290-1, Artífice-Eletr.Comunic., lotação SRSSO/GAOESP-TAG/NAGMP, para
+substituir JOSE ROBERTO CARVALHO GUEDES, matrícula 1.690.633-0, Chefe, do Núcleo de
+Engenharia Clínica e Física Médica, símbolo CNE-07, da Gerência de Apoio Operacional das
+Unidades de Atenção Especializada em Taguatinga, da Diretoria Administrativa, da Superintendência
+da Região de Saúde Sudoeste, da Secretaria de Estado de Saúde do Distrito Federal, em seus
+afastamentos ou impedimentos legais","EURIPEDES RIBEIRO DA
+SILVA",131.290-1,Artífice-Eletr.Comunic.,nan,JOSE ROBERTO CARVALHO GUEDES,1.690.633-0,Chefe,nan,"Núcleo de
+Engenharia Clínica e Física Médica, símbolo CNE-07, da Gerência de Apoio Operacional das
+Unidades de Atenção Especializada em Taguatinga, da Diretoria Administrativa, da Superintendência
+da Região de Saúde Sudoeste",Secretaria de Estado de Saúde do Distrito Federal,nan
+R115,tatianafp,Ato_Substituicao,"DESIGNAR MIRIAN FERREIRA ALLE SANCHEZ, matrícula nº
+0215.235-5, para substituir ANA HILDA DO CARMO SILVA, matrícula nº 94.068-2, no cargo de Diretora
+de Materiais e Serviços do Departamento de Estradas de Rodagem do Distrito Federal, Símbolo CNE-07,
+no período de 13/01/2020 a 22/01/2020, por motivo de férias regulamentares do(a) titular do cargo",MIRIAN FERREIRA ALLE SANCHEZ,0215.235-5,nan,nan,ANA HILDA DO CARMO SILVA,94.068-2,"Diretora
+de Materiais e Serviços",nan,nan,Departamento de Estradas de Rodagem do Distrito Federal,férias regulamentares do(a) titular do cargo,"['13/01/2020 a 22/01/2020', '13/01/2020 a 22/01/2020', '13/01/2020 a 22/01/2020']"
+R116,tatianafp,Ato_Substituicao,"DESIGNAR IVO GUIMARÃES FERREIRA, matrícula 1661364-3, Assessor
+Jurídico Legislativo, para substituir FERNANDO ZANETTI STAUBER, matrícula 1687388-2, Chefe da
+Assessoria Jurídico - Legislativa, Símbolo CNE-03, nos período 06/01/2020 a 20/01/2020, por motivo de
+férias do titular do cargo",IVO GUIMARÃES FERREIRA,1661364-3,"Assessor
+Jurídico Legislativo",nan,FERNANDO ZANETTI STAUBER,1687388-2,Chefe,nan,nan,Assessoria Jurídico - Legislativa,férias do titular do cargo,"['06/01/2020 a 20/01/2020', '06/01/2020 a 20/01/2020', '06/01/2020 a 20/01/2020']"
+R117,tatianafp,Ato_Substituicao,"DESIGNAR VANESSA COUTINHO TCHELZOFF MASCARENHAS, matrícula 1.692.963-2, para
+substituir ANTÔNIO JEFFERSON MOREIRA DE SOUZA, matrícula 1.692.117-8, Diretor da Diretoria
+de Suporte à Elaboração de Peças Administrativas da Assessoria Jurídico-Legislativa do Gabinete da
+Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo CNE-07, no período de
+06/01/2019 a 04/02/2019, em virtude de férias regulamentares",VANESSA COUTINHO TCHELZOFF MASCARENHAS,1.692.963-2,nan,nan,ANTÔNIO JEFFERSON MOREIRA DE SOUZA,1.692.117-8,Diretor,CNE-07,"Diretoria
+de Suporte à Elaboração de Peças Administrativas da Assessoria Jurídico-Legislativa do Gabinete",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['06/01/2019 a 04/02/2019', '06/01/2019 a 04/02/2019', '06/01/2019 a 04/02/2019']"
+R118,tatianafp,Ato_Substituicao,"DESIGNAR GLAUCIA ARANTES FERREIRA LOPES FONTENELE, Agente de Execução Penal,
+matrícula 1.686.266-X, para substituir DANIELE PARADELA RENDY, matrícula 1.671.914-X, Chefe
+do Núcleo de Análise e Instrução de Projetos, da Gerência de Convênios, da Coordenação de Licitações,
+Contratos e Convênios, da Subsecretaria de Administração Geral, da Secretaria de Estado de Segurança
+Pública do Distrito Federal, Símbolo DFG-12, no período de 06/12/2019 a 22/12/2019, em virtude de
+férias regulamentares",GLAUCIA ARANTES FERREIRA LOPES FONTENELE,1.686.266-X,Agente de Execução Penal,nan,DANIELE PARADELA RENDY,1.671.914-X,Chefe,DFG-12,"Núcleo de Análise e Instrução de Projetos, da Gerência de Convênios, da Coordenação de Licitações,
+Contratos e Convênios, da Subsecretaria de Administração Geral","Secretaria de Estado de Segurança
+Pública do Distrito Federal",férias regulamentares,"['06/12/2019 a 22/12/2019', '06/12/2019 a 22/12/2019', '06/12/2019 a 22/12/2019']"
+R119,tatianafp,Ato_Substituicao,"DESIGNAR RENATO RODRIGUES RÉGIS, matrícula 1.678.849-4, para substituir CÉLIO ROBERTO
+DIAS DUTRA, matrícula 164.845-4, Coordenador da Coordenação de Coleta e Tratamento de Dados, da
+Subsecretaria de Gestão da Informação, da Secretaria de Estado de Segurança Pública do Distrito
+Federal, Símbolo CNE-06, no período de 09/12/2019 a 16/12/2019, em virtude de férias
+regulamentares",RENATO RODRIGUES RÉGIS,1.678.849-4,nan,nan,"CÉLIO ROBERTO
+DIAS DUTRA",164.845-4,Coordenador,CNE-06,"Coordenação de Coleta e Tratamento de Dados, da
+Subsecretaria de Gestão da Informação","Secretaria de Estado de Segurança Pública do Distrito
+Federal","férias
+regulamentares","['09/12/2019 a 16/12/2019', '09/12/2019 a 16/12/2019', '09/12/2019 a 16/12/2019']"
+R120,tatianafp,Ato_Substituicao,"DESIGNAR REGIMAR FARIA CAMPOS, Agente de Polícia, matrícula 184.031-2, para substituir
+LISANDRO PAIXÃO DOS SANTOS, matrícula 1.694.314-7, Subsecretário da Subsecretaria de Gestão
+da Informação, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo CNE-02, no
+período de 09/12/2019 a 13/12/2019, em virtude de abono de ponto",REGIMAR FARIA CAMPOS,184.031-2,Agente de Polícia,nan,LISANDRO PAIXÃO DOS SANTOS,1.694.314-7,nan,CNE-02,"Subsecretário da Subsecretaria de Gestão
+da Informação",Secretaria de Estado de Segurança Pública do Distrito Federal,abono de ponto,"['09/12/2019 a 13/12/2019', '09/12/2019 a 13/12/2019', '09/12/2019 a 13/12/2019']"
+R121,tatianafp,Ato_Substituicao,"DESIGNAR JALISSON FERNANDES DA SILVA, Agente de Execução Penal, matrícula 192.595-4,
+para substituir JORGE LUIZ ÁVILA COUTINHO, matrícula 181.568-7, Chefe do Núcleo de Operações
+com Cães, da Diretoria Penitenciária de Operações Especiais, da Subsecretaria do Sistema Penitenciário,
+da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-12, no período de
+09/12/2019 a 13/12/2019, em virtude de abono de ponto",JALISSON FERNANDES DA SILVA,192.595-4,Agente de Execução Penal,nan,JORGE LUIZ ÁVILA COUTINHO,181.568-7,Chefe,DFG-12,"Núcleo de Operações
+com Cães, da Diretoria Penitenciária de Operações Especiais, da Subsecretaria do Sistema Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,abono de ponto,"['09/12/2019 a 13/12/2019', '09/12/2019 a 13/12/2019', '09/12/2019 a 13/12/2019']"
+R122,tatianafp,Ato_Substituicao,"DESIGNAR MARCILON DE ARAÚJO, matrícula 1.694.163-2, para substituir ANTÔNIO CLÁUDIO
+DE ALMEIDA, matrícula 1.693.261-7, Coordenador da Coordenação de Modernização, da Subsecretaria
+de Modernização Tecnológica, da Secretaria de Estado de Segurança Pública do Distrito Federal,
+Símbolo CNE-06, no período de 09/12/2019 a 13/12/2019, em virtude de abono de ponto",MARCILON DE ARAÚJO,1.694.163-2,nan,nan,"ANTÔNIO CLÁUDIO
+DE ALMEIDA",1.693.261-7,Coordenador,CNE-06,"Coordenação de Modernização, da Subsecretaria
+de Modernização Tecnológica",Secretaria de Estado de Segurança Pública do Distrito Federal,abono de ponto,"['09/12/2019 a 13/12/2019', '09/12/2019 a 13/12/2019', '09/12/2019 a 13/12/2019']"
+R123,tatianafp,Ato_Substituicao,"DESIGNAR RODRIGO PEREIRA SIRIANO, Agente de Execução Penal, matrícula 196.605-7 para
+substituir ANTÔNIO ARINO ARAÚJO VIDAL, matrícula 179.448-5, Diretor da Diretoria Penitenciária
+de Operações Especiais, da Subsecretaria do Sistema Penitenciário, da Secretaria de Estado de Segurança
+Pública do Distrito Federal, Símbolo CNE-07, no período de 09/12/2019 a 13/12/2019, em virtude de
+abono de ponto",RODRIGO PEREIRA SIRIANO,196.605-7,Agente de Execução Penal,nan,ANTÔNIO ARINO ARAÚJO VIDAL,179.448-5,Diretor,CNE-07,"Diretoria Penitenciária
+de Operações Especiais, da Subsecretaria do Sistema Penitenciário","Secretaria de Estado de Segurança
+Pública do Distrito Federal",abono de ponto,"['09/12/2019 a 13/12/2019', '09/12/2019 a 13/12/2019', '09/12/2019 a 13/12/2019']"
+R124,tatianafp,Ato_Substituicao,"DESIGNAR ODILAR BOMBASSARO, Analista de Apoio às Atividades Policiais Civis, matrícula
+25.180-1, para substituir ADAILSON HENRIQUE ROCHA, matrícula 1.677.707-7, Chefe do Núcleo de
+Recuperação, Registro e Alienação, da Gerência de Transportes e Manutenção de Veículos, da
+Coordenação de Licitações, Contratos e Convênios, da Subsecretaria de Administração Geral, da
+Secretaria de Estado de Segurança Pública do Distrito Federal , Símbolo DFG-12, no período de
+18/11/2019 a 27/11/2019, em virtude de férias regulamentares",ODILAR BOMBASSARO,25.180-1,Analista de Apoio às Atividades Policiais Civis,nan,ADAILSON HENRIQUE ROCHA,1.677.707-7,Chefe,DFG-12,"Núcleo de
+Recuperação, Registro e Alienação, da Gerência de Transportes e Manutenção de Veículos, da
+Coordenação de Licitações, Contratos e Convênios, da Subsecretaria de Administração Geral",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['18/11/2019 a 27/11/2019', '18/11/2019 a 27/11/2019', '18/11/2019 a 27/11/2019']"
+R125,tatianafp,Ato_Substituicao,"DESIGNAR GERLANE ALVES MOREIRA COSTA, matrícula 1.675.976-1 para substituir ROGÉRIO
+NERES DE ALMEIDA, matrícula 1.675.161-2, Gerente da Gerência de Transportes e Manutenção de
+Veículos, da Coordenação de Contratos e Convênios, da Subsecretaria de Administração Geral, da
+Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-14, no período de
+02/12/2019 a 11/12/2019, em virtude de férias regulamentares",ALVES MOREIRA COSTA,1.675.976-1,nan,nan,"ROGÉRIO
+NERES DE ALMEIDA",1.675.161-2,Gerente,DFG-14,"Gerência de Transportes e Manutenção de
+Veículos, da Coordenação de Contratos e Convênios, da Subsecretaria de Administração Geral",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['02/12/2019 a 11/12/2019', '02/12/2019 a 11/12/2019', '02/12/2019 a 11/12/2019']"
+R126,tatianafp,Ato_Substituicao,"DESIGNAR ODILAR BOMBASSARO, Analista de Apoio às Atividades Policiais Civis matrícula
+25.180-1, para substituir ROGÉRIO NERES DE ALMEIDA, matrícula 1.675.161-2, Gerente da Gerência
+de Transportes e Manutenção de Veículos, da Coordenação de Contratos e Convênios, da Subsecretaria
+de Administração Geral, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo
+DFG-14, no período de 12/12/2019 a 13/12/2019 e de 16/12/2019 a 18/12/2019, em virtude de abono
+de ponto",ODILAR BOMBASSARO,25.180-1,Analista de Apoio às Atividades Policiais Civis,nan,ROGÉRIO NERES DE ALMEIDA,1.675.161-2,Gerente,DFG-14,"Gerência
+de Transportes e Manutenção de Veículos, da Coordenação de Contratos e Convênios, da Subsecretaria
+de Administração Geral",Secretaria de Estado de Segurança Pública do Distrito Federal,"abono
+de ponto","['12/12/2019 a 13/12/2019', '12/12/2019 a 13/12/2019', '16/12/2019 a 18/12/2019', '12/12/2019 a 13/12/2019', '16/12/2019 a 18/12/2019', '12/12/2019 a 13/12/2019', '16/12/2019 a 18/12/2019']"
+R127,tatianafp,Ato_Substituicao,"DESIGNAR GABRIELA LOPES SOARES, matrícula 1.680.476-7, para substituir THIAGO
+FREDERICO DE SOUZA COSTA, matrícula 1.694.099-7, Chefe da Assessoria Jurídico-Legislativa do
+Gabinete da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo CNE-03, no período
+de 18/11/2019 a 19/11/2019 e nos dias 22/11/2019 e 11/12/2019, em virtude de abono de ponto e de
+06/01/2020 a 15/01/2020, em virtude de férias regulamentares",GABRIELA LOPES SOARES,1.680.476-7,nan,nan,"THIAGO
+FREDERICO DE SOUZA COSTA",1.694.099-7,Chefe,CNE-03,"Assessoria Jurídico-Legislativa do
+Gabinete",Secretaria de Estado de Segurança Pública do Distrito Federal,abono de ponto,"['18/11/2019 a 19/11/2019', '18/11/2019 a 19/11/2019', '22/11/2019 e 11/12/2019', '18/11/2019 a 19/11/2019', '22/11/2019 e 11/12/2019']"
+R128,tatianafp,Ato_Substituicao,"DESIGNAR GABRIELA LOPES SOARES, matrícula 1.680.476-7, para substituir THIAGO
+FREDERICO DE SOUZA COSTA, matrícula 1.694.099-7, Chefe da Assessoria Jurídico-Legislativa do
+Gabinete da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo CNE-03, no período
+de 18/11/2019 a 19/11/2019 e nos dias 22/11/2019 e 11/12/2019, em virtude de abono de ponto e de
+06/01/2020 a 15/01/2020, em virtude de férias regulamentares",GABRIELA LOPES SOARES,1.680.476-7,nan,nan,"THIAGO
+FREDERICO DE SOUZA COSTA",1.694.099-7,Chefe,CNE-03,"Assessoria Jurídico-Legislativa do
+Gabinete",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020']"
+R130,tatianafp,Ato_Substituicao,"DESIGNAR ANA PAULA LADISLAU DOS REIS, matrícula 1.694.102-0, para substituir HUGO DE
+SOUSA SILVA JÚNIOR, matrícula 1.679.367-6, Coordenador da Coordenação de Desenvolvimento de
+Sistemas, da Subsecretaria de Modernização Tecnológica, da Secretaria de Estado de Segurança Pública
+do Distrito Federal, Símbolo CNE-06, no período de 05/11/2019 a 14/12/2019, em virtude de férias
+regulamentares",ANA PAULA LADISLAU DOS REIS,1.694.102-0,nan,nan,"HUGO DE
+SOUSA SILVA JÚNIOR",1.679.367-6,Coordenador,CNE-06,"Coordenação de Desenvolvimento de
+Sistemas, da Subsecretaria de Modernização Tecnológica","Secretaria de Estado de Segurança Pública
+do Distrito Federal","férias
+regulamentares","['05/11/2019 a 14/12/2019', '05/11/2019 a 14/12/2019']"
+R129,tatianafp,Ato_Substituicao,"DESIGNAR BRUNO LOPES DORNELAS, matrícula 1.694.612-X, para substituir ANDRÉ KLUPPEL
+CARRARA, matrícula 1.691.695-6, Chefe da Assessoria de Relações Institucionais do Gabinete da
+Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo CNE-03, no período de
+06/01/2020 a 15/01/2020, em virtude de férias regulamentares",BRUNO LOPES DORNELAS,1.694.612-X,nan,nan,"ANDRÉ KLUPPEL
+CARRARA",1.691.695-6,Chefe,CNE-03,Assessoria de Relações Institucionais do Gabinete,Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020']"
+R131,tatianafp,Ato_Substituicao,"DESIGNAR PATRÍCIA DOS SANTOS MOREIRA, matrícula 1.691.682-4, para substituir REINALDO
+COSME VILAR DE OLIVEIRA JUNIOR, matrícula 1.691.292-6, Chefe da Chefia de Gabinete do
+Gabinete da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo CNE-02, no período
+de 02/12/2019 a 06/12/2019, em virtude de abono de ponto",PATRÍCIA DOS SANTOS MOREIRA,1.691.682-4,nan,nan,"REINALDO
+COSME VILAR DE OLIVEIRA JUNIOR",1.691.292-6,Chefe,CNE-02,"Chefia de Gabinete do
+Gabinete da Secretaria de Estado de Segurança Pública do Distrito Federal",nan,abono de ponto,"['02/12/2019 a 06/12/2019', '02/12/2019 a 06/12/2019']"
+R132,tatianafp,Ato_Substituicao,"DESIGNAR KELLY BRITO DE SOUZA, Agente de Execução Penal, matrícula 197.758-X, para
+substituir MARIANA DE OLIVEIRA CARDOSO, matrícula 178.428-5, Chefe do Núcleo de
+Desenvolvimento Organizacional e do Servidor, da Coordenação de Gestão de Pessoas, da Subsecretaria
+de Administração Geral, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo
+DFG-12, no período de 06/01/2020 a 15/01/2020, em virtude de férias regulamentares",KELLY BRITO DE SOUZA,197.758-X,Agente de Execução Penal,nan,MARIANA DE OLIVEIRA CARDOSO,178.428-5,Chefe,DFG-12,"Núcleo de
+Desenvolvimento Organizacional e do Servidor, da Coordenação de Gestão de Pessoas, da Subsecretaria
+de Administração Geral",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020']"
+R133,tatianafp,Ato_Substituicao,"DESIGNAR LOURIVAL MOREIRA SANTOS JUNIOR, matrícula 1.691.232-2, para substituir
+LINDOMAR DOS REIS PEREIRA, matrícula 1.682.859-3, Gerente da Gerência de Análise de Projetos,
+da Coordenação de Planejamento de Aquisições e Contratações, da Subsecretaria de Administração
+Geral, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-14, no período
+de 06/01/2020 a 24/01/2020, em virtude de férias regulamentares",LOURIVAL MOREIRA SANTOS JUNIOR,1.691.232-2,nan,nan,LINDOMAR DOS REIS PEREIRA,1.682.859-3,Gerente,DFG-14,"Gerência de Análise de Projetos,
+da Coordenação de Planejamento de Aquisições e Contratações, da Subsecretaria de Administração
+Geral",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['06/01/2020 a 24/01/2020', '06/01/2020 a 24/01/2020']"
+R134,tatianafp,Ato_Substituicao,"DESIGNAR MARIA JOSÉ RIBEIRO, Técnico em Políticas Públicas e Gestão Governamental, matrícula
+107.160-2 para substituir JAQUELINE BARREIRA BACELAR DA CUNHA MELLO REISMAN,
+matrícula 179.339-X, Chefe do Núcleo de Expediente, da Diretoria Penitenciária de Operações Especiais,
+da Subsecretaria de Sistema Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito
+Federal, Símbolo DFG-12, no período de 22/12/2019 a 05/01/2020, em virtude de licença médica",MARIA JOSÉ RIBEIRO,107.160-2,Técnico em Políticas Públicas e Gestão Governamental,nan,JAQUELINE BARREIRA BACELAR DA CUNHA MELLO REISMAN,179.339-X,Chefe,nan,"Núcleo de Expediente, da Diretoria Penitenciária de Operações Especiais,
+da Subsecretaria de Sistema Penitenciário","Secretaria de Estado de Segurança Pública do Distrito
+Federal",licença médica,"['22/12/2019 a 05/01/2020', '22/12/2019 a 05/01/2020', '22/12/2019 a 05/01/2020']"
+R135,tatianafp,Ato_Substituicao,"DESIGNAR RENATO PEDREIRA PEREIRA DE SÁ, matrícula 1.690.780-9, para substituir o TC
+QOPM NILSON ALVES DE ARÚJO, matrícula 1.694.839-4, Coordenador da Coordenação de
+Planejamento, da Subsecretaria de Operações Integradas, da Secretaria de Estado de Segurança Pública
+do Distrito Federal, Símbolo CNE-06, no período de 06/01/2019 a 10/01/2019, em virtude de férias
+regulamentares",RENATO PEDREIRA PEREIRA DE SÁ,1.690.780-9,nan,nan,NILSON ALVES DE ARÚJO,1.694.839-4,Coordenador,nan,"Coordenação de
+Planejamento, da Subsecretaria de Operações Integradas","Secretaria de Estado de Segurança Pública
+do Distrito Federal","férias
+regulamentares","['06/01/2019 a 10/01/2019', '06/01/2019 a 10/01/2019', '06/01/2019 a 10/01/2019']"
+R136,tatianafp,Ato_Substituicao,"DESIGNAR ERIKA MENEZES LEDUC, Agente de Execução Penal, matrícula 178.492-7, para
+substituir JOSÉ LUCIANO RAIOL RIBEIRO, matrícula 175.879-9, Chefe do Núcleo de Escoltas, da
+Diretoria Penitenciária de Operações Especiais, da Subsecretaria de Sistema Penitenciário, da Secretaria
+de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-12, no período de 10/01/2020 a
+19/01/2020, em virtude de férias regulamentares",ERIKA MENEZES LEDUC,178.492-7,Agente de Execução Penal,nan,JOSÉ LUCIANO RAIOL RIBEIRO,175.879-9,Chefe,nan,"Núcleo de Escoltas, da
+Diretoria Penitenciária de Operações Especiais, da Subsecretaria de Sistema Penitenciário","Secretaria
+de Estado de Segurança Pública do Distrito Federal",férias regulamentares,"['0/01/2020 a\n19/01/2020', '0/01/2020 a\n19/01/2020', '0/01/2020 a\n19/01/2020']"
+R137,tatianafp,Ato_Substituicao,"DESIGNAR THIAGO JORGE CAMPOS DE ALMEIDA, Agente de Execução Penal, matrícula
+193.681-6, para substituir DANILO IVAN GONTIJO ALBERNAZ, matrícula 178.566-4, Chefe da
+Unidade de Plantão IV, da Diretoria Penitenciária de Operações Especiais, da Subsecretaria de Sistema
+Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-06, no
+período de 19/01/2020 a 28/01/2020, em virtude de férias regulamentares",THIAGO JORGE CAMPOS DE ALMEIDA,193.681-6,Agente de Execução Penal,nan,DANILO IVAN GONTIJO ALBERNAZ,178.566-4,Chefe,nan,"Unidade de Plantão IV, da Diretoria Penitenciária de Operações Especiais, da Subsecretaria de Sistema
+Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['19/01/2020 a 28/01/2020', '19/01/2020 a 28/01/2020', '19/01/2020 a 28/01/2020']"
+R138,tatianafp,Ato_Substituicao,"DESIGNAR MARINA RODRIGUES FERNANDES, Agente de Polícia, matrícula. 1.677.681-X , para
+substituir JULIA MITIKO SAKAMOTO, matrícula 1669695-6Coordenadora da Coordenação de Políticas
+Sociais, da Subsecretaria de Prevenção à Criminalidade, da Secretaria de Estado de Segurança Pública
+do Distrito Federal, Símbolo CNE-06, no período de 31/12/2019 a 17/01/2020, em virtude de férias
+regulamentares",MARINA RODRIGUES FERNANDES,1.677.681-X,Agente de Polícia,nan,JULIA MITIKO SAKAMOTO,1669695-6,Coordenadora,nan,"Coordenação de Políticas
+Sociais, da Subsecretaria de Prevenção à Criminalidade","Secretaria de Estado de Segurança Pública
+do Distrito Federal","férias
+regulamentares","['31/12/2019 a 17/01/2020', '31/12/2019 a 17/01/2020', '31/12/2019 a 17/01/2020']"
+R139,tatianafp,Ato_Substituicao,"DESIGNAR DAIANE DE SOUSA PEREIRA matrícula 1.694.108-X para substituir LEUTON
+RODRIGUES DA SILVA, matrícula 1.669.689-1, Chefe Acompanhamento, Revisões e Penalidades, da
+Gerência de Contratos, da Subsecretaria de Administração Geral, da Secretaria de Estado de Segurança
+Pública do Distrito Federal, Símbolo DFG-12, no período de 06/01/2020 a 15/01/2020, em virtude de
+férias regulamentares",DAIANE DE SOUSA PEREIRA,1.694.108-X,nan,nan,"LEUTON
+RODRIGUES DA SILVA",1.669.689-1,Chefe,nan,"Acompanhamento, Revisões e Penalidades, da
+Gerência de Contratos, da Subsecretaria de Administração Geral","Secretaria de Estado de Segurança
+Pública do Distrito Federal",férias regulamentares,"['06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020']"
+R140,tatianafp,Ato_Substituicao,"DESIGNAR ANA CAROLINA CARLA SOUTO MUHLBAUER RONNA, matrícula 1.688.723-9, para
+substituir o MAJ QOPM MARCIO ANDRÉ DA SILVA, matrícula 1.690.781-7, Gerente da Gerência de
+Operações, do Centro Integrado de Operações de Brasília, da Subsecretaria de Operações Integradas, da
+Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-14, no período de
+30/12/2019 a 16/01/2020, em virtude de férias regulamentares",ANA CAROLINA CARLA SOUTO MUHLBAUER RONNA,1.688.723-9,nan,nan,MARCIO ANDRÉ DA SILVA,1.690.781-7,Gerente,nan,"Gerência de
+Operações, do Centro Integrado de Operações de Brasília, da Subsecretaria de Operações Integradas",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['30/12/2019 a 16/01/2020', '30/12/2019 a 16/01/2020', '30/12/2019 a 16/01/2020']"
+R141,tatianafp,Ato_Substituicao,"CLAUDIA CRISTINA DA SILVA MARCIEL, Agente de Execução Penal matrícula 175.831-4, para
+substituir DANILO FREIRE DE SOUSA, matrícula 1.676.202-9, Gerente de Administração
+Penitenciária, do Centro de Progressão Penitenciária, da Subsecretaria do Sistema Penitenciário, da
+Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG- 14, no período de
+08/01/2020 a 17/01/2020, em virtude de férias regulamentares",CLAUDIA CRISTINA DA SILVA MARCIEL,175.831-4,Agente de Execução Penal,nan,DANILO FREIRE DE SOUSA,1.676.202-9,Gerente,nan,"Administração
+Penitenciária, do Centro de Progressão Penitenciária, da Subsecretaria do Sistema Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['08/01/2020 a 17/01/2020', '08/01/2020 a 17/01/2020', '08/01/2020 a 17/01/2020']"
+R142,tatianafp,Ato_Substituicao,"DESIGNAR JOSÉ DO CARMO CRUZEIRO, Agente de Execução Penal, matrícula 168.611-08, para
+substituir CRISTINA RIBEIRO DE ALMEIDA ARMOND, matrícula 1.676.201-0, Chefe do Núcleo de
+Arquivo e Prontuários, da Gerência de Administração Penitenciária do Centro de Progressão
+Penitenciária, da Subsecretaria do Sistema Penitenciário ,da Secretaria de Estado de Segurança Pública
+do Distrito Federal, Símbolo DFG-12, no período de 02/01/2020 a 16/01/2020, em virtude de férias
+regulamentares",JOSÉ DO CARMO CRUZEIRO,168.611-08,Agente de Execução Penal,nan,CRISTINA RIBEIRO DE ALMEIDA ARMOND,1.676.201-0,Chefe,nan,"do Núcleo de
+Arquivo e Prontuários, da Gerência de Administração Penitenciária do Centro de Progressão
+Penitenciária, da Subsecretaria do Sistema Penitenciário","Secretaria de Estado de Segurança Pública
+do Distrito Federal","férias
+regulamentares","['02/01/2020 a 16/01/2020', '02/01/2020 a 16/01/2020', '02/01/2020 a 16/01/2020']"
+R143,tatianafp,Ato_Substituicao,"DESIGNAR THIAGO LEOPOLDO CARDOSO BARROS, Agente de Execução Penal, matrícula
+1761811, para substituir MARCELO LISBOA, matrícula 1.688.232-6, Chefe da Unidade Plantão I, da
+Gerência de Vigilância, do Centro de Progressão Penitenciária da, Subsecretaria do Sistema
+Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-06, no
+período de 03/01/2020 a 12/01/2020, em virtude de férias regulamentares",THIAGO LEOPOLDO CARDOSO BARROS,1761811,Agente de Execução Penal,nan,MARCELO LISBOA,1.688.232-6,Chefe,nan,"Unidade Plantão I, da
+Gerência de Vigilância, do Centro de Progressão Penitenciária da, Subsecretaria do Sistema
+Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['03/01/2020 a 12/01/2020', '03/01/2020 a 12/01/2020', '03/01/2020 a 12/01/2020']"
+R145,tatianafp,Ato_Substituicao,"DESIGNAR ASSUERO DE AZEVEDO COSTA, Analista em Políticas Públicas e Gestão
+Governamental, matrícula 1.401.178-6, para substituir CIBELLE ANDRADE DO AMARAL, matrícula
+1.676.204-5, Chefe do Núcleo de Assistência Social, da Gerência de Assistência aos Internos, do Centro
+de Progressão Penitenciária, da Subsecretaria do Sistema Penitenciário, da Secretaria de Estado de
+Segurança Pública do Distrito Federal, Símbolo DFG-12, no período de 22/01/2020 a 31/01/2020, em
+virtude de férias regulamentares",ASSUERO DE AZEVEDO COSTA,1.401.178-6,"Analista em Políticas Públicas e Gestão
+Governamental",nan,CIBELLE ANDRADE DO AMARAL,1.676.204-5,Chefe,nan,"Núcleo de Assistência Social, da Gerência de Assistência aos Internos, do Centro
+de Progressão Penitenciária, da Subsecretaria do Sistema Penitenciário","Secretaria de Estado de
+Segurança Pública do Distrito Federal",férias regulamentares,"['22/01/2020 a 31/01/2020', '22/01/2020 a 31/01/2020', '22/01/2020 a 31/01/2020']"
+R146,tatianafp,Ato_Substituicao,"DESIGNAR WALDIR GOMES DA SILVA, Agente de Execução Penal, matrícula 1.431.395-2, para
+substituir LAERCIA RODRIGUES PEREGRINO, matrícula 1.679.112- 6, Chefe da Unidade Plantão II,
+da Gerência de Vigilância, do Centro de Progressão Penitenciária, da Subsecretaria do Sistema
+Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-06, no
+período de 08/01/2020 a 17/01/2020, em virtude de férias regulamentares",WALDIR GOMES DA SILVA,1.431.395-2,Agente de Execução Penal,nan,LAERCIA RODRIGUES PEREGRINO,1.679.112- 6,Chefe,nan,"Unidade Plantão II,
+da Gerência de Vigilância, do Centro de Progressão Penitenciária, da Subsecretaria do Sistema
+Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['08/01/2020 a 17/01/2020', '08/01/2020 a 17/01/2020', '08/01/2020 a 17/01/2020']"
+R147,tatianafp,Ato_Substituicao,"DESIGNAR ADRIANA CRISTINA FRANÇA DE LIMA, Auxiliar de Apoio às Atividades Policiais
+Civis, matrícula 41.755-6, para substituir CARLOS HENRIQUE DA FONSECA TAVARES AREAS,
+matrícula 1.684.172-7, Chefe do Núcleo de Ensino e Aperfeiçoamento Profissional, da Gerência de
+Assistência aos Internos, do Centro de Progressão Penitenciária, da Subsecretaria do Sistema
+Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-12, no
+período de 20/01/2020 a 29/01/2020, em virtude de férias regulamentares",ADRIANA CRISTINA FRANÇA DE LIMA,nan,"Auxiliar de Apoio às Atividades Policiais
+Civis",nan,CARLOS HENRIQUE DA FONSECA TAVARES AREAS,1.684.172-7,Chefe,nan,"Núcleo de Ensino e Aperfeiçoamento Profissional, da Gerência de
+Assistência aos Internos, do Centro de Progressão Penitenciária, da Subsecretaria do Sistema
+Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020']"
+R148,tatianafp,Ato_Substituicao,"DESIGNAR MARCELO FERRAZ DE ARAÚJO, Agente Execução Penal, matrícula 179.309-8, para
+substituir FABRÍCIO ROCHA LARA, matrícula 175.895-0, Chefe do Núcleo de Suprimentos da
+Gerência de Administração Penitenciária, do Centro de Progressão Penitenciária, da Subsecretaria do
+Sistema Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG12, no período de 06/01/2020 a 15/01/2020, em virtude de férias regulamentares",MARCELO FERRAZ DE ARAÚJO,179.309-8,Agente Execução Penal,nan,FABRÍCIO ROCHA LARA,175.895-0,Chefe,nan,"Núcleo de Suprimentos da
+Gerência de Administração Penitenciária, do Centro de Progressão Penitenciária, da Subsecretaria do
+Sistema Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020']"
+R149,tatianafp,Ato_Substituicao,"DESIGNAR LÚCIA SIMOES BRANDÃO, Técnico em Políticas Públicas e Gestão Governamental,
+matrícula 107.103-3, para substituir DELFIM LOPES HOTT, matrícula 1.676.205-3, Gerente da Gerência
+de Assistência aos Internos, do Centro de Progressão Penitenciária, da Subsecretaria do Sistema
+Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-14, no
+período de 16/01/2020 a 24/01/2020, em virtude de férias regulamentares",LÚCIA SIMOES BRANDÃO,107.103-3,Técnico em Políticas Públicas e Gestão Governamental,nan,DELFIM LOPES HOTT,1.676.205-3,Gerente,nan,"Gerência
+de Assistência aos Internos, do Centro de Progressão Penitenciária, da Subsecretaria do Sistema
+Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['16/01/2020 a 24/01/2020', '16/01/2020 a 24/01/2020', '16/01/2020 a 24/01/2020']"
+R150,tatianafp,Ato_Substituicao,"DESIGNAR VINICIUS GONÇALVES CARVALHO, Agente de Execução Penal, matrícula 187.632-5,
+para substituir RICHARD NOWAK DE OLIVEIRA CUNHA, matrícula 176.198-6, Chefe da Unidade
+Plantão III, da Gerência de Vigilância ,do Centro de Progressão Penitenciária, da Subsecretaria do
+Sistema Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG06, no período de 01/01/2020 a 10/01/2020, em virtude de férias regulamentares",VINICIUS GONÇALVES CARVALHO,187.632-5,Agente de Execução Penal,nan,RICHARD NOWAK DE OLIVEIRA CUNHA,176.198-6,Chefe,nan,"Unidade
+Plantão III, da Gerência de Vigilância ,do Centro de Progressão Penitenciária, da Subsecretaria do
+Sistema Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['01/01/2020 a 10/01/2020', '01/01/2020 a 10/01/2020', '01/01/2020 a 10/01/2020']"
+R151,tatianafp,Ato_Substituicao,"DESIGNAR NILDE APARECIDA DE OLIVEIRA MARTINS, Técnico em Políticas Públicas e Gestão
+Governamental, matrícula 107.172-6, para substituir FLAVIO AUGUSTO DE SOUZA, matrícula
+233.723-1, Chefe do Núcleo de Vigilância, da Gerência de Vigilância, do Centro de Progressão
+Penitenciária, da Subsecretaria do Sistema Penitenciário, da Secretaria de Estado de Segurança Pública
+do Distrito Federal, Símbolo DFG-12, no período de 06/01/2020 a 15/01/2020, em virtude de férias
+regulamentares",NILDE APARECIDA DE OLIVEIRA MARTINS,107.172-6,"Técnico em Políticas Públicas e Gestão
+Governamental",nan,FLAVIO AUGUSTO DE SOUZA,233.723-1,Chefe,nan,"Núcleo de Vigilância, da Gerência de Vigilância, do Centro de Progressão
+Penitenciária, da Subsecretaria do Sistema Penitenciário","Secretaria de Estado de Segurança Pública
+do Distrito Federal","férias
+regulamentares","['06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020']"
+R152,tatianafp,Ato_Substituicao,"DESIGNAR CELSON SHUJI MURAKAMI, Agente de Execução Penal, matrícula 181.577-6, para
+substituir PAULO RENATO AMORIM DOS REIS, matrícula 1.677.976-2, Gerente da Gerência de
+Atividades de Segurança Penitenciária, do Centro de Progressão Penitenciária, da Subsecretaria do
+Sistema Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG14, no período de 27/01/2020 a 15/02/2020, em virtude de férias regulamentares",CELSON SHUJI MURAKAMI,181.577-6,Agente de Execução Penal,nan,PAULO RENATO AMORIM DOS REIS,1.677.976-2,Gerente,nan,"Gerência de
+Atividades de Segurança Penitenciária, do Centro de Progressão Penitenciária, da Subsecretaria do
+Sistema Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['27/01/2020 a 15/02/2020', '27/01/2020 a 15/02/2020', '27/01/2020 a 15/02/2020']"
+R144,tatianafp,Ato_Substituicao,"DESIGNAR ZULMIRA MENDES PAIXÃO, Técnica em Políticas Públicas e Gestão Governamental,
+matrícula 107.151-3, para substituir, ERIVALDO SILVA SANTOS, matrícula 1.656.061-2, Gerente da
+Gerência de Análise Jurídica, do Centro de Progressão Penitenciária, da Subsecretaria do Sistema
+Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-14, no
+período de 06/01/2020 a 15/01/2020, em virtude de férias regulamentares",ZULMIRA MENDES PAIXÃO,107.151-3,Técnica em Políticas Públicas e Gestão Governamental,nan,ERIVALDO SILVA SANTOS,1.656.061-2,Gerente,nan,"Gerência de Análise Jurídica, do Centro de Progressão Penitenciária, da Subsecretaria do Sistema
+Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020']"
+R153,tatianafp,Ato_Substituicao,"DESIGNAR NATÁLIA CRISTINA MONTE MONTEIRO, Agente de Execução Penal, matrícula
+1.693.100-9, para substituir ALEXANDRE BORGES RIBEIRO, matrícula 176.592-2, Chefe do Núcleo
+de Arquivos e Prontuários, da Gerência de Administração Penitenciária, do Centro de Detenção
+Provisória, da Subsecretaria do Sistema Penitenciário, da Secretaria de Estado de Segurança Pública do
+Distrito Federal, Símbolo DFG-12, no período de 22/01/2020 a 31/01/2020, em virtude de férias
+regulamentares",NATÁLIA CRISTINA MONTE MONTEIRO,1.693.100-9,Agente de Execução Penal,nan,ALEXANDRE BORGES RIBEIRO,176.592-2,Chefe,nan,"Núcleo
+de Arquivos e Prontuários, da Gerência de Administração Penitenciária, do Centro de Detenção
+Provisória, da Subsecretaria do Sistema Penitenciário","Secretaria de Estado de Segurança Pública do
+Distrito Federal","férias
+regulamentares","['22/01/2020 a 31/01/2020', '22/01/2020 a 31/01/2020', '22/01/2020 a 31/01/2020']"
+R154,tatianafp,Ato_Substituicao,"DESIGNAR WILKENS NUMERIANO TEMOTE, Agente de Execução Penal, matrícula 1.687.188-X,
+para substituir DOUGLAS CAMPOS DOS SANTOS, matrícula 181.557-1, Gerente da Gerência de
+Administração Penitenciária, do Centro de Detenção Provisória, da Subsecretaria do Sistema
+Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-14, no
+período de 06/01/2020 a 15/01/2020, em virtude de férias regulamentares",WILKENS NUMERIANO TEMOTE,1.687.188-X,Agente de Execução Penal,nan,DOUGLAS CAMPOS DOS SANTOS,181.557-1,Gerente,nan,"Gerência de
+Administração Penitenciária, do Centro de Detenção Provisória, da Subsecretaria do Sistema
+Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020']"
+R155,tatianafp,Ato_Substituicao,"DESIGNAR ROBSON CLÉCIO BARROS DE OLIVEIRA, Agente de Execução Penal, matrícula
+193.646-8, para substituir DENILZO GOMES DA SILVA, matrícula 178.625-3, Chefe do Núcleo de
+Assistência Social, da Gerência de Assistência aos Internos, do Centro de Detenção Provisória ,da
+Subsecretaria do Sistema Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal,
+Símbolo DFG-12, no período de 08/01/2020 a 22/01/2020, em virtude de férias regulamentares",ROBSON CLÉCIO BARROS DE OLIVEIRA,193.646-8,Agente de Execução Penal,nan,DENILZO GOMES DA SILVA,178.625-3,Chefe,nan,"Núcleo de
+Assistência Social, da Gerência de Assistência aos Internos, do Centro de Detenção Provisória ,da
+Subsecretaria do Sistema Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['08/01/2020 a 22/01/2020', '08/01/2020 a 22/01/2020', '08/01/2020 a 22/01/2020']"
+R156,tatianafp,Ato_Substituicao,"DESIGNAR MÉRCIA INGRID DA SILVA OLIVEIRA, Agente de Execução Penal, matrícula
+1.690.448-6, para substituir FABIO BISPO DOS SANTOS, matrícula 192.458-3, Gerente da Gerência de
+Vigilância, do Centro de Detenção Provisória, da Subsecretaria do Sistema Penitenciário, da Secretaria
+de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-14, no período de 06/01/2020 a
+15/01/2020, em virtude de férias regulamentares",MÉRCIA INGRID DA SILVA OLIVEIRA,1.690.448-6,Agente de Execução Penal,nan,FABIO BISPO DOS SANTOS,192.458-3,Gerente,nan,"Gerência de
+Vigilância, do Centro de Detenção Provisória, da Subsecretaria do Sistema Penitenciário","Secretaria
+de Estado de Segurança Pública do Distrito Federal",férias regulamentares,"['06/01/2020 a\n15/01/2020', '06/01/2020 a\n15/01/2020', '06/01/2020 a\n15/01/2020']"
+R157,tatianafp,Ato_Substituicao,"DESIGNAR BRENO FRANCKLIN MILWARD AZEVEDO, Agente de Execução Penal, matrícula
+1.693.172-6 para substituir ELLEN PIRANGI CALDAS, matrícula 187.575-2, Chefe de Pátio do Núcleo
+de Vigilância, da Gerência de Vigilância, do Centro de Detenção Provisória, da Subsecretaria do Sistema
+Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-06, no
+período de 06/01/2020 a 15/01/2020, em virtude de férias regulamentares",BRENO FRANCKLIN MILWARD AZEVEDO,1.693.172-6,Agente de Execução Penal,nan,ELLEN PIRANGI CALDAS,187.575-2,Chefe,nan,"Pátio do Núcleo
+de Vigilância, da Gerência de Vigilância, do Centro de Detenção Provisória, da Subsecretaria do Sistema
+Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020']"
+R158,tatianafp,Ato_Substituicao,"DESIGNAR LAIZE KAROLINE ALVES ALMADA, Agente de Execução Penal, matrícula 197.155-7,
+para substituir JOÃO PAULO ALVES DE SOUZA, matrícula 196.918-8, Gerente da Gerência de
+Atividades de Segurança Penitenciária, do Centro de Detenção Provisória, da Subsecretaria do Sistema
+Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-14, no
+período de 02/01/2020 a 11/01/2020, em virtude de férias regulamentares",LAIZE KAROLINE ALVES ALMADA,197.155-7,Agente de Execução Penal,nan,JOÃO PAULO ALVES DE SOUZA,196.918-8,Gerente,nan,"Gerência de
+Atividades de Segurança Penitenciária, do Centro de Detenção Provisória, da Subsecretaria do Sistema
+Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['02/01/2020 a 11/01/2020', '02/01/2020 a 11/01/2020', '02/01/2020 a 11/01/2020']"
+R159,tatianafp,Ato_Substituicao,"DESIGNAR VALÉRIA MOREIRA DE SOUZA, Agente de Execução Penal, matrícula 178.346-7, para
+substituir ROSENILDA DE SOUSA ALEXANDRE, matrícula 233.621-9, Chefe de Pátio do Núcleo de
+Vigilância, da Gerência de Vigilância, do Centro de Detenção Provisória, da Subsecretaria do Sistema
+Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-06, no
+período de 06/01/2020 a 15/01/2020, em virtude de férias regulamentares",VALÉRIA MOREIRA DE SOUZA,178.346-7,Agente de Execução Penal,nan,ROSENILDA DE SOUSA ALEXANDRE,233.621-9,Chefe,nan,"Pátio do Núcleo de
+Vigilância, da Gerência de Vigilância, do Centro de Detenção Provisória, da Subsecretaria do Sistema
+Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020']"
+R160,tatianafp,Ato_Substituicao,"DESIGNAR MARCUS VINICIUS OLIVEIRA DE LIMA, Agente de Execução Penal, matrícula
+1.692.984-5 para substituir RAFAEL GUIMARÃES PEREIRA, matrícula 187.558-2, Chefe do Núcleo de
+Vigilância, da Gerência de Vigilância, do Centro de Detenção Provisória, da Subsecretaria do Sistema
+Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-12, no
+período de 06/01/2020 a 15/01/2020, em virtude de férias regulamentares",MARCUS VINICIUS OLIVEIRA DE LIMA,1.692.984-5,Agente de Execução Penal,nan,RAFAEL GUIMARÃES PEREIRA,187.558-2,Chefe,nan,"Núcleo de
+Vigilância, da Gerência de Vigilância, do Centro de Detenção Provisória, da Subsecretaria do Sistema
+Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020']"
+R161,tatianafp,Ato_Substituicao,"DESIGNAR DAYANNE DE OLIVEIRA SANTOS AYUB, Agente de Execução Penal, matrícula
+1.692.833-4, para substituir VICTOR SADI MATIAS, matrícula 195.061-4, Chefe de Pátio do Núcleo de
+Vigilância, da Gerência de Vigilância, do Centro de Detenção Provisória, da Subsecretaria do Sistema
+Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-06, no
+período de 20/01/2020 a 29/01/2020, em virtude de férias regulamentares",DAYANNE DE OLIVEIRA SANTOS AYUB,1.692.833-4,Agente de Execução Penal,nan,VICTOR SADI MATIAS,195.061-4,Chefe,nan,"Pátio do Núcleo de
+Vigilância, da Gerência de Vigilância, do Centro de Detenção Provisória, da Subsecretaria do Sistema
+Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020']"
+R162,tatianafp,Ato_Substituicao,"DESIGNAR FRANCISCO MICHEL DE MELO LISBOA, Agente de Execução Penal, matrícula
+1.692.980-2, para substituir WELLINGTON RIBEIRO PORTELA, matrícula 178.516-8, Chefe de Pátio
+do Núcleo de Vigilância, da Gerência de Vigilância, do Centro de Detenção Provisória, da Subsecretaria
+do Sistema Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo
+DFG-06, no período de 22/01/2020 a 31/01/2020, em virtude de férias regulamentares",FRANCISCO MICHEL DE MELO LISBOA,1.692.980-2,Agente de Execução Penal,nan,WELLINGTON RIBEIRO PORTELA,178.516-8,Chefe,nan,"Pátio
+do Núcleo de Vigilância, da Gerência de Vigilância, do Centro de Detenção Provisória, da Subsecretaria
+do Sistema Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['22/01/2020 a 31/01/2020', '22/01/2020 a 31/01/2020', '22/01/2020 a 31/01/2020']"
+R163,tatianafp,Ato_Substituicao,"DESIGNAR SIMONE LOPES FELIX, Agente de Execução Penal, matrícula 1.692.765-6, para substituir
+CEZAR ALVES MIRANDA, matrícula 177.731-9, Gerente da Gerencia de Assistência aos Internos, do
+Centro de Detenção Provisória, da Subsecretaria do Sistema Penitenciário, da Secretaria de Estado de
+Segurança Pública do Distrito Federal, Símbolo DFG-14, no período de 06/01/2020 a 20/01/2020, em
+virtude de férias regulamentares",SIMONE LOPES FELIX,1.692.765-6,Agente de Execução Penal,nan,CEZAR ALVES MIRANDA,177.731-9,Gerente,nan,"Gerencia de Assistência aos Internos, do
+Centro de Detenção Provisória, da Subsecretaria do Sistema Penitenciário","Secretaria de Estado de
+Segurança Pública do Distrito Federal",férias regulamentares,"['06/01/2020 a 20/01/2020', '06/01/2020 a 20/01/2020', '06/01/2020 a 20/01/2020']"
+R164,tatianafp,Ato_Substituicao,"DESIGNAR RAPHAEL MARQUES AZEVEDO, Agente de Execução Penal, matrícula 1.682.480-6,
+para substituir CEZAR TOSHIO FUGIVALA, matrícula 1.680.487-2, Chefe do Núcleo de Inteligência no
+Centro de Detenção Provisória, da Diretoria de Inteligência Penitenciária, da Subsecretaria do Sistema
+Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-12, no
+período de 06/01/2020 a 15/01/2020, em virtude de férias regulamentares",RAPHAEL MARQUES AZEVEDO,1.682.480-6,Agente de Execução Penal,nan,CEZAR TOSHIO FUGIVALA,1.680.487-2,Chefe,nan,"Núcleo de Inteligência no
+Centro de Detenção Provisória, da Diretoria de Inteligência Penitenciária, da Subsecretaria do Sistema
+Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020']"
+R165,tatianafp,Ato_Substituicao,"DESIGNAR BARTOLOMEU WILSON DE SOUSA, Agente de Execução Penal, matrícula 178.499-4,
+para substituir CLEBER PEREIRA BATISTA, matrícula 187.557-4, Chefe da Unidade de Plantão I, da
+Gerência de Vigilância, do Centro de Detenção Provisória, da Subsecretaria do Sistema Penitenciário, da
+Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-06, no período de
+04/01/2020 a 13/01/2020, em virtude de férias regulamentares",BARTOLOMEU WILSON DE SOUSA,178.499-4,Agente de Execução Penal,nan,CLEBER PEREIRA BATISTA,187.557-4,Chefe,nan,"Unidade de Plantão I, da
+Gerência de Vigilância, do Centro de Detenção Provisória, da Subsecretaria do Sistema Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['04/01/2020 a 13/01/2020', '04/01/2020 a 13/01/2020', '04/01/2020 a 13/01/2020']"
+R167,tatianafp,Ato_Substituicao,"DESIGNAR JONAS BESSA DE PAULA, Delegado de Polícia, matrícula 1.690.657-8, para substituir
+GEORGE ESTEFANI DE SOUZA DO COUTO, matrícula 1.689.428-6, Subsecretário da Subsecretaria
+de Inteligência, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo CNE-02, no
+período de 16/12/2019 a 24/12/2019, em virtude de férias regulamentares",JONAS BESSA DE PAULA,1.690.657-8,Delegado de Polícia,nan,GEORGE ESTEFANI DE SOUZA DO COUTO,1.689.428-6,Subsecretário,nan,"Subsecretaria
+de Inteligência",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['16/12/2019 a 24/12/2019', '16/12/2019 a 24/12/2019', '16/12/2019 a 24/12/2019']"
+R168,tatianafp,Ato_Substituicao,"DESIGNAR ADRIANA MELO SANTIAGO, Agente Policial de Custódia, matrícula 1.691.472-4, para
+substituir MARISTELA PEREIRA DE MOURA E SILVA, matrícula 1.686.058-6, Gerente da Gerência
+de Contratos da Coordenação de Licitações, Contratos e Convênios, da Subsecretaria de Administração
+Geral, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-14, no período
+de 20/01/2020 a 29/01/2020, em virtude de férias regulamentares",ADRIANA MELO SANTIAGO,1.691.472-4,Agente Policial de Custódia,nan,MARISTELA PEREIRA DE MOURA E SILVA,1.686.058-6,Gerente,nan,"Gerência
+de Contratos da Coordenação de Licitações, Contratos e Convênios, da Subsecretaria de Administração
+Geral",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020']"
+R169,tatianafp,Ato_Substituicao,"DESIGNAR MARIA PAULA FREIRE CAMARGOS, Agente de Execução Penal, matrícula 1.682.4970, para substituir MARIA RAQUEL BELLINASO STIELER, matrícula 178.501-X, Chefe do Núcleo de
+Assistência Social, da Gerência de Assistência aos Internos, da Penitenciária II do Distrito Federal, da
+Subsecretaria do Sistema Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal,
+Símbolo DFG-12, no período de 09/12/2019 a 07/01/2020, em virtude de férias regulamentares",MARIA PAULA FREIRE CAMARGOS,1.682.4970,Agente de Execução Penal,nan,MARIA RAQUEL BELLINASO STIELER,178.501-X,Chefe,nan,"Núcleo de
+Assistência Social, da Gerência de Assistência aos Internos, da Penitenciária II do Distrito Federal, da
+Subsecretaria do Sistema Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['09/12/2019 a 07/01/2020', '09/12/2019 a 07/01/2020', '09/12/2019 a 07/01/2020']"
+R170,tatianafp,Ato_Substituicao,"DESIGNAR FABRICIO MELO ROSENDO, Agente Execução Penal, matrícula 187.780-1, para
+substituir VERONICA MARTINS SILVA, matrícula 192.482-6, Chefe do Núcleo de Arquivos e
+Prontuários, da Gerência de Administração Penitenciária, da Penitenciária II do Distrito Federal, da
+Subsecretaria do Sistema Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal,
+Símbolo DFG-12, no período de 31/10/2019 a 14/11/2019, em virtude de férias regulamentares",FABRICIO MELO ROSENDO,187.780-1,Agente Execução Penal,nan,VERONICA MARTINS SILVA,192.482-6,Chefe,nan,"Núcleo de Arquivos e
+Prontuários, da Gerência de Administração Penitenciária, da Penitenciária II do Distrito Federal, da
+Subsecretaria do Sistema Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['31/10/2019 a 14/11/2019', '31/10/2019 a 14/11/2019', '31/10/2019 a 14/11/2019']"
+R171,tatianafp,Ato_Substituicao,"DESIGNAR MARCO AURÉLIO VERGÍLIO DE SOUZA, Delegado de Polícia, matrícula 1.692.585-8,
+para substituir ALVARO HENRIQUE FERREIRA DOS SANTOS, matrícula 57.964-5, Subsecretário da
+Subsecretaria de Administração Geral, da Secretaria de Estado de Segurança Pública do Distrito Federal,
+Símbolo CNE-02, no período de 19/12/2019 a 06/01/2020, em virtude de férias regulamentares",MARCO AURÉLIO VERGÍLIO DE SOUZA,1.692.585-8,Delegado de Polícia,nan,ALVARO HENRIQUE FERREIRA DOS SANTOS,57.964-5,Subsecretário,nan,Subsecretaria de Administração Geral,Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['19/12/2019 a 06/01/2020', '19/12/2019 a 06/01/2020', '19/12/2019 a 06/01/2020']"
+R172,tatianafp,Ato_Substituicao,"DESIGNAR MAURO ANDRÉ KAISER CABRAL, matrícula 1.680.561-5, para substituir ALFREDO
+DE SOUZA LIMA COELHO CARRIJO, matrícula 1.693.893-3, Subsecretário da Subsecretaria de
+Ensino e Valorização Profissional, da Secretaria de Estado de Segurança Pública do Distrito Federal,
+Símbolo CNE-02, no período de 20/01/2020 a 18/02/2020, em virtude de férias regulamentares",MAURO ANDRÉ KAISER CABRAL,1.680.561-5,nan,nan,"ALFREDO
+DE SOUZA LIMA COELHO CARRIJO",1.693.893-3,Subsecretário,nan,"Subsecretaria de
+Ensino e Valorização Profissional",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['20/01/2020 a 18/02/2020', '20/01/2020 a 18/02/2020', '20/01/2020 a 18/02/2020']"
+R166,tatianafp,Ato_Substituicao,"DESIGNAR MARIA APARECIDA DA CONCEIÇÃO RODRIGUES, Técnico em Políticas Públicas e
+Gestão Governamental, matrícula 31.834-5, para substituir PEDRO DAVID FERNANDES SENA,
+matrícula 1.681.446-0, Gerente da Gerência de Gestão de Pessoal Civil, da Coordenação de Gestão de
+Pessoas, da Subsecretaria de Administração Geral, da Secretaria de Estado de Segurança Pública do
+Distrito Federal, Símbolo DFG-14, no período de 13/01/2020 a 22/01/2020, em virtude de férias
+regulamentares",APARECIDA DA CONCEIÇÃO RODRIGUES,31.834-5,"Técnico em Políticas Públicas e
+Gestão Governamental",nan,PEDRO DAVID FERNANDES SENA,1.681.446-0,Gerente,nan,"Gerência de Gestão de Pessoal Civil, da Coordenação de Gestão de
+Pessoas, da Subsecretaria de Administração Geral","Secretaria de Estado de Segurança Pública do
+Distrito Federal","férias
+regulamentares","['13/01/2020 a 22/01/2020', '13/01/2020 a 22/01/2020', '13/01/2020 a 22/01/2020']"
+R181,tatianafp,Ato_Substituicao,"DESIGNAR KELI ROBERTA SANTOS SILVA CONSTANTINO, Agente de Execução Penal, matrícula
+1.692.766-4, para substituir ADENILDE SOARES COSTA, matrícula 1.690.350-1 Chefe de Pátio do
+Núcleo de Vigilância, da Gerência de Vigilância, da Penitenciária Feminina do Distrito Federal, da
+Subsecretaria do Sistema Penitenciário, da Secretaria de Estado de Segurança Pública, do Distrito
+Federal, Símbolo DFG-06, no período de 06/01/2020 a 15/01/2020, em virtude de férias
+regulamentares",KELI ROBERTA SANTOS SILVA CONSTANTINO,1.692.766-4,Agente de Execução Penal,nan,ADENILDE SOARES COSTA,1.690.350-1,Chefe de Pátio,DFG-06,"Núcleo de Vigilância, da Gerência de Vigilância, da Penitenciária Feminina do Distrito Federal, da
+Subsecretaria do Sistema Penitenciário","Secretaria de Estado de Segurança Pública, do Distrito
+Federal","férias
+regulamentares"
+R173,tatianafp,Ato_Substituicao,"DESIGNAR LARISSA CRISTIANE DE JESUS, matrícula 1.658.649-2, para substituir o TC QOBM
+MARCOS QUINCOSES SPOTORNO, matrícula 1.682.612-4, Coordenador da Coordenação de
+Valorização Profissional, da Subsecretaria de Ensino e Valorização Profissional, da Secretaria de Estado
+de Segurança Pública do Distrito Federal, Símbolo CNE-06, no período de 06/01/2020 a 04/02/2020, em
+virtude de férias regulamentares",LARISSA CRISTIANE DE JESUS,1.658.649-2,nan,nan,MARCOS QUINCOSES SPOTORNO,1.682.612-4,Coordenador,CNE-06,"Coordenação de
+Valorização Profissional, da Subsecretaria de Ensino e Valorização Profissional","Secretaria de Estado
+de Segurança Pública do Distrito Federal",férias regulamentares,"['06/01/2020 a 04/02/2020', '06/01/2020 a 04/02/2020']"
+R174,tatianafp,Ato_Substituicao,"DESIGNAR ÉRICA PATRICIA SILVA PEREIRA, matrícula 1.675.902-8, para substituir WILSON
+FERREIRA BANDEIRA, matrícula 58.218-2, Gerente da Gerência de Convênios da Coordenação de
+Licitações, Contratos e Convênios, da Subsecretaria de Administração Geral, da Secretaria de Estado de
+Segurança Pública do Distrito Federal, Símbolo DFG-14, no período de 06/01/2020 a 20/01/2020, em
+virtude de férias regulamentares",ÉRICA PATRICIA SILVA PEREIRA,1.675.902-8,nan,nan,"WILSON
+FERREIRA BANDEIRA",58.218-2,Gerente,DFG-14,"Gerência de Convênios da Coordenação de
+Licitações, Contratos e Convênios, da Subsecretaria de Administração Geral","Secretaria de Estado de
+Segurança Pública do Distrito Federal",férias regulamentares,"['06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020']"
+R175,tatianafp,Ato_Substituicao,"DESIGNAR MARISÂNGELA DE OLIVEIRA SILVA, Agente de Execução Penal, matrícula 178.351-3,
+para substituir KELYN LOPES PONTES, matrícula 233.461-5, Chefe do Núcleo de Expediente, da
+Gerência de Administração Penitenciária, da Penitenciária Feminina do Distrito Federal, da Subsecretaria
+do Sistema Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo
+DFG-12, no período de 22/01/2020 a 31/01/2020, em virtude de férias regulamentares",MARISÂNGELA DE OLIVEIRA SILVA,178.351-3,Agente de Execução Penal,nan,KELYN LOPES PONTES,233.461-5,Chefe,DFG-12,"Núcleo de Expediente, da
+Gerência de Administração Penitenciária, da Penitenciária Feminina do Distrito Federal, da Subsecretaria
+do Sistema Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020', '06/01/2020 a 20/01/2020', '22/01/2020 a 31/01/2020']"
+R176,tatianafp,Ato_Substituicao,"DESIGNAR GABRIEL DE ARAUJO DOURADO, Agente de Execução Penal, matrícula 1.686.069-1,
+para substituir MIGUEL ANTONIO VELOSO, matrícula 1.691.433-3, Gerente da Gerência de
+Atividades de Segurança Penitenciária, da Penitenciária Feminina do Distrito Federal, da Subsecretaria
+do Sistema Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo
+DFG-14, no período de 02/01/2020 a 16/01/2020, em virtude de férias regulamentares",GABRIEL DE ARAUJO DOURADO,1.686.069-1,Agente de Execução Penal,nan,MIGUEL ANTONIO VELOSO,1.691.433-3,Gerente,DFG-14,"Gerência de
+Atividades de Segurança Penitenciária, da Penitenciária Feminina do Distrito Federal, da Subsecretaria
+do Sistema Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['02/01/2020 a 16/01/2020', '02/01/2020 a 16/01/2020', '02/01/2020 a 16/01/2020', '02/01/2020 a 16/01/2020', '02/01/2020 a 16/01/2020', '02/01/2020 a 16/01/2020', '02/01/2020 a 16/01/2020']"
+R177,tatianafp,Ato_Substituicao,"DESIGNAR GABRIEL DE ARAUJO DOURADO, Agente de Execução Penal, matrícula 1.686.069-1,
+para substituir MARCÍLIO BRANDÃO DE SOUSA VIEIRA, matrícula 178.568-0, Gerente da Gerência
+de Vigilância, da Penitenciária Feminina do Distrito Federal, da Subsecretaria do Sistema Penitenciário,
+da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-14, no período de
+20/01/2020 a 03/02/2020, em virtude de férias regulamentares",GABRIEL DE ARAUJO DOURADO,1.686.069-1,Agente de Execução Penal,nan,MARCÍLIO BRANDÃO DE SOUSA VIEIRA,178.568-0,Gerente,DFG-14,"Gerência
+de Vigilância, da Penitenciária Feminina do Distrito Federal, da Subsecretaria do Sistema Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['20/01/2020 a 03/02/2020', '20/01/2020 a 03/02/2020']"
+R178,tatianafp,Ato_Substituicao,"DESIGNAR JEANIE ROMANO BORGES, Agente de Execuções Penais, matrícula 194.647-1, para
+substituir MICHELE NEIVA YHUARA, matrícula 197.065-8, de Chefe do Núcleo de Disciplina, da
+Gerência de Vigilância, da Penitenciária Feminina do Distrito Federal, da Subsecretaria do Sistema
+Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-12, no
+período de 06/01/2020 a 15/01/2020, em virtude de férias regulamentares",JEANIE ROMANO BORGES,194.647-1,Agente de Execuções Penais,nan,MICHELE NEIVA YHUARA,197.065-8,Chefe,06/01/2020 a 15/01/2020,"Núcleo de Disciplina, da
+Gerência de Vigilância, da Penitenciária Feminina do Distrito Federal, da Subsecretaria do Sistema
+Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares
+R179,tatianafp,Ato_Substituicao,"DESIGNAR ERLANE MARTINS BRAUNAS, Agente de Execução Penal, matrícula 193.629-8, para
+substituir MÔNICA DE LOURDES SILVA CASTRO, matrícula 233.471-2, Gerente da Gerência de
+Assistência aos Internos, da Penitenciária Feminina do Distrito Federal, da Subsecretaria do Sistema
+Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-14, no
+período de 06/01/2020 a 15/01/2020, em virtude de férias regulamentares",ERLANE MARTINS BRAUNAS,193.629-8,Agente de Execução Penal,nan,MÔNICA DE LOURDES SILVA CASTRO,233.471-2,Gerente,06/01/2020 a 15/01/2020,"Gerência de
+Assistência aos Internos, da Penitenciária Feminina do Distrito Federal, da Subsecretaria do Sistema
+Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares
+R180,tatianafp,Ato_Substituicao,"DESIGNAR ALINE DA COSTA SILVA SANTANA , Agente de Execução Penal, matrícula 1.692.8962, para substituir SUELY MATOS MENEZES, matrícula 1.683.744-4, Chefe do Núcleo de Assistência
+Materno Infantil, da Gerência de Assistência aos Internos, da Penitenciária Feminina do Distrito Federal,
+da Subsecretaria do Sistema Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito
+Federal, Símbolo DFG-12, no período de 06/01/2020 a 15/01/2020, em virtude de férias
+regulamentares",ALINE DA COSTA SILVA SANTANA,1.692.8962,Agente de Execução Penal,nan,SUELY MATOS MENEZES,1.683.744-4,Chefe,06/01/2020 a 15/01/2020,"Núcleo de Assistência
+Materno Infantil, da Gerência de Assistência aos Internos, da Penitenciária Feminina do Distrito Federal,
+da Subsecretaria do Sistema Penitenciário","Secretaria de Estado de Segurança Pública do Distrito
+Federal","férias
+regulamentares"
+R185,tatianafp,Ato_Substituicao,"DESIGNAR JACQUELINE VIEIRA MATOS, Agente de Execução Penal matrícula 177.993-1, para
+substituir CLAUDINE MADUREIRA GUEDES DA SILVA FERREIRA, matrícula 192.590-3, Chefe do
+Núcleo de Ensino e Aperfeiçoamento Profissional, da Gerência de Assistência aos Internos, da
+Penitenciária Feminina do Distrito Federal, da Subsecretaria do Sistema Penitenciário, da Secretaria de
+Estado de Segurança Pública do Distrito Federal, Símbolo DFG-12, no período de 06/01/2020 a
+15/01/2020, em virtude férias regulamentares",JACQUELINE VIEIRA MATOS,177.993-1,Agente de Execução Penal,nan,CLAUDINE MADUREIRA GUEDES DA SILVA FERREIRA,192.590-3,Chefe,DFG-12,"Núcleo de Ensino e Aperfeiçoamento Profissional, da Gerência de Assistência aos Internos, da
+Penitenciária Feminina do Distrito Federal, da Subsecretaria do Sistema Penitenciário","Secretaria de
+Estado de Segurança Pública do Distrito Federal",férias regulamentares,"['06/01/2020 a\n15/01/2020', '06/01/2020 a\n15/01/2020', '06/01/2020 a\n15/01/2020', '06/01/2020 a\n15/01/2020', '06/01/2020 a\n15/01/2020', '06/01/2020 a\n15/01/2020', '06/01/2020 a\n15/01/2020', '06/01/2020 a\n15/01/2020']"
+R186,tatianafp,Ato_Substituicao,"DESIGNAR MARCILON DE ARAÚJO, matrícula 1.694.163-2, para substituir ANTÔNIO CLÁUDIO
+DE ALMEIDA, matrícula 1.693.261-7, Coordenador da Coordenação de Modernização, da Subsecretaria
+de Modernização Tecnológica, da Secretaria de Estado de Segurança Pública do Distrito Federal,
+Símbolo CNE-06, no período de 06/01/2020 a 15/01/2020, em virtude férias regulamentares",MARCILON DE ARAÚJO,1.694.163-2,nan,nan,"ANTÔNIO CLÁUDIO
+DE ALMEIDA",1.693.261-7,Coordenador,CNE-06,"Coordenação de Modernização, da Subsecretaria
+de Modernização Tecnológica",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020']"
+R188,tatianafp,Ato_Substituicao,"DESIGNAR ADELMO JERONIMO SILVA, Agente de Polícia, matrícula 1.691.693-X, para substituir
+LAIO ALENCAR DOS SANTOS PACHECO, matrícula 1.684.278-2, Gerente da Gerência de Projetos,
+da Coordenação de Engenharia, da Subsecretaria de Administração Geral, da Secretaria de Estado de
+Segurança Pública do Distrito Federal, Símbolo DFG-14, no período de 06/01/2020 a 20/01/2020, em
+virtude de férias regulamentares",ADELMO JERONIMO SILVA,1.691.693-X,Agente de Polícia,nan,LAIO ALENCAR DOS SANTOS PACHECO,1.684.278-2,Gerente,DFG-14,"Gerência de Projetos,
+da Coordenação de Engenharia, da Subsecretaria de Administração Geral","Secretaria de Estado de
+Segurança Pública do Distrito Federal",férias regulamentares,"['06/01/2020 a 20/01/2020', '06/01/2020 a 20/01/2020', '06/01/2020 a 20/01/2020', '06/01/2020 a 20/01/2020', '06/01/2020 a 20/01/2020', '06/01/2020 a 20/01/2020', '06/01/2020 a 20/01/2020', '06/01/2020 a 20/01/2020', '06/01/2020 a 20/01/2020']"
+R189,tatianafp,Ato_Substituicao,"DESIGNAR THIAGO DA COSTA RAPOSO, Agente de Execução Penal, matrícula 1.693.054-1, para
+substituir ANDERSON MARQUES E SILVA, matrícula 1.686.216-3, Chefe de Pátio do Núcleo de
+Vigilância, da Gerência de Vigilância, do Centro de Detenção Provisória, da Subsecretaria do Sistema
+Penitenciário da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-06, no
+período de 20/01/2020 a 29/01/2020, em virtude de férias regulamentares",THIAGO DA COSTA RAPOSO,1.693.054-1,Agente de Execução Penal,nan,ANDERSON MARQUES E SILVA,1.686.216-3,Chefe de Pátio,DFG-06,"Núcleo de
+Vigilância, da Gerência de Vigilância, do Centro de Detenção Provisória, da Subsecretaria do Sistema
+Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020', '20/01/2020 a 29/01/2020']"
+R190,tatianafp,Ato_Substituicao,"DESIGNAR o CEL QOPM CRISTIANO DE OLIVEIRA SOUZA, matrícula 1.694.377-5, para
+SUBSTITUIR CARLOS ANDRÉ DA SILVA, matrícula 1.683.328-7, Subsecretário da Subsecretaria de
+Operações Integradas, da Secretaria de178451X Estado de Segurança Pública do Distrito Federal,
+Símbolo CNE-02, no período de 13/01/2020 a 06/02/2020, em virtude férias regulamentares",CRISTIANO DE OLIVEIRA SOUZA,1.694.377-5,nan,nan,SUBSTITUIR CARLOS ANDRÉ DA SILVA,1.683.328-7,Subsecretário,CNE-02,"Subsecretaria de
+Operações Integradas, da Secretaria de",Estado de Segurança Pública do Distrito Federal,férias regulamentares,"['13/01/2020 a 06/02/2020', '13/01/2020 a 06/02/2020']"
+R191,tatianafp,Ato_Substituicao,"DESIGNAR MAYRA SOUSA CORDEIRO, Agente de Execução Penal, matrícula 178.451-X, para
+substituir EDUARDO MOURA GUERRA, matrícula 180.251-8, Chefe da Unidade de Plantão IV do
+Núcleo de Atendimento e Orientação, do Centro Integrado de Monitoração Eletrônica, da Subsecretaria
+do Sistema Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo
+DFG-06, no período de 02/12/2019 a 24/12/2019, em virtude de licença paternidade",MAYRA SOUSA CORDEIRO,178.451-X,Agente de Execução Penal,nan,EDUARDO MOURA GUERRA,180.251-8,Chefe,DFG-06,"Unidade de Plantão IV do
+Núcleo de Atendimento e Orientação, do Centro Integrado de Monitoração Eletrônica, da Subsecretaria
+do Sistema Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,licença paternidade,"['02/12/2019 a 24/12/2019', '02/12/2019 a 24/12/2019', '02/12/2019 a 24/12/2019']"
+R182,tatianafp,Ato_Substituicao,"DESIGNAR LETICIA SOARES DE MELO, Agente de Execução Penal, matrícula 1.692.899-7, para
+substituir SIRLENE PEREIRA MENDES, matrícula 192.587-3, Chefe de Pátio do Núcleo de Vigilância,
+da Gerência de Vigilância, da Penitenciária Feminina do Distrito Federal, da Subsecretaria do Sistema
+Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-06, no
+período de 20/01/2020 a 03/02/2020, em virtude de férias regulamentares",LETICIA SOARES DE MELO,1.692.899-7,Agente de Execução Penal,nan,SIRLENE PEREIRA MENDES,192.587-3,Chefe de Pátio,20/01/2020 a 03/02/2020,"Núcleo de Vigilância,
+da Gerência de Vigilância, da Penitenciária Feminina do Distrito Federal, da Subsecretaria do Sistema
+Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares
+R183,tatianafp,Ato_Substituicao,"DESIGNAR FABIANE ANGELA GARLET, Agente de Execução Penal, matrícula 1.692.990-X, para
+substituir VANESSA ZINGLEIA FAUSTINO SOUSA, matrícula 178.306-8, Chefe do Núcleo de
+Assistência Social, da Gerência de Assistência aos Internos, da Penitenciária Feminina do Distrito
+Federal, da Subsecretaria do Sistema Penitenciário, da Secretaria de Estado de Segurança Pública do
+Distrito Federal, Símbolo DFG-12, no período de 06/01/2020 a 17/01/2020, em virtude de férias
+regulamentares",FABIANE ANGELA GARLET,1.692.990-X,Agente de Execução Penal,nan,VANESSA ZINGLEIA FAUSTINO SOUSA,178.306-8,Chefe,DFG-12,"Núcleo de
+Assistência Social, da Gerência de Assistência aos Internos, da Penitenciária Feminina do Distrito
+Federal, da Subsecretaria do Sistema Penitenciário","Secretaria de Estado de Segurança Pública do
+Distrito Federal","férias
+regulamentares","['06/01/2020 a 17/01/2020', '06/01/2020 a 17/01/2020']"
+R187,tatianafp,Ato_Substituicao,"DESIGNAR RODRIGO PEREIRA SIRIANO, Agente de Execução Penal, matrícula 196.605-7, para
+substituir ANTÔNIO ARINO ARAÚJO VIDAL, matrícula 179.448-5, Diretor da Diretoria Penitenciária
+de Operações Especiais, da Subsecretaria do Sistema Penitenciário, da Secretaria de Estado de Segurança
+Pública do Distrito Federal, Símbolo CNE-07, no período de 06/01/2020 a 20/01/2020, em virtude de
+férias regulamentares",RODRIGO PEREIRA SIRIANO,196.605-7,Agente de Execução Penal,nan,ANTÔNIO ARINO ARAÚJO VIDAL,179.448-5,Diretor,CNE-07,"Diretoria Penitenciária
+de Operações Especiais, da Subsecretaria do Sistema Penitenciário","Secretaria de Estado de Segurança
+Pública do Distrito Federal",férias regulamentares,"['06/01/2020 a 20/01/2020', '06/01/2020 a 20/01/2020', '06/01/2020 a 20/01/2020', '06/01/2020 a 20/01/2020', '06/01/2020 a 20/01/2020', '06/01/2020 a 20/01/2020', '06/01/2020 a 20/01/2020', '06/01/2020 a 20/01/2020', '06/01/2020 a 20/01/2020']"
+R184,tatianafp,Ato_Substituicao,"DESIGNAR DAVI BIAM DE SOUSA, Técnico de Políticas Públicas e Gestão Governamental, matrícula
+107.271-4, para substituir LUCAS ALVES OLIVEIRA, matrícula 197.749-0, Chefe do Núcleo de
+Suprimentos, da Gerência de Administração Penitenciária, da Penitenciária Feminina do Distrito Federal,
+da Subsecretaria do Sistema Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito
+Federal, Símbolo DFG-12, no período de 06/01/2020 a 15/01/2020, em virtude de férias
+regulamentares",DAVI BIAM DE SOUSA,107.271-4,Técnico de Políticas Públicas e Gestão Governamental,nan,LUCAS ALVES OLIVEIRA,197.749-0,Chefe,DFG-12,"Núcleo de
+Suprimentos, da Gerência de Administração Penitenciária, da Penitenciária Feminina do Distrito Federal,
+da Subsecretaria do Sistema Penitenciário","Secretaria de Estado de Segurança Pública do Distrito
+Federal","férias
+regulamentares","['06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020', '06/01/2020 a 15/01/2020']"
+R192,tatianafp,Ato_Substituicao,"DESIGNAR LUCIANA BORNEO DE ABREU, Agente de Execução Penal, matrícula 175.881-0, para
+substituir CARLOS ALYSSON VIANA NASCIMENTO, matrícula 188.047-0, Chefe do Núcleo de
+Atendimento e Orientação, do Centro Integrado de Monitoração Eletrônica, da Subsecretaria do Sistema
+Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-12, nos
+dias 05/12/2019, 12/12/2019 e 13/12/2019, em virtude de abono de ponto e no período de 20/01/2020
+a 29/01/2020, em virtude de férias regulamentares",LUCIANA BORNEO DE ABREU,175.881-0,Agente de Execução Penal,nan,CARLOS ALYSSON VIANA NASCIMENTO,188.047-0,Chefe,DFG-12,"Núcleo de
+Atendimento e Orientação, do Centro Integrado de Monitoração Eletrônica, da Subsecretaria do Sistema
+Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,abono de ponto,"['05/12/2019', '05/12/2019', '12/12/2019', '05/12/2019', '12/12/2019', '05/12/2019', '12/12/2019', '13/12/2019']"
+R193,tatianafp,Ato_Substituicao,"DESIGNAR LUCIANA BORNEO DE ABREU, Agente de Execução Penal, matrícula 175.881-0, para
+substituir CARLOS ALYSSON VIANA NASCIMENTO, matrícula 188.047-0, Chefe do Núcleo de
+Atendimento e Orientação, do Centro Integrado de Monitoração Eletrônica, da Subsecretaria do Sistema
+Penitenciário, da Secretaria de Estado de Segurança Pública do Distrito Federal, Símbolo DFG-12, nos
+dias 05/12/2019, 12/12/2019 e 13/12/2019, em virtude de abono de ponto e no período de 20/01/2020
+a 29/01/2020, em virtude de férias regulamentares",LUCIANA BORNEO DE ABREU,175.881-0,Agente de Execução Penal,nan,CARLOS ALYSSON VIANA NASCIMENTO,188.047-0,Chefe,DFG-12,"Núcleo de
+Atendimento e Orientação, do Centro Integrado de Monitoração Eletrônica, da Subsecretaria do Sistema
+Penitenciário",Secretaria de Estado de Segurança Pública do Distrito Federal,férias regulamentares,['20/01/2020\na 29/01/2020']
