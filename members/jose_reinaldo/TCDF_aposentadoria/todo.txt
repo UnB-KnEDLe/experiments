@@ -1,0 +1,15 @@
+extract_text.ipynb-----------------------------
+1 - Find way to retrieve text excerpt when ['PROCESSO'] column value is NaN.
+2 - Fix regex to identify text for rows that have ['PROCESSO'] annotation but regex could not find.
+3 - 298 anotacoes com NaN na coluna ['PROCESSO']
+4 - 352 anotacoes ainda nao identificadas (incluindo as 298 acima)
+
+preprocess_data.ipynb--------------------------
+(X) - Create IOB styled annotations
+1 - Find out why rows 455 and 3372 present error while IOB labeling
+
+crf.ipynb -------------------------------------
+Create crf model with a few different feature sets
+
+active_learning.ipynb -------------------------
+Create and analyse behaviour of active learning algorithms (e.g. dates of the samples selected)
