@@ -1,4 +1,7 @@
 /* New style sheet for the refreshed demo app */
+body {
+  background-color: #f2f3f4;
+}
 
 .header {
   padding: 15px 35px;
@@ -75,12 +78,13 @@
 }
 
 .card-style {
-  padding: 20px;
+  min-width: 200px;
   margin: 5px;
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  
 }
 
 body {
@@ -95,6 +99,16 @@ body {
 #demo-explanation > div > div:nth-child(2) > div > p:nth-child(11) > img {
   width: 40%;
 }
+
+#menu  {
+  height: auto;
+  padding: 0%;
+}
+
+#graph-3d-plot-tsne{
+  height: 100vh;
+}
+
 #graph-3d-plot-tsne > div > div > svg:nth-child(1) {
   background-color: #f2f3f4 !important;
 }
@@ -137,6 +151,8 @@ body {
   fill: #f2f3f4 !important;
 }
 
+
+
 #demo-explanation #learn-more-button {
   text-transform: none;
   font-size: 14px;
@@ -159,8 +175,13 @@ body {
     width: 75%;
   }
 
+  .four.columns {
+    margin: auto;
+    width: 90%;
+  }
+
   .six.columns {
-    margin: 10% 5%;
+    margin: 10% 10%;
     width: auto;
   }
 
@@ -207,4 +228,156 @@ body {
     height: 45px;
     width: auto;
   }
+}
+
+.list li {
+  margin-bottom: 4px;
+}
+
+#div-plot-click-message {
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+#circos-control-tabs ::-webkit-scrollbar {
+  background-color: rgb(252, 252, 252) !important;
+  width: 10px;
+  margin: 5px;
+}
+#circos-control-tabs ::-webkit-scrollbar-thumb {
+  background-color: #0f2f58 !important;
+  width: 10px;
+}
+
+#div-plot-click-data {
+  text-align: justify;
+  height: 90vh;
+  padding: 10px;
+  margin-left: 10px;
+  overflow-y: scroll;
+}
+
+#legenda {
+  text-align: justify;
+  height: 90vh;
+  overflow-y: scroll;
+}
+
+#euclidean-distance {
+  text-align: center;
+  margin-bottom: 7px;
+  font-weight: bold;
+}
+
+#menu-huge {
+  padding: 0px 45px 10px 45px;
+}
+
+#circos-control-tabs {
+  height: 98vh;
+  overflow-y: hidden;
+  /* margin: 50px; */
+  margin-right: 0px;
+  margin-left: 20px;
+  background-color: rgb(255, 255, 255) !important;
+  font-size: 10pt;
+  float: left;
+}
+
+.circos-tabs {
+  height: 460px;
+  
+  padding-right: 15px;
+}
+.circos-controls {
+  width: 100%;
+  overflow: auto;
+}
+#circos-control-tabs .tab {
+  background-color: #262B3D !important;
+  color: #E2EFFA !important;
+  padding: 15px;
+  border-color: #557 !important;
+}
+
+#circos-control-tabs .tab--selected {
+  border-top: solid 2px #7CD3F7 !important;
+  color: #7CD3F7 !important;
+}
+
+#circos-hold {
+  display: inline-block !important;
+  padding: 40px;
+  margin-left: 50px;
+}
+
+#circos-body .rc-slider-rail {
+  background-color: #1F2132;
+}
+#circos-body .rc-slider-track {
+  background-color: #7CD3F7;
+}
+#circos-body .rc-slider-handle {
+  border-color: #7CD3F7;
+  background-color: #1F2132;
+}
+#circos-body .rc-slider {
+  margin-right: 2px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  float: right;
+  display: inline-block;
+  vertical-align: middle;
+  width: calc(100% - 5px);
+}
+#circos-tabs-orig {
+  display: none;
+}
+
+#circos-tabs-orig-parent {
+  display: none;
+}
+#circos-control-tabs .Select-value-icon {
+  background-color: #232323;
+}
+
+#circos-control-tabs .Select-control, #circos-control-tabs .Select-menu-outer {
+  border: solid 1px #545454;
+  background-color: #262b3d !important;
+  width: 140px !important;
+}
+#circos-control-tabs span.Select-value-label {
+  color: #E2EFFA !important;
+}
+#circos-control-tabs .Select-input {
+  padding: 0px;
+}
+
+menu #dropdown-dataset {
+  text-transform: none;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 0px;
+  letter-spacing: 0;
+  padding: 0px 15px;
+  background-color: #232323;
+ 
+}
+
+#menu-huge #menu #dropdown-dimension {
+  text-transform: none;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 0px;
+  letter-spacing: 0;
+  
+}
+
+#tutorial-button {
+  height: 36px;
+  padding: 0 10px;
+  width: 100%;
+  text-align: left;
+  margin: 5px;
 }
