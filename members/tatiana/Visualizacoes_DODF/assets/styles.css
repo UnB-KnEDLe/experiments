@@ -5,6 +5,7 @@ body {
 
 .header {
   padding: 15px 35px;
+  
 }
 
 .header_img {
@@ -100,6 +101,7 @@ body {
   width: 40%;
 }
 
+
 #menu  {
   height: auto;
   padding: 0%;
@@ -151,7 +153,12 @@ body {
   fill: #f2f3f4 !important;
 }
 
-
+#demo-explanation {
+  text-align: center;
+  align-content: center;
+  margin-left: 10%;
+  margin-right: 10%;
+}
 
 #demo-explanation #learn-more-button {
   text-transform: none;
@@ -195,6 +202,10 @@ body {
     width: 100%;
   }
 
+  #app-header{
+    background-color: #0f2f58;
+  }
+ 
   #app-title {
     text-align: center;
   }
@@ -260,6 +271,16 @@ body {
 
 #legenda {
   text-align: justify;
+  padding: 10px;
+  height: 90vh;
+  overflow-y: scroll;
+}
+
+#dataset {
+  text-align: center;
+  padding-top: 30%;
+  padding-left: 10%;
+  padding-right: 10%;
   height: 90vh;
   overflow-y: scroll;
 }

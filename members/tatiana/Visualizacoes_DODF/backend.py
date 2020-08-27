@@ -1,20 +1,15 @@
-import base64
 import io
 import pathlib
 
-import numpy as np
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-from PIL import Image
-from io import BytesIO
 from dash.dependencies import Input, Output
 from dash.exceptions import PreventUpdate
 
 import pandas as pd
-import plotly.graph_objs as go
 import plotly.express as px
-import scipy.spatial.distance as spatial_distance
+
 
 # get relative data folder
 PATH = pathlib.Path(__file__).parent
@@ -29,16 +24,6 @@ data_dict = {
     "DODF_Exoneracoes2D": pd.read_csv('DODF_Exoneracoes_tsne_2D_v2.csv'),
     "DODF_Exoneracoes3D": pd.read_csv('DODF_Exoneracoes_tsne_3D.csv'),
 }
-
-# Import datasets here for running the Local version
-
-TSNE_dataset = 'scatteplot3D.csv'
-
-with open("DODF_Explorer_intro.md", "r") as file:
-    DODF_Explorer_intro_md = file.read()
-
-with open("DODF_Explorer_description.md", "r") as file:
-    DODF_Explorer_description_md = file.read()
 
 # Methods for creating components in the layout code
 def Card(children, **kwargs):
@@ -99,7 +84,7 @@ def create_layout(app):
             html.Div(
                 className="row header",
                 id="app-header",
-                style={"background-color": "#f9f9f9"},
+                style={"background-color": "#1F2132"},
                 children=[
                     html.Div(
                         [
@@ -129,11 +114,20 @@ def create_layout(app):
                 id="demo-explanation",
                 style={"padding": "50px 45px 0px 45px"},
                 children=[
+                    html.Div(id="description-text", children=[
+                        html.H4(
+                            # className="three columns",
+                            style={"text-align": "center"},
+                            children=["About us"],
+                        ),
+                        html.H6("The scatter plot below is the result of running the t-SNE algorithm on DODF's datasets, resulting in 2D and 3D visualizations of the documents."),
+                        html.H6("Official publications such as the Diario Oficial do Distrito Federal (DODF) are sources of information on all official government acts. Although these documents are rich in knowledge, analysing these texts manually by specialists is a complex and unfeasible task considering the growing volume of documents, the result of the frequent number of publications in the Distrito Federal Government's (GDF) communication vehicle."),
+                        html.H6("DODF Explorer aims to facilitate the visualization of such information using unsupervised machine learning methods and data visualization techniques. This is one of the tools developed by the KnEDLe Project. To learn more about us, click on 'Learn More' below.")
+                    ]),
                     html.Div(
-                        id="description-text", children=dcc.Markdown(DODF_Explorer_intro_md)
-                    ),
-                    html.Div(
-                        html.Button(id="learn-more-button", children=["Learn More"])
+                        html.Button(id="learn-more-button", children=[
+                            html.A("Learn More", href='https://unb-knedle.github.io/', target="_blank")
+                            ])
                     ),
                     html.Hr(),
                 ],
@@ -214,7 +208,7 @@ def create_layout(app):
                                                                     },
                                                                 ],
                                                                 placeholder="Select a dimensionality",
-                                                                value="3D",
+                                                                value="2D",
                                                             ),
                                                         ]
                                                     ),
@@ -235,16 +229,16 @@ def create_layout(app):
                                     dcc.Tabs(id='circos-tabs', value='what-is', children=[                                       
 
                                         dcc.Tab(
-                                            label='Selected point',
-                                            value='graph',
+                                            label='Dataset',
+                                            value='data',
                                             children=html.Div(className='control-tab', children=[
                                                 Card(
-                                                    style={"padding": "5px"},
+                                                    style={"padding": "20px",  "align-content": "center", "text-align": "center"},
                                                     children=[
-                                                        html.Div(id="div-plot-click-data"),
+                                                        html.Div(id="dataset"),
                                                     ],
                                                 )
-                                            ]),
+                                            ])
                                         ),
 
                                         dcc.Tab(
@@ -261,12 +255,18 @@ def create_layout(app):
                                         ),
 
                                         dcc.Tab(
-                                            label='Dataset',
-                                            value='data',
+                                            label='Selected point',
+                                            value='graph',
                                             children=html.Div(className='control-tab', children=[
-                                                
-                                            ])
+                                                Card(
+                                                    style={"padding": "5px"},
+                                                    children=[
+                                                        html.Div(id="div-plot-click-data"),
+                                                    ],
+                                                )
+                                            ]),
                                         ),
+
                                     ])
                                 ]),       
                             
@@ -291,38 +291,6 @@ def demo_callbacks(app):
                   selector=dict(mode='markers'))
         return figure
 
-    # Callback function for the learn-more button
-    @app.callback(
-        [
-            Output("description-text", "children"),
-            Output("learn-more-button", "children"),
-        ],
-        [Input("learn-more-button", "n_clicks")],
-    )
-    
-    def learn_more(n_clicks):
-        # If clicked odd times, the instructions will show; else (even times), only the header will show
-        if n_clicks is None:
-            n_clicks = 0
-        if (n_clicks % 2) == 1:
-            n_clicks += 1
-            return (
-                html.Div(
-                    style={"padding-right": "15%"},
-                    children=[dcc.Markdown(DODF_Explorer_description_md)],
-                ),
-                "Close",
-            )
-        else:
-            n_clicks += 1
-            return (
-                html.Div(
-                    style={"padding-right": "15%"},
-                    children=[dcc.Markdown(DODF_Explorer_intro_md)],
-                ),
-                "Learn More",
-            )
-
     @app.callback(
         Output("legenda", "children"),
         [
@@ -335,7 +303,7 @@ def demo_callbacks(app):
         if dataset == 'DODF':
             contents.append(html.Ol(
                 children=[
-                    (html.Li("Secretaria de Estado de Segurança Pública ")),
+                    (html.Li("SECRETARIA DE ESTADO DE SEGURANÇA PÚBLICA ")),
                     (html.Li("SECRETARIA DE ESTADO DE CULTURA ")),
                     (html.Li("SECRETARIA DE ESTADO DE FAZENDA, PLANEJAMENTO, ORÇAMENTO E GESTÃO ")),
                     (html.Li("CASA CIVIL ")),
@@ -566,6 +534,37 @@ def demo_callbacks(app):
             ))
 
         return contents
+
+    @app.callback(
+        Output("dataset", "children"),
+        [
+            Input("dropdown-dataset", "value"),
+        ],
+    )
+    def display_dataset(dataset):
+        contents = []
+        if dataset == 'DODF':
+            contents.append(html.H3("DODF"))
+            contents.append(html.P("Este conjunto de dados possui 717 instâncias, as quais representam atos que foram retirados do DODF. Cada instância possui dois atributos, que são o conteúdo e o rótulo do ato. Os rótulos foram determinados pelos órgãos responsáveis por cada ato."))
+            contents.append(html.P("Os pontos no gráfico ao lado representam as instâncias deste conjunto de dados. A cor de cada ponto foi determinada de acordo com o rótulo de cada instância."))
+
+        elif dataset =='DODF_Aposentadoria':
+            contents.append(html.H3("DODF - Aposentadoria"))
+            contents.append(html.P("Este conjunto de dados possui 5516 instâncias, as quais representam os dados de atos de aposentadoria publicados no DODF em 2018 e 2019. Cada instância possui 17 atributos."))
+            contents.append(html.P("Os pontos no gráfico ao lado representam as instâncias deste conjunto de dados. A cor de cada ponto foi determinada de acordo com o atributo 'EMPRESA_ATO' de cada instância, o qual se refere à empresa que publicou determinado ato."))
+
+        elif dataset == 'DODF_Editais':
+            contents.append(html.H3("DODF - Editais"))
+            contents.append(html.P("Este conjunto de dados possui 13872 instâncias, as quais representam os dados de editais que foram publicados no DODF entre os anos de 2013 e 2020. Cada instância possui 20 atributos."))
+            contents.append(html.P("Os pontos no gráfico ao lado representam as instâncias deste conjunto de dados. A cor de cada ponto foi determinada de acordo com o atributo 'classifObjeto' de cada instância, o qual se refere ao objeto do edital referenciado por determinada instância."))
+            
+        elif dataset == 'DODF_Exoneracoes':
+            contents.append(html.H3("DODF - Exoneracoes"))
+            contents.append(html.P("Este conjunto de dados possui 45530 instâncias, as quais representam os dados de atos de exoneração que foram publicados no DODF entre os anos de 2010 e 2020. Cada instância possui 15 atributos."))
+            contents.append(html.P("Os pontos no gráfico ao lado representam as instâncias deste conjunto de dados. A cor de cada ponto foi determinada de acordo com o atributo '06_ORGAO' de cada instância, o qual se refere ao órgão que publicou determinado ato ."))
+            
+        return contents
+
 
 
     @app.callback(
