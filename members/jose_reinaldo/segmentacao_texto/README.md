@@ -12,4 +12,4 @@
     - Baixar embeddings word2vec CBOW de 100 dimensões pré-treinados [aqui](http://www.nilc.icmc.usp.br/embeddings)
     
 - train_word2vec.ipynb
-  - Ainda incompleto
+  - Ainda incompleto (*coming soon*)
