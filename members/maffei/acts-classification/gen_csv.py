@@ -2,13 +2,6 @@ import core
 import glob
 from pathlib import Path
 import os
-import fitz
-
-from hierarchy import mount_hierarchy
-from hierarchy import post_process_hierarchy
-from hierarchy import show_post_hier
-from hierarchy import hierarchy_text
-
 import time
 
 JSON_PATH = Path('json')
