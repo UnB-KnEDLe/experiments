@@ -1,6 +1,5 @@
 import os
 import pandas as pd
-from core import Regex
 from os.path import isfile, join
 import core
 import re
