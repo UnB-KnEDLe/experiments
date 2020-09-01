@@ -10,14 +10,16 @@ def get_dodf_num(s):
 
 def get_dodf_tipo(s):
 	return re.search(
-		r'(\w+)[.]pdf', s
+		r'(\w+)[.]?pdf', s
 		).group(1).replace(
 			'SECAO1', 'NORMAL').replace(
 			'INTEGRA', 'NORMAL'
 	)
 
 def get_dodf_key(s):
+	# print("String: ", s)
 	s = s.split('/')[-1]
+	# print("search-string:\t", s)
 	return (
 		get_dodf_reverse_date(s),
 		get_dodf_num(s),

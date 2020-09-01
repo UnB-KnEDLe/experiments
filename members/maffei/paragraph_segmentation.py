@@ -1,8 +1,4 @@
-from collections import Counter
-import gc
 import numpy as np
-from typing import List, Dict, Iterable
-from itertools import chain
 
 import fitz
 from fitz.utils import getColor
@@ -17,9 +13,13 @@ FORBIDDEN = [
     'Documento assinado digita',
     'Infraestrutura de Chaves',
     'PÁG.',
+    'PAG.',
     'SEÇÃO',
+    'SECAO',
     'pelo código',
+    'pelo codigo',
 ]
+
 
 def gpk(lis_dic, key):
     """Group iterable of dict by specified `key`.
@@ -105,6 +105,7 @@ def sort_byreading(lis):
     """Sort by page, vertical and horizontal position"""
     return sorted(lis, key=lambda x: (x['page'],  x['bbox'][1], x['bbox'][0]))
 
+
 def get_par_text(doc, min_linebreak=1, min_parlen=40):
     spans, lines = get_spans_lines(doc, glue_horizon=True)
     spans_sorted = sort_byreading(spans)
@@ -121,3 +122,64 @@ def get_par_text(doc, min_linebreak=1, min_parlen=40):
     return valid_texts
 
 
+if __name__ == '__main__':
+
+    fpath = 'pdf/DODF 081 30-04-2020 INTEGRA.pdf'
+    print(
+        "Exemplo de segmentação de texto por meio de heurísticas.\n"
+        f"Aquivo-base: {fpath}\n"
+    )
+    doc = fitz.open(fpath)
+
+    spans, lines = get_spans_lines(doc, glue_horizon=True)
+    spans_sorted = sort_byreading(spans)
+    lines_sorted = sort_byreading(lines)
+
+
+    # GOING TO FILTER THROUGH SOME HEURISTICS!
+    doc = fitz.open(fpath)
+    par_lis = set_dic_par(spans_sorted)
+    acc = 0
+    valid_texts = []
+    for idx, (key, l) in enumerate( gpk( par_lis, 'par').items() ):
+        color = getColor(NOTWHITE[idx % len(NOTWHITE)])
+        whole_tex = '\n'.join([sp['text'] for sp in l])
+        if '\n' not in whole_tex or len(whole_tex) < 40:
+            continue
+        if any([whole_tex.startswith(i) for i in FORBIDDEN]):
+            print("SKIP: ", whole_tex, '\n\n')
+            continue
+        valid_texts.append(whole_tex)
+        acc += 1
+        for sp in l:
+            page = doc[sp['page']//2]  # voltando ao valor original
+            page.drawRect( sp['bbox'], color=color, width=1)
+    doc.save('pdf/par_spans_filtered.pdf')
+    print(acc)
+    print("Arquivo-destino-spans_sorted: pdf/par_spans_filtered.pdf")
+    
+    # Sanity check
+    ps=get_par_text(doc)
+    assert valid_texts == ps
+
+
+    doc = fitz.open(fpath)
+    par_lis = set_dic_par(lines)
+    for idx, (key, l) in enumerate( gpk( par_lis, 'par').items() ):
+        color = getColor(NOTWHITE[idx % len(NOTWHITE)])
+        for sp in l:
+            page = doc[sp['page']//2]
+            page.drawRect( sp['bbox'], color=color, width=1)
+    doc.save('pdf/par_lines2.pdf')
+    print("Arquivo-destino-linhas: pdf/par_lines2.pdf")
+
+
+    doc = fitz.open(fpath)
+    par_lis = set_dic_par(spans_sorted)
+    for idx, (key, l) in enumerate( gpk( par_lis, 'par').items() ):
+        color = getColor(NOTWHITE[idx % len(NOTWHITE)])
+        for sp in l:
+            page = doc[sp['page']//2]  # voltando ao valor original
+            page.drawRect( sp['bbox'], color=color, width=1)
+    doc.save('pdf/par_spans2.pdf')
+    print("Arquivo-destino-spans_groupedbypar: pdf/par_spans2.pdf")
