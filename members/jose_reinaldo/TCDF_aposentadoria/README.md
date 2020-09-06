@@ -1,7 +1,7 @@
 # Preprocessamento dos dados anotados de aposentadoria
 
-## Bases de dados NER de aposentadoria
-O split de treinamento e teste das bases apresentadas foi realizado de forma cronológica de forma a evitar que o mesmo DODF apareça tanto no conjunto de treinamento quanto no de teste.
+## Base de dados NER de aposentadoria
+O split de treinamento e teste da base apresentada foi realizado de forma cronológica de forma a evitar que o mesmo DODF apareça tanto no conjunto de treinamento quanto no de teste.
 ### NER_aposentadoria.zip (formato CoNLL03)
 - train_set.txt: Conjunto de dados de treinamento.
 - test_set.txt: Conjunto de dados de teste.
