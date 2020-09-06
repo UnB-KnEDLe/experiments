@@ -2,15 +2,10 @@
 
 ## Bases de dados NER de aposentadoria
 O split de treinamento e teste das bases apresentadas foi realizado de forma cronológica de forma a evitar que o mesmo DODF apareça tanto no conjunto de treinamento quanto no de teste.
-### aposentadoria_NER_Dataset.zip (formato CoNLL03)
+### NER_aposentadoria.zip (formato CoNLL03)
 - train_set.txt: Conjunto de dados de treinamento.
 - test_set.txt: Conjunto de dados de teste.
 - Split de 70-30 para treinamento e teste.
-
-### aposentadoria_AL_NER_Dataset.zip (formato CoNLL03)
-- labeled_set.txt: Conjunto de dados rotulados inicial para testes com aprendizagem ativa (1% do conjunto de treinamento da base acima)
-- unlabeled_set.txt: Conjunto de dados não rotulados inicial para testes com aprendizagem ativa (99% do conjunto de treinamento da base acima)
-- test_set.txt: Conjunto de dados para teste de desempenho durante o processo de aprendizagem ativa (Mesmo conjunto de teste da base acima)
 
 ## Notebooks de preprocessamento
 ### extract_text_V1.ipynb
