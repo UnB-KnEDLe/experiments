@@ -1,5 +1,4 @@
-import io
-import pathlib
+import io 
 
 import dash
 import dash_core_components as dcc
@@ -9,70 +8,42 @@ from dash.exceptions import PreventUpdate
 
 import pandas as pd
 import plotly.express as px
+ 
 
-
-# get relative data folder
-PATH = pathlib.Path(__file__).parent
-
-data_dict = {
-    "DODF2D": pd.read_csv('DODF_tsne_2D.csv'),
-    "DODF3D": pd.read_csv('dodf_tsne.csv'),
-    "DODF_Aposentadoria2D": pd.read_csv('DODF_Aposentadorias_tsne_2D.csv'),
-    "DODF_Aposentadoria3D": pd.read_csv('DODF_Aposentadorias_tsne_3D.csv'),
-    "DODF_Editais2D": pd.read_csv('DODF_Editais_tsne_2D_v2.csv'),
-    "DODF_Editais3D": pd.read_csv('DODF_Editais_tsne_3D.csv'),
-    "DODF_Exoneracoes2D": pd.read_csv('DODF_Exoneracoes_tsne_2D_v2.csv'),
-    "DODF_Exoneracoes3D": pd.read_csv('DODF_Exoneracoes_tsne_3D.csv'),
+data_dict = { 
+    "DODF2D": pd.read_csv('./csv/DODF_tsne_2D.csv'),
+    "Aposentadoria" : {"DODF_Aposentadoria2D": pd.read_csv('./csv/DODF_aposentadorias_tsne.csv'),  
+                     "DODF_Aposentadoria2018": pd.read_csv('./csv/DODF_aposentadorias_tsne_2018.csv'),
+                     "DODF_Aposentadoria2019": pd.read_csv('./csv/DODF_aposentadorias_tsne_2019.csv'),},
+    "Editais" : {"DODF_Editais2D": pd.read_csv('./csv/DODF_editais_tsne.csv'),
+                "DODF_Editais2013": pd.read_csv('./csv/DODF_editais_tsne_2013.csv'),
+                "DODF_Editais2014": pd.read_csv('./csv/DODF_editais_tsne_2014.csv'),
+                "DODF_Editais2015": pd.read_csv('./csv/DODF_editais_tsne_2015.csv'),
+                "DODF_Editais2016": pd.read_csv('./csv/DODF_editais_tsne_2016.csv'),
+                "DODF_Editais2017": pd.read_csv('./csv/DODF_editais_tsne_2017.csv'),
+                "DODF_Editais2018": pd.read_csv('./csv/DODF_editais_tsne_2018.csv'),
+                "DODF_Editais2019": pd.read_csv('./csv/DODF_editais_tsne_2019.csv'),
+                "DODF_Editais2020": pd.read_csv('./csv/DODF_editais_tsne_2020.csv'),
+                "DODF_Editaisoutros": pd.read_csv('./csv/DODF_editais_tsne_outros.csv')
+                },  
+    "Exoneracoes" : {"DODF_Exoneracoes2D": pd.read_csv('./csv/DODF_exoneracoes_tsne.csv'),
+                     "DODF_Exoneracoes2010": pd.read_csv('./csv/DODF_exoneracoes_tsne_2010.csv'),
+                     "DODF_Exoneracoes2011": pd.read_csv('./csv/DODF_exoneracoes_tsne_2011.csv'),
+                     "DODF_Exoneracoes2012": pd.read_csv('./csv/DODF_exoneracoes_tsne_2012.csv'),
+                     "DODF_Exoneracoes2013": pd.read_csv('./csv/DODF_exoneracoes_tsne_2013.csv'),
+                     "DODF_Exoneracoes2014": pd.read_csv('./csv/DODF_exoneracoes_tsne_2014.csv'),
+                     "DODF_Exoneracoes2015": pd.read_csv('./csv/DODF_exoneracoes_tsne_2015.csv'),
+                     "DODF_Exoneracoes2016": pd.read_csv('./csv/DODF_exoneracoes_tsne_2016.csv'),
+                     "DODF_Exoneracoes2017": pd.read_csv('./csv/DODF_exoneracoes_tsne_2017.csv'),
+                     "DODF_Exoneracoes2018": pd.read_csv('./csv/DODF_exoneracoes_tsne_2018.csv'),
+                     "DODF_Exoneracoes2019": pd.read_csv('./csv/DODF_exoneracoes_tsne_2019.csv'),
+                     "DODF_Exoneracoes2020": pd.read_csv('./csv/DODF_exoneracoes_tsne_2020.csv'),
+                    },
 }
 
 # Methods for creating components in the layout code
 def Card(children, **kwargs):
     return html.Section(children, className="card-style")
-
-
-def NamedSlider(name, short, min, max, step, val, marks=None):
-    if marks:
-        step = None
-    else:
-        marks = {i: i for i in range(min, max + 1, step)}
-
-    return html.Div(
-        style={"margin": "25px 5px 30px 0px"},
-        children=[
-            f"{name}:",
-            html.Div(
-                style={"margin-left": "5px"},
-                children=[
-                    dcc.Slider(
-                        id=f"slider-{short}",
-                        min=min,
-                        max=max,
-                        marks=marks,
-                        step=step,
-                        value=val,
-                    )
-                ],
-            ),
-        ],
-    )
-
-
-def NamedInlineRadioItems(name, short, options, val, **kwargs):
-    return html.Div(
-        id=f"div-{short}",
-        style={"display": "inline-block"},
-        children=[
-            f"{name}:",
-            dcc.RadioItems(
-                id=f"radio-{short}",
-                options=options,
-                value=val,
-                labelStyle={"display": "inline-block", "margin-right": "7px"},
-                style={"display": "inline-block", "margin-left": "7px"},
-            ),
-        ],
-    )
-
 
 def create_layout(app):
     # Actual layout of the app
@@ -94,54 +65,55 @@ def create_layout(app):
                                 id="plotly-image",
                             )
                         ],
-                        className="three columns header_img",
                     ),
                     html.Div(
-                        [
+                        style={"display": "flex"},
+                        children=[
+                            html.Button(
+                                children=[
+                                    "About Us",
+                                ],
+                                id="about-button"
+                            ),
                             html.H3(
-                                "DODF Explorer",
-                                className="header_title",
-                                id="app-title",
-                            )
-                        ],
-                        className="nine columns header_title_container",
+                                    "DODF Explorer",
+                                    id="app-title",
+                            ),
+                        ]
                     ),
-                ],
-            ),
-            # Demo Description
-            html.Div(
+                ]),
+            # DODF Explorer Description
+             html.Div(
                 className="row background",
                 id="demo-explanation",
-                style={"padding": "50px 45px 0px 45px"},
                 children=[
-                    html.Div(id="description-text", children=[
-                        html.H4(
-                            # className="three columns",
-                            style={"text-align": "center"},
-                            children=["About us"],
-                        ),
-                        html.H6("The scatter plot below is the result of running the t-SNE algorithm on DODF's datasets, resulting in 2D and 3D visualizations of the documents."),
-                        html.H6("Official publications such as the Diario Oficial do Distrito Federal (DODF) are sources of information on all official government acts. Although these documents are rich in knowledge, analysing these texts manually by specialists is a complex and unfeasible task considering the growing volume of documents, the result of the frequent number of publications in the Distrito Federal Government's (GDF) communication vehicle."),
-                        html.H6("DODF Explorer aims to facilitate the visualization of such information using unsupervised machine learning methods and data visualization techniques. This is one of the tools developed by the KnEDLe Project. To learn more about us, click on 'Learn More' below.")
-                    ]),
                     html.Div(
-                        html.Button(id="learn-more-button", children=[
-                            html.A("Learn More", href='https://unb-knedle.github.io/', target="_blank")
-                            ])
-                    ),
+                        id="description-text",
+                        children=[
+                            html.H4(
+                                # className="three columns",
+                                style={"text-align": "center"},
+                                children=["About Us"],
+                                id="about-title"
+                            ),
+                            html.Div(id="about-content",
+                            children=[
+                                html.H6("The scatter plot below is the result of running the t-SNE algorithm on DODF's datasets, resulting in 2D and 3D visualizations of the documents."),
+                                html.H6("Official publications such as the Diario Oficial do Distrito Federal (DODF) are sources of information on all official government acts. Although these documents are rich in knowledge, analysing these texts manually by specialists is a complex and unfeasible task considering the growing volume of documents, the result of the frequent number of publications in the Distrito Federal Government's (GDF) communication vehicle."),
+                                html.H6("DODF Explorer aims to facilitate the visualization of such information using unsupervised machine learning methods and data visualization techniques. This is one of the tools developed by the KnEDLe Project. To learn more about us, click on 'Learn More' below.")
+                            ]),
+                            html.Br(),
+                            html.A("Learn More", href='https://unb-knedle.github.io/', target="_blank", id="learn-more-button"),
+                        ]),
                     html.Hr(),
                 ],
             ),
-
+            #GRAPH
             html.Div(
                 className="row background",
                 id="menu-huge",
                 children=[
-                    html.H4(
-                        # className="three columns",
-                        style={"text-align": "center"},
-                        children=["Explore our datasets!"],
-                    ),
+                    #html.H4(style={"text-align": "center", "margin-top": "15px"},children=["Explore our datasets!"],),
                     # Body
                     html.Div(
                         className="row background",
@@ -156,12 +128,12 @@ def create_layout(app):
                                         style={"padding": "5px 20px 0 0",},
                                         children=[
                                             html.Div(
-                                                className="three columns",
-                                                style={"display": "grid", #Esse elemento alinha os itens em grade
-                                                    "grid-template-columns": "repeat(3, auto)", 
-                                                    "place-items": "start",
+                                                
+                                                style={"display": "grid", 
+                                                    "grid-template-columns": "150px 200px 350px"
                                                 },
                                                 children=[
+                                                    html.Label(style={"display": "grid", "place-items": "center"}, children=["Select a Dataset: "]),
                                                     Card(
                                                         [
                                                             dcc.Dropdown(
@@ -171,7 +143,7 @@ def create_layout(app):
                                                                 options=[
                                                                     {
                                                                         "label": "DODF",
-                                                                        "value": "DODF", #se mudar o csv para dodf, mudar aqui
+                                                                        "value": "DODF",
                                                                     },
                                                                     {
                                                                         "label": "DODF - Aposentadoria",
@@ -188,45 +160,44 @@ def create_layout(app):
                                                                 ],
                                                                 placeholder="Select a dataset",
                                                                 value="DODF",
-                                                            )
-                                                        ]
-                                                    ),
-                                                    Card(
-                                                        [
-                                                            dcc.Dropdown(
-                                                                id="dropdown-dimension",
-                                                                searchable=False,
-                                                                clearable=False,
-                                                                options=[
-                                                                    {
-                                                                        "label": "Bidimensional (2D)",
-                                                                        "value": "2D", #se mudar o csv para dodf, mudar aqui
-                                                                    },
-                                                                    {
-                                                                        "label": "Tridimensional (3D)",
-                                                                        "value": "3D", #se mudar o csv para dodf, mudar aqui
-                                                                    },
-                                                                ],
-                                                                placeholder="Select a dimensionality",
-                                                                value="2D",
-                                                            ),
+                                                            ),   
                                                         ]
                                                     ),
                                                     
-                                                    #html.Button(id="tutorial-button", children=["Need help?"])
+                                                    html.Div(
+                                                        id="segmentos-controls",
+                                                        style={"display": "none", "grid-template-columns": "150px 200px" },
+                                                        children=[
+                                                                html.Label(style={"display": "grid", "place-items": "center"}, children=["Select a year: "]),
+                                                            Card(                                                            
+                                                                dcc.Dropdown(
+                                                                    id="dropdown-segmentos",
+                                                                    searchable=False,
+                                                                    clearable=False,
+                                                                    options=[
+                                                                        {
+                                                                            "label": "Todos",
+                                                                            "value": "todos",
+                                                                        },
+                                                                    ],
+                                                                    placeholder="Select a year",
+                                                                    value="todos",
+                                                                ),                                                           
+                                                            ),
+                                                        ],
+                                                    )
                                                 ],
                                             ),
                                         ],
                                     ),
-                                    
-                                    dcc.Graph(id="graph-3d-plot-tsne", style={"height": "92vh"})
-                                ],
+                                    dcc.Graph(id="graph-3d-plot-tsne", style={"height": "92vh", "width": "115vh"})
+                                ],                               
                             ),
                             html.Div(
-                                className="six columns",
+                                className="four columns",
                                 id="circos-control-tabs",
                                 children=[
-                                    dcc.Tabs(id='circos-tabs', value='what-is', children=[                                       
+                                    dcc.Tabs(id='circos-tabs', value='data', children=[                                       
 
                                         dcc.Tab(
                                             label='Dataset',
@@ -247,7 +218,7 @@ def create_layout(app):
                                             children=html.Div(className='control-tab', children=[
                                                 Card(
                                                     style={"padding": "5px"},
-                                                    children=[
+                                                    children=[                                                    
                                                         html.Div(id="legenda"),
                                                     ],
                                                 )
@@ -266,29 +237,35 @@ def create_layout(app):
                                                 )
                                             ]),
                                         ),
-
                                     ])
-                                ]),       
-                            
+                                ]
+                            ), 
                         ],
                     ),
+                                    
                 ]
             )
         ],
     )
 
 def demo_callbacks(app):
-    def generate_figure_TSNE(df, dimension):
-        if dimension == '2D':
-            figure = px.scatter(df, x='x', y='y', color = 'int_label', size = 'size', size_max = 5)
-            
-        
-        elif dimension == '3D':
-            figure = px.scatter_3d(df, x='x', y='y', z='z', color = 'int_label', size = 'size', size_max = 10)
-            figure.update_traces(marker=dict(size=5,
-                              line=dict(width=2,
-                                        color='DarkSlateGrey')),
-                  selector=dict(mode='markers'))
+    def generate_figure_TSNE(df):
+        figure = px.scatter(df, x='x', y='y',color = 'int_label', color_discrete_sequence=px.colors.sequential.Plasma)
+
+        figure.update_traces(marker=dict(line=dict(width=1,color='white')),)
+        #figure.update_layout(showlegend=False)
+        figure.update_layout(legend=dict(
+                                orientation="v",
+                                yanchor="bottom",
+                                y=0,
+                                xanchor="left",
+                                x=1,
+                                title = dict(text="Legenda", font = dict(family="Arial", size =22), side = "top"),
+                                valign = "top",
+                                itemclick = "toggleothers"
+                            ),
+                             margin = dict(l=40, r= 40, t = 50, b =40))
+
         return figure
 
     @app.callback(
@@ -565,76 +542,182 @@ def demo_callbacks(app):
             
         return contents
 
-
+    @app.callback(
+        Output("segmentos-controls", "style"),
+        [
+            Input("dropdown-dataset", "value")
+        ],
+    )
+    def display_control_segmentos(dataset):
+        if dataset != "DODF":
+            return {"display": "grid", "grid-template-columns": "150px 200px"}
+        else:
+            return {"display": "none"}
+    
+    @app.callback(
+        Output("dropdown-segmentos", "options"),
+        [
+            Input("dropdown-dataset", "value")
+        ],
+    )
+    def display_segmentos(dataset):
+        options = []
+        if dataset == "DODF_Aposentadoria":
+            options = [
+                {"label": "Todos","value": "todos",},
+                {"label": "2018","value": "2018",},
+                {"label": "2019","value": "2019",}
+            ]
+                                                                        
+            
+        elif dataset == "DODF_Editais":
+            options = [
+                {"label": "Todos","value": "todos",},
+                {"label": "2013","value": "2013",},
+                {"label": "2014","value": "2014",},
+                {"label": "2015","value": "2015",},
+                {"label": "2016","value": "2016",},
+                {"label": "2017","value": "2017",},
+                {"label": "2018","value": "2018",},
+                {"label": "2019","value": "2019",},
+                {"label": "2020","value": "2020",},
+                {"label": "Ano não mencionado","value": "outros",}
+            ]
+            
+        elif dataset == "DODF_Exoneracoes":
+            options = [
+                {"label": "Todos","value": "todos",},
+                {"label": "2010","value": "2010",},
+                {"label": "2011","value": "2011",},
+                {"label": "2012","value": "2012",},
+                {"label": "2013","value": "2013",},
+                {"label": "2014","value": "2014",},
+                {"label": "2015","value": "2015",},
+                {"label": "2016","value": "2016",},
+                {"label": "2017","value": "2017",},
+                {"label": "2018","value": "2018",},
+                {"label": "2019","value": "2019",},
+                {"label": "2020","value": "2020",},
+            ]
+        return options
 
     @app.callback(
         Output("graph-3d-plot-tsne", "figure"),
         [
-            Input("dropdown-dataset", "value"),Input("dropdown-dimension", "value")
+            Input("dropdown-dataset", "value"), Input("dropdown-segmentos", "value")
         ],
     )
-    def display_3d_scatter_plot(dataset, dimension):
+    def display_scatter_plot(dataset,segmentos):
         if dataset:
-
+            if dataset == "DODF_Aposentadoria":
+                if segmentos == "todos":
+                    data = data_dict['Aposentadoria']['DODF_Aposentadoria2D']
+                    df = pd.DataFrame(data)
+                elif segmentos == "2018":
+                    data = data_dict['Aposentadoria']['DODF_Aposentadoria2018']
+                    df = pd.DataFrame(data)
+                elif segmentos == "2019":
+                    data = data_dict['Aposentadoria']['DODF_Aposentadoria2019']
+                    df = pd.DataFrame(data)
+           
+            elif dataset == "DODF_Editais":
+                if segmentos == "todos":
+                    data = data_dict['Editais']['DODF_Editais2D']
+                    df = pd.DataFrame(data)
+                elif segmentos == "2013":
+                    data = data_dict['Editais']['DODF_Editais2013']
+                    df = pd.DataFrame(data)
+                elif segmentos == "2014":
+                    data = data_dict['Editais']['DODF_Editais2014']
+                    df = pd.DataFrame(data)
+                elif segmentos == "2015":
+                    data = data_dict['Editais']['DODF_Editais2015']
+                    df = pd.DataFrame(data)
+                elif segmentos == "2016":
+                    data = data_dict['Editais']['DODF_Editais2016']
+                    df = pd.DataFrame(data)
+                elif segmentos == "2017":
+                    data = data_dict['Editais']['DODF_Editais2017']
+                    df = pd.DataFrame(data)
+                elif segmentos == "2018":
+                    data = data_dict['Editais']['DODF_Editais2018']
+                    df = pd.DataFrame(data)
+                elif segmentos == "2019":
+                    data = data_dict['Editais']['DODF_Editais2019']
+                    df = pd.DataFrame(data)
+                elif segmentos == "2020":
+                    data = data_dict['Editais']['DODF_Editais2020']
+                    df = pd.DataFrame(data)
+                elif segmentos == "outros":
+                    data = data_dict['Editais']['DODF_Editaisoutros']
+                    df = pd.DataFrame(data)
             
-            if dataset == "DODF" and dimension == '2D':
+            elif dataset == "DODF_Exoneracoes" :
+                if segmentos == "todos":
+                    data = data_dict['Exoneracoes']['DODF_Exoneracoes2D']
+                    df = pd.DataFrame(data)
+                elif segmentos == "2010":
+                    data = data_dict['Exoneracoes']['DODF_Exoneracoes2010']
+                    df = pd.DataFrame(data)
+                elif segmentos == "2011":
+                    data = data_dict['Exoneracoes']['DODF_Exoneracoes2011']
+                    df = pd.DataFrame(data)
+                elif segmentos == "2012":
+                    data = data_dict['Exoneracoes']['DODF_Exoneracoes2012']
+                    df = pd.DataFrame(data)
+                elif segmentos == "2013":
+                    data = data_dict['Exoneracoes']['DODF_Exoneracoes2013']
+                    df = pd.DataFrame(data)
+                elif segmentos == "2014":
+                    data = data_dict['Exoneracoes']['DODF_Exoneracoes2014']
+                    df = pd.DataFrame(data)
+                elif segmentos == "2015":
+                    data = data_dict['Exoneracoes']['DODF_Exoneracoes2015']
+                    df = pd.DataFrame(data)
+                elif segmentos == "2016":
+                    data = data_dict['Exoneracoes']['DODF_Exoneracoes2016']
+                    df = pd.DataFrame(data)
+                elif segmentos == "2017":
+                    data = data_dict['Exoneracoes']['DODF_Exoneracoes2017']
+                    df = pd.DataFrame(data)
+                elif segmentos == "2018":
+                    data = data_dict['Exoneracoes']['DODF_Exoneracoes2018']
+                    df = pd.DataFrame(data)
+                elif segmentos == "2019":
+                    data = data_dict['Exoneracoes']['DODF_Exoneracoes2019']
+                    df = pd.DataFrame(data)
+                elif segmentos == "2020":
+                    data = data_dict['Exoneracoes']['DODF_Exoneracoes2020']
+                    df = pd.DataFrame(data)
+                
+                
+
+            else:
                 data = data_dict['DODF2D']
                 df = pd.DataFrame(data)
-            elif dataset == "DODF_Aposentadoria" and dimension == '2D':
-                data = data_dict['DODF_Aposentadoria2D']
-                df = pd.DataFrame(data)
-            elif dataset == "DODF_Aposentadoria" and dimension == '3D':
-                data = data_dict['DODF_Aposentadoria3D']
-                df = pd.DataFrame(data)
-            elif dataset == "DODF_Editais" and dimension == '2D':
-                data = data_dict['DODF_Editais2D']
-                df = pd.DataFrame(data)
-            elif dataset == "DODF_Editais" and dimension == '3D':
-                data = data_dict['DODF_Editais3D']
-                df = pd.DataFrame(data)
-            elif dataset == "DODF_Exoneracoes" and dimension == '2D':
-                data = data_dict['DODF_Exoneracoes2D']
-                df = pd.DataFrame(data)
-            elif dataset == "DODF_Exoneracoes" and dimension == '3D':
-                data = data_dict['DODF_Exoneracoes3D']
-                df = pd.DataFrame(data)
-            else:
-                data = data_dict['DODF3D']
-                df = pd.DataFrame(data)
-
                 
-            figure = generate_figure_TSNE(df, dimension) 
+            figure = generate_figure_TSNE(df) 
 
             return figure
     
     @app.callback(
-    Output("div-plot-click-data", "children"), [Input("graph-3d-plot-tsne", "clickData"),Input("dropdown-dataset", "value"),Input("dropdown-dimension", "value"),]
+    Output("div-plot-click-data", "children"), [Input("graph-3d-plot-tsne", "clickData"),Input("dropdown-dataset", "value"),]
     )
-    def display_nodedata(clickData,dataset,dimension):  
-
-        if dataset == "DODF" and dimension == '2D':
-            data = data_dict['DODF2D']
-            df = pd.DataFrame(data)
-        elif dataset == "DODF_Aposentadoria" and dimension == '3D':
-            data = data_dict['DODF_Aposentadoria3D']
+    def display_nodedata(clickData,dataset):  
+ 
+        if dataset == "DODF_Aposentadoria":
+            data = data_dict['Aposentadoria']['DODF_Aposentadoria2D']
             df = pd.DataFrame(data)  
-        elif dataset == "DODF_Aposentadoria" and dimension == '2D':
-            data = data_dict['DODF_Aposentadoria2D']
+        
+        elif dataset == "DODF_Editais":
+            data = data_dict['Editais']['DODF_Editais2D']
             df = pd.DataFrame(data)  
-        elif dataset == "DODF_Editais" and dimension == '3D':
-            data = data_dict['DODF_Editais3D']
-            df = pd.DataFrame(data)  
-        elif dataset == "DODF_Editais" and dimension == '2D':
-            data = data_dict['DODF_Editais2D']
-            df = pd.DataFrame(data)  
-        elif dataset == "DODF_Exoneracoes" and dimension == '3D':
-            data = data_dict['DODF_Exoneracoes3D']
-            df = pd.DataFrame(data)  
-        elif dataset == "DODF_Exoneracoes" and dimension == '2D':
-            data = data_dict['DODF_Exoneracoes2D']
+         
+        elif dataset == "DODF_Exoneracoes":
+            data = data_dict['Exoneracoes']['DODF_Exoneracoes2D']
             df = pd.DataFrame(data)  
         else:
-            data = data_dict['DODF3D']
+            data = data_dict['DODF2D']
             df = pd.DataFrame(data)
 
         contents = []
@@ -658,18 +741,11 @@ def demo_callbacks(app):
         )
 
         if clickData:
-            if dimension == '2D':
-                XY = {}
-                XY['x'] = clickData["points"][0]['x']
-                XY['y'] = clickData["points"][0]['y']
-                achar_indice = (df.loc[:, "x":"y"].eq(XY).all(axis=1))
             
-            elif dimension == '3D':
-                XYZ = {}
-                XYZ['x'] = clickData["points"][0]['x']
-                XYZ['y'] = clickData["points"][0]['y']
-                XYZ['z'] = clickData["points"][0]['z']
-                achar_indice = (df.loc[:, "x":"z"].eq(XYZ).all(axis=1))
+            XY = {}
+            XY['x'] = clickData["points"][0]['x']
+            XY['y'] = clickData["points"][0]['y']
+            achar_indice = (df.loc[:, "x":"y"].eq(XY).all(axis=1))
             
             # Retrieve the index of the point clicked, given it is present in the set
             if achar_indice.any():
@@ -828,11 +904,10 @@ def demo_callbacks(app):
                 else: 
                     
                     conteudo = df['conteudo'][clicked_idx]
-
                     contents.append(html.H5(label))
                     contents.append(html.P(conteudo))
 
-            else:
+            else: 
                 contents = []
                 contents.append(
                     html.Div(

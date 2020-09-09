@@ -1,26 +1,49 @@
 /* New style sheet for the refreshed demo app */
+
+html {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
 body {
+  padding: 0px !important;
+  margin: 0px !important;
   background-color: #f2f3f4;
+  font-size: 1.5em;
+  /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Arimo", "Helvetica Light", "Helvetica Neue", Helvetica, "Helvetica 55 Roman";
+  color: #6c7182;
 }
 
 .header {
   padding: 15px 35px;
-  
+}
+
+#app-title {
+  text-align: right;
+  font-family: "Times New Roman";
+  line-height: 1;
+  margin: 0 !important;
+}
+
+#app-header {
+  background-color: #1F2132;
+  height: 3.25em;
+  display: grid;
+  place-items: center;
+  grid-template-columns: auto auto;
+  justify-content: space-between
 }
 
 .header_img {
   float: left;
 }
 
-.header_title_container {
-  float: right;
-}
-
 .header_title {
-  font-family: "Times New Roman";
   color: #6c7182;
-  text-align: right;
-  margin: 0 !important;
+  margin: 0;
 }
 
 .logo {
@@ -34,48 +57,8 @@ body {
   padding: 0px 0px;
 }
 
-.rc-slider-track {
-  position: absolute;
-  left: 0;
-  height: 4px;
-  border-radius: 6px;
-  background-color: #3266c1 !important;
-}
-.rc-slider-dot-active {
-  border-color: #3266c1 !important;
-}
-
-.rc-slider-handle {
-  position: absolute;
-  margin-left: -7px;
-  margin-top: -5px;
-  width: 14px;
-  height: 14px;
-  cursor: pointer;
-  border-radius: 50%;
-  border: solid 2px #3266c1 !important;
-  background-color: #fff;
-}
-.rc-slider-step {
-  position: absolute;
-  width: 100%;
-  height: 4px;
-  background: transparent;
-  border-color: #3266c1 !important;
-}
-
-.Select-control {
-  background-color: #f2f3f4;
-  border-radius: 4px;
-  display: table;
-  border-spacing: 0;
-  border-collapse: separate;
-  height: 36px;
-  overflow: hidden;
-}
-
-.js-plotly-plot .plotly .modebar-group {
-  background-color: #f2f3f4 !important;
+.select-arrow-zone {
+  color: white;
 }
 
 .card-style {
@@ -85,54 +68,26 @@ body {
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  
 }
 
-body {
-  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
-  line-height: 1.6;
-  font-weight: 400;
-  font-family: "Arimo", "Helvetica Light", "Helvetica Neue", Helvetica,
-    "Helvetica 55 Roman";
-  color: #6c7182;
-}
-
-#demo-explanation > div > div:nth-child(2) > div > p:nth-child(11) > img {
-  width: 40%;
-}
-
-
-#menu  {
+#menu {
   height: auto;
   padding: 0%;
 }
 
-#graph-3d-plot-tsne{
+#graph-3d-plot-tsne {
   height: 100vh;
 }
 
-#graph-3d-plot-tsne > div > div > svg:nth-child(1) {
+#graph-3d-plot-tsne>div>div>svg:nth-child(1) {
   background-color: #f2f3f4 !important;
 }
 
-#graph-3d-plot-tsne > div > div > svg:nth-child(1) > g.bglayer > rect {
+#graph-3d-plot-tsne>div>div>svg:nth-child(1)>g.bglayer>rect {
   fill: #f2f3f4 !important;
 }
 
-#graph-bar-nearest-neighbors-word > div > div > svg:nth-child(1) {
-  background-color: #f2f3f4 !important;
-}
-
-#graph-bar-nearest-neighbors-word
-  > div
-  > div
-  > svg:nth-child(1)
-  > g.bglayer
-  > rect {
-  fill: #f2f3f4 !important;
-}
-
-#graph-3d-plot-tsne > div > div > svg:nth-child(1) > g.bglayer > rect {
+#graph-3d-plot-tsne>div>div>svg:nth-child(1)>g.bglayer>rect {
   fill: #f2f3f4;
   fill-opacity: 1;
   stroke-width: 0;
@@ -142,31 +97,38 @@ body {
   color: #6c7182;
 }
 
-#graph-3d-plot-tsne
-  > div
-  > div
-  > svg:nth-child(3)
-  > g.infolayer
-  > g.legend
-  > rect.bg {
+#graph-3d-plot-tsne>div>div>svg:nth-child(3)>g.infolayer>g.legend>rect.bg {
   stroke: #6c7182 !important;
   fill: #f2f3f4 !important;
 }
 
-#demo-explanation {
-  text-align: center;
-  align-content: center;
-  margin-left: 10%;
-  margin-right: 10%;
+#about-button {
+  margin-right: 20px;
+  padding: 5px;
+  padding-top: 0px;
+  color: #6c7182;
 }
 
-#demo-explanation #learn-more-button {
+#demo-explanation {
+  display: none;
+  text-align: center;
+  align-content: center;
+  margin: 0 10%;
   text-transform: none;
   font-size: 14px;
   font-weight: 400;
   border-radius: 0px;
   letter-spacing: 0;
-  padding: 0px 15px;
+  padding: 50px 45px 0px 45px;
+}
+
+#learn-more-button {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  background-color: #1F2132;
+  padding: 15px;
 }
 
 /* ---Different Screen Sizes--- */
@@ -176,64 +138,61 @@ body {
     float: none;
     width: 90%;
   }
-
   .three.columns {
     margin: auto;
     width: 75%;
   }
-
   .four.columns {
     margin: auto;
     width: 90%;
   }
-
   .six.columns {
     margin: 10% 10%;
     width: auto;
   }
-
   .nine.columns {
     float: left;
     margin: 0;
     width: 100%;
   }
-
   background {
     width: 100%;
   }
-
-  #app-header{
-    background-color: #0f2f58;
+  #app-header {
+    background-color: #1F2132;
   }
- 
   #app-title {
-    text-align: center;
+    text-align: right;
+    font-family: "Times New Roman";
+    line-height: 1
   }
+
+#dropdown-dataset {
+  
+}
 
   #plotly-image {
     height: 50px;
   }
-
   .header_img {
     float: left;
     margin: 0;
   }
-
   #demo-explanation {
     text-align: center;
     padding-right: 0 !important;
   }
-
-  #demo-explanation > div > div:nth-child(1) {
+  #demo-explanation>div>div:nth-child(1) {
     padding-right: 7%;
   }
-  #demo-explanation > div:nth-child(2) {
+  #demo-explanation>div:nth-child(2) {
     padding-right: 15%;
   }
-  #demo-explanation > div > div:nth-child(3) {
+  #demo-explanation>div>div:nth-child(3) {
     padding-right: 15%;
   }
 }
+
 @media only screen and (max-width: 550px) {
   #plotly-image {
     height: 45px;
@@ -252,12 +211,13 @@ body {
 }
 
 #circos-control-tabs ::-webkit-scrollbar {
-  background-color: rgb(252, 252, 252) !important;
+  background-color: rgb(252,  252, 252) !important;
   width: 10px;
   margin: 5px;
 }
+
 #circos-control-tabs ::-webkit-scrollbar-thumb {
-  background-color: #0f2f58 !important;
+  background-color: #fff !important;
   width: 10px;
 }
 
@@ -298,23 +258,23 @@ body {
 #circos-control-tabs {
   height: 98vh;
   overflow-y: hidden;
-  /* margin: 50px; */
   margin-right: 0px;
   margin-left: 20px;
   background-color: rgb(255, 255, 255) !important;
   font-size: 10pt;
-  float: left;
+  float: right;
 }
 
 .circos-tabs {
   height: 460px;
-  
   padding-right: 15px;
 }
+
 .circos-controls {
   width: 100%;
   overflow: auto;
 }
+
 #circos-control-tabs .tab {
   background-color: #262B3D !important;
   color: #E2EFFA !important;
@@ -333,48 +293,6 @@ body {
   margin-left: 50px;
 }
 
-#circos-body .rc-slider-rail {
-  background-color: #1F2132;
-}
-#circos-body .rc-slider-track {
-  background-color: #7CD3F7;
-}
-#circos-body .rc-slider-handle {
-  border-color: #7CD3F7;
-  background-color: #1F2132;
-}
-#circos-body .rc-slider {
-  margin-right: 2px;
-  margin-top: 15px;
-  margin-bottom: 10px;
-  float: right;
-  display: inline-block;
-  vertical-align: middle;
-  width: calc(100% - 5px);
-}
-#circos-tabs-orig {
-  display: none;
-}
-
-#circos-tabs-orig-parent {
-  display: none;
-}
-#circos-control-tabs .Select-value-icon {
-  background-color: #232323;
-}
-
-#circos-control-tabs .Select-control, #circos-control-tabs .Select-menu-outer {
-  border: solid 1px #545454;
-  background-color: #262b3d !important;
-  width: 140px !important;
-}
-#circos-control-tabs span.Select-value-label {
-  color: #E2EFFA !important;
-}
-#circos-control-tabs .Select-input {
-  padding: 0px;
-}
-
 menu #dropdown-dataset {
   text-transform: none;
   font-size: 14px;
@@ -383,22 +301,14 @@ menu #dropdown-dataset {
   letter-spacing: 0;
   padding: 0px 15px;
   background-color: #232323;
- 
 }
 
-#menu-huge #menu #dropdown-dimension {
-  text-transform: none;
-  font-size: 14px;
-  font-weight: 400;
-  border-radius: 0px;
-  letter-spacing: 0;
-  
-}
-
-#tutorial-button {
-  height: 36px;
-  padding: 0 10px;
-  width: 100%;
-  text-align: left;
+#circos-control-tabs ::-webkit-scrollbar {
+  background-color: rgb(252, 252, 252) !important;
+  width: 10px;
   margin: 5px;
+}
+#circos-control-tabs ::-webkit-scrollbar-thumb {
+  background-color: #0f2f58 !important;
+  width: 10px;
 }
