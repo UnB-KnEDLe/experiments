@@ -124,7 +124,7 @@ def get_par_text(doc, min_linebreak=1, min_parlen=40):
 
 if __name__ == '__main__':
 
-    fpath = 'pdf/DODF 081 30-04-2020 INTEGRA.pdf'
+    fpath = 'DODF 081 30-04-2020 INTEGRA.pdf'
     print(
         "Exemplo de segmentação de texto por meio de heurísticas.\n"
         f"Aquivo-base: {fpath}\n"
@@ -154,9 +154,10 @@ if __name__ == '__main__':
         for sp in l:
             page = doc[sp['page']//2]  # voltando ao valor original
             page.drawRect( sp['bbox'], color=color, width=1)
-    doc.save('pdf/par_spans_filtered.pdf')
+    dest = fpath[:-4] + '_par_spans_filtered.pdf'
+    doc.save(dest)
     print(acc)
-    print("Arquivo-destino-spans_sorted: pdf/par_spans_filtered.pdf")
+    print(f"Arquivo-destino-spans_sorted: {dest}")
     
     # Sanity check
     ps=get_par_text(doc)
@@ -170,8 +171,9 @@ if __name__ == '__main__':
         for sp in l:
             page = doc[sp['page']//2]
             page.drawRect( sp['bbox'], color=color, width=1)
-    doc.save('pdf/par_lines2.pdf')
-    print("Arquivo-destino-linhas: pdf/par_lines2.pdf")
+    dest = fpath[:-4] + '_par_lines2.pdf'
+    doc.save(dest)
+    print(f"Arquivo-destino-linhas: {dest}")
 
 
     doc = fitz.open(fpath)
@@ -181,5 +183,6 @@ if __name__ == '__main__':
         for sp in l:
             page = doc[sp['page']//2]  # voltando ao valor original
             page.drawRect( sp['bbox'], color=color, width=1)
-    doc.save('pdf/par_spans2.pdf')
-    print("Arquivo-destino-spans_groupedbypar: pdf/par_spans2.pdf")
+    dest = fpath[:-4] + '_par_spans2.pdf'
+    doc.save(dest)
+    print(f"Arquivo-destino-spans_groupedbypar: {dest}")

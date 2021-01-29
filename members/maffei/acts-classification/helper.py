@@ -8,14 +8,6 @@ import nltk
 import spacy
 
 
-def _build_act_txt(acts, name, save_path="./results/"):
-    if len(acts) > 0:
-        file = open(f"{save_path}{name}.txt", "a") 
-        for act in acts:
-            file.write(act)
-            file.write("\n\n\n")
-        file.close
-
 
 sent_tokenizer = nltk.data.load('tokenizers/punkt/portuguese.pickle')
 nlp = spacy.load('pt_core_news_sm')
