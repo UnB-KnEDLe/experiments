@@ -1,0 +1,17 @@
+{
+    "data": [
+        ["Bolsonaro foi eleito presidente do Brasil em 2020.",
+         "Bolsonaro",
+         "presidente do Brasil",
+         "Brasil",
+         "2020"
+        ]
+    ],
+    "columns":[
+        "Texto",
+        "Nome",
+        "Cargo",
+        "Local",
+        "Ano"
+    ]
+}

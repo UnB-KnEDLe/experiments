@@ -1,0 +1,1 @@
+ curl -K inference_config.sh -d @inference_data.json 

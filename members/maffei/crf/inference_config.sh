@@ -1,0 +1,5 @@
+# url = "localhost:81"
+url = "http://127.0.0.1:1234/invocations"
+header = "Content-Type: application/json"
+header = "format=pandas-split"
+request = "POST"
