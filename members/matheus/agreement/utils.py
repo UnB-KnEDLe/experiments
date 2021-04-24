@@ -43,7 +43,9 @@ def get_csv(path_xmls, name_csv="agreement.csv"):
         writer.writerow(['id_dodf', 'tipo_rel', 'id_rel',
                         'anotador_rel', 'tipo_ent', 'id_ent',
                         'anotador_ent', 'offset', 'length', 'texto'])
-        
+    
+    # para filtro de duplicatas inicial
+    duplicate_filter = {}
     # abre csv para escrita em modo append
     with open(name_csv, 'a') as csvfile:
         writer = csv.writer(csvfile, delimiter=',')
@@ -97,10 +99,18 @@ def get_csv(path_xmls, name_csv="agreement.csv"):
                             for info in anno.findall('text'):
                                 texto = info.text
                                 #print(texto)
-                            # escreve linha no csv
-                            writer.writerow([id_dodf_text, tipoRel, id_rel,
-                                             annotatorRel, tipoAnno, id_anno,
-                                             annotatorAnno, offset, length, texto])
+                            
+                            # filtro de duplicatas inicial
+                            chave = id_dodf_text + '__' + offset + '__' + id_rel
+                            data_tuple = (tipoRel, annotatorAnno, annotatorRel,
+                                          tipoAnno, id_anno, length, texto)
+
+                            if chave not in duplicate_filter.keys():
+                                duplicate_filter[chave] = data_tuple
+                                # escreve linha no csv
+                                writer.writerow([id_dodf_text, tipoRel, id_rel,
+                                                annotatorRel, tipoAnno, id_anno,
+                                                annotatorAnno, offset, length, texto])
 
     path = abspath(name_csv)
     return path
