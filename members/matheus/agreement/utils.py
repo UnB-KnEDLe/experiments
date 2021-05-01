@@ -8,7 +8,7 @@ from math import floor, ceil
 from gensim.models import Word2Vec
 import krippendorff
 
-def get_csv(path_xmls, name_csv="agreement.csv"):
+def get_csv(path_xmls, name_csv="agreement.csv", iter_over_anno=False):
     """Gets a list of xmls and returns a csv file
 
     Parameters
@@ -18,6 +18,11 @@ def get_csv(path_xmls, name_csv="agreement.csv"):
     
     name_csv : str
         Desired name for the output CSV file
+    
+    iter_over_anno : boolean
+        Set if the user want to iterate over the relation ids and then
+        find the annotation ids (default) or want to iterate directly
+        over the annotation ids
 
     Returns
     -------
@@ -37,76 +42,124 @@ def get_csv(path_xmls, name_csv="agreement.csv"):
         root = tree.getroot()
         roots.append(root)
     
-    # abre csv para escrita de headers
-    with open(name_csv, 'w') as csvfile:
-        writer = csv.writer(csvfile, delimiter=',')
-        writer.writerow(['id_dodf', 'tipo_rel', 'id_rel',
-                        'anotador_rel', 'tipo_ent', 'id_ent',
-                        'anotador_ent', 'offset', 'length', 'texto'])
-    
-    # para filtro de duplicatas inicial
-    duplicate_filter = {}
-    # abre csv para escrita em modo append
-    with open(name_csv, 'a') as csvfile:
-        writer = csv.writer(csvfile, delimiter=',')
-        
-        # itera na lista de roots
-        for root in roots:
-            # coleta id do dodf
-            id_dodf = root.find("./document/id")
-            id_dodf_text = id_dodf.text
-            # cria lista de ids de relações
-            ids_rel = []
-            for rel in root.findall("./document/passage/relation"):
-                id_rel = rel.get('id')
-                ids_rel.append(id_rel)
-                # coleta tipo e anotador da relação
-                for info in rel.findall('infon'):
-                    if info.get('key') == 'type':
-                        tipoRel = info.text
-                        #print(tipoRel)
-                    elif info.get('key') == 'annotator':
-                        annotatorRel = info.text
-                        #print(annotatorRel)
-                # cria lista de ids de anotações
-                ids_anno = []
-                for info in rel.findall('node'):
-                    id_anno = info.get('refid')
-                    ids_anno.append(id_anno)
-                #print(ids_anno)
-                # loop na lista de ids
-                for id_anno in ids_anno:
-                    # encontra e itera sobre todos os elementos annotation do xml
-                    for anno in root.findall("./document/passage/annotation"):
-                        # para cada anotação definida por um id, coleta o tipo,
-                        # anotador, offset, length e texto
-                        if anno.get('id') == id_anno:
-                            # encontra tipo e anotador
-                            for info in anno.findall('infon'):
-                                if info.get('key') == 'type':
-                                    tipoAnno = info.text
-                                    #print(tipoAnno)
-                                elif info.get('key') == 'annotator':
-                                    annotatorAnno = info.text
-                                    #print(annotatorAnno)
-                            # encontra offset e length
-                            for info in anno.findall('location'):
-                                offset = info.get('offset')
-                                #print(offset)
-                                length = info.get('length')
-                                #print(length)
-                            # encontra texto
-                            for info in anno.findall('text'):
-                                texto = info.text
-                                #print(texto)
-                            
-                            # filtro de duplicatas inicial
-                            chave = id_dodf_text + '__' + offset + '__' + id_rel
-                            data_tuple = (tipoRel, annotatorAnno, annotatorRel,
-                                          tipoAnno, id_anno, length, texto)
+    if iter_over_anno:
+        # abre csv para escrita de headers
+        with open(name_csv, 'w') as csvfile:
+            writer = csv.writer(csvfile, delimiter=',')
+            writer.writerow(['id_dodf', 'tipo_ent', 'id_ent',
+                            'anotador_ent', 'offset', 'length', 'texto'])
 
-                            if chave not in duplicate_filter.keys():
-                                duplicate_filter[chave] = data_tuple
+        # abre csv para escrita em modo append
+        with open(name_csv, 'a') as csvfile:
+            writer = csv.writer(csvfile, delimiter=',')
+            # itera sobre lista de roots dos xmls
+            for root in roots:
+                # coleta id do dodf
+                id_dodf = root.find("./document/id")
+                id_dodf_text = id_dodf.text
+                # cria lista de ids
+                for anno in root.findall("./document/passage/annotation"):
+                    ids = []
+                    id = anno.get('id')
+                    ids.append(id)
+
+                    # loop na lista de ids
+                    for i in ids:
+                        # encontra e itera sobre todos os elementos annotation do xml
+                        for anno in root.findall("./document/passage/annotation"):
+                            # para cada anotação definida por um id, pegue o tipo e o texto do ato
+                            if anno.get('id') == i:
+                                # encontra tipo e anotador
+                                for info in anno.findall('infon'):
+                                    if info.get('key') == 'type':
+                                        tipoAnno = info.text
+                                        #print(tipoAnno)
+                                    elif info.get('key') == 'annotator':
+                                        annotatorAnno = info.text
+                                        #print(annotatorAnno)
+                                # encontra offset e length
+                                for info in anno.findall('location'):
+                                    offset = info.get('offset')
+                                    #print(offset)
+                                    length = info.get('length')
+                                    #print(length)
+                                # encontra texto
+                                for info in anno.findall('text'):
+                                    texto = info.text
+                                    #print(texto)
+                                writer.writerow([id_dodf_text, tipoAnno, i,
+                                                annotatorAnno, offset, length, texto])
+    else:
+        # abre csv para escrita de headers
+        with open(name_csv, 'w') as csvfile:
+            writer = csv.writer(csvfile, delimiter=',')
+            writer.writerow(['id_dodf', 'tipo_rel', 'id_rel',
+                            'anotador_rel', 'tipo_ent', 'id_ent',
+                            'anotador_ent', 'offset', 'length', 'texto'])
+
+        # para filtro de duplicatas inicial
+        duplicate_filter = {}
+        # abre csv para escrita em modo append
+        with open(name_csv, 'a') as csvfile:
+            writer = csv.writer(csvfile, delimiter=',')
+            
+            # itera na lista de roots
+            for root in roots:
+                # coleta id do dodf
+                id_dodf = root.find("./document/id")
+                id_dodf_text = id_dodf.text
+                # cria lista de ids de relações
+                ids_rel = []
+                for rel in root.findall("./document/passage/relation"):
+                    id_rel = rel.get('id')
+                    ids_rel.append(id_rel)
+                    # coleta tipo e anotador da relação
+                    for info in rel.findall('infon'):
+                        if info.get('key') == 'type':
+                            tipoRel = info.text
+                            #print(tipoRel)
+                        elif info.get('key') == 'annotator':
+                            annotatorRel = info.text
+                            #print(annotatorRel)
+                    # cria lista de ids de anotações
+                    ids_anno = []
+                    for info in rel.findall('node'):
+                        id_anno = info.get('refid')
+                        ids_anno.append(id_anno)
+                    #print(ids_anno)
+                    # loop na lista de ids
+                    for id_anno in ids_anno:
+                        # encontra e itera sobre todos os elementos annotation do xml
+                        for anno in root.findall("./document/passage/annotation"):
+                            # para cada anotação definida por um id, coleta o tipo,
+                            # anotador, offset, length e texto
+                            if anno.get('id') == id_anno:
+                                # encontra tipo e anotador
+                                for info in anno.findall('infon'):
+                                    if info.get('key') == 'type':
+                                        tipoAnno = info.text
+                                        #print(tipoAnno)
+                                    elif info.get('key') == 'annotator':
+                                        annotatorAnno = info.text
+                                        #print(annotatorAnno)
+                                # encontra offset e length
+                                for info in anno.findall('location'):
+                                    offset = info.get('offset')
+                                    #print(offset)
+                                    length = info.get('length')
+                                    #print(length)
+                                # encontra texto
+                                for info in anno.findall('text'):
+                                    texto = info.text
+                                    #print(texto)
+                                
+                                # filtro de duplicatas inicial
+                                #chave = id_dodf_text + '__' + offset + '__' + id_rel
+                                #data_tuple = (tipoRel, annotatorAnno, annotatorRel,
+                                #              tipoAnno, id_anno, length, texto)
+
+                                #if chave not in duplicate_filter.keys():
+                                #    duplicate_filter[chave] = data_tuple
                                 # escreve linha no csv
                                 writer.writerow([id_dodf_text, tipoRel, id_rel,
                                                 annotatorRel, tipoAnno, id_anno,
