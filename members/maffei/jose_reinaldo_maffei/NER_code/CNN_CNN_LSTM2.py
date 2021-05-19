@@ -133,7 +133,9 @@ class decoder(nn.Module):
                 nn.init.uniform_(params, -bias, bias)
 
     def forward_step(self, x, prev_tag, prev_lstm_state):
-        prev_tag_onehot = torch.nn.functional.one_hot(prev_tag, num_classes=self.num_classes).to(self.device)
+        prev_tag_onehot = torch.nn.functional.one_hot(
+            prev_tag, 
+            num_classes=self.num_classes).to(self.device)
         lstm_input = torch.cat((x, prev_tag_onehot), dim=1).unsqueeze(dim=0)
         lstm_output, lstm_state = self.lstm(lstm_input, prev_lstm_state)
         lstm_output = self.dropout(lstm_output)
@@ -152,7 +154,9 @@ class decoder(nn.Module):
 
         # Isso não deveria ser feito automaticamente pela LSTM?
         for i in range(seq_len):
-            output, pred, lstm_state = self.forward_step(x=x[i], prev_tag=pred, prev_lstm_state=lstm_state)
+            output, pred, lstm_state = self.forward_step(
+                x=x[i], prev_tag=pred, prev_lstm_state=lstm_state
+            )
             loss += self.loss_fn(output, tag[i])
         return loss
 

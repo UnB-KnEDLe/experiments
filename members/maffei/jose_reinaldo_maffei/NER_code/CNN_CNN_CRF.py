@@ -52,7 +52,9 @@ class word_cnn(nn.Module):
     def __init__(self, pretrained_word_emb, word2idx, full_embedding_size, conv_layers, out_channels):
         super(word_cnn, self).__init__()
         self.word2idx = word2idx
-        self.embedding = nn.Embedding.from_pretrained(torch.FloatTensor(pretrained_word_emb.vectors))
+        self.embedding = nn.Embedding.from_pretrained(
+            torch.FloatTensor(pretrained_word_emb.vectors)
+        )
         # self.conv1 = nn.Conv1d(in_channels=full_embedding_size, out_channels=out_channels, kernel_size=5, padding=2)
         # self.conv2 = nn.Conv1d(in_channels=out_channels, out_channels=out_channels, kernel_size=5, padding=2)
         self.dropout = nn.Dropout(p=0.5)
@@ -96,7 +98,7 @@ class word_cnn(nn.Module):
 
 class cnn_crf(nn.Module):
     def __init__(self, feature_size, num_classes, device, lstm_hidden_size=256):
-        super(bilstm_crf, self).__init__()
+        super(cnn_crf, self).__init__()
         # self.conv = nn.Conv1d(
         #     in_channels=50, 
         #     embedding_dim=
@@ -230,12 +232,17 @@ class CNN_CNN_CRF(nn.Module):
             embedding_size=char_vocab_size, 
             embedding_dim=char_embedding_dim, 
             out_channels=char_out_channels)
-        self.word_encoder = word_cnn(
-            pretrained_word_emb=pretrained_word_emb, 
-            word2idx=word2idx, 
-            conv_layers = word_conv_layers, 
-            full_embedding_size=pretrained_word_emb.vector_size+char_out_channels, 
-            out_channels=word_out_channels)
+        
+        self.word_encoder = nn.Embedding.from_pretrained(
+            torch.FloatTensor(pretrained_word_emb.vectors)
+        )
+
+        # self.word_encoder = word_cnn(
+        #     pretrained_word_emb=pretrained_word_emb, 
+        #     word2idx=word2idx, 
+        #     conv_layers = word_conv_layers, 
+        #     full_embedding_size=pretrained_word_emb.vector_size+char_out_channels, 
+        #     out_channels=word_out_channels)
 
         self.dropout = nn.Dropout(p=0.5)
         self.linear = torch.nn.Linear(

@@ -100,9 +100,16 @@ class cnn_bilstm_crf(nn.Module):
         super(cnn_bilstm_crf, self).__init__()
         self.num_classes = num_classes
         self.device = device
-        self.char_encoder = char_cnn(embedding_size=char_vocab_size, embedding_dim=char_embedding_dim, char_out_channels=char_out_channels)
-        self.word_embedder= nn.Embedding.from_pretrained(torch.FloatTensor(pretrained_word_emb.vectors))
-        self.decoder      = bilstm_crf(feature_size=char_out_channels+pretrained_word_emb.vector_size, num_classes=num_classes, device=device, lstm_hidden_size=lstm_hidden_size)
+        self.char_encoder = char_cnn(
+            embedding_size=char_vocab_size, 
+            embedding_dim=char_embedding_dim, 
+            char_out_channels=char_out_channels)
+        self.word_embedder= nn.Embedding.from_pretrained(
+            torch.FloatTensor(pretrained_word_emb.vectors))
+        self.decoder      = bilstm_crf(
+            feature_size=char_out_channels+pretrained_word_emb.vector_size, 
+            num_classes=num_classes, 
+            device=device, lstm_hidden_size=lstm_hidden_size)
         self.dropout = nn.Dropout(p=0.5)
 
     def forward(self, sent, word, tag, mask):
@@ -123,3 +130,5 @@ class cnn_bilstm_crf(nn.Module):
         x = [torch.LongTensor(aux) for aux in x]
         predictions = pad_sequence(x, batch_first = True, padding_value = 0)
         return predictions, prob
+
+
