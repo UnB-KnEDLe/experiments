@@ -64,11 +64,16 @@ def create_char2idx_dict(train_path):
 def create_tag2idx_dict(train_path):
     f = open(train_path, 'r').readlines()
     dic = {}
+    not_added = set()
     for line in f:
         if line != '\n':
             tag = line.split()[3]
             if tag not in dic and tag[0]=='I':
-                dic[tag] = len(dic)
+                dic[tag] = len(dic)                
+            else:
+              not_added.add(tag)
+            # if tag == 'B-numero_dodf_edital_normativo':
+            #   print("Eis aqui!")
     iob2_dic = {'<PAD>': 0, 'O': 1}
     for tag in dic:
         iob2_dic['B'+tag[1:]] = len(iob2_dic)
@@ -77,7 +82,34 @@ def create_tag2idx_dict(train_path):
         iob2_dic['E'+tag[1:]] = len(iob2_dic)
 
     # iob2_dic['<GO>'] = len(iob2_dic)
-    return iob2_dic
+    return iob2_dic, not_added
+
+
+
+def create_tag2idx_dict(train_path):
+    # Dúvida: desse jeito funciona, do original não.
+    # Qual a falha lógica? No algoritmo ou na minha cabeça?
+    lines = open(train_path, 'r').readlines()
+    dic = {}
+    not_added = set()
+    tags = set(
+      [ l.split()[3][2:] for l in lines if 
+        ('X X' in l and '\n' in l and l.split('-')[-1] != 'O')
+      ]
+    )
+    tags = {i for i in tags if i}
+    iob2_dic = {'<PAD>': 0, 'O': 1}
+    
+    # print("TAGS:", tags)
+    for tag in tags:
+        iob2_dic[tag] = len(iob2_dic)
+        iob2_dic['I-'+tag] = len(iob2_dic)
+        iob2_dic['B-'+tag] = len(iob2_dic)
+        iob2_dic['S-'+tag] = len(iob2_dic)
+        iob2_dic['E-'+tag] = len(iob2_dic)
+
+    # iob2_dic['<GO>'] = len(iob2_dic)
+    return iob2_dic, not_added
 
 
 # 
@@ -324,32 +356,45 @@ def load_embedding(parser_opt, base_path: Path, df: pd.DataFrame = None, tokens_
             # print(f'Token {token} from training set not found, it\'s being added now')
             emb[token]= np.random.uniform(0.1, 1, 50)
 
+    else:
+        train_path = base_path / '{0}/{0}_train.txt'.format(parser_opt.dataset)
+        if parser_opt.use_dev_set:
+            test_path = base_path / '{0}/{0}_train.txt'.format(parser_opt.dataset)
+        else:
+            test_path  = base_path / '{0}/{0}_train.txt'.format(parser_opt.dataset)
+        data_format = 'iob2'
+
+        embedding_path = 'drive/MyDrive/knedle_data/foo.kv'
+        emb = KeyedVectors.load(embedding_path)
+        vocab = {}
+        f = open(train_path)
+        for line in f:
+            try:
+                word = line.split()[0]
+                if word not in vocab:
+                    vocab[word] = 1
+                else:
+                    vocab[word] += 1
+            except:
+                pass
+        not_found = {}
+        for word in vocab:
+            if word not in emb and word.lower() not in emb:
+                not_found[word] = vocab[word]
+
+        sorted_x = sorted(not_found.items(), key=operator.itemgetter(1))[::-1]
+
+        # Augment pretrained embeddings with most frequent out-of-vocabulary words from the train set
+        if '<START>' not in emb:
+            emb['<START>'] = np.random.uniform(0.1,1,50)
+        if '<END>' not in emb:
+            emb['<END>'] = np.random.uniform(0.1,1,50)
+        if '<UNK>' not in emb:
+            emb['<UNK>'] = np.random.uniform(0.1,1,50)
+        if '<PAD>' not in emb:
+            emb['<PAD>'] = np.zeros(50)
+        for (token, freq) in sorted_x[:37]:
+            # print(f'Token {token} from training set not found, it\'s being added now')
+            emb[token]= np.random.uniform(0.1, 1, 50)
+
     return emb, train_path.as_posix(), test_path.as_posix(), data_format
-
-
-# def custom_collate_fn(batch):
-#     words = [torch.LongTensor(batch[i][0]) for i in range(len(batch))]
-#     tags  = [torch.LongTensor(batch[i][1]) for i in range(len(batch))]
-#     chars = [batch[i][2].copy() for i in range(len(batch))]
-
-#     # Pad word/tag level
-#     # words = pad_sequence(words, batch_first = True, padding_value=314815) # glove
-#     words = pad_sequence(words, batch_first = True, padding_value=3000000) # googlenews
-#     tags  = pad_sequence(tags, batch_first = True, padding_value = 0)
-
-#     # Pad character level
-#     max_word_len = -1
-#     for sentence in chars:
-#         for word in sentence:
-#             max_word_len = max(max_word_len, len(word))
-#     for i in range(len(chars)):
-#         for j in range(len(chars[i])):
-#             chars[i][j] = [0 if k >= len(chars[i][j]) else chars[i][j][k] for k in range(max_word_len)]
-#     for i in range(len(chars)):
-#         chars[i] = [[0 for _ in range(max_word_len)] if j>= len(chars[i]) else chars[i][j] for j in range(words.shape[1])]
-#     chars = torch.LongTensor(chars)
-
-#     # mask = words != 314815 # glove
-#     mask = words != 3000000 # googlenews
-
-#     return words, tags, chars, mask
