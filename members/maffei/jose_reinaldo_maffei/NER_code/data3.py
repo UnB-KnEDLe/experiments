@@ -206,7 +206,6 @@ class active_dataset(Dataset):
             for j, tag in enumerate(tag_lis):
                 self.tags[i][j] = self.tag2idx_dic[tag]
 
-
     def char2idx(self):
         UNKNOW = self.char2idx_dic.get('<UNK>')
         self.words = [
@@ -381,62 +380,4 @@ class active_self_dataset(active_dataset):
                     word_count += 1
         return word_count
 
-
-
-
-
-
-# def load_data(self, path):
-#     f = open(path, 'r').readlines()
-
-#     temp_sentences = []
-#     temp_tags = []
-#     temp_words = []
-
-#     sentences = []
-#     tags = []
-#     words = []
-
-#     for line in f:
-#         if line == '\n' or not line:
-#             if temp_sentences:
-#                 temp_sentences = ['<START>', *temp_sentences, '<END>']
-#                 temp_tags = ['O', *temp_tags, 'O']
-#                 temp_words = [['<START>', *word, '<END>'] for word in temp_sentences]
-#                 sentences.append(temp_sentences)
-#                 words.append(temp_words)
-#                 if self.data_format == 'iob1':
-#                     tags.append(self.convert_IOB2_2_IOBES(self.convert_IOB1_2_IOB2(temp_tags)))
-#                 elif self.data_format == 'iob2':
-#                     tags.append(self.convert_IOB2_2_IOBES(temp_tags))
-#                 else:
-#                     tags.append(temp_tags)
-
-#                 temp_sentences = []
-#                 temp_tags = []
-#                 temp_words = []
-
-#         else:
-#             temp_sentences.append(line.split()[0])
-#             temp_tags.append(line.split()[3])
-            
-#     if temp_sentences:
-#         # temp_sentences = list(itertools.chain(['<START>'], temp_sentences, ['<END>']))
-#         temp_sentences = ['<START>', *temp_sentences, '<END>']
-#         # temp_tags = list(itertools.chain(['O'], temp_tags, ['O']))
-#         temp_tags = ['O', *temp_tags, 'O']
-#         temp_words = [
-#             [*itertools.chain(['<START>'], [*word], ['<END>'])]
-#             for word in temp_sentences
-#         ]
-#         sentences.append(temp_sentences)
-#         words.append(temp_words)
-#         if self.data_format == 'iob1':
-#             tags.append(self.convert_IOB2_2_IOBES(self.convert_IOB1_2_IOB2(temp_tags)))
-#         elif self.data_format == 'iob2':
-#             tags.append(self.convert_IOB2_2_IOBES(temp_tags))
-#         else:
-#             tags.append(temp_tags)
-
-#     return sentences, tags, words
 
