@@ -1,14 +1,12 @@
 import torch
-from torch.nn.utils.rnn import pad_sequence
-from gensim.models import KeyedVectors
+import operator
 import unicodedata
 import numpy as np
 from bisect import bisect
 
 from gensim.models import KeyedVectors
-import operator
+from torch.nn.utils.rnn import pad_sequence
 
-from sklearn import preprocessing
 
 def find_entities(tag):
     entities = []
@@ -29,177 +27,46 @@ def find_entities(tag):
             begin_entity = i
             prev_tag = tag[i]
     # Check if entity continues to the end of tensor tag
-    if prev_tag >=2:
+    if prev_tag >= 2:
         entities.append((begin_entity, len(tag)-1, prev_tag-1))
     return entities
 
 
+def create_word2idx_dict(index_to_key, key_to_index, train_path):
+    return {w: key_to_index[w] for w in index_to_key}
 
 
-
-
-def create_word2idx_dict(emb, train_path):
-    dic = {}
-    # for word in emb.index2word:
-    for word in emb.index_to_key:
-      # dic[word] = emb[word].index
-      dic[word] = emb.key_to_index[word]
-    return dic
-
-
-def create_char2idx_dict(train_path):
-    print("train_path:", train_path)
-    f = open(train_path, 'r').readlines()
+def create_char2idx_dict(train_path, verbose=False):
+    if verbose: print("train_path:", train_path)
+    words = (l.split()[0] for l in open(train_path, 'r').readlines() if l != '\n')
+    chars = set(''.join(words))
     dic = {'<PAD>': 0, '<UNK>': 1, '<START>': 2, '<END>': 3}
-    for line in f:
-        if line == '\n':
-            continue
-        word = line.split()[0]
-        for char in word:
-            if char not in dic:
-                dic[char] = len(dic)
+    dic.update({char: idx + 4 for (idx, char) in enumerate(chars)})
     return dic
 
 
 def create_tag2idx_dict(train_path):
-    f = open(train_path, 'r').readlines()
-    dic = {}
-    not_added = set()
-    for line in f:
-        if line != '\n':
-            tag = line.split()[3]
-            if tag not in dic and tag[0]=='I':
-                dic[tag] = len(dic)                
-            else:
-              not_added.add(tag)
-            # if tag == 'B-numero_dodf_edital_normativo':
-            #   print("Eis aqui!")
-    iob2_dic = {'<PAD>': 0, 'O': 1}
-    for tag in dic:
-        iob2_dic['B'+tag[1:]] = len(iob2_dic)
-        iob2_dic[tag] = len(iob2_dic)
-        iob2_dic['S'+tag[1:]] = len(iob2_dic)
-        iob2_dic['E'+tag[1:]] = len(iob2_dic)
-
-    # iob2_dic['<GO>'] = len(iob2_dic)
-    return iob2_dic, not_added
-
-
-
-def create_tag2idx_dict(train_path):
-    # Dúvida: desse jeito funciona, do original não.
-    # Qual a falha lógica? No algoritmo ou na minha cabeça?
     lines = open(train_path, 'r').readlines()
     dic = {}
-    not_added = set()
+    # Each line is expected to follow the regex pattern
+    # (\d+ X X \w-\w+|O)
+    # or +be an empty line
     tags = set(
       [ l.split()[3][2:] for l in lines if 
-        ('X X' in l and '\n' in l and l.split('-')[-1] != 'O')
+        ('X X' in l and l.split('-')[-1] != 'O')
       ]
     )
     tags = {i for i in tags if i}
     iob2_dic = {'<PAD>': 0, 'O': 1}
     
-    # print("TAGS:", tags)
     for tag in tags:
         iob2_dic[tag] = len(iob2_dic)
-        iob2_dic['I-'+tag] = len(iob2_dic)
-        iob2_dic['B-'+tag] = len(iob2_dic)
-        iob2_dic['S-'+tag] = len(iob2_dic)
-        iob2_dic['E-'+tag] = len(iob2_dic)
-
-    # iob2_dic['<GO>'] = len(iob2_dic)
-    return iob2_dic, not_added
-
-
-# 
-# 
-# 
-#
-
-def create_word2idx_dict_df(emb):
-    dic = {}
-    for word in emb.index_to_key:
-        dic[word] = emb.key_to_index[word]
-    return dic
-
-
-def create_char2idx_dict_df(df, act_tokens_col='ato'):
-    dic = {'<PAD>': 0, '<UNK>': 1, '<START>': 2, '<END>': 3}
-
-    chars = df[act_tokens_col].explode().apply(list).explode().unique()
-    chars_dic = dict((i[::-1] for i in enumerate(chars, start=len(dic))) )
-    dic.update(chars_dic)
-    return dic
-
-
-def create_tag2idx_dict_df(df, tags_col):
-    dic = dict(
-        (i[::-1] for i in enumerate(df[tags_col].explode().unique()))
-    )
-
-    iob2_dic = {'<PAD>': 0, 'O': 1}
-    for tag in dic:
-        iob2_dic['B'+tag[1:]] = len(iob2_dic)
-        iob2_dic[tag] = len(iob2_dic)
-        iob2_dic['S'+tag[1:]] = len(iob2_dic)
-        iob2_dic['E'+tag[1:]] = len(iob2_dic)
+        for c in 'IBES':
+            iob2_dic[f'{c}-{tag}'] = len(iob2_dic)
 
     return iob2_dic
 
 
-
-
-class new_custom_collate_fn():
-    def __init__(self, pad_idx, unk_idx):
-        self.pad_idx = pad_idx
-        self.unk_idx = unk_idx
-    def __call__(self, batch):
-        words = [torch.LongTensor(batch[i][0]) for i in range(len(batch))]
-        tags  = [torch.LongTensor(batch[i][1]) for i in range(len(batch))]
-        chars = [batch[i][2].copy() for i in range(len(batch))]
-
-        # Pad word/tag level
-        words = pad_sequence(words, batch_first = True, padding_value=self.pad_idx)
-        tags  = pad_sequence(tags, batch_first = True, padding_value = 0)
-
-        # Pad character level
-        max_word_len = -1
-        for sentence in chars:
-            for word in sentence:
-                max_word_len = max(max_word_len, len(word))
-        for i in range(len(chars)):
-            for j in range(len(chars[i])):
-                chars[i][j] = [0 if k >= len(chars[i][j]) else chars[i][j][k] for k in range(max_word_len)]
-        for i in range(len(chars)):
-            chars[i] = [[0 for _ in range(max_word_len)] if j>= len(chars[i]) else chars[i][j] for j in range(words.shape[1])]
-        chars = torch.LongTensor(chars)
-
-        mask = words != self.pad_idx
-
-        return words, tags, chars, mask
-
-
-def budget_limit(list_idx, budget, dataloader):
-    budget_list = []
-    for i in range(len(list_idx)):
-        sent_len = len(dataloader.dataset.sentences[dataloader.dataset.unlabeled_sentences[list_idx[i]]]) - 2
-        if sent_len <= budget:
-            budget_list.append(list_idx[i])
-            budget -= sent_len
-    return budget_list, budget
-
-def budget_limit2(list_idx, budget, dataloader):
-    """
-    Changes done to adapt to active_self_dataset
-    """
-    budget_list = []
-    for i in range(len(list_idx)):
-        sent_len = len(dataloader.dataset.sentences[dataloader.dataset.unlabeled_set[list_idx[i]]]) - 2
-        if sent_len <= budget:
-            budget_list.append(list_idx[i])
-            budget -= sent_len
-    return budget_list, budget
 
 def find_iobes_entities(sentence, tag2idx):
   t = [2+i for i in range(0, len(tag2idx), 4)]
@@ -235,42 +102,108 @@ def find_iobes_entities(sentence, tag2idx):
       tag_flag = False
   return entities
 
+
+# def find_iobes_entities2(sentence, tag2idx):
+#   t = [2+i for i in range(0, len(tag2idx), 4)]
+#   entities = set()
+#   tag_flag = False
+#   entity_start = -1
+#   curr_tag_class = 0
+#   for i in range(len(sentence)):
+#     tag = sentence[i]
+#     # 'O' or '<PAD>' or '<GO>' classes
+#     if tag == 0 or tag == 1:# or tag == tag2idx['<GO>']:
+#       curr_tag_class = 0
+#       tag_flag == False
+#       continue
+#     tag_class = t[bisect(t, tag)-1]
+#     tag_mark  = tag - tag_class
+#     # B- class
+#     if tag_mark == 0:
+#       tag_flag = True
+#       entity_start = i
+#       curr_tag_class = tag_class
+#     # I- class
+#     elif tag_mark == 1 and curr_tag_class != tag_class:
+#       tag_flag = False
+#     # S- class
+#     elif tag_mark == 2:
+#       entities.add((i, i, tag_class))
+#       tag_flag = False
+#     # E- class
+#     elif tag_mark == 3:
+#       if tag_flag and (curr_tag_class == tag_class):
+#         entities.add((entity_start, i, tag_class))
+#       tag_flag = False
+#   return entities
+
+
 def find_iobes_entities2(sentence, tag2idx):
-  t = [2+i for i in range(0, len(tag2idx), 4)]
-  entities = set({})
-  tag_flag = False
-  entity_start = -1
-  curr_tag_class = 0
-  for i in range(len(sentence)):
-    tag = sentence[i]
-    # 'O' or '<PAD>' or '<GO>' classes
-    if tag == 0 or tag == 1:# or tag == tag2idx['<GO>']:
-      curr_tag_class = 0
-      tag_flag == False
-      continue
-    tag_class = t[bisect(t, tag)-1]
-    tag_mark  = tag - tag_class
-    # B- class
-    if tag_mark == 0:
-      tag_flag = True
-      entity_start = i
-      curr_tag_class = tag_class
-    # I- class
-    elif tag_mark == 1 and curr_tag_class != tag_class:
-      tag_flag = False
-    # S- class
-    elif tag_mark == 2:
-      entities.add((i, i, tag_class))
-      tag_flag = False
-    # E- class
-    elif tag_mark == 3:
-      if tag_flag and (curr_tag_class == tag_class):
-        entities.add((entity_start, i, tag_class))
-      tag_flag = False
-  return entities
+    return set(find_iobes_entities(sentence, tag2idx))
+
+# def create_word2idx_dict_df(emb):
+#     dic = {}
+#     for word in emb.index_to_key:
+#         dic[word] = emb.key_to_index[word]
+#     return dic
+
+
+# def create_char2idx_dict_df(df, act_tokens_col='ato'):
+#     dic = {'<PAD>': 0, '<UNK>': 1, '<START>': 2, '<END>': 3}
+
+#     chars = df[act_tokens_col].explode().apply(list).explode().unique()
+#     chars_dic = dict((i[::-1] for i in enumerate(chars, start=len(dic))) )
+#     dic.update(chars_dic)
+#     return dic
+
+
+# def create_tag2idx_dict_df(df, tags_col):
+#     dic = dict(
+#         (i[::-1] for i in enumerate(df[tags_col].explode().unique()))
+#     )
+
+#     iob2_dic = {'<PAD>': 0, 'O': 1}
+#     for tag in dic:
+#         iob2_dic['B'+tag[1:]] = len(iob2_dic)
+#         iob2_dic[tag] = len(iob2_dic)
+#         iob2_dic['S'+tag[1:]] = len(iob2_dic)
+#         iob2_dic['E'+tag[1:]] = len(iob2_dic)
+
+#     return iob2_dic
+
+
+class new_custom_collate_fn():
+    def __init__(self, pad_idx, unk_idx):
+        self.pad_idx = pad_idx
+        self.unk_idx = unk_idx
+    def __call__(self, batch):
+        words = [torch.LongTensor(batch[i][0]) for i in range(len(batch))]
+        tags  = [torch.LongTensor(batch[i][1]) for i in range(len(batch))]
+        chars = [batch[i][2].copy() for i in range(len(batch))]
+
+        # Pad word/tag level
+        words = pad_sequence(words, batch_first = True, padding_value=self.pad_idx)
+        tags  = pad_sequence(tags, batch_first = True, padding_value = 0)
+
+        # Pad character level
+        max_word_len = -1
+        for sentence in chars:
+            for word in sentence:
+                max_word_len = max(max_word_len, len(word))
+        for i in range(len(chars)):
+            for j in range(len(chars[i])):
+                chars[i][j] = [0 if k >= len(chars[i][j]) else chars[i][j][k] for k in range(max_word_len)]
+        for i in range(len(chars)):
+            chars[i] = [[0 for _ in range(max_word_len)] if j>= len(chars[i]) else chars[i][j] for j in range(words.shape[1])]
+        chars = torch.LongTensor(chars)
+
+        mask = words != self.pad_idx
+
+        return words, tags, chars, mask
+
+
 
 from pathlib import Path
-
 import pandas as pd
 from collections import Counter
 
@@ -359,9 +292,9 @@ def load_embedding(parser_opt, base_path: Path, df: pd.DataFrame = None, tokens_
     else:
         train_path = base_path / '{0}/{0}_train.txt'.format(parser_opt.dataset)
         if parser_opt.use_dev_set:
-            test_path = base_path / '{0}/{0}_train.txt'.format(parser_opt.dataset)
+            test_path = base_path / '{0}/{0}_test.txt'.format(parser_opt.dataset)
         else:
-            test_path  = base_path / '{0}/{0}_train.txt'.format(parser_opt.dataset)
+            test_path  = base_path / '{0}/{0}_test.txt'.format(parser_opt.dataset)
         data_format = 'iob2'
 
         embedding_path = 'drive/MyDrive/knedle_data/foo.kv'
