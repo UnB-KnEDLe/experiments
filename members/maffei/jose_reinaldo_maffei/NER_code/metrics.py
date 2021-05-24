@@ -1,7 +1,11 @@
 import numpy as np
-# from drive.MyDrive.NER_code.utils import find_iobes_entities, find_iobes_entities2
-from utils import find_iobes_entities, find_iobes_entities2
 import torch
+import utils
+
+
+def devicefy(lis, device):
+    return [i.to(device) for i in lis]
+
 
 def preprocess_pred_targ(model, dataloader, device):
     """
@@ -10,11 +14,8 @@ def preprocess_pred_targ(model, dataloader, device):
     full_pred = []
     full_targ = []
     with torch.no_grad():
-        for sent, tag, word, mask in dataloader:
-            sent = sent.to(device)
-            tag = tag.to(device)
-            word = word.to(device)
-            mask = mask.to(device)
+        for tup in dataloader:
+            sent, tag, word, mask = devicefy(tup, device)
             pred, _ = model.decode(sent, word, mask)
             
             for i in range(len(pred)):
@@ -23,36 +24,32 @@ def preprocess_pred_targ(model, dataloader, device):
     
     return full_pred, full_targ
 
+
 def IOBES_tags(predictions, tag2idx):
     """
     Transform tags from indices to class name (string var)
     """
-    idx2tag = {}
-    for tag in tag2idx:
-        idx2tag[tag2idx[tag]] = tag
-    
+
+    idx2tag = {idx: tag for (tag, idx) in tag2idx.items()}
     IOBES_tags = predictions.copy()
-    for i in range(len(IOBES_tags)):
-        for j in range(len(IOBES_tags[i])):
-            IOBES_tags[i][j] = idx2tag[IOBES_tags[i][j]]
+    for tags in IOBES_tags:
+        for j, tag in enumerate(tags):
+            tags[j] = idx2tag[tag]
     return IOBES_tags
 
-def exact_f1_score(model, dataloader, device, tag2idx):
-    TP = np.array([0 for _ in range((model.num_classes-2)//2)])
-    FP = np.array([0 for _ in range((model.num_classes-2)//2)])
-    FN = np.array([0 for _ in range((model.num_classes-2)//2)])
 
-    for sent, tag, word, mask in dataloader:
-        sent = sent.to(device)
-        tag = tag.to(device)
-        word = word.to(device)
-        mask = mask.to(device)
+def exact_f1_score(model, dataloader, device, tag2idx):
+    n = (model.num_classes-2) // 2
+    TP, FP, FN = np.zeros((3, n))
+
+    for tup in dataloader:
+        sent, tag, word, mask = devicefy(tup, device)
         pred, _ = model.eval().decode(sent, word, mask)
 
         batch_size = pred.shape[0]
         for i in range(batch_size):
-            predicted_entities = find_iobes_entities(pred[i], tag2idx)
-            real_entities = find_iobes_entities(tag[i], tag2idx)
+            predicted_entities = utils.find_iobes_entities(pred[i], tag2idx)
+            real_entities = utils.find_iobes_entities(tag[i], tag2idx)
             for entity in predicted_entities:
                 if entity in real_entities:
                     TP[(entity[2]//2)-1] += 1
@@ -81,21 +78,18 @@ def exact_f1_score(model, dataloader, device, tag2idx):
 
     return averaged_macro_f1, micro_f1
 
-def exact_micro_f1_score(model, dataloader, device, tag2idx):
-    TP = 0
-    FP = 0
-    FN = 0
 
-    for sent, tag, word, mask in dataloader:
-        sent = sent.to(device)
-        tag = tag.to(device)
-        word = word.to(device)
+def exact_micro_f1_score(model, dataloader, device, tag2idx):
+    TP, FP, FN = 0, 0, 0
+
+    for tup in dataloader:
+        sent, tag, word, mask = devicefy(tup, device)
         pred, _ = model.eval().decode(sent, word, mask)
 
         batch_size = pred.shape[0]
         for i in range(batch_size):
-            predicted_entities = find_iobes_entities2(pred[i], tag2idx)
-            real_entities = find_iobes_entities2(pred[i], tag2idx)
+            predicted_entities = utils.find_iobes_entities2(pred[i], tag2idx)
+            real_entities = utils.find_iobes_entities2(pred[i], tag2idx)
             for entity in predicted_entities:
                 if entity in real_entities:
                     TP += 1
@@ -112,21 +106,21 @@ def exact_micro_f1_score(model, dataloader, device, tag2idx):
     f1 = 2*(precision*recall)/(precision+recall)
     return f1
 
-def exact_macro_f1_score(model, dataloader, device):
-    TP = np.array([0 for _ in range((model.num_classes-2)//2)])
-    FP = np.array([0 for _ in range((model.num_classes-2)//2)])
-    FN = np.array([0 for _ in range((model.num_classes-2)//2)])
 
-    for sent, tag, word, mask in dataloader:
-        sent = sent.to(device)
-        tag = tag.to(device)
-        word = word.to(device)
-        pred, _ = model.eval().decode(sent, word)
+def exact_macro_f1_score(model, dataloader, device):
+    # TODO: fix it. `find_entities` was most likely
+    # supposed to be `find_iobes_entity`
+    n = (model.num_classes-2) // 2
+    TP, FP, FN = np.zeros((3, n))
+
+    for tup in dataloader:
+        sent, tag, word, mask = devicefy(tup, device)
+        pred, _ = model.eval().decode(sent, word, mask)
 
         batch_size = pred.shape[0]
         for i in range(batch_size):
-            predicted_entities = find_entities(pred[i])
-            real_entities = find_entities(tag[i])
+            predicted_entities = utils.find_entities(pred[i])
+            real_entities = utils.find_entities(tag[i])
             for entity in predicted_entities:
                 if entity in real_entities:
                     TP[(entity[2]//2)-1] += 1
@@ -142,3 +136,5 @@ def exact_macro_f1_score(model, dataloader, device):
 
     occurrences = TP + FN
     return occurrences, f1
+
+
