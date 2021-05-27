@@ -6,7 +6,7 @@ Code for training of deep learning models applied to named entity recognition ta
 - CNN-CNN-LSTM (proposed by [Shen et al](https://arxiv.org/abs/1707.05928))
 - CNN-biLSTM-CRF (proposed by [Ma and Hovy](https://www.aclweb.org/anthology/P16-1101/))
 
-## Arguments available for the Supervised_new.py script
+## Arguments available for the Supervised.py script
 ---
 
 - --save_training_path : indicates path to save training history of the model
