@@ -1,29 +1,28 @@
 import torch
 from torch import nn
 from torch.nn.utils.rnn import pad_sequence
-from torch.nn.utils import weight_norm
+from utils import CustomDropout
 from math import sqrt
 
 class char_cnn(nn.Module):
-    """single layer CNN with: filters=50, kernel_size=3, dropout=0.5
-    CHANGES:
-    - kaiming_uniform initialization of convolution weights
-    - Embedding dropout with p=0.25
-    - dropout now only applied on output of convolution layers (after activation function)
-    - Added weight_norm to conv layers
+    """
+    Character-level word embedding neural network as implemented in Ma and Hovy (https://arxiv.org/abs/1603.01354)
     """
     def __init__(self, embedding_size, embedding_dim, out_channels):
         super(char_cnn, self).__init__()
         self.embedding = nn.Embedding(num_embeddings=embedding_size, embedding_dim=embedding_dim, padding_idx=0)
         self.conv = nn.Conv1d(in_channels=embedding_dim, out_channels=out_channels, kernel_size=3, stride=1, padding=1)
         self.relu = nn.ReLU()
-        self.dropout = nn.Dropout(p=0.5)
+        # self.dropout = nn.Dropout(p=0.5)
+        self.dropout = CustomDropout(p=0.5)
         self.init_weight()
 
     def init_weight(self):
+        """
+        Initialize weights for the character embeddings as done in Ma and Hovy (https://arxiv.org/abs/1603.01354)
+        """
         bias = sqrt(3.0/self.embedding.embedding_dim)
         nn.init.uniform_(self.embedding.weight, -bias, bias)
-        # nn.init.kaiming_uniform_(self.conv.weight.data, mode='fan_in', nonlinearity='relu')
 
     def forward(self, x):
         x = self.dropout(self.embedding(x))
@@ -35,19 +34,14 @@ class char_cnn(nn.Module):
 
 class word_cnn(nn.Module):
     """
-    Word-level CNN encoder
-    CHANGES:
-    - Now dropout only at output of forward() and relu after each conv layer
-    - Added weight_norm for conv layers
-    - Added embedding dropout after concat word and char embeddings
+    Word-level CNN for word level encoding of a token with its surrounding context as designed by Shen et al (https://arxiv.org/abs/1707.05928)
     """
     def __init__(self, pretrained_word_emb, word2idx, full_embedding_size, conv_layers, out_channels):
         super(word_cnn, self).__init__()
         self.word2idx = word2idx
-        self.embedding = nn.Embedding.from_pretrained(torch.FloatTensor(pretrained_word_emb.vectors))
-        # self.conv1 = nn.Conv1d(in_channels=full_embedding_size, out_channels=out_channels, kernel_size=5, padding=2)
-        # self.conv2 = nn.Conv1d(in_channels=out_channels, out_channels=out_channels, kernel_size=5, padding=2)
-        self.dropout = nn.Dropout(p=0.5)
+        self.embedding = nn.Embedding.from_pretrained(torch.FloatTensor(pretrained_word_emb.vectors), freeze=True)
+        # self.dropout = nn.Dropout(p=0.5)
+        self.dropout = CustomDropout(p=0.5)
         convnet = []
         for i in range(conv_layers):
             if i == 0:
@@ -62,22 +56,22 @@ class word_cnn(nn.Module):
         self.init_weight()
 
     def init_weight(self):
+        """
+        Initialization of weights for the word-level CNN, created for tests only as it was not specified in previous works
+        """
         pass
-        # nn.init.kaiming_uniform_(self.conv1.weight.data, mode='fan_in', nonlinearity='relu')
-        # nn.init.kaiming_uniform_(self.conv2.weight.data, mode='fan_in', nonlinearity='relu')
 
-    def forward(self, x, char_embeddings):
+    def forward(self, x, char_embeddings, mask=None):
         # 50% chance word dropout to improve generalization
-        # if self.training:
-        #     mask = torch.distributions.Bernoulli(probs=(1-0.5)).sample(x.size())
-        #     # x[~mask.bool()] = 314816 # glove
-        #     # x[~mask.bool()] = 3000001  # googlenews
-        #     x[~mask.bool()] = self.word2idx['<UNK>']
+        if self.training and mask != None:
+            WD_mask = torch.distributions.Bernoulli(probs=(1-0.5)).sample(x.size()).to(x.device)
+            mask_ = WD_mask * mask
+            x[~mask_.bool()] = self.word2idx['<UNK>']
         # word2vec embedding
         x = self.embedding(x)
         # concat word and char embedding
         x = torch.cat((x, char_embeddings), dim=2)
-        x = self.dropout(x)
+        # x = self.dropout(x)
         w = x.clone()
         x = x.permute(0, 2, 1)
         x = self.convnet(x)
@@ -87,7 +81,7 @@ class word_cnn(nn.Module):
 
 class decoder(nn.Module):
     """
-    LSTM decoder (greedy decoding)
+    LSTM decoder (greedy decoding) as proposed by Shen et al (https://arxiv.org/abs/1707.05928)
     """
     def __init__(self, feature_size, num_classes, hidden_size, decoder_layers, device):
         super(decoder, self).__init__()
@@ -95,11 +89,15 @@ class decoder(nn.Module):
         self.num_classes = num_classes
         self.lstm = torch.nn.LSTM(input_size=feature_size+num_classes, hidden_size=hidden_size, num_layers=decoder_layers)
         self.linear = torch.nn.Linear(hidden_size, num_classes)
-        self.dropout = torch.nn.Dropout(p=0.5)
+        # self.dropout = nn.Dropout(p=0.5)
+        self.dropout = CustomDropout(p=0.5)
         self.loss_fn = torch.nn.CrossEntropyLoss(ignore_index = 0, reduction='sum')
         self.init_weight()
 
     def init_weight(self):
+        """
+        Initialization of weights for the greedy LSTM decoder, initialization procedure done as implemented in Ma and Hovy (https://arxiv.org/abs/1603.01354)
+        """
         # Initialize linear layer
         bias = sqrt(6.0/(self.linear.weight.shape[0]+self.linear.weight.shape[1]))
         nn.init.uniform_(self.linear.weight, -bias, bias)
@@ -129,7 +127,6 @@ class decoder(nn.Module):
         pred = torch.LongTensor([0 for i in range(batch_size)])
         lstm_state = None
         loss = 0.0
-        # x = self.dropout(x)
         for i in range(seq_len):
             output, pred, lstm_state = self.forward_step(x=x[i], prev_tag=pred, prev_lstm_state=lstm_state)
             loss += self.loss_fn(output, tag[i])
@@ -151,7 +148,7 @@ class decoder(nn.Module):
 
 class CNN_CNN_LSTM(nn.Module):
     """
-    CNN-CNN-LSTM model with greedy decoding (as proposed in shen et al)
+    CNN-CNN-LSTM model with greedy decoding, as proposeb by Shen et al (https://arxiv.org/abs/1707.05928)
     """
     def __init__(self, char_vocab_size, char_embedding_dim, char_out_channels, word2idx, pretrained_word_emb, word_conv_layers, word_out_channels, num_classes, decoder_layers, decoder_hidden_size, device):
         super(CNN_CNN_LSTM, self).__init__()
@@ -162,20 +159,19 @@ class CNN_CNN_LSTM(nn.Module):
 
     def forward(self, sentence, word, tag, mask):
         x = self.char_encoder(word)
-        x = self.word_encoder(sentence, x)
+        x = self.word_encoder(sentence, x, mask)
         x = self.decoder(x, tag)
         return x
     
     def encode(self, sentence, word, mask):
         x = self.char_encoder(word)
-        x = self.word_encoder(sentence, x)
+        x = self.word_encoder(sentence, mask)
         return x
 
     def decode(self, sentence, word, mask, return_token_log_probabilities=False):
         x = self.char_encoder(word)
-        x = self.word_encoder(sentence, x)
+        x = self.word_encoder(sentence, x, mask)
         predictions, output = self.decoder.decode(x)
-        # Changed here (Return token log-probabilities if return_token_probabilities==True, else return sentence probability)
         if return_token_log_probabilities == True:
             return predictions, torch.nn.functional.log_softmax(output, dim=2)
         else:

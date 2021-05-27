@@ -1,35 +1,29 @@
 import torch
 from torch import nn
 from math import sqrt
-# from torchcrf import CRF
-# from drive.MyDrive.NER_code.crf import CRF
 from crf import CRF
 from torch.nn.utils.rnn import pad_sequence
+from utils import CustomDropout
 
 class char_cnn(nn.Module):
-    """single layer CNN with: filters=50, kernel_size=3, dropout=0.5
-    CHANGES:
-    - kaiming_uniform initialization of convolution weights
-    - Embedding dropout with p=0.25
-    - dropout now only applied on output of convolution layers (after activation function)
-    - Added weight_norm to conv layers
+    """
+    Character-level word embedding neural network as implemented in Ma and Hovy (https://arxiv.org/abs/1603.01354)
     """
     def __init__(self, embedding_size, embedding_dim, char_out_channels):
         super(char_cnn, self).__init__()
         self.embedding = nn.Embedding(num_embeddings=embedding_size, embedding_dim=embedding_dim, padding_idx=0)
         self.conv = nn.Conv1d(in_channels=embedding_dim, out_channels=char_out_channels, kernel_size=3, stride=1, padding=1)
         self.relu = nn.ReLU()
-        self.dropout = nn.Dropout(p=0.5)
-        self.emb_dropout = nn.Dropout(p=0.5)
+        # self.dropout = nn.Dropout(p=0.5)
+        self.dropout = CustomDropout(p=0.5)
         self.init_weight()
 
     def init_weight(self):
         bias = sqrt(3/self.embedding.embedding_dim)
         nn.init.uniform_(self.embedding.weight, -bias, bias)
-        # nn.init.kaiming_uniform_(self.conv.weight.data, mode='fan_in', nonlinearity='relu')
 
     def forward(self, x):
-        x = self.emb_dropout(self.embedding(x))
+        x = self.dropout(self.embedding(x))
         shape = x.shape
         x = self.conv(x.reshape([shape[0]*shape[1], shape[2], shape[3]]).permute(0, 2, 1))
         # x = self.relu(x)
@@ -43,7 +37,8 @@ class bilstm_crf(nn.Module):
         self.bilstm = torch.nn.LSTM(input_size=feature_size, hidden_size=lstm_hidden_size, num_layers=1, batch_first=True, bidirectional=True)
         self.linear = torch.nn.Linear(in_features=lstm_hidden_size*2, out_features=num_classes)
         self.crf = CRF(num_tags=num_classes, batch_first=True)
-        self.dropout = torch.nn.Dropout(p=0.5)
+        # self.dropout = nn.Dropout(p=0.5)
+        self.dropout = CustomDropout(p=0.5)
         self.weight_init()
 
     def weight_init(self):

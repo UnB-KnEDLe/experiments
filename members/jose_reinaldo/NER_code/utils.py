@@ -4,35 +4,14 @@ from gensim.models import KeyedVectors
 import unicodedata
 import numpy as np
 from bisect import bisect
-
-def find_entities(tag):
-    entities = []
-    prev_tag = 1
-    begin_entity = -1
-
-    for i in range(len(tag)):
-        # Check if current tag is new entity by checking if it's 'B-' of any class
-        if tag[i]%2==0 and tag[i]>=2:
-            if prev_tag >=2:
-                entities.append((begin_entity, i-1, prev_tag-1))
-            begin_entity = i
-            prev_tag = tag[i]+1
-        # Check if current tag is new entity (by comparing to previous tag)
-        elif tag[i] != prev_tag:
-            if prev_tag >= 2:
-                entities.append((begin_entity, i-1, prev_tag-1))
-            begin_entity = i
-            prev_tag = tag[i]
-    # Check if entity continues to the end of tensor tag
-    if prev_tag >=2:
-        entities.append((begin_entity, len(tag)-1, prev_tag-1))
-    return entities
+from math import sqrt
 
 def create_word2idx_dict(emb, train_path):
-    dic = {}
-    for word in emb.index2word:
-      dic[word] = emb.vocab[word].index
-    return dic
+    # dic = {}
+    # for word in emb.index2word:
+    #   dic[word] = emb.vocab[word].index
+    # return dic
+    return emb.key_to_index
 
 def create_char2idx_dict(train_path):
     f = open(train_path, 'r').readlines()
@@ -61,7 +40,6 @@ def create_tag2idx_dict(train_path):
         iob2_dic['S'+tag[1:]] = len(iob2_dic)
         iob2_dic['E'+tag[1:]] = len(iob2_dic)
 
-    # iob2_dic['<GO>'] = len(iob2_dic)
     return iob2_dic
 
 class new_custom_collate_fn():
@@ -93,33 +71,6 @@ class new_custom_collate_fn():
 
         return words, tags, chars, mask
 
-def custom_collate_fn(batch):
-    words = [torch.LongTensor(batch[i][0]) for i in range(len(batch))]
-    tags  = [torch.LongTensor(batch[i][1]) for i in range(len(batch))]
-    chars = [batch[i][2].copy() for i in range(len(batch))]
-
-    # Pad word/tag level
-    # words = pad_sequence(words, batch_first = True, padding_value=314815) # glove
-    words = pad_sequence(words, batch_first = True, padding_value=3000000) # googlenews
-    tags  = pad_sequence(tags, batch_first = True, padding_value = 0)
-
-    # Pad character level
-    max_word_len = -1
-    for sentence in chars:
-        for word in sentence:
-            max_word_len = max(max_word_len, len(word))
-    for i in range(len(chars)):
-        for j in range(len(chars[i])):
-            chars[i][j] = [0 if k >= len(chars[i][j]) else chars[i][j][k] for k in range(max_word_len)]
-    for i in range(len(chars)):
-        chars[i] = [[0 for _ in range(max_word_len)] if j>= len(chars[i]) else chars[i][j] for j in range(words.shape[1])]
-    chars = torch.LongTensor(chars)
-
-    # mask = words != 314815 # glove
-    mask = words != 3000000 # googlenews
-
-    return words, tags, chars, mask
-
 def budget_limit(list_idx, budget, dataloader):
     budget_list = []
     for i in range(len(list_idx)):
@@ -141,70 +92,48 @@ def budget_limit2(list_idx, budget, dataloader):
             budget -= sent_len
     return budget_list, budget
 
-def find_iobes_entities(sentence, tag2idx):
-  t = [2+i for i in range(0, len(tag2idx), 4)]
-  entities = []
-  tag_flag = False
-  entity_start = -1
-  curr_tag_class = 0
-  for i in range(len(sentence)):
-    tag = sentence[i]
-    # 'O' or '<PAD>' or '<GO>' classes
-    if tag == 0 or tag == 1:# or tag == tag2idx['<GO>']:
-      curr_tag_class = 0
-      tag_flag == False
-      continue
-    tag_class = t[bisect(t, tag)-1]
-    tag_mark  = tag - tag_class
-    # B- class
-    if tag_mark == 0:
-      tag_flag = True
-      entity_start = i
-      curr_tag_class = tag_class
-    # I- class
-    elif tag_mark == 1 and curr_tag_class != tag_class:
-      tag_flag = False
-    # S- class
-    elif tag_mark == 2:
-      entities.append((i, i, tag_class))
-      tag_flag = False
-    # E- class
-    elif tag_mark == 3:
-      if tag_flag and (curr_tag_class == tag_class):
-        entities.append((entity_start, i, tag_class))
-      tag_flag = False
-  return entities
+def augment_pretrained_embedding(embedding, train_path):
+    """
+    Augment pretrained embeddings with tokens from the training set
+    """
+    vocab = {}
+    f = open(train_path)
+    for line in f:
+        try:
+            word = line.split()[0]
+            if word not in vocab:
+                vocab[word] = 1
+            else:
+                vocab[word] += 1
+        except:
+            pass
+    found = {}
+    not_found = {}
+    for word in vocab:
+        if word not in embedding and word.lower() not in embedding:
+            not_found[word] = vocab[word]
+        else:
+            found[word] = vocab[word]
 
-def find_iobes_entities2(sentence, tag2idx):
-  t = [2+i for i in range(0, len(tag2idx), 4)]
-  entities = set({})
-  tag_flag = False
-  entity_start = -1
-  curr_tag_class = 0
-  for i in range(len(sentence)):
-    tag = sentence[i]
-    # 'O' or '<PAD>' or '<GO>' classes
-    if tag == 0 or tag == 1:# or tag == tag2idx['<GO>']:
-      curr_tag_class = 0
-      tag_flag == False
-      continue
-    tag_class = t[bisect(t, tag)-1]
-    tag_mark  = tag - tag_class
-    # B- class
-    if tag_mark == 0:
-      tag_flag = True
-      entity_start = i
-      curr_tag_class = tag_class
-    # I- class
-    elif tag_mark == 1 and curr_tag_class != tag_class:
-      tag_flag = False
-    # S- class
-    elif tag_mark == 2:
-      entities.add((i, i, tag_class))
-      tag_flag = False
-    # E- class
-    elif tag_mark == 3:
-      if tag_flag and (curr_tag_class == tag_class):
-        entities.add((entity_start, i, tag_class))
-      tag_flag = False
-  return entities
+    bias = sqrt(3/embedding.vector_size)
+    for word in not_found:
+        embedding.add(word, np.random.uniform(-bias, bias, embedding.vector_size))
+
+class CustomDropout(torch.nn.Module):
+    """
+    Custom dropout layer based on inverted dropout to allow for frozen dropout masks
+    """
+    def __init__(self, p: float = 0.5):
+        super(CustomDropout, self).__init__()
+        assert p > 0 and p < 1, 'Dropout probability out of range (0 < p < 1)'
+        self.p = p
+        self.drop_mask = None
+        self.repeat_mask_flag = False
+
+    def forward(self, x):
+        if self.training:
+            if not self.repeat_mask_flag:
+                self.drop_mask = torch.distributions.binomial.Binomial(probs=1-self.p).sample(x.size()).to(x.device)
+                self.drop_mask *= (1.0/(1-self.p))
+            return x * self.drop_mask
+        return x
