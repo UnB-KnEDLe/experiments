@@ -99,8 +99,7 @@ def exact_micro_f1_score(model, dataloader, device, tag2idx):
                 if entity not in predicted_entities:
                     FN += 1
     if TP == 0:
-      f1 = 0
-      return f1
+      return 0
     precision = TP/(TP+FP)
     recall = TP/(TP+FN)
     f1 = 2*(precision*recall)/(precision+recall)

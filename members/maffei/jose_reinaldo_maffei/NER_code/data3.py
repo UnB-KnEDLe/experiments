@@ -169,9 +169,7 @@ class active_dataset(Dataset):
                 temp_tags.append(line.split()[3])
                 
         if temp_sentences:
-            # temp_sentences = list(itertools.chain(['<START>'], temp_sentences, ['<END>']))
             temp_sentences = ['<START>', *temp_sentences, '<END>']
-            # temp_tags = list(itertools.chain(['O'], temp_tags, ['O']))
             temp_tags = ['O', *temp_tags, 'O']
             temp_words = [
                 [*itertools.chain(['<START>'], [*word], ['<END>'])]

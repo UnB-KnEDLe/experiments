@@ -195,6 +195,7 @@ class active_dataset(Dataset):
                     word_count += 1
         return word_count
 
+
 class active_self_dataset(Dataset):
     def __init__(self, word2idx_dic, char2idx_dic, tag2idx_dic, path, data_format='iob1'):
         super(active_self_dataset, self).__init__()

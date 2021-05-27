@@ -39,7 +39,9 @@ class char_cnn(nn.Module):
     def forward(self, x):
         x = self.emb_dropout(self.embedding(x))
         shape = x.shape
-        x = self.conv(x.reshape([shape[0]*shape[1], shape[2], shape[3]]).permute(0, 2, 1))
+        x = self.conv(
+            x.reshape([shape[0]*shape[1], shape[2], shape[3]]).permute(0, 2, 1)
+        )
         x = torch.nn.functional.max_pool1d(x, kernel_size=x.shape[2]).squeeze(2)
         return x.reshape([shape[0], shape[1], -1])
 
