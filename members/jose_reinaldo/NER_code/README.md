@@ -22,7 +22,7 @@ Code for training of deep learning models applied to named entity recognition ta
 - --dataset_format : Format of the dataset (e.g. iob1, iob2, iobes)
 
 ### Embedding parameters
-- --embedding_path : Path to load pretrained embeddings from
+- --embedding_path : Path to load pretrained embeddings from (only .kv files supported so far)
 
 - --augment_pretrained_embedding : Indicates whether to augment pretrained embeddings with vocab from training set')
 
