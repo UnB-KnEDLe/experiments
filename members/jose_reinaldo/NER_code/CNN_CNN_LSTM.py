@@ -13,8 +13,8 @@ class char_cnn(nn.Module):
         self.embedding = nn.Embedding(num_embeddings=embedding_size, embedding_dim=embedding_dim, padding_idx=0)
         self.conv = nn.Conv1d(in_channels=embedding_dim, out_channels=out_channels, kernel_size=3, stride=1, padding=1)
         self.relu = nn.ReLU()
-        # self.dropout = nn.Dropout(p=0.5)
-        self.dropout = CustomDropout(p=0.5)
+        self.dropout = nn.Dropout(p=0.5)
+        # self.dropout = CustomDropout(p=0.5)
         self.init_weight()
 
     def init_weight(self):
@@ -40,8 +40,8 @@ class word_cnn(nn.Module):
         super(word_cnn, self).__init__()
         self.word2idx = word2idx
         self.embedding = nn.Embedding.from_pretrained(torch.FloatTensor(pretrained_word_emb.vectors), freeze=True)
-        # self.dropout = nn.Dropout(p=0.5)
-        self.dropout = CustomDropout(p=0.5)
+        self.dropout = nn.Dropout(p=0.5)
+        # self.dropout = CustomDropout(p=0.5)
         convnet = []
         for i in range(conv_layers):
             if i == 0:
@@ -62,16 +62,22 @@ class word_cnn(nn.Module):
         pass
 
     def forward(self, x, char_embeddings, mask=None):
-        # 50% chance word dropout to improve generalization
-        if self.training and mask != None:
-            WD_mask = torch.distributions.Bernoulli(probs=(1-0.5)).sample(x.size()).to(x.device)
-            mask_ = WD_mask * mask
-            x[~mask_.bool()] = self.word2idx['<UNK>']
+        # 50% chance word dropout to improve generalization (avoid replacing special tokens - <BOS> <EOS> <PAD>)
+        # if self.training and mask != None:
+        #     mask_ = mask.clone()
+        #     for i in range(mask_.shape[0]):
+        #         for j in range(mask.shape[1]-1):
+        #             if mask_[i, j] == 0 and mask[i, j+1] == 1:
+        #                 mask[i, j] = 1
+        #     WD_mask = torch.distributions.Bernoulli(probs=(1-0.5)).sample(x.size()).to(x.device)
+        #     WD_mask[:, 0] = 1
+        #     mask_ *= WD_mask
+        #     x[~mask_.bool()] = self.word2idx['<UNK>']
         # word2vec embedding
         x = self.embedding(x)
         # concat word and char embedding
         x = torch.cat((x, char_embeddings), dim=2)
-        # x = self.dropout(x)
+        x = self.dropout(x)
         w = x.clone()
         x = x.permute(0, 2, 1)
         x = self.convnet(x)
@@ -89,8 +95,8 @@ class decoder(nn.Module):
         self.num_classes = num_classes
         self.lstm = torch.nn.LSTM(input_size=feature_size+num_classes, hidden_size=hidden_size, num_layers=decoder_layers)
         self.linear = torch.nn.Linear(hidden_size, num_classes)
-        # self.dropout = nn.Dropout(p=0.5)
-        self.dropout = CustomDropout(p=0.5)
+        self.dropout = nn.Dropout(p=0.5)
+        # self.dropout = CustomDropout(p=0.5)
         self.loss_fn = torch.nn.CrossEntropyLoss(ignore_index = 0, reduction='sum')
         self.init_weight()
 
