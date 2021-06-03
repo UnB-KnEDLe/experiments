@@ -1,0 +1,2 @@
+ML1 =  Machine Learning: Classificação por trás dos panos: https://cursos.alura.com.br/course/introducao-a-machine-learning-com-classificacao
+ML2 = Machine Learning: Avançando com tipos diferentes de classificação: https://cursos.alura.com.br/course/machine-learning-classificacao-ii
