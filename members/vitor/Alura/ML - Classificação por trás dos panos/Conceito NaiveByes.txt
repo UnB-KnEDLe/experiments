@@ -1,0 +1,80 @@
+################################################################################################################################################################
+
+    *+* EXEMPLO ELEIÇÕES:
+
+    ************************ PROBABILIDADE ************ NA SORTE ************
+    -> GUILHERME                   70%                  1 até 70
+    -> PAULO                       30%                  71 até 100
+    *************************************************************************
+
+    -> Probabilidade de guilherme ser eleito é maior que paulo (70% contra 30%)
+    -> REGRA DE ACORDO COM AS PROBABILIDADES: Vou escolher na sorte um número, e se cair entre 1 e 70 = GUILHERME, se cair entre 71 e 100 = PAULO
+
+    -> Logo, o algoritimo vai pegar os dados, calcular as probabilidades e usa uma regra de decisão para dizer a categoria 
+
+
+    REGRAS DE DECISÃO:
+
+    MAIOR: sempre escolhe o com maior probabilidade
+    MENOR: sempre escolhe o com menor probabilidade
+    PROBABILIDADE: sorteia números entre 1 a 100. Levando em consideração que as chances são de 30% a 70%, se o número for entre 1 a 30 (30 números), 
+                será escolhida a chance de 30%, caso o número for entre 31 a 100 (70 números), será escolhida a chance de 70%.
+
+################################################################################################################################################################
+
+    *+* EXEMPLO COMPRA DE IMÓVEIS:
+
+    Probabilidade Condicional: De acordo com o estado (condição), tenho uma probabilidade dele comprar ou não
+    obs.: probabilidade = P
+
+    P(comprar | Rio de Janeiro) = "qual a probabilidade de uma pessoa comprar, dado que ela é do Rio de Janeiro"
+
+    RIO DE JANEIRO ************ TOTAL ************ PROBABILIDADE*********
+    -> COMPROU                   17                    31.5%     
+    -> NÃO COMPROU               37                    68.5%
+    -> TOTAL                     54
+    *********************************************************************
+
+    SÃO PAULO ***************** TOTAL ************ PROBABILIDADE*********
+    -> COMPROU                   67                     27.5%   
+    -> NÃO COMPROU               177                    72.5%
+    -> TOTAL                     244
+    *********************************************************************
+
+################################################################################################################################################################
+
+    *+* EXEMPLO COMPRA DE IMÓVEIS:
+
+    Probabilidade Condicional de 2 variáveis: De acordo com o estado e seu salario (condições/features que são idependentes), tenho uma probabilidade dele comprar ou não  
+        estado: rj ou sp
+        salario: > ou < que 5.000
+    obs.: probabilidade = P
+
+    P(comprar | Rio de Janeiro, <=5000) = "qual a probabilidade de uma pessoa comprar, dado que ela é do Rio de Janeiro e salário <= 5000"
+
+    P(comprar | SP, <=5000)  =  P(comprar | SP) * P(comprar | <=5000)  =  0.275 * 0.18   =   5%
+
+    RIO DE JANEIRO ************ TOTAL ************ PROBABILIDADE*********
+    -> COMPROU                   17                    31.5%     
+    -> NÃO COMPROU               37                    68.5%
+    -> TOTAL                     54
+    *********************************************************************
+
+    SÃO PAULO ***************** TOTAL ************ PROBABILIDADE*********
+    -> COMPROU                   67                     27.5%   
+    -> NÃO COMPROU               177                    72.5%
+    -> TOTAL                     244
+    *********************************************************************
+
+    $ > 5.000 ***************** TOTAL ************ PROBABILIDADE*********
+    -> COMPROU                   32                     80%   
+    -> NÃO COMPROU               8                      20%
+    -> TOTAL                     40
+    
+    *********************************************************************
+
+     $ <= 5.000 ***************** TOTAL ************ PROBABILIDADE*******
+    -> COMPROU                   47                      18%   
+    -> NÃO COMPROU               211                     82%
+    -> TOTAL                     258
+    *********************************************************************

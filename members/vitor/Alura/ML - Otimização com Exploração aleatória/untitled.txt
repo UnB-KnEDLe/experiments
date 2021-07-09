@@ -1,0 +1,10 @@
+GRID:
+    - VARRE TUDO
+    - MUITO TEMPO
+    - PARALELISMO POSSÍVEL
+    
+RANDOM:
+    - Busca Aleatoriamente
+    - Menos tempo
+    - Paralelismo Possivel
+    - Otimizações Possíveis

@@ -1,0 +1,7 @@
+VALIDAÇÃO DOS NOSSOS ESTIMADOREs -> O quão bem eles estão se saindo!
+
+
+VALIDAÇÃO CRUZADA
+SHUFFLE
+STRATIFIER
+SEPARAÇÃO DE GRUPOS -> Treinar uma parte do grupo e validar com outra através do agrupameto
