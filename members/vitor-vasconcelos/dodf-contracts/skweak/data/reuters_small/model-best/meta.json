@@ -1,0 +1,117 @@
+{
+  "lang":"pt",
+  "name":"pipeline",
+  "version":"0.0.0",
+  "spacy_version":">=3.1.2,<3.2.0",
+  "description":"",
+  "author":"",
+  "email":"",
+  "url":"",
+  "license":"",
+  "spacy_git_version":"e1f88de72",
+  "vectors":{
+    "width":0,
+    "vectors":0,
+    "keys":0,
+    "name":null
+  },
+  "labels":{
+    "tok2vec":[
+
+    ],
+    "ner":[
+      "CONTRATO",
+      "DATA ASS.",
+      "LEI ORC.",
+      "NAT DESP.",
+      "OBJETO",
+      "PARTES",
+      "PROCESSO",
+      "PROG TRAB.",
+      "SIGNATARIOS",
+      "UNI ORC.",
+      "VALOR",
+      "VIGENCIA"
+    ]
+  },
+  "pipeline":[
+    "tok2vec",
+    "ner"
+  ],
+  "components":[
+    "tok2vec",
+    "ner"
+  ],
+  "disabled":[
+
+  ],
+  "performance":{
+    "ents_f":1.0,
+    "ents_p":1.0,
+    "ents_r":1.0,
+    "ents_per_type":{
+      "CONTRATO":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "PROCESSO":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "PARTES":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "OBJETO":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "VALOR":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "LEI ORC.":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "UNI ORC.":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "PROG TRAB.":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "NAT DESP.":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "DATA ASS.":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "SIGNATARIOS":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      },
+      "VIGENCIA":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      }
+    },
+    "tok2vec_loss":0.0000046016,
+    "ner_loss":0.0000185069
+  }
+}
