@@ -1,0 +1,447 @@
+year,ns_year,page,extracted,observation
+2000,1,89,X,(só pega o título)
+2000,1,89,V,
+2000,1,89,V,
+2000,1,89,V,
+2000,1,98,V,
+2000,1,98,V,
+2000,1,98,V,
+2000,1,98,V,
+2000,1,99,V,
+2000,1,99,VX,mistura com o próximo
+2000,1,99,VX,mistura com o anterior
+2000,2,30,V,
+2000,2,31,X,
+2000,2,31,V,
+2000,2,31,X,(só pega o título)
+2000,2,32,V,
+2000,2,32,V,
+2000,2,36,V,
+2001,1,16,V,
+2001,1,17,X,(só pega o título)
+2001,1,17,X,(só pega o título)
+2001,1,17,X,(só pega o título)
+2001,1,17,V,
+2001,1,17,V,
+2001,1,17,V,
+2001,2,38,V,
+2001,2,38,X,(só pega o título)
+2001,2,56,VX,(pegou o extrato e coisa extra)
+2001,2,57,V,
+2001,2,59,V,
+2002,1,2,V,
+2002,1,4,V,
+2002,1,4,V,
+2002,1,4,V,
+2002,2,2,V,
+2002,2,9,V,
+2002,2,13,V,
+2002,2,13,V,
+2002,2,13,V,
+2002,2,13,X,(só pega o título)
+2003,1,4,V,
+2003,1,6,V,
+2003,1,7,V,
+2003,1,8,V,
+2003,1,8,X,(só pega o título)
+2003,2,13,V,
+2003,2,14,V,
+2003,2,15,V,
+2003,2,15,V,
+2003,2,17,X,(dentro de bloco de extratos de instrumentos contratuais)
+2003,2,17,X,(dentro de bloco de extratos de instrumentos contratuais)
+2003,2,17,X,(dentro de bloco de extratos de instrumentos contratuais)
+2003,2,17,X,(dentro de bloco de extratos de instrumentos contratuais)
+2003,2,17,X,(dentro de bloco de extratos de instrumentos contratuais)
+2003,2,17,X,(dentro de bloco de extratos de instrumentos contratuais)
+2003,2,17,X,(dentro de bloco de extratos de instrumentos contratuais)
+2003,2,17,X,(dentro de bloco de extratos de instrumentos contratuais)
+2003,2,17,X,(dentro de bloco de extratos de instrumentos contratuais)
+2003,2,18,X,(dentro de bloco de extratos de instrumentos contratuais)
+2003,2,18,X,(dentro de bloco de extratos de instrumentos contratuais)
+2003,2,18,X,(dentro de bloco de extratos de instrumentos contratuais)
+2003,2,18,X,(dentro de bloco de extratos de instrumentos contratuais)
+2003,2,18,X,(dentro de bloco de extratos de instrumentos contratuais)
+2003,2,18,X,(dentro de bloco de extratos de instrumentos contratuais)
+2003,2,18,X,(dentro de bloco de extratos de instrumentos contratuais)
+2003,2,18,X,(dentro de bloco de extratos de instrumentos contratuais)
+2003,2,18,X,(dentro de bloco de extratos de instrumentos contratuais)
+2003,2,18,X,(dentro de bloco de extratos de instrumentos contratuais)
+2003,2,19,X,(dentro de bloco de extratos de instrumentos contratuais)
+2003,2,19,X,(dentro de bloco de extratos de instrumentos contratuais)
+2003,2,19,X,(dentro de bloco de extratos de instrumentos contratuais)
+2003,2,19,X,(dentro de bloco de extratos de instrumentos contratuais)
+2004,1,2,X,(só pega o título)
+2004,1,3,X,(só pega o título)
+2004,1,3,X,(só pega o título)
+2004,1,3,X,(só pega o título)
+2004,1,3,X,(só pega o título)
+2004,1,3,X,(só pega o título)
+2004,1,4,X,(só pega o título)
+2004,1,4,X,(só pega o título)
+2004,1,4,X,(só pega o título)
+2004,1,4,X,(só pega o título)
+2004,1,4,X,(só pega o título)
+2004,1,4,X,(só pega o título)
+2004,1,4,X,(só pega o título)
+2004,1,5,X,(só pega o título)
+2004,1,5,X,(só pega o título)
+2004,1,5,VX,(pegou o extrato e coisa extra)
+2004,1,6,V,
+2004,1,6,V,
+2004,1,6,V,
+2004,1,6,V,
+2004,2,2,V,
+2004,2,2,V,
+2004,2,2,V,
+2004,2,2,V,
+2004,2,2,V,
+2004,2,2,V,
+2004,2,4,V,
+2004,2,11,V,
+2004,2,12,V,
+2005,1,8,V,
+2005,1,9,V,
+2005,1,9,X,
+2005,1,9,X,
+2005,1,9,V,
+2005,1,11,V,
+2005,1,11,V,
+2005,1,12,V,
+2005,1,12,V,
+2005,1,12,V,
+2005,2,1,VX,(pegou o extrato e coisa extra)
+2005,2,1,V,
+2005,2,8,V,
+2005,2,8,V,
+2005,2,9,V,"(faltou 1 linha final, com um nome completo em maiúsculo)"
+2005,2,10,V,
+2005,2,10,V,
+2006,1,1,V,
+2006,1,6,V,
+2006,1,30,X,(só pega o título)
+2006,2,2,V,
+2006,2,7,V,
+2006,2,8,V,
+2006,2,8,V,
+2006,2,8,V,
+2006,2,8,V,
+2006,2,8,V,
+2006,2,8,V,
+2006,2,8,V,
+2006,2,10,V,
+2007,1,1,VX,(pegou 2 blocos a mais)
+2007,1,1,V,
+2007,1,1,V,
+2007,1,2,V,
+2007,1,2,V,
+2007,1,3,V,
+2007,1,5,X,
+2007,1,6,V,
+2007,1,6,V,
+2007,2,1,V,
+2007,2,4,V,
+2008,1,6,V,
+2008,1,9,V,
+2008,2,1,V,
+2008,2,1,V,(uma linha a mais extra desnecessária)
+2008,2,1,V,
+2008,2,1,V,
+2008,2,1,V,
+2008,2,1,V,
+2008,2,1,V,
+2008,2,1,V,
+2008,2,1,V,
+2008,2,1,V,
+2008,2,2,V,
+2008,2,2,V,
+2008,2,2,V,
+2008,2,2,V,
+2008,2,4,V,
+2008,2,4,VX,(pegou 1 bloco a mais)
+2008,2,5,V,
+2008,2,5,V,
+2008,2,5,V,
+2008,2,5,X,(só pega o título)
+2008,2,5,X,(só pega o título)
+2008,2,5,X,
+2008,2,5,X,
+2008,2,7,VX,(pegou muitos blocos além)
+2008,2,12,V,
+2008,2,12,V,
+2008,2,12,V,
+2008,2,13,V,
+2008,2,13,V,
+2008,2,13,V,
+2008,2,13,V,
+2008,2,13,X,(só pega o título)
+2008,2,13,X,(só pega o título)
+2008,2,13,X,(só pega o título)
+2008,2,13,X,(só pega o título)
+2008,2,14,X,(só pega o título)
+2008,2,14,X,(só pega o título)
+2009,1,1,VX,(pegou 2 blocos a mais)
+2009,1,1,V,"(pegou 2 linhas a mais entre o texto, inevitável aqui)"
+2009,1,10,X,
+2009,1,10,V,
+2009,1,11,VX,(pega mais bloco do que deveria)
+2009,1,21,V,
+2009,1,22,V,
+2009,1,23,V,
+2009,2,1,V,
+2009,2,1,V,
+2009,2,1,V,
+2009,2,1,X,
+2009,2,1,V,
+2009,2,4,V,
+2009,2,5,V,
+2009,2,6,X,
+2009,2,9,VX,(pega 1 bloco a mais do que deveria)
+2009,2,11,V,
+2009,2,11,V,
+2009,2,12,V,(faltou 1 linha final com nome todo maiúsculo)
+2009,2,12,V,(tem 1 linha a mais de um título indevido)
+2010,1,2,V,
+2010,1,2,VX,(pega 1 bloco a mais)
+2010,1,2,VX,(pega 1 bloco a mais)
+2010,1,2,V,
+2010,1,2,V,
+2010,1,5,V,(faltou 2 linhas de nomes)
+2010,1,6,X,(só pega o título)
+2010,1,9,V,
+2010,2,1,V,
+2010,2,1,V,
+2010,2,1,V,
+2010,2,1,V,
+2010,2,4,V,
+2010,2,6,V,
+2010,2,8,VX,(pega 2 blocos a mais)
+2011,1,3,V,
+2011,1,17,V,
+2011,2,1,X,(só pega o título)
+2011,2,1,X,(só pega o título)
+2011,2,1,X,(só pega o título)
+2011,2,1,X,(só pega o título)
+2011,2,2,V,
+2011,2,2,V,
+2011,2,2,V,
+2011,2,3,V,
+2011,2,3,V,
+2011,2,3,X,(só pega o título)
+2011,2,6,V,
+2011,2,7,V,
+2011,2,7,V,
+2011,2,7,V,(tem 1 linha a mais de rodapé que não deveria estar ali)
+2011,2,8,V,
+2011,2,10,X,(só pega o título)
+2011,2,10,X,(só pega o título)
+2011,2,11,X,(só pega o título)
+2011,2,11,X,(só pega o título)
+2011,2,11,X,(só pega o título)
+2011,2,11,V,
+2011,2,12,V,
+2011,2,35,VX,(pegou 5 blocos a mais)
+2012,1,1,V,
+2012,1,2,V,
+2012,1,2,X,(só pega o título)
+2012,1,2,X,(só pega o título)
+2012,1,2,V,
+2012,1,6,V,
+2012,1,11,V,
+2012,2,1,V,
+2012,2,1,X,(só pega o título)
+2012,2,1,X,(só pega o título)
+2012,2,1,X,(só pega o título)
+2012,2,1,X,(só pega o título)
+2012,2,3,VX,(pegou 3 blocos a mais)
+2012,2,3,VX,(pegou 1 bloco a mais)
+2012,2,6,V,
+2012,2,6,V,
+2012,2,6,V,
+2012,2,25,V,
+2013,1,1,X,
+2013,1,2,V,
+2013,1,2,X,
+2013,1,52,V,
+2013,1,58,V,
+2013,1,58,V,
+2013,1,59,V,
+2013,1,59,V,
+2013,2,1,V,
+2013,2,1,V,(1 linha a mais com título seguinte)
+2013,2,1,V,
+2013,2,3,V,
+2013,2,3,V,
+2013,2,3,V,
+2013,2,3,V,
+2013,2,3,V,
+2013,2,3,V,
+2013,2,3,V,
+2013,2,3,V,
+2013,2,5,V,
+2013,2,8,V,
+2013,2,8,V,
+2013,2,8,V,
+2013,2,14,V,
+2013,2,15,X,(só pega o título)
+2013,2,17,V,
+2014,1,1,VX,(pegou 3 blocos a mais)
+2014,1,2,X,(só pega o título)
+2014,1,2,V,
+2014,1,2,V,
+2014,1,2,V,
+2014,1,2,V,
+2014,1,2,V,
+2014,1,2,V,
+2014,1,2,V,
+2014,1,2,V,
+2014,1,2,V,
+2014,1,2,V,
+2014,1,5,V,
+2014,1,5,V,
+2014,1,9,X,(EXTRATO CONTRATUAL)
+2014,1,12,X,(só pega o título)
+2014,1,12,X,(só pega o título)
+2014,1,12,X,(só pega o título)
+2014,1,12,X,(só pega o título)
+2014,1,12,X,(só pega o título)
+2014,1,13,X,(só pega o título)
+2014,1,13,X,(só pega o título)
+2014,1,13,X,(só pega o título)
+2014,1,13,X,(só pega o título)
+2014,1,13,X,(só pega o título)
+2014,1,13,X,(só pega o título)
+2014,1,13,X,(só pega o título)
+2014,1,14,X,(só pega o título)
+2014,1,15,V,
+2014,1,17,V,
+2014,1,173,X,(só pega o título)
+2014,1,173,V,
+2014,1,173,V,
+2014,1,174,V,
+2014,2,1,X,(só pega o título)
+2014,2,1,X,(só pega o título)
+2014,2,8,V,
+2014,2,12,X,(só pega o título)
+2014,2,13,V,
+2015,1,4,V,
+2015,1,8,V,
+2015,1,9,V,
+2015,1,9,V,
+2015,1,9,V,
+2015,1,9,V,
+2015,2,1,V,
+2016,1,,,
+2016,2,1,V,
+2016,2,1,V,
+2016,2,1,V,
+2016,2,15,V,
+2016,2,20,V,
+2016,2,27,V,
+2016,2,27,V,
+2016,2,28,V,
+2016,2,29,X,(só pega o título)
+2016,2,29,X,(só pega o título)
+2016,2,30,V,
+2016,3,2,V,
+2016,3,9,VX,(1 bloco a mais)
+2016,3,11,V,
+2016,3,12,X,(só pega o título)
+2016,3,12,V,
+2017,1,45,V,
+2017,1,71,X,(só pega o título)
+2017,1,71,X,(só pega o título)
+2017,1,71,X,(só pega o título)
+2017,1,71,X,(só pega o título)
+2017,1,71,X,(só pega o título)
+2017,1,71,X,(só pega o título)
+2017,1,83,X,(só pega o título)
+2017,1,83,X,(só pega o título)
+2017,1,83,X,(só pega o título)
+2017,1,85,V,
+2017,1,85,V,
+2017,1,86,V,
+2017,1,86,V,
+2017,1,86,V,
+2017,1,86,V,
+2017,1,86,V,(tem resto de rodapé que não deveria ter)
+2017,2,41,V,
+2017,2,41,V,
+2017,2,41,V,
+2017,2,41,V,
+2017,2,42,V,
+2017,2,49,V,
+2017,2,50,V,
+2017,2,50,X,(só pega o título)
+2017,2,50,V,
+2018,1,37,V,"(tem uma linha a mais, do próximo título)"
+2018,1,38,V,
+2018,1,40,V,
+2018,1,40,V,"(tem linha a mais, do próximo título)"
+2018,1,42,X,(só pega o título)
+2018,1,42,X,(só pega o título)
+2018,1,42,X,(só pega o título)
+2018,1,42,X,(só pega o título)
+2018,1,45,V,
+2018,1,45,V,
+2018,1,46,V,
+2018,2,,,
+2018,3,52,X,(EXTRATOS CONTRATUAIS)
+2018,3,53,V,
+2018,3,53,V,(pegando resto de rodapé que não deveria)
+2018,3,54,V,
+2018,3,59,V,
+2018,3,59,V,
+2018,3,60,X,(só pega o título)
+2019,1,40,V,
+2019,1,40,X,(só pega o título)
+2019,1,40,V,
+2019,1,42,V,
+2019,1,64,V,
+2019,1,64,V,
+2019,1,65,V,
+2019,1,67,V,
+2019,1,68,V,
+2019,1,68,V,
+2019,1,75,X,(EXTRATO DO CONTRATO...)
+2019,2,50,V,
+2019,2,50,X,(EXTRATOS CONTRATUAIS)
+2019,2,55,VX,(pega 7 blocos a mais)
+2019,2,56,V,
+2019,2,58,V,
+2019,2,58,V,"(pega 1 linha a mais, do próximo título)"
+2019,2,71,V,
+2020,1,39,V,
+2020,1,42,V,
+2020,1,42,V,
+2020,1,48,V,
+2020,1,48,V,
+2020,1,49,V,
+2020,1,49,V,
+2020,1,50,X,"(pega as 2 primeiras linhas, erro de próxima linha toda maiúscula)"
+2020,1,52,V,
+2020,1,52,V,
+2020,2,38,V,
+2020,2,38,V,(pegando resto de rodapé que não deveria)
+2020,2,39,V,
+2020,2,43,V,
+2020,2,44,V,(pegando resto de rodapé que não deveria)
+2020,2,46,X,(EXTRATOS CONTRATUAIS)
+2020,2,47,V,
+2021,1,33,,
+2021,1,34,,
+2021,1,34,,
+2021,1,35,,
+2021,1,35,,
+2021,1,35,,(pegando resto de rodapé que não deveria)
+2021,1,36,,
+2021,1,36,,
+2021,1,56,,(EXTRATOS CONTRATUAIS)
+2021,1,56,,(pegando resto de rodapé que não deveria)
+2021,1,57,,
+2021,1,58,,
+2021,1,63,X,(EXTRATO CONTRATO)
+2021,2,57,X,(só pega o título)
+2021,2,58,V,
+2021,2,59,V,
+2021,2,60,V,
