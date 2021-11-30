@@ -89,3 +89,7 @@ Code for training deep learning models applied to named entity recognition tasks
 - --TokenSelfLabel_flag : Flag that indicates whether to perform token level self-labeling or not (0 to not use, 1 to use)
 
 - --min_confidence : Minimum confidence the model needs to have in order to self-label a specific token
+
+## Credits
+---
+- Original code for the CRF module (crf.py) written by kmkurn (github profile) and presented in the pytorch-crf repository (Link: https://github.com/kmkurn/pytorch-crf). The code was slightly altered to return the confidence of the CRF predictions
