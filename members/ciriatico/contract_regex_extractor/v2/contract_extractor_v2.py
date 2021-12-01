@@ -108,7 +108,7 @@ class ContractExtractor:
 
         extracted_texts_df = cls._extract_texts_from_mapped_positions(ext_blk_list, base_df, "text")
 
-        ext_df = cls._extracted_texts_to_df(extracted_texts_df, base_df[["file_name", "number", "day", "month", "year"]], ["file_name", "number", "day", "month", "year", "full_text", "title_text", "corpus_text"])
+        ext_df = cls._extracted_texts_to_df(extracted_texts_df, base_df[["file_name", "number", "day", "month", "year"]], ["file_name", "number", "day", "month", "year", "text"])
 
         return ext_df
     
@@ -121,9 +121,7 @@ class ContractExtractor:
         page_patterns = [start_page_patterns, middle_page_patterns, end_page_patterns]
         page_patterns = "|".join(page_patterns)
 
-        ext_df["full_text"] = ext_df["full_text"].str.replace(page_patterns, "", regex=True)
-        ext_df["title_text"] = ext_df["title_text"].str.replace(page_patterns, "", regex=True)
-        ext_df["corpus_text"] = ext_df["corpus_text"].str.replace(page_patterns, "", regex=True)
+        ext_df["text"] = ext_df["text"].str.replace(page_patterns, "", regex=True)
 
         return ext_df
 
@@ -135,13 +133,9 @@ class ContractExtractor:
         for extracted_text in texts_indexes:
             index_text = extracted_text[0]
             ext_text = extracted_text[1]
-            title_text = extracted_text[2]
-            corpus_text = extracted_text[3]
 
             list_text = list(base_df.loc[index_text, base_df.columns].values)
             list_text.append(ext_text)
-            list_text.append(title_text)
-            list_text.append(corpus_text)
 
             extracted_texts_df.append(list_text)
 
@@ -199,19 +193,13 @@ class ContractExtractor:
                 index_ia_b = mapped_position[2].index(ia_b)
                 index_ia_e = mapped_position[2].index(ia_e)
 
-                index_ia_e_nl = mapped_position[3].index(ia_e) + 1
-                inl = mapped_position[3][index_ia_e_nl]
-                title_text = mapped_text[ia_b:inl]
-
                 if (index_ia_e + 1) <= (len(mapped_position[2])-1):
                     ib = mapped_position[2][index_ia_e+1]
-                    corpus_text = mapped_text[inl:ib]
+                    extracted_text = mapped_text[ia_b:ib]
                 else:
-                    corpus_text = mapped_text[inl:]
+                    extracted_text = mapped_text[ia_b:]
 
-                extracted_text = title_text + corpus_text
-
-                extracted_texts.append([mapped_position[0], extracted_text, title_text, corpus_text])
+                extracted_texts.append([mapped_position[0], extracted_text])
 
         return extracted_texts
 
