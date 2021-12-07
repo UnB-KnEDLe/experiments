@@ -21,7 +21,7 @@ class Contratos(Atos):
         return joblib.load(f_path)
 
     def _act_name(self):
-        return "contrato"
+        return "Contrato"
 
     def _props_names(self):
         return ["Tipo do Ato", "Objeto"]
@@ -100,17 +100,22 @@ class ContractExtractorREGEX:
                              r"xx([a-z]{1,10})", r"\n- -\n", r"\n- - -\n",
                             r"\n[\.\,\-\—]\n", r"— -"]
 
-        contract_texts = cls._clean_text(extracted_texts, start_page_patterns, end_page_patterns, middle_page_patterns)
-
+        if len(extracted_texts) > 0:
+            contract_texts = cls._clean_text(extracted_texts, start_page_patterns, end_page_patterns, middle_page_patterns)
+        else:
+            contract_texts = extracted_texts
+            
         return contract_texts
     
     @classmethod
     def _extract_text_blocks(cls, base_str, contract_pattern, block_pattern, newline_pattern):
         matched_text = cls._row_list_regex(base_str, contract_pattern, block_pattern, newline_pattern)
-
-        ext_blk_list = cls._mapped_positions_regex(matched_text)
         
-        extracted_texts = cls._extract_texts_from_mapped_positions(ext_blk_list, base_str)
+        if matched_text != None:
+            ext_blk_list = cls._mapped_positions_regex(matched_text)
+            extracted_texts = cls._extract_texts_from_mapped_positions(ext_blk_list, base_str)
+        else:
+            extracted_texts = []
 
         return extracted_texts
     
