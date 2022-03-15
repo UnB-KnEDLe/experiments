@@ -122,7 +122,7 @@ def remove_PrivateUserArea(string):
     output = ""
 
     for i in range(0,len(string)):
-        if ord(string[i])>1000:
+        if ord(string[i])>900:
             output=output+' '
         else:
             output=output+string[i]
