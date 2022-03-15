@@ -2,7 +2,7 @@
 string = "especiﬁcações"
 
 nova = ""
-f = open("/home/viniciusrpb/Projects/biocxml/dodf_xmls/DODF 225 03-12-2021.xml", "r")
+f = open("/home/viniciusrpb/Projects/biocxml/dodf_xmls/DODF 005 07-01-2022.xml", "r")
 print()
 
 lines = f.readlines()
