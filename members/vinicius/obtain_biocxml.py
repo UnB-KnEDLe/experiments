@@ -26,9 +26,10 @@ def ultima_parte():
     
     return string
 
-def escreve_publicacao(pub):
+def escreve_publicacao(pub,offset):
     
     string = '\t<passage>\n'
+    string = string+'\t<offset>'+str(offset)+'</offset>\n'
     string = string+'\t<text>\n'
     
     string = string+"\t\t"+pub+"\n"
@@ -38,14 +39,19 @@ def escreve_publicacao(pub):
     
     return string
 
-def write_biocxml(nome_arq,edicao):
+def write_biocxml(nome_arq,edicao,offsets):
     
     output_file = open(nome_arq,'w', encoding="utf-8")
     
     output_file.write(primeira_parte())
     
+    print(len(offsets))
+    print(len(edicao))
+    
+    i = 0
     for publicacao in edicao:
-        output_file.write(escreve_publicacao(publicacao))
+        output_file.write(escreve_publicacao(publicacao,offsets[i]))
+        i+=1
     
     output_file.write(ultima_parte())
     
@@ -146,11 +152,18 @@ outros = []
 
 titulos = []
 
+batch = 1
+batch_str = ""
+
+edicao = []
+
+offsets = []
+
+offset = 0
+
 for edicao_json in edicoes_json:
 
     json_filename = json_path+edicao_json
-    xml_filename = xml_path+edicao_json[:-5]+'.xml'
-    csv_filename = csv_path+edicao_json[:-5]+'.csv'
     
     f_in = open(json_filename,'r', encoding="utf-8")
     
@@ -158,8 +171,6 @@ for edicao_json in edicoes_json:
 
     print("Processing "+edicao_json+" ...")
     secaoIII = data['json']['INFO']['Seção III']
-
-    edicao = []
 
     for orgao in secaoIII:
         
@@ -183,27 +194,42 @@ for edicao_json in edicoes_json:
                     
                     if i == 1:
                         edicao.append("\n"+orgao)
+                        offsets.append(offset)
+                        offset += len(orgao)
                     
                     orgao_str.append(orgao)
                     
                     pub_xml = remove_PrivateUserArea(titulo)
                     pub_xml = pub_xml+remove_PrivateUserArea(cleanhtml(secaoIII[orgao]['documentos'][doc]['texto']))
-                    #pub_xml = pub_xml.encode("ascii", "ignore")
-                    #pub_xml = pub_xml.decode()
                     edicao.append(pub_xml)
+                    offsets.append(offset)
                     titulos.append(remove_PrivateUserArea(titulo))
                     if tipo_ato == "outro":
                         outros.append(pub_xml)
+                    offset += len(pub_xml)
 
-    write_biocxml(xml_filename,edicao)
+    if batch%9 == 0:
+        
+        xml_filename = xml_path+"batch_"+str(batch)+".xml"
+        csv_filename = csv_path+"batch_"+str(batch)+'.csv'
+        
+        write_biocxml(xml_filename,edicao,offsets)
+        
+        write_csv(csv_filename,orgao_str,edicao)
+        
+        f_in.close()
+        
+        print(histograma)
+        print()
+        print()
+        
+        batch_str = ""
+        offset = 0
+        edicao = []
+        offsets = []
     
-    write_csv(csv_filename,orgao_str,edicao)
-    
-    f_in.close()
-    
-    print(histograma)
-    print()
-    print()
+    batch+=1
+        
     
 #print(histograma)
 
