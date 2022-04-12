@@ -50,18 +50,3 @@ def add_special_tokens(sentences, word2idx, tag_sentences, tag2idx):
     formatted_sentences = [torch.LongTensor([word for word in itertools.chain([word2idx['<BOS>']], sentence, [word2idx['<EOS>']])]) for sentence in sentences]
     formatted_tags = [torch.LongTensor([tag for tag in itertools.chain([tag2idx['O']], tags, [tag2idx['O']])]) for tags in tag_sentences]
     return formatted_sentences, formatted_tags
-
-def read_pkl(file_path):
-    with open(file_path, 'rb') as handle:
-        return pickle.load(handle)
-    
-def write_pkl(file, file_path):
-    with open(file_path, 'wb') as handle:
-        pickle.dump(file, handle, protocol=pickle.HIGHEST_PROTOCOL)
-
-def IOBify(tags_sequence, idx2tag):
-    if isinstance(tags_sequence[0], list):
-        iob_y = [[idx2tag[tag] for tag in tags] for tags in tags_sequence]
-    else:
-        iob_y = [[idx2tag[tag.item()] for tag in tags] for tags in tags_sequence]
-    return iob_y
