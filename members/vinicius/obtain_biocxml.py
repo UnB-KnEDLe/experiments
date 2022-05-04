@@ -65,9 +65,9 @@ def write_csv(filename,orgao,publicacao):
 
 def atos_validos(titulo_pub):
     
-    lista = ["aviso","contrato","alteração","extrato","convênio","convênios", "contratual","convenio","convenios", "licitação", "licitacao", "abertura","pregão", "retificação","pregao","revogação","revogacao","suspensão","suspensao","anulacao","anulação","aditivo", "instrumento contratual", "instrumentos contratuais"]
+    lista = ["aviso","contrato","alteração","extrato","convênio","convênios", "contratual","convenio","convenios", "licitação", "licitacao", "abertura","pregão","concorrencia","concorrência", "retificação","pregao","revogação","revogacao","suspensão","suspensao","anulacao","anulação","aditivo", "instrumento contratual", "instrumentos contratuais"]
     
-    lista2 = ["homologação","rescisão","ratificação","alteracao","alteração","inabilitação","plano","divulgação","divulgacao","chamamento","convocação","dispensa","relatório","relatorio","convocacao"]
+    lista2 = ["homologação","rescisão","ratificação","alteracao","ajuste","alteração","inabilitação","plano","divulgação","divulgacao","chamamento","convocação","dispensa","relatório","relatorio","convocacao"]
        
     palavras = titulo_pub.lower().split()
     
@@ -94,7 +94,7 @@ def atos_validos(titulo_pub):
         elif i == "convênio" or i == "convenio" or i == "convênios" or i == "convenios":
             tipo = 'extrato_convenio'
             break
-        elif i == "licitacao" or i == "licitação" or i == "licitaçao" or i == "licitacão" or i == "pregão" or i == "pregao" or i == "abertura" or i == "retificacao" or i == "retificaçao" or i == "retificação":
+        elif i == "licitacao" or i == "licitação" or i == "licitaçao" or i == "licitacão" or i == "pregão" or i == "pregao" or i == "abertura" or i == "concorrencia" or i == "concorrência" or i == "retificacao" or i == "retificaçao" or i == "retificação":
             tipo = 'aviso_licitacao'
             break
         elif i == "revogacao" or i == "revogação" or i == "revogacão" or i == "revogaçao" or i == "anulacao" or i == "anulação" or i == "anulacão" or i == "anulaçao":
@@ -137,9 +137,9 @@ def remove_PrivateUserArea(string):
             
     
 
-json_path = "dodf_jsons/"
-xml_path = "dodf_xmls/"
-csv_path = "dodf_csvs/"
+json_path = "dodf_jsons_val/"
+xml_path = "dodf_xmls_val/"
+csv_path = "dodf_csvs_val/"
 
 edicoes_json = [publicacao_xml for publicacao_xml in os.listdir(json_path) if os.path.isfile(os.path.join(json_path,publicacao_xml))]
 
@@ -201,12 +201,13 @@ for edicao_json in edicoes_json:
                     
                     pub_xml = remove_PrivateUserArea(titulo)
                     pub_xml = pub_xml+remove_PrivateUserArea(cleanhtml(secaoIII[orgao]['documentos'][doc]['texto']))
-                    edicao.append(pub_xml)
-                    offsets.append(offset)
-                    titulos.append(remove_PrivateUserArea(titulo))
-                    if tipo_ato == "outro":
-                        outros.append(pub_xml)
-                    offset += len(pub_xml)
+                    if cleanhtml(secaoIII[orgao]['documentos'][doc]['texto']) not in edicao:
+                        edicao.append(pub_xml)
+                        offsets.append(offset)
+                        titulos.append(remove_PrivateUserArea(titulo))
+                        if tipo_ato == "outro":
+                            outros.append(pub_xml)
+                        offset += len(pub_xml)
 
     if batch%9 == 0:
         
@@ -229,9 +230,17 @@ for edicao_json in edicoes_json:
         offsets = []
     
     batch+=1
+
+
+xml_filename = xml_path+"batch_"+str(batch)+".xml"
+csv_filename = csv_path+"batch_"+str(batch)+'.csv'
+write_biocxml(xml_filename,edicao,offsets)
+write_csv(csv_filename,orgao_str,edicao)
+print(histograma)
         
-    
 #print(histograma)
 
 #for i in outros:
 #    print(i+"\n")
+
+
