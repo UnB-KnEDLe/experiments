@@ -2,7 +2,8 @@ from multiprocessing import cpu_count
 import pandas as pd
 import subprocess
 from metaflow import FlowSpec, step, Parameter
-from pre_structure import LabelStructure
+from aux_pre_structure import LabelStructure
+from aux_functions import *
 
 
 class PreProcessFlow(FlowSpec):
@@ -51,7 +52,6 @@ class PreProcessFlow(FlowSpec):
         I and section III. The dataset contains the following columns, which uniquely identify each
         text file:
             dodf_path, edition_date, dodf_number, dodf_date, section
-
         It generates the attributes 'paths_df' and 'dodf_files', which are the dataset and a list of
         the unique entries in the dataset, respectively.
         """
@@ -66,7 +66,6 @@ class PreProcessFlow(FlowSpec):
             "DODF\s\d{2}\s\d{2}-\d{2}-\d{2}|DODF\s\d{3}\s\d{2}-\d{2}\s\d{4}\s\d|DODF\s\d{3}\s\d{2}"
             "-\d{2}-\d{4}\s\d)"
         )
-        paths_df["edition_date"] = paths_df["edition_date"].str.replace(r"DODF\s", "")
 
         paths_df[["dodf_number", "dodf_date"]] = paths_df["edition_date"].str.split(
             " ", 1, expand=True
@@ -97,26 +96,13 @@ class PreProcessFlow(FlowSpec):
         """
         Loads and clears an annotated act dataset (not necessarily acts of type self.act).
         This dataset must contain at least the columns 'text', 'ato', 'dodf'.
-
         Generates the attribute self.acts, which is the dataset filtered by the target act type.
         """
-        acts_df = pd.read_parquet(self.labeled)
-        acts_df.drop(["arquivo_rast"], axis=1, inplace=True)
-        acts_df.drop_duplicates(inplace=True)
+        acts = pd.read_parquet(f"../Raw_datasets/atos_{self.act}.parquet")
 
-        def fix_date(s):
-            if s == "nan":
-                return "nan"
-            if s == "NaN":
-                return "nan"
+        acts["raw_text"] = acts["raw_text"].apply(clean_text)
 
-            s = str(s).split("_")
-            new_date = s[1] + " " + s[2]
-            return new_date
-
-        acts_df["dodf"] = acts_df["dodf"].apply(fix_date)
-        self.acts = acts_df[acts_df["ato"] == self.act]
-        print(self.act, self.acts.shape[0])
+        self.acts = acts
 
         self.next(self.create_iob, foreach="chunks")
 
@@ -125,7 +111,6 @@ class PreProcessFlow(FlowSpec):
         """
         For a chunk of DODFs, it separates the text into blocks, tokenizes each block into sentences,
         and creates the sentences' IOB tags.
-
         It generates the attribute self.iobs with the IOB sentences separated by newlines and
         blocks of sentences separated by two newlines.
         """
@@ -136,13 +121,15 @@ class PreProcessFlow(FlowSpec):
                 edicao = self.paths_df[self.paths_df["dodf_path"] == path][
                     "edition_date"
                 ].values[0]
-                acts_in_dodf = self.acts[self.acts["dodf"] == edicao]
-                segments = acts_in_dodf.text.tolist()
+                acts_in_dodf = self.acts[self.acts["dodf_id"] == edicao]
+                segments = acts_in_dodf.raw_text.tolist()
                 if len(segments) > 0:
                     for s, segment in enumerate(segments):
                         ls = LabelStructure()
                         try:
-                            aligment = ls.find_alignment(path, segment)
+                            aligment = ls.find_alignment(
+                                open(path, "rt").read(), segment
+                            )
                         except ValueError:
                             aligment = []
 
@@ -151,7 +138,9 @@ class PreProcessFlow(FlowSpec):
                             end = aligment.aligned[0][0][1]
                             list_position.append((s, segment, init, end))
 
-                    text_segmentado = ls.segmentor(path, list_position)
+                    text_segmentado = ls.segmentor(
+                        open(path, "rt").read(), list_position
+                    )
                     iob = ls.sentence_labeling(text_segmentado)
 
                     self.iobs += iob

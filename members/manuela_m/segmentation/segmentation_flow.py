@@ -1,21 +1,16 @@
 """
-
 This module implements a metaflow flow for training and evaluating a
 segmentation model using a LSTM+CRF.
-
 To run the flow, you must pass as arguments the type of act that the model will
 be trained for, the path to the trained embedding that will be used by the
 model, the path to the pre-processed dataset that will be used for training,
 validation, and testing, and the path to save the model. For example:
-
 python3 segmentation_flow.py run
 --act aviso_de_licitacao
 --embedding cbow_s50_2.txt
 --dataset Processed_dataset/segmentacao_aviso_de_licitacao.iob
 --output Models/
-
 The dataset must have been preprocessed by the PreProcessFlow flow.
-
 """
 
 import unicodedata
@@ -23,9 +18,10 @@ import numpy as np
 import torch
 from gensim.models import KeyedVectors
 from torch.utils.data import DataLoader
-from data_loader import SegmentationDataset
-from model_arquiteture import LstmCrf
+from dataset_structure import SegmentationDataset
+from model_structure import LstmCrf
 from metaflow import FlowSpec, step, Parameter
+import pickle
 
 
 class SegmentationFlow(FlowSpec):
@@ -64,20 +60,20 @@ class SegmentationFlow(FlowSpec):
         Prepare the embeddings and tags dictionaries to transform the dataset in the next step
         """
         emb = KeyedVectors.load_word2vec_format(f"{self.embedding}")
-        dic = {}
+        word2idx = {}
         for j in emb.index_to_key:
             word = (
                 unicodedata.normalize("NFKD", j)
                 .encode("ascii", "ignore")
                 .decode("utf8")
             )
-            dic[word] = emb.key_to_index[j]
+            word2idx[word] = emb.key_to_index[j]
 
-        self.dic_tag = {"B": 0, "I": 1, "O": 2}
+        self.tag2idx = {"B": 0, "I": 1, "O": 2}
         self.idx2tag = {0: "B", 1: "I", 2: "O"}
         self.emb = emb
-        self.dic = dic
-        print(self.act)
+        self.word2idx = word2idx
+
         self.next(self.load_data, foreach="data_splits")
 
     @step
@@ -89,13 +85,13 @@ class SegmentationFlow(FlowSpec):
         truncating sentences and long blocks and padding them.
         """
         data = SegmentationDataset(
-            tag2idx=self.dic_tag,
-            word2idx=self.dic,
+            tag2idx=self.tag2idx,
+            word2idx=self.word2idx,
             set_type=self.input,
-            tipo_ato=self.act,
             path=self.dataset,
+            max_sequence_lenght=30,
         )
-        print(self.input, np.unique(data.y, return_counts=True))
+
         self.data_loader = DataLoader(
             dataset=data, batch_size=32, shuffle=False, num_workers=2, pin_memory=True
         )
@@ -124,7 +120,6 @@ class SegmentationFlow(FlowSpec):
             hidden_dim=256,
             pretrained_emb=self.emb,
             idx2tag=self.idx2tag,
-            tipo_ato=self.act,
             path=path,
         )
         model = model.to(model.device)
@@ -146,7 +141,6 @@ class SegmentationFlow(FlowSpec):
         path = self.output + "seg_model_256_" + self.act
         self.model.load_state_dict(torch.load(path))
         results = self.model.evaluate(self.data_dicts["test"], opt="f1")
-        print(results)
         np.save(f"{self.output}/metrics_{self.act}", results)
         self.next(self.end)
 

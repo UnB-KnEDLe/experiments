@@ -1,3 +1,4 @@
+from email.mime import text
 import glob
 import re
 from Bio.Align import PairwiseAligner
@@ -5,18 +6,18 @@ from nltk.tokenize import sent_tokenize
 from nltk.tokenize import wordpunct_tokenize
 import re
 
+from aux_functions import *
+
 
 class LabelStructure:
     """Class with static methods to create a labeled DODF structure by sentences"""
 
     @staticmethod
-    def find_alignment(path_dodf, segment: str):
+    def find_alignment(data, segment: str):
         """Find the alignment between text from path_dodf and the text segment.
-
         Args:
             path_dodf ([type]): path to text file extracted from DODF
             segment (str): text segmento to match in path_dodf document
-
         Returns:
             alignment
         """
@@ -27,18 +28,14 @@ class LabelStructure:
         aligner.query_end_gap_score = 0.0
 
         alignment = None
-        with open(path_dodf, "rt") as f:
-            data = f.read()
-            alignment = next(aligner.align(data, segment))
+        alignment = next(aligner.align(data, segment))
         return alignment
 
     @staticmethod
     def load_txt_by_numdodf(path_txt) -> dict:
         """Load documents from a directory path and create a dictionary
-
         Args:
             path_txt ([type]): path to directory with *.txt
-
         Returns:
             dict: Dictionary with key value the number of DODF e values a list of text file path.
         """
@@ -55,7 +52,6 @@ class LabelStructure:
         df, path_txt, column_name_num_dodf="NUM_DODF", columns_name_text="text"
     ):
         """[summary]
-
         Args:
             df ([type]): [description]
             path_txt ([type]): [description]
@@ -79,11 +75,9 @@ class LabelStructure:
 
     # segmenta o texto selecionando os atos e tudo entre os atos.
     @staticmethod
-    def segmentor(path, pos_list):
+    def segmentor(text, pos_list):
         pos_list.sort(key=lambda x: x[2])
-        text = ""
-        with open(path, "rt") as f:
-            text = f.read()
+
         init = 0
         end = len(text)
         segs = []
@@ -99,26 +93,21 @@ class LabelStructure:
 
     @staticmethod
     def sentence_labeling(segs, labels=["O", "B", "I"]):
-        text_labels_sent = []
+        iob = []
         for i, txt in enumerate(segs):
-            block_labels_sent = []
-            txt = (
-                txt.replace("xxbcet", " ")
-                .replace("xxecet", " ")
-                .replace("xxeo", " ")
-                .replace("xxeob", " ")
-                .replace("xxbob", " ")
-            )
+            lines = []
             txt = re.sub(r"(\s+)", " ", txt)
             sents = sent_tokenize(txt)
             if i % 2 == 0:
-                block_labels_sent = [labels[0] + " " + sent for sent in sents]
+                lines = [labels[0] + " " + sent for sent in sents]
             else:
-                block_labels_sent += [labels[1] + " " + sents[0]]
-                block_labels_sent += [labels[2] + " " + sent for sent in sents[1:]]
-            text_labels_sent.append(block_labels_sent)
-        text_labels_sent = ["\n".join(block) for block in text_labels_sent]
-        return "\n\n".join(text_labels_sent)
+                lines += [labels[1] + " " + sents[0]]
+                lines += [labels[2] + " " + sent for sent in sents[1:]]
+
+            lines = "\n".join(lines)
+            iob.append(lines)
+
+        return "\n\n".join(iob)
 
     @staticmethod
     def word_labeling(segs, labels=["O", "B", "I"]):

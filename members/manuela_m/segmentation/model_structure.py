@@ -18,15 +18,13 @@ class LstmCrf(nn.Module):
         hidden_dim,
         pretrained_emb,
         idx2tag,
-        tipo_ato,
         path,
     ):
         super(LstmCrf, self).__init__()
         self.embedding_dim = embedding_dim
         self.hidden_dim = hidden_dim
         self.num_tags = num_tags
-        self.idx2tag_dict = idx2tag
-        self.ato = tipo_ato
+        self.idx2tag = idx2tag
         self.path = path
 
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -163,9 +161,9 @@ class LstmCrf(nn.Module):
                     ],
                     headers=[
                         "",
-                        self.idx2tag_dict[0],
-                        self.idx2tag_dict[1],
-                        self.idx2tag_dict[2],
+                        self.idx2tag[0],
+                        self.idx2tag[1],
+                        self.idx2tag[2],
                     ],
                 )
             )
