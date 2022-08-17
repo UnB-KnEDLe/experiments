@@ -1,0 +1,14 @@
+nltk-3.7
+torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
+seqeval
+scikit-learn==0.24
+sklearn==0.0
+sklearn-crfsuite==0.3.6
+python-crfsuite==0.9.7
+tqdm
+pytorch-crf==0.7.2
+torch-summary
+matplotlib-3.5.2
+tensorflow
+
+
