@@ -1,0 +1,19 @@
+                        precision    recall  f1-score   support
+
+       B-NUM_LICITACAO       0.85      0.73      0.79        15
+     B-ORGAO_LICITANTE       1.00      0.67      0.80         9
+     I-ORGAO_LICITANTE       0.82      0.79      0.81        39
+B-MODALIDADE_LICITACAO       0.73      0.67      0.70        12
+I-MODALIDADE_LICITACAO       0.73      0.67      0.70        12
+       B-OBJ_LICITACAO       0.89      0.62      0.73        13
+       I-OBJ_LICITACAO       1.00      0.90      0.95       624
+            B-PROCESSO       1.00      0.10      0.18        10
+    B-NOME_RESPONSAVEL       1.00      0.64      0.78        14
+    I-NOME_RESPONSAVEL       1.00      0.53      0.69        49
+        B-DECISAO_TCDF       1.00      0.33      0.50         3
+        I-DECISAO_TCDF       1.00      0.33      0.50         6
+            I-PROCESSO       0.00      0.00      0.00         0
+
+             micro avg       0.98      0.83      0.90       806
+             macro avg       0.85      0.54      0.62       806
+          weighted avg       0.98      0.83      0.89       806

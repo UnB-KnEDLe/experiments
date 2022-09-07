@@ -1,0 +1,28 @@
+                          precision    recall  f1-score   support
+
+  B-MODALIDADE_LICITACAO       0.90      0.88      0.89       127
+  I-MODALIDADE_LICITACAO       0.90      0.95      0.92       115
+         B-NUM_LICITACAO       0.95      0.91      0.93       139
+              B-PROCESSO       0.74      0.90      0.81       114
+       B-ORGAO_LICITANTE       0.80      0.71      0.75        62
+       I-ORGAO_LICITANTE       0.76      0.79      0.77       114
+         B-OBJ_LICITACAO       0.85      0.75      0.80       155
+         I-OBJ_LICITACAO       0.93      0.95      0.94      6541
+        B-VALOR_ESTIMADO       0.77      0.93      0.84        96
+         B-DATA_ABERTURA       0.86      0.82      0.84       130
+       B-SISTEMA_COMPRAS       0.97      0.98      0.97       141
+B-CODIGO_SISTEMA_COMPRAS       0.99      0.99      0.99        86
+      B-NOME_RESPONSAVEL       0.99      0.94      0.96       125
+      I-NOME_RESPONSAVEL       0.99      0.93      0.96       368
+         I-DATA_ABERTURA       0.82      0.79      0.81       131
+       I-SISTEMA_COMPRAS       0.96      0.97      0.96        92
+        I-VALOR_ESTIMADO       0.00      0.00      0.00         0
+              I-PROCESSO       0.00      0.00      0.00         1
+              B-TIPO_OBJ       0.00      0.00      0.00         4
+         I-NUM_LICITACAO       0.00      0.00      0.00         0
+              I-TIPO_OBJ       0.00      0.00      0.00        38
+I-CODIGO_SISTEMA_COMPRAS       0.00      0.00      0.00         0
+
+               micro avg       0.92      0.93      0.93      8579
+               macro avg       0.64      0.65      0.64      8579
+            weighted avg       0.92      0.93      0.92      8579

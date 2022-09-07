@@ -1,0 +1,21 @@
+                    precision    recall  f1-score   support
+
+     B-NUM_ADITIVO       0.92      0.87      0.89       304
+     I-NUM_ADITIVO       0.89      0.91      0.90       558
+      B-NUM_AJUSTE       0.64      0.29      0.40       309
+        B-PROCESSO       0.00      0.00      0.00       283
+     B-CONTRATANTE       0.77      0.30      0.43       395
+     B-OBJ_ADITIVO       0.87      0.58      0.70       389
+     I-OBJ_ADITIVO       0.78      0.93      0.85     22418
+    B-DATA_ESCRITO       0.95      0.06      0.12       293
+    B-CODIGO_SIGGO       0.00      0.00      0.00        19
+     I-CONTRATANTE       0.74      0.67      0.71      1377
+        I-PROCESSO       0.00      0.00      0.00         4
+B-NOME_RESPONSAVEL       0.00      0.00      0.00        10
+I-NOME_RESPONSAVEL       0.00      0.00      0.00        23
+    I-DATA_ESCRITO       0.48      0.48      0.48       166
+      I-NUM_AJUSTE       0.00      0.00      0.00         7
+
+         micro avg       0.78      0.87      0.82     26555
+         macro avg       0.47      0.34      0.37     26555
+      weighted avg       0.77      0.87      0.81     26555
