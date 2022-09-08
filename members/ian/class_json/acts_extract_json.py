@@ -1,7 +1,7 @@
 import pandas as pd
 import json
-import re
 import requests
+import os
 from bs4 import BeautifulSoup
 import unidecode
 
@@ -42,18 +42,22 @@ class DODFCorpus:
 
 
     def read_from_json(self):
-        dodf = open(self.dodf_file)
-        dodf = json.load(dodf)
+        if os.path.isfile(self.dodf_file):
+            r_json = json.load(open(self.dodf_file))["json"]
+        else:
+            try:
+                r_json = requests.get("http://164.41.76.30/dodf_watcher/" + self.dodf_file[-24:]).json()["json"]
+            except:
+                return []
 
         dodf_obj = []
         section = "Seção III"
 
-        r_json = dodf["json"]
         if section in r_json["INFO"]:
             for orgao in r_json["INFO"][section]:
                 for doc in r_json["INFO"][section][orgao]["documentos"]:
                     acts_info = r_json["INFO"][section][orgao]["documentos"][doc]
-                    dodf_obj.append([DODF(r_json["linkJornal"], re.search(r'\d{2}-\d{2}-\d{4}', self.dodf_file).group(), re.search(r'\d{3}', self.dodf_file).group()), \
+                    dodf_obj.append([DODF(r_json["linkJornal"], r_json['dt_previsao_publicacao'][:10], r_json['nu_numero']), \
                                       Acts(orgao, section, acts_info["titulo"], acts_info["tipo"], self.parse_html_text(acts_info["texto"]))])
 
         dodf_acts = []
