@@ -1,6 +1,6 @@
 # Source
 
-Data extracted from the X dataset, using data extracted from the Diário Oficial do Distrito Federal (DODF) using [DODFMiner](https://dodfminer.readthedocs.io/) and manually annotated by volunteers associated with the KnEDLe project.
+Data extracted from the [Anotações - Atos de Pessoal](https://github.com/UnB-KnEDLe/datasets/blob/master/corpus_2_contratos_licitacoes.md) dataset, using data extracted from the Diário Oficial do Distrito Federal (DODF) using [DODFMiner](https://dodfminer.readthedocs.io/) and manually annotated by volunteers associated with the KnEDLe project.
 
 # Dataset Information
 
@@ -61,6 +61,5 @@ Annotations from Batch X.
 
 ## Files
 - [CSV (**Public**) ](X)
-- [XML (**Public**) ](X)
 
 # Relevant Papers
