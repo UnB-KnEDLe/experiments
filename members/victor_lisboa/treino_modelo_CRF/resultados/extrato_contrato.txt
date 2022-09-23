@@ -1,0 +1,39 @@
+                                  precision    recall  f1-score   support
+
+                    B-NUM_AJUSTE      0.905     0.806     0.853       341
+                      B-PROCESSO      0.601     0.833     0.698       300
+     B-CONTRATANTE_ou_CONCEDENTE      0.868     0.755     0.808       417
+B-CNPJ_CONTRATANTE_ou_CONCEDENTE      1.000     0.143     0.250        28
+      B-CONTRATADA_ou_CONVENENTE      0.930     0.723     0.814       350
+      I-CONTRATADA_ou_CONVENENTE      0.925     0.778     0.845      1440
+ B-CNPJ_CONTRATADA_ou_CONVENENTE      1.000     0.057     0.109        87
+                    B-OBJ_AJUSTE      0.853     0.781     0.815       461
+                    I-OBJ_AJUSTE      0.941     0.944     0.943     15184
+                     B-CODIGO_UO      0.804     0.788     0.796       151
+             B-PROGRAMA_TRABALHO      0.962     0.515     0.671       198
+              B-NATUREZA_DESPESA      0.986     0.646     0.781       226
+                 B-FONTE_RECURSO      0.878     0.860     0.868       242
+                         B-VALOR      0.768     0.917     0.836       350
+                      B-VIGENCIA      0.853     0.682     0.758       340
+                      I-VIGENCIA      0.827     0.845     0.836      3238
+               B-DATA_ASSINATURA      0.962     0.535     0.687       187
+                  B-NOTA_EMPENHO      0.833     0.701     0.761       214
+     I-CONTRATANTE_ou_CONCEDENTE      0.889     0.891     0.890      1746
+               I-DATA_ASSINATURA      0.933     0.800     0.862        70
+                  B-CODIGO_SIGGO      0.792     0.704     0.745        27
+              B-NOME_RESPONSAVEL      1.000     0.763     0.866        38
+              I-NOME_RESPONSAVEL      1.000     0.787     0.881        80
+                         I-VALOR      0.000     0.000     0.000         7
+                 I-FONTE_RECURSO      0.000     0.000     0.000         3
+                      I-PROCESSO      0.000     0.000     0.000         2
+                     I-CODIGO_UO      0.000     0.000     0.000         2
+                    I-NUM_AJUSTE      0.000     0.000     0.000         1
+                  I-NOTA_EMPENHO      0.000     0.000     0.000         5
+             I-PROGRAMA_TRABALHO      0.000     0.000     0.000         3
+ I-CNPJ_CONTRATADA_ou_CONVENENTE      0.000     0.000     0.000         5
+              I-NATUREZA_DESPESA      0.000     0.000     0.000         2
+                  I-CODIGO_SIGGO      0.000     0.000     0.000         0
+
+                       micro avg      0.907     0.884     0.896     25745
+                       macro avg      0.622     0.493     0.526     25745
+                    weighted avg      0.909     0.884     0.892     25745
