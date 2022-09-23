@@ -130,3 +130,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+members/lucelia/.DS_Store
+.DS_Store
+members/lucelia/.DS_Store
+members/lucelia/ner/.DS_Store
