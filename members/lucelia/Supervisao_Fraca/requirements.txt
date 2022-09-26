@@ -10,5 +10,27 @@ pytorch-crf==0.7.2
 torch-summary
 matplotlib-3.5.2
 tensorflow
+python -m spacy download pt
+skweak
+spacy
+import sklearn_crfsuite
+from sklearn_crfsuite import scorers
+from sklearn_crfsuite import metrics
+import matplotlib.pyplot as plt
 
+#!pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
+#!pip install seqeval
+#!pip install scikit-learn==0.24
+#!pip install sklearn==0.0
+#!pip install sklearn-crfsuite==0.3.6
+#!pip install python-crfsuite==0.9.7
+#!pip install tqdm
+#!pip install pytorch-crf==0.7.2
+#!pip install torch==1.8.1
+#!pip install torch==1.11.0
+#!pip install torch-summary
+#!pip install nltk-3.7
+#!pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
+#!pip install matplotlib-3.5.2
+#!pip install tensorflow
 
