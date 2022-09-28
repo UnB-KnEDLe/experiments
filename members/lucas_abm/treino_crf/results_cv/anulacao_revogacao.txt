@@ -1,0 +1,13 @@
+                          precision    recall  f1-score   support
+
+            DATA_ESCRITO       0.82      0.60      0.69        15
+IDENTIFICACAO_OCORRENCIA       0.89      0.68      0.77        59
+    MODALIDADE_LICITACAO       0.72      0.71      0.72        41
+        NOME_RESPONSAVEL       0.93      0.89      0.91        45
+           NUM_LICITACAO       0.73      0.52      0.61        58
+         ORGAO_LICITANTE       0.73      0.35      0.47        46
+                PROCESSO       0.77      0.27      0.40        37
+
+               micro avg       0.81      0.58      0.67       301
+               macro avg       0.80      0.57      0.65       301
+            weighted avg       0.80      0.58      0.66       301

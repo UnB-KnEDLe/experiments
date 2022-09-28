@@ -1,0 +1,13 @@
+                      precision    recall  f1-score   support
+
+        DECISAO_TCDF       0.43      0.21      0.29        14
+MODALIDADE_LICITACAO       0.80      0.71      0.75        69
+    NOME_RESPONSAVEL       0.96      0.99      0.97        68
+       NUM_LICITACAO       0.96      0.86      0.91        78
+       OBJ_LICITACAO       0.78      0.73      0.75        62
+     ORGAO_LICITANTE       0.81      0.78      0.80        45
+            PROCESSO       0.90      0.85      0.87        53
+
+           micro avg       0.87      0.80      0.83       389
+           macro avg       0.81      0.73      0.76       389
+        weighted avg       0.86      0.80      0.83       389

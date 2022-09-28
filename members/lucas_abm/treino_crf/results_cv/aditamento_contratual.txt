@@ -1,0 +1,14 @@
+                  precision    recall  f1-score   support
+
+    CODIGO_SIGGO       0.90      0.68      0.78       122
+     CONTRATANTE       0.85      0.83      0.84      1979
+    DATA_ESCRITO       0.92      0.76      0.84      1438
+NOME_RESPONSAVEL       0.93      0.79      0.86       106
+     NUM_ADITIVO       0.84      0.87      0.86      1535
+      NUM_AJUSTE       0.85      0.77      0.81      1514
+     OBJ_ADITIVO       0.61      0.48      0.53      2020
+        PROCESSO       0.79      0.87      0.83      1391
+
+       micro avg       0.81      0.75      0.78     10105
+       macro avg       0.84      0.76      0.79     10105
+    weighted avg       0.80      0.75      0.77     10105
