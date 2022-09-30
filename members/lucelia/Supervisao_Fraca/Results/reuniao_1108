@@ -585,3 +585,49 @@ Parametrizar o treino
 
 https://www.kdnuggets.com/2018/10/named-entity-recognition-classification-scikit-learn.html/2
 https://github.com/TeamHG-Memex/sklearn-crfsuite/blob/master/tests/test_crf.py
+
+
+===============
+Execucao V1
+
+
+precision    recall  f1-score   support
+
+B-cnpj_entidade_contratada      1.000     0.863     0.926        73
+I-cnpj_entidade_contratada      1.000     0.863     0.926        73
+  B-cnpj_orgao_contratante      0.867     1.000     0.929        13
+  I-cnpj_orgao_contratante      0.867     1.000     0.929        13
+            B-codigo_siggo      0.800     0.706     0.750        34
+            I-codigo_siggo      0.000     0.000     0.000         2
+B-data_assinatura_contrato      0.674     0.881     0.763       185
+I-data_assinatura_contrato      0.923     0.787     0.850        61
+     B-entidade_contratada      0.917     0.786     0.847       323
+     I-entidade_contratada      0.928     0.809     0.864      1449
+           B-fonte_recurso      0.976     0.909     0.941       263
+           I-fonte_recurso      1.000     0.833     0.909         6
+        B-natureza_despesa      0.989     0.797     0.883       222
+        I-natureza_despesa      0.000     0.000     0.000         3
+        B-nome_responsavel      1.000     0.805     0.892        41
+        I-nome_responsavel      1.000     0.814     0.897        86
+            B-nota_empenho      0.962     0.783     0.863       258
+            I-nota_empenho      0.000     0.000     0.000         4
+         B-numero_contrato      0.891     0.818     0.853       340
+         I-numero_contrato      0.667     0.500     0.571        12
+         B-objeto_contrato      0.990     0.967     0.978       304
+         I-objeto_contrato      0.941     0.976     0.958     14292
+       B-orgao_contratante      0.905     0.878     0.891       444
+       I-orgao_contratante      0.964     0.951     0.957      2279
+            B-processo_gdf      0.945     0.926     0.936       298
+            I-processo_gdf      0.938     0.856     0.895       285
+       B-programa_trabalho      0.867     0.738     0.797       221
+       I-programa_trabalho      0.000     0.000     0.000         3
+    B-unidade_orcamentaria      0.923     0.880     0.901       150
+    I-unidade_orcamentaria      0.000     0.000     0.000         0
+          B-valor_contrato      0.829     0.900     0.863       381
+          I-valor_contrato      0.000     0.000     0.000         1
+       B-vigencia_contrato      0.942     0.938     0.940       292
+       I-vigencia_contrato      0.967     0.973     0.970      3942
+
+                 micro avg      0.941     0.945     0.943     26353
+                 macro avg      0.755     0.704     0.726     26353
+              weighted avg      0.942     0.945     0.942     26353

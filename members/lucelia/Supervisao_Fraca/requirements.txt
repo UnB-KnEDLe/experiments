@@ -17,10 +17,10 @@ import sklearn_crfsuite
 from sklearn_crfsuite import scorers
 from sklearn_crfsuite import metrics
 import matplotlib.pyplot as plt
+pip install -U 'scikit-learn<0.24' 
 
 #!pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
 #!pip install seqeval
-#!pip install scikit-learn==0.24
 #!pip install sklearn==0.0
 #!pip install sklearn-crfsuite==0.3.6
 #!pip install python-crfsuite==0.9.7

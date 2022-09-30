@@ -1,15 +1,15 @@
-B-numero contrato & 0.749 & 0.756 & 0.797 \\ 
-B-processo gdf & 0.858 & 0.859 & 0.889 \\ 
-B-data assinatura contrato & 0.697 & 0.68 & 0.697 \\ 
-B-unidade orcamentaria & 0.666 & 0.636 & 0.692 \\ 
-B-programa trabalho & 0.605 & 0.58 & 0.666 \\ 
-B-natureza despesa & 0.799 & 0.795 & 0.833 \\ 
-B-nota empenho & 0.838 & 0.839 & 0.867 \\ 
-B-valor contrato & 0.826 & 0.833 & 0.832 \\ 
-I-processo gdf & 0.907 & 0.912 & 0.922 \\ 
-I-programa trabalho & 0.0 & 0.0 & 0.096 \\ 
-I-natureza despesa & 0.0 & 0.0 & 0.055 \\ 
+B-numero contrato & 0.749 & 0.754 & 0.912 \\ 
+B-processo gdf & 0.858 & 0.848 & 0.967 \\ 
+B-data assinatura contrato & 0.697 & 0.665 & 0.737 \\ 
+B-unidade orcamentaria & 0.666 & 0.61 & 0.835 \\ 
+B-programa trabalho & 0.605 & 0.533 & 0.895 \\ 
+B-natureza despesa & 0.799 & 0.805 & 0.934 \\ 
+B-nota empenho & 0.838 & 0.82 & 0.944 \\ 
+B-valor contrato & 0.826 & 0.843 & 0.805 \\ 
+I-processo gdf & 0.907 & 0.919 & 0.96 \\ 
+I-programa trabalho & 0.0 & 0.0 & 0.306 \\ 
+I-natureza despesa & 0.0 & 0.0 & 0.253 \\ 
 I-nota empenho & 0.0 & 0.0 & 0.0 \\ 
-I-numero contrato & 0.0 & 0.0 & 0.11 \\ 
-I-data assinatura contrato & 0.673 & 0.614 & 0.56 \\ 
-I-unidade orcamentaria & 0.0 & 0.0 & 0.145 \\ 
+I-numero contrato & 0.0 & 0.0 & 0.457 \\ 
+I-data assinatura contrato & 0.673 & 0.498 & 0.388 \\ 
+I-unidade orcamentaria & 0.0 & 0.0 & 0.519 \\ 
