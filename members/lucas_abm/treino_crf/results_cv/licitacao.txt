@@ -1,0 +1,17 @@
+                        precision    recall  f1-score   support
+
+CODIGO_SISTEMA_COMPRAS       0.99      0.98      0.99       440
+         DATA_ABERTURA       0.91      0.87      0.89       669
+  MODALIDADE_LICITACAO       0.89      0.90      0.89       626
+      NOME_RESPONSAVEL       0.98      0.98      0.98       622
+         NUM_LICITACAO       0.93      0.91      0.92       684
+         OBJ_LICITACAO       0.77      0.74      0.76       698
+       ORGAO_LICITANTE       0.84      0.79      0.81       286
+              PROCESSO       0.86      0.93      0.89       582
+       SISTEMA_COMPRAS       0.93      0.92      0.93       735
+              TIPO_OBJ       0.00      0.00      0.00        11
+        VALOR_ESTIMADO       0.87      0.94      0.91       466
+
+             micro avg       0.90      0.89      0.90      5819
+             macro avg       0.82      0.81      0.81      5819
+          weighted avg       0.90      0.89      0.90      5819

@@ -1,0 +1,23 @@
+                                precision    recall  f1-score   support
+
+ CNPJ_CONTRATADA_ou_CONVENENTE       0.68      0.70      0.69       405
+CNPJ_CONTRATANTE_ou_CONCEDENTE       0.95      0.84      0.89       106
+                  CODIGO_SIGGO       0.77      0.79      0.78       150
+                     CODIGO_UO       0.95      0.94      0.95       786
+      CONTRATADA_ou_CONVENENTE       0.79      0.70      0.74      1763
+     CONTRATANTE_ou_CONCEDENTE       0.86      0.79      0.82      2178
+               DATA_ASSINATURA       0.91      0.78      0.84       965
+                 FONTE_RECURSO       0.94      0.91      0.93      1254
+              NATUREZA_DESPESA       0.95      0.84      0.89      1020
+              NOME_RESPONSAVEL       0.97      0.90      0.93       206
+                  NOTA_EMPENHO       0.81      0.76      0.78      1104
+                    NUM_AJUSTE       0.91      0.87      0.89      1671
+                    OBJ_AJUSTE       0.72      0.70      0.71      2235
+                      PROCESSO       0.77      0.88      0.82      1529
+             PROGRAMA_TRABALHO       0.84      0.80      0.82      1042
+                         VALOR       0.81      0.93      0.86      1834
+                      VIGENCIA       0.83      0.71      0.76      1698
+
+                     micro avg       0.84      0.81      0.82     19946
+                     macro avg       0.85      0.81      0.83     19946
+                  weighted avg       0.84      0.81      0.82     19946
