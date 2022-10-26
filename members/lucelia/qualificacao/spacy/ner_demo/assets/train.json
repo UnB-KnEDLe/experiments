@@ -1,0 +1,228 @@
+[
+  [
+    "Quem é Shaka Khan?",
+    {
+      "entities":[
+        [
+          7,
+          17,
+          "PERSON"
+        ]
+      ]
+    }
+  ],
+  [
+    "Eu gosto de Londres e Berlim.",
+    {
+      "entities":[
+        [
+          12,
+          19,
+          "LOC"
+        ],
+        [
+          22,
+          28,
+          "LOC"
+        ]
+      ]
+    }
+  ],
+  [
+    "Almira uma ótima pessoa, gosto muito dela",
+    {
+      "entities":[
+        [
+          0,
+          6,
+          "PERSON"
+        ]
+      ]
+    }
+  ],
+  [
+    "João é uma ótima pessoa, gosto muito dele",
+    {
+      "entities":[
+        [
+          0,
+          4,
+          "PERSON"
+        ]
+      ]
+    }
+  ],
+  [
+    "A data da festa foi 07/05/2018",
+    {
+      "entities":[
+        [
+          20,
+          30,
+          "Date"
+        ]
+      ]
+    }
+  ],
+  [
+    "No dia 01/02/2006 foi decretada a sentança",
+    {
+      "entities":[
+        [
+          7,
+          17,
+          "Date"
+        ]
+      ]
+    }
+  ],
+  [
+    "Contrato no 36/2012  TCB/PETROBRAS DISTRIBUIDORA S.A.; CNPJ: 34.274.233/0001- 02; Processo: 095.000.293/2011;",
+    {
+      "entities":[
+        [
+          12,
+          19,
+          "CONTRACT"
+        ],
+        [
+          92,
+          108,
+          "PROCESS"
+        ]
+      ]
+    }
+  ],
+  [
+    "EXTRATO DO CONTRATO No 60/2012",
+    {
+      "entities":[
+        [
+          23,
+          30,
+          "CONTRACT"
+        ]
+      ]
+    }
+  ],
+  [
+    "EXTRATO DO CONTRATO No 61/2012",
+    {
+      "entities":[
+        [
+          23,
+          30,
+          "CONTRACT"
+        ]
+      ]
+    }
+  ],
+  [
+    "No dia 01/02/2006 foi decretada a sentança",
+    {
+      "entities":[
+        [
+          7,
+          17,
+          "Date"
+        ]
+      ]
+    }
+  ],
+  [
+    "Processo: 220.001.017/2012",
+    {
+      "entities":[
+        [
+          10,
+          26,
+          "PROCESS"
+        ]
+      ]
+    }
+  ],
+  [
+    "Processo: 220.001.085/2012",
+    {
+      "entities":[
+        [
+          10,
+          26,
+          "PROCESS"
+        ]
+      ]
+    }
+  ],
+  [
+    "Nota de Empenho n.o 2012NE00430 ",
+    {
+      "entities":[
+        [
+          20,
+          31,
+          "PROCESS"
+        ]
+      ]
+    }
+  ],
+  [
+    "Nota de Empenho n.o 2012NE00430 ",
+    {
+      "entities":[
+        [
+          20,
+          31,
+          "NOTA DE EMPENHO"
+        ]
+      ]
+    }
+  ],
+  [
+    "Nota de Empenho n.o 2012NE56980 ",
+    {
+      "entities":[
+        [
+          20,
+          31,
+          "NOTA DE EMPENHO"
+        ]
+      ]
+    }
+  ],
+  [
+    "Nota de Empenho n.o 2012NE89314 ",
+    {
+      "entities":[
+        [
+          20,
+          31,
+          "NOTA DE EMPENHO"
+        ]
+      ]
+    }
+  ],
+  [
+    "Nota de Empenho n.o 2012NE75143 ",
+    {
+      "entities":[
+        [
+          20,
+          31,
+          "NOTA DE EMPENHO"
+        ]
+      ]
+    }
+  ],
+  [
+    "data 31/08/2021 ",
+    {
+      "entities":[
+        [
+          4,
+          14,
+          "DATE"
+        ]
+      ]
+    }
+  ]
+]

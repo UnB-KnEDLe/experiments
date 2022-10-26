@@ -1,0 +1,86 @@
+[
+  [
+    "Where is Berlin?",
+    {
+      "entities":[
+        [
+          9,
+          15,
+          "LOC"
+        ]
+      ]
+    }
+  ],
+  [
+    "I like Shaka Khan.",
+    {
+      "entities":[
+        [
+          7,
+          17,
+          "PERSON"
+        ]
+      ]
+    }
+  ],
+  [
+    "Mirela nao veio trabalhar hoje",
+    {
+      "entities":[
+        [
+          0,
+          6,
+          "PERSON"
+        ]
+      ]
+    }
+  ],
+  [
+    "A data da festa foi 22/08/2021",
+    {
+      "entities":[
+        [
+          20,
+          30,
+          "Date"
+        ]
+      ]
+    }
+  ],
+  [
+    "No dia 17/12/2021 farei 43 anoS ",
+    {
+      "entities":[
+        [
+          7,
+          17,
+          "Date"
+        ]
+      ]
+    }
+  ],
+  [
+    "Nota de Empenho n.o 2012NE75143 ",
+    {
+      "entities":[
+        [
+          20,
+          31,
+          "NOTA DE EMPENHO"
+        ]
+      ]
+    }
+  ],
+  [
+    "No dia 01/02/2006 foi decretada a sentança",
+    {
+      "entities":[
+        [
+          7,
+          17,
+          "Date"
+        ]
+      ]
+    }
+  ]
+]
