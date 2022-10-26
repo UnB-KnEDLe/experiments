@@ -1,0 +1,633 @@
+====Git
+Number of Labeled Acts
+Class	Quantity
+EXTRATO_ADITAMENTO_CONTRATUAL	6695
+AVISO_ANUL_REV_LICITACAO	173
+AVISO_LICITACAO	1796
+EXTRATO_CONTRATO	6224
+EXTRATO_CONVENIO	97
+AVISO_SUSPENSAO_LICITACAO	143
+Total	15128
+
+==count csv por id_ato 
+tipo_rel
+REL_ADITAMENTO_CONTRATO     1260
+REL_EXTRATO_CONTRATO        1223
+REL_AVISO_LICITACAO          317
+REL_ANUL_REVOG_LICITACAO      31
+REL_SUSPENSAO_LICITACAO       26
+REL_EXTRATO_CONVENIO          18
+
+==count csv geral
+REL_EXTRATO_CONTRATO        16549
+REL_ADITAMENTO_CONTRATO      9626
+REL_AVISO_LICITACAO          3608
+REL_ANUL_REVOG_LICITACAO      236
+REL_EXTRATO_CONVENIO          184
+REL_SUSPENSAO_LICITACAO       179
+
+
+===todas as entidades 
+
+tipo_ent
+processo_gdf                        2792
+numero_contrato                     2456
+orgao_contratante                   2432
+EXTRATO_ADITAMENTO_CONTRATUAL       1259
+numero_termo_aditivo                1249
+objeto_aditamento_contratual        1246
+EXTRATO_CONTRATO                    1221
+objeto_contrato                     1217
+entidade_contratada                 1212
+vigencia_contrato                   1185
+data_escrito                        1176
+valor_contrato                      1105
+fonte_recurso                        978
+programa_trabalho                    943
+nota_empenho                         892
+data_assinatura_contrato             881
+natureza_despesa                     809
+unidade_orcamentaria                 759
+nome_responsavel                     571
+numero_licitacao                     368
+modalidade_licitacao                 341
+cnpj_entidade_contratada             339
+objeto_licitacao                     333
+AVISO_LICITACAO                      317
+data_abertura_licitacao              308
+tipo_objeto                          305
+sistema_compras                      278
+orgao_licitante                      259
+valor_estimado_contratacao           238
+codigo_licitacao_sistema_compras     216
+cnpj_orgao_contratante                88
+AVISO_ANUL_REV_LICITACAO              31
+identificacao_ocorrencia              31
+AVISO_SUSPENSAO_LICITACAO             26
+EXTRATO_CONVENIO                      18
+entidade_convenente                   17
+vigencia_convenio                     17
+objeto_convenio                       15
+data_assinatura_convenio              14
+numero_convenio                       12
+cnpj_entidade_convenente              11
+valor_convenio                        10
+orgao_concedente                       8
+decisao_tcdf                           6
+cnpj_orgao_concedente                  2
+Name: id_ato, dtype: int64
+
+== 'REL_EXTRATO_CONTRATO'
+
+orgao_contratante           1715
+numero_contrato             1386
+entidade_contratada         1249
+processo_gdf                1234
+EXTRATO_CONTRATO            1223
+objeto_contrato             1217
+vigencia_contrato           1185
+valor_contrato              1113
+fonte_recurso               1060
+programa_trabalho           1024
+nota_empenho                1017
+data_assinatura_contrato     881
+natureza_despesa             875
+unidade_orcamentaria         807
+cnpj_entidade_contratada     339
+nome_responsavel             132
+cnpj_orgao_contratante        88
+codigo_siggo                   4
+
+=> segmentação dados de treino e test
+x_train 978 
+x_test 245 
+total atos 1223
+
+'Execução 1 - Split 1 20/09 18:47'
+Acurácia: 0.8898848991122097
+
+                            precision    recall  f1-score   support
+
+         B-numero_contrato      0.898     0.720     0.799       282
+            B-processo_gdf      0.860     0.764     0.809       233
+            I-processo_gdf      0.860     0.942     0.899       189
+       B-orgao_contratante      0.859     0.828     0.843       338
+       I-orgao_contratante      0.924     0.899     0.911      1778
+     B-entidade_contratada      0.912     0.680     0.779       259
+     I-entidade_contratada      0.896     0.705     0.789      1158
+            B-nota_empenho      0.886     0.729     0.800       203
+         B-objeto_contrato      0.934     0.877     0.904       243
+         I-objeto_contrato      0.896     0.927     0.911     10864
+          B-valor_contrato      0.809     0.887     0.846       291
+           B-fonte_recurso      0.896     0.843     0.869       204
+        B-natureza_despesa      0.991     0.683     0.809       164
+       B-vigencia_contrato      0.948     0.916     0.931       237
+       I-vigencia_contrato      0.967     0.918     0.942      3297
+B-cnpj_entidade_contratada      0.900     0.507     0.649        71
+I-cnpj_entidade_contratada      0.900     0.514     0.655        70
+    B-unidade_orcamentaria      0.547     0.717     0.621       113
+       B-programa_trabalho      0.608     0.549     0.577       164
+B-data_assinatura_contrato      0.535     0.783     0.635       138
+I-data_assinatura_contrato      1.000     0.545     0.706        44
+  B-cnpj_orgao_contratante      0.667     0.154     0.250        13
+  I-cnpj_orgao_contratante      0.667     0.154     0.250        13
+    I-unidade_orcamentaria      0.000     0.000     0.000         0
+        B-nome_responsavel      0.958     0.793     0.868        29
+        I-nome_responsavel      0.962     0.758     0.847        66
+         I-numero_contrato      0.500     0.067     0.118        15
+            I-nota_empenho      0.000     0.000     0.000         5
+           I-fonte_recurso      0.000     0.000     0.000         1
+       I-programa_trabalho      0.000     0.000     0.000         3
+          I-valor_contrato      0.000     0.000     0.000         0
+        I-natureza_despesa      0.000     0.000     0.000         4
+            B-codigo_siggo      0.000     0.000     0.000         0
+            I-codigo_siggo      0.000     0.000     0.000         0
+
+                 micro avg      0.900     0.883     0.892     20489
+                 macro avg      0.641     0.525     0.559     20489
+              weighted avg      0.902     0.883     0.890     20489
+
+
+
+
+'Execução 2 - Split 1 20/09 18:47'
+Acurácia: 0.8729407359629795
+
+                            precision    recall  f1-score   support
+
+         B-numero_contrato      0.885     0.771     0.824       280
+            B-processo_gdf      0.867     0.743     0.800       237
+            I-processo_gdf      0.877     0.777     0.824       229
+       B-orgao_contratante      0.882     0.793     0.835       358
+       I-orgao_contratante      0.929     0.843     0.884      1814
+     B-entidade_contratada      0.930     0.769     0.842       242
+     I-entidade_contratada      0.915     0.774     0.839      1105
+B-cnpj_entidade_contratada      0.816     0.463     0.590        67
+I-cnpj_entidade_contratada      0.816     0.437     0.569        71
+         B-objeto_contrato      0.947     0.888     0.916       241
+         I-objeto_contrato      0.861     0.907     0.884     11868
+          B-valor_contrato      0.807     0.890     0.846       291
+    B-unidade_orcamentaria      0.591     0.690     0.637       113
+       B-programa_trabalho      0.632     0.528     0.575       159
+        B-natureza_despesa      0.991     0.673     0.801       165
+           B-fonte_recurso      0.979     0.704     0.819       203
+       B-vigencia_contrato      0.940     0.940     0.940       232
+       I-vigencia_contrato      0.921     0.955     0.938      2936
+B-data_assinatura_contrato      0.552     0.771     0.643       144
+            B-nota_empenho      0.894     0.745     0.812       192
+  B-cnpj_orgao_contratante      1.000     0.143     0.250        21
+  I-cnpj_orgao_contratante      1.000     0.125     0.222        24
+I-data_assinatura_contrato      0.828     0.480     0.608        50
+        B-nome_responsavel      1.000     0.763     0.866        38
+        I-nome_responsavel      1.000     0.707     0.829        82
+            I-nota_empenho      0.000     0.000     0.000         2
+       I-programa_trabalho      0.000     0.000     0.000         5
+         I-numero_contrato      0.000     0.000     0.000        20
+        I-natureza_despesa      0.000     0.000     0.000         2
+          I-valor_contrato      0.000     0.000     0.000         0
+           I-fonte_recurso      0.000     0.000     0.000         0
+            B-codigo_siggo      0.000     0.000     0.000         1
+            I-codigo_siggo      0.000     0.000     0.000         1
+    I-unidade_orcamentaria      0.000     0.000     0.000         0
+
+                 micro avg      0.876     0.875     0.875     21193
+                 macro avg      0.643     0.508     0.547     21193
+              weighted avg      0.878     0.875     0.873     21193
+
+
+'Execução 3 - Split 1 20/09 19:17'
+Acurácia: 0.8822606552381452
+
+                           precision    recall  f1-score   support
+
+         B-numero_contrato      0.900     0.767     0.828       270
+            B-processo_gdf      0.903     0.876     0.889       233
+            I-processo_gdf      0.902     0.894     0.898       217
+       B-orgao_contratante      0.903     0.762     0.826       353
+       I-orgao_contratante      0.907     0.827     0.865      1742
+     B-entidade_contratada      0.899     0.661     0.762       257
+     I-entidade_contratada      0.883     0.698     0.780      1192
+         B-objeto_contrato      0.903     0.888     0.895       241
+         I-objeto_contrato      0.874     0.940     0.906     13360
+       B-programa_trabalho      0.607     0.543     0.573       188
+        B-natureza_despesa      0.983     0.598     0.744       199
+           B-fonte_recurso      0.823     0.830     0.827       224
+          B-valor_contrato      0.663     0.901     0.764       282
+            B-nota_empenho      0.902     0.776     0.834       214
+       B-vigencia_contrato      0.935     0.923     0.929       234
+       I-vigencia_contrato      0.910     0.954     0.932      3400
+B-data_assinatura_contrato      0.601     0.840     0.701       163
+    B-unidade_orcamentaria      0.672     0.625     0.647       144
+        I-natureza_despesa      0.000     0.000     0.000         2
+            B-codigo_siggo      0.000     0.000     0.000         0
+B-cnpj_entidade_contratada      0.886     0.591     0.709        66
+I-cnpj_entidade_contratada      0.886     0.591     0.709        66
+        B-nome_responsavel      0.952     0.769     0.851        26
+        I-nome_responsavel      0.955     0.750     0.840        56
+         I-numero_contrato      0.000     0.000     0.000        13
+  B-cnpj_orgao_contratante      1.000     0.133     0.235        15
+  I-cnpj_orgao_contratante      1.000     0.133     0.235        15
+I-data_assinatura_contrato      0.898     0.550     0.682        80
+           I-fonte_recurso      0.000     0.000     0.000         2
+          I-valor_contrato      0.000     0.000     0.000         0
+       I-programa_trabalho      0.000     0.000     0.000         3
+            I-codigo_siggo      0.000     0.000     0.000         0
+            I-nota_empenho      0.000     0.000     0.000         4
+    I-unidade_orcamentaria      0.000     0.000     0.000         2
+
+                 micro avg      0.876     0.894     0.885     23263
+                 macro avg      0.640     0.524     0.555     23263
+              weighted avg      0.877     0.894     0.882     23263
+
+'Execução 4 - Split 1 20/09 19:50'
+Acurácia: 0.8822606552381452              
+
+== 'REL_ADITAMENTO_CONTRATO'
+
+numero_contrato                  1787
+orgao_contratante                1493
+numero_termo_aditivo             1357
+EXTRATO_ADITAMENTO_CONTRATUAL    1260
+objeto_aditamento_contratual     1249
+processo_gdf                     1228
+data_escrito                     1175
+nome_responsavel                   72
+codigo_siggo                        4
+numero_convenio                     1
+
+0.8303535394050937
+
+                            precision    recall  f1-score   support
+
+        B-numero_termo_aditivo      0.964     0.896     0.928       268
+             B-numero_contrato      0.838     0.614     0.709       319
+           B-orgao_contratante      0.915     0.505     0.651       321
+           I-orgao_contratante      0.928     0.690     0.792      1222
+B-objeto_aditamento_contratual      0.898     0.778     0.834       248
+I-objeto_aditamento_contratual      0.866     0.837     0.851     19819
+                B-data_escrito      0.731     0.078     0.141       244
+                B-processo_gdf      0.386     0.580     0.463       245
+        I-numero_termo_aditivo      0.972     0.926     0.948       525
+                I-processo_gdf      0.000     0.000     0.000         1
+                I-data_escrito      0.916     0.369     0.526       206
+             I-numero_contrato      0.000     0.000     0.000        23
+            B-nome_responsavel      1.000     0.500     0.667        28
+            I-nome_responsavel      1.000     0.452     0.622        62
+                          B-11      0.000     0.000     0.000         0
+                          B-12      0.000     0.000     0.000         0
+             B-numero_convenio      0.000     0.000     0.000         0
+             I-numero_convenio      0.000     0.000     0.000         0
+
+                     micro avg      0.864     0.807     0.835     23531
+                     macro avg      0.578     0.401     0.452     23531
+                  weighted avg      0.867     0.807     0.830     23531
+
+== 'ATO REL_AVISO_LICITACAO' 
+
+=>Qtde de entidades por classe
+
+numero_licitacao                    357
+modalidade_licitacao                355
+tipo_objeto                         325
+AVISO_LICITACAO                     317
+objeto_licitacao                    314
+data_abertura_licitacao             310
+nome_responsavel                    309
+processo_gdf                        303
+sistema_compras                     296
+valor_estimado_contratacao          269
+orgao_licitante                     234
+codigo_licitacao_sistema_compras    219
+
+0.7229150157483827
+
+                                  precision    recall  f1-score   support
+
+            B-modalidade_licitacao      1.000     0.704     0.826        71
+            I-modalidade_licitacao      1.000     0.649     0.787        77
+                B-numero_licitacao      0.795     0.805     0.800        77
+B-codigo_licitacao_sistema_compras      1.000     0.811     0.896        37
+                     B-tipo_objeto      0.000     0.000     0.000        11
+                     I-tipo_objeto      0.000     0.000     0.000         2
+                    B-processo_gdf      1.000     0.296     0.457        54
+      B-valor_estimado_contratacao      0.778     0.894     0.832        47
+         B-data_abertura_licitacao      0.603     0.443     0.511        79
+                 B-sistema_compras      1.000     0.416     0.587        77
+                B-nome_responsavel      0.964     0.422     0.587        64
+                I-nome_responsavel      0.951     0.458     0.618       168
+                B-objeto_licitacao      0.889     0.582     0.703        55
+                I-objeto_licitacao      0.668     0.889     0.763      3863
+                 I-sistema_compras      1.000     0.338     0.505        77
+                 B-orgao_licitante      0.786     0.275     0.407        40
+                 I-orgao_licitante      0.722     0.419     0.531       217
+         I-data_abertura_licitacao      1.000     0.875     0.933        64
+                    I-processo_gdf      0.000     0.000     0.000         0
+I-codigo_licitacao_sistema_compras      0.000     0.000     0.000         0
+                I-numero_licitacao      0.000     0.000     0.000         0
+      I-valor_estimado_contratacao      0.000     0.000     0.000        68
+
+                         micro avg      0.693     0.791     0.739      5148
+                         macro avg      0.643     0.422     0.488      5148
+                      weighted avg      0.708     0.791     0.723      5148
+
+
+=='REL_ANUL_REVOG_LICITACAO'
+
+numero_licitacao            39
+modalidade_licitacao        38
+identificacao_ocorrencia    32
+nome_responsavel            31
+AVISO_ANUL_REV_LICITACAO    31
+orgao_licitante             28
+processo_gdf                27
+data_escrito                10
+
+x_train 24 
+ x_test 7 
+ total atos 31
+
+ 0.0
+
+                         precision    recall  f1-score   support
+
+    B-modalidade_licitacao      0.000     0.000     0.000        11
+    I-modalidade_licitacao      0.000     0.000     0.000         8
+        B-numero_licitacao      0.000     0.000     0.000         9
+        I-numero_licitacao      0.000     0.000     0.000         0
+B-identificacao_ocorrencia      0.000     0.000     0.000        10
+            B-processo_gdf      0.000     0.000     0.000         6
+        B-nome_responsavel      0.000     0.000     0.000         7
+        I-nome_responsavel      0.000     0.000     0.000        16
+         B-orgao_licitante      0.000     0.000     0.000         6
+         I-orgao_licitante      0.000     0.000     0.000        49
+            I-processo_gdf      0.000     0.000     0.000         0
+            B-data_escrito      0.000     0.000     0.000         4
+            I-data_escrito      0.000     0.000     0.000        16
+
+                 micro avg      0.000     0.000     0.000       142
+                 macro avg      0.000     0.000     0.000       142
+              weighted avg      0.000     0.000     0.000       142
+
+
+
+== 'REL_EXTRATO_CONVENIO'
+
+entidade_convenente         22
+EXTRATO_CONVENIO            18
+data_assinatura_convenio    17
+vigencia_convenio           17
+objeto_convenio             16
+processo_gdf                15
+numero_convenio             13
+cnpj_entidade_convenente    11
+valor_convenio              10
+orgao_concedente             9
+natureza_despesa             7
+programa_trabalho            6
+nota_empenho                 5
+fonte_recurso                5
+unidade_orcamentaria         4
+objeto_contrato              3
+cnpj_orgao_concedente        2
+vigencia_contrato            2
+data_assinatura_contrato     1
+nome_responsavel             1
+
+x_train 14 
+ x_test 4 
+ total atos 18
+0.0
+
+         B-processo_gdf      0.000     0.000     0.000         4
+     B-entidade_convenente      0.000     0.000     0.000         5
+     I-entidade_convenente      0.000     0.000     0.000        37
+        B-orgao_concedente      0.000     0.000     0.000         0
+        I-orgao_concedente      0.000     0.000     0.000         0
+         B-objeto_convenio      0.000     0.000     0.000         6
+         I-objeto_convenio      0.000     0.000     0.000       221
+       B-vigencia_contrato      0.000     0.000     0.000         0
+       I-vigencia_contrato      0.000     0.000     0.000         0
+B-data_assinatura_convenio      0.000     0.000     0.000         4
+I-data_assinatura_convenio      0.000     0.000     0.000         0
+         B-numero_convenio      0.000     0.000     0.000         3
+B-cnpj_entidade_convenente      0.000     0.000     0.000         3
+         B-objeto_contrato      0.000     0.000     0.000         0
+         I-objeto_contrato      0.000     0.000     0.000         0
+       B-vigencia_convenio      0.000     0.000     0.000         4
+       I-vigencia_convenio      0.000     0.000     0.000       106
+          B-valor_convenio      0.000     0.000     0.000         2
+    B-unidade_orcamentaria      0.000     0.000     0.000         2
+       B-programa_trabalho      0.000     0.000     0.000         2
+        B-natureza_despesa      0.000     0.000     0.000         2
+           B-fonte_recurso      0.000     0.000     0.000         2
+         I-numero_convenio      0.000     0.000     0.000         0
+   B-cnpj_orgao_concedente      0.000     0.000     0.000         0
+B-data_assinatura_contrato      0.000     0.000     0.000         0
+            B-nota_empenho      0.000     0.000     0.000         2
+        B-nome_responsavel      0.000     0.000     0.000         0
+        I-nome_responsavel      0.000     0.000     0.000         0
+
+                 micro avg      0.000     0.000     0.000       405
+                 macro avg      0.000     0.000     0.000       405
+              weighted avg      0.000     0.000     0.000       405
+
+== 'REL_SUSPENSAO_LICITACAO'
+
+numero_licitacao             29
+AVISO_SUSPENSAO_LICITACAO    26
+nome_responsavel             26
+modalidade_licitacao         26
+orgao_licitante              25
+objeto_licitacao             21
+processo_gdf                 20
+decisao_tcdf                  6
+
+x_train 20 
+ x_test 6 
+ total atos 26
+
+ 0.0
+
+  precision    recall  f1-score   support
+
+     B-orgao_licitante      0.000     0.000     0.000         5
+     I-orgao_licitante      0.000     0.000     0.000        21
+    B-objeto_licitacao      0.000     0.000     0.000         4
+    I-objeto_licitacao      0.000     0.000     0.000       236
+    B-nome_responsavel      0.000     0.000     0.000         6
+    I-nome_responsavel      0.000     0.000     0.000        18
+    B-numero_licitacao      0.000     0.000     0.000         7
+        B-processo_gdf      0.000     0.000     0.000         5
+B-modalidade_licitacao      0.000     0.000     0.000         7
+I-modalidade_licitacao      0.000     0.000     0.000         6
+        B-decisao_tcdf      0.000     0.000     0.000         0
+        I-processo_gdf      0.000     0.000     0.000         0
+        I-decisao_tcdf      0.000     0.000     0.000         0
+
+             micro avg      0.000     0.000     0.000       315
+             macro avg      0.000     0.000     0.000       315
+          weighted avg      0.000     0.000     0.000       315
+
+
+
+
+result = tipo_ato.groupby('tipo_ent')['id_ato'].nunique()
+#print(result)
+print(result.sort_values(ascending=False))
+
+++++
+df = pd.DataFrame(list(zip(atos,labels)), columns=['atos','labels'])
+print(df)
++++++
+
+import math
+from numpy import random
+split_idx = math.floor(random.randint((0.7*len(x))))
+#split_idx = math.floor((0.7*len(x)))
+x_train = x[0:split_idx]
+y_train = y[0:split_idx]
+x_test = x[split_idx:]
+y_test = y[split_idx:]
+len(x_train),  len(x_test), len(x)
+
++++
+#values = ['entidade_convenente', 'vigencia_convenio','data_assinatura_convenio','processo_gdf','objeto_convenio']
+#values = ['nome_responsavel']
+#entity_filtered  = tipo_ato[tipo_ato['tipo_ent'].isin(values)]
+#entity_filtered = (tipo_ato.query("tipo_ent in @values"))
+#entity_filtered  = tipo_ato.query('tipo_ent== "data_escrito"')
+
+#entity_filtered  = tipo_ato.drop(tipo_ato.loc[tipo_ato['tipo_ent'] =="numero_convenio"].index, inplace=True)
+#entity_filtered  = tipo_ato.drop(['numero_convenio'], axis=0, inplace=True)
+#df.loc[df['Stock']=='Yes'].index, inplace=True)
+
+#df_mask =tipo_ato['tipo_ent']!= "numero_convenio"
+
+#"REL_ADITAMENTO_CONTRATO"
+values = pd.Series(['numero_termo_aditivo','objeto_aditamento_contratual','numero_contrato','orgao_contratante','processo_gdf','data_escrito'])
+
+#df_mask = tipo_ato['tipo_ent'].isin(values)             
+df_mask = tipo_ato['tipo_ent']!= "nome_responsavel"
+
+entity_filtered = tipo_ato[df_mask]
+entity_filtered
+
+++++++++
+
+# converting to CSV file
+#tipo_ato.to_csv("/home/lucelia_vieira/Experimentos/ner/CSVs/REL_EXTRATO_CONVENIO.csv")
+
+#lista os labels do dataset
+labels = data["tipo_ent"].unique()
+labels.sort()
+labels
+
+#Lista todas as entidades do dataset
+result = data.groupby('tipo_ent')['id_ato'].nunique()
+print(result.sort_values(ascending=False))
+
+# select rows containing 'bbi'
+#df.filter(like='bbi', axis=0)
+#df.query('ctg == "B" and val > 0.5')
+
+#entity_filtered = tipo_ato.query('tipo_ent == "entidade_convenente"')
+
+# Query Rows by list of values
+#values=['Spark','PySpark']
+#print(df.query("Courses in @values"))
+
+#values = ["data_escrito", "numero_contrato"]
+#numero_termo_aditivo             
+#objeto_aditamento_contratual     
+#orgao_contratante                
+#processo_gdf                     
+#nome_responsavel     
+
+#b = df.query('Compra=="B" & Pessoas=="2020" ')
+
+
+# CODIGO DE APLICACAO DA SUPERVISAO FRACA
+import dodfSkweak
+
+skw = dodfSkweak.SkweakContratos(df1)
+skw.apply_label_functions()
+skw.train_HMM_Dodf()
+data_label=skw.get_hmm_dataframe()
+
++++++Notebooks
+ner_aula.ipynb - Matheus
+https://colab.research.google.com/drive/10FV6_YTK89_JhlWsAEMaTbHknD1CvKY8?usp=sharing#scrollTo=q7VfnnkXpkfS
+
+
+duvidas_lucelia.ipynb
+https://colab.research.google.com/drive/17RS7BM7KW8ryxuB39cCpzDUlru7-xC_Q?usp=sharing#scrollTo=46dqWsN0TmHA
+
+vinicius
+https://github.com/viniciusrpb/cic0269_natural_language_processing/
+https://github.com/viniciusrpb/cic0269_natural_language_processing/blob/main/tutorials/ner_aula.ipynb
+
+Yan
+https://github.com/UnB-KnEDLe/experiments/blob/master/members/ian/machine-learning/ModelCRF_abertura/crf_abertura.ipynb
+
+
+random_state
+
+https://levitrares.com/host-https-qastack.com.br/programming/28064634/random-state-pseudo-random-number-in-scikit-learn
+https://medium.com/towards-artificial-intelligence/3-different-approaches-for-train-test-splitting-of-a-pandas-dataframe-d5e544a5316
+
+test_size: tamanho do teste, que no nosso caso seria 0.2;
+random_state: controla o embaralhamento dos dados. Se você utilizasse um inteiro aqui, essa seleção de treino e teste seria replicável;
+shuffle: recebe um booleano, True ou False, para determinar se os dados devem ser embaralhados antes da divisão;
+stratify: determina se os dados devem ser estratificados de acordo com alguma classe. Ex.: você quer uma divisão semelhante de homens e mulheres no treino e teste. Recebe como parâmetro essa classe.
+
+Parametrizar o treino
+
+
+https://www.kdnuggets.com/2018/10/named-entity-recognition-classification-scikit-learn.html/2
+https://github.com/TeamHG-Memex/sklearn-crfsuite/blob/master/tests/test_crf.py
+
+
+===============
+Execucao V1
+
+
+precision    recall  f1-score   support
+
+B-cnpj_entidade_contratada      1.000     0.863     0.926        73
+I-cnpj_entidade_contratada      1.000     0.863     0.926        73
+  B-cnpj_orgao_contratante      0.867     1.000     0.929        13
+  I-cnpj_orgao_contratante      0.867     1.000     0.929        13
+            B-codigo_siggo      0.800     0.706     0.750        34
+            I-codigo_siggo      0.000     0.000     0.000         2
+B-data_assinatura_contrato      0.674     0.881     0.763       185
+I-data_assinatura_contrato      0.923     0.787     0.850        61
+     B-entidade_contratada      0.917     0.786     0.847       323
+     I-entidade_contratada      0.928     0.809     0.864      1449
+           B-fonte_recurso      0.976     0.909     0.941       263
+           I-fonte_recurso      1.000     0.833     0.909         6
+        B-natureza_despesa      0.989     0.797     0.883       222
+        I-natureza_despesa      0.000     0.000     0.000         3
+        B-nome_responsavel      1.000     0.805     0.892        41
+        I-nome_responsavel      1.000     0.814     0.897        86
+            B-nota_empenho      0.962     0.783     0.863       258
+            I-nota_empenho      0.000     0.000     0.000         4
+         B-numero_contrato      0.891     0.818     0.853       340
+         I-numero_contrato      0.667     0.500     0.571        12
+         B-objeto_contrato      0.990     0.967     0.978       304
+         I-objeto_contrato      0.941     0.976     0.958     14292
+       B-orgao_contratante      0.905     0.878     0.891       444
+       I-orgao_contratante      0.964     0.951     0.957      2279
+            B-processo_gdf      0.945     0.926     0.936       298
+            I-processo_gdf      0.938     0.856     0.895       285
+       B-programa_trabalho      0.867     0.738     0.797       221
+       I-programa_trabalho      0.000     0.000     0.000         3
+    B-unidade_orcamentaria      0.923     0.880     0.901       150
+    I-unidade_orcamentaria      0.000     0.000     0.000         0
+          B-valor_contrato      0.829     0.900     0.863       381
+          I-valor_contrato      0.000     0.000     0.000         1
+       B-vigencia_contrato      0.942     0.938     0.940       292
+       I-vigencia_contrato      0.967     0.973     0.970      3942
+
+                 micro avg      0.941     0.945     0.943     26353
+                 macro avg      0.755     0.704     0.726     26353
+              weighted avg      0.942     0.945     0.942     26353

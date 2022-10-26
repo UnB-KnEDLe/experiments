@@ -1,0 +1,186 @@
+### EXTRATO CONTRATO 
+data_assinatura_contrato  
+natureza_despesa  
+nota_empenho  
+numero_contrato  
+processo_gdf  
+programa_trabalho  
+unidade_orcamentaria  
+valor_contrato 
+
+## CRF
+                            precision    recall  f1-score   support
+data_assinatura_contrato       0.54      0.93      0.69       184
+        natureza_despesa       0.99      0.41      0.58       206
+            nota_empenho       0.97      0.81      0.88       247
+         numero_contrato       0.65      0.65      0.65       288
+            processo_gdf       0.96      0.72      0.82       302
+       programa_trabalho       0.49      0.51      0.50       222
+    unidade_orcamentaria       0.96      0.56      0.71       162
+          valor_contrato       0.68      0.97      0.80       373
+
+## SF + CRF
+                            precision    recall  f1-score   support
+data_assinatura_contrato       0.53      0.90      0.66       184
+        natureza_despesa       0.99      0.38      0.55       206
+            nota_empenho       0.97      0.77      0.86       247
+         numero_contrato       0.77      0.44      0.56       288
+            processo_gdf       0.93      0.67      0.78       302
+       programa_trabalho       0.88      0.41      0.56       222
+    unidade_orcamentaria       0.64      0.56      0.60       162
+          valor_contrato       0.69      0.97      0.80       373
+
+## SF
+                            precision    recall  f1-score   support
+data_assinatura_contrato       0.72      0.96      0.82       184
+        natureza_despesa       0.86      0.67      0.75       206
+            nota_empenho       0.96      0.90      0.93       247
+         numero_contrato       0.94      0.93      0.93       288
+            processo_gdf       0.95      0.96      0.95       302
+       programa_trabalho       0.78      0.83      0.81       222
+    unidade_orcamentaria       0.78      0.99      0.87       162
+          valor_contrato       0.84      0.74      0.79       373
+
+### ADITAMENTO CONTRATUAL
+numero_contrato 
+processo_gdf 
+data_escrito
+
+## CRF
+                            precision    recall  f1-score   support
+              data_escrito     0.67     0.68       0.67       280
+           numero_contrato     0.70     0.44       0.54       351
+              processo_gdf     0.85     0.50       0.63       266
+
+## SF + CRF
+                            precision    recall  f1-score   support
+               data_escrito    0.65      0.67      0.66       280
+            numero_contrato    0.92      0.38      0.54       351
+               processo_gdf    0.70      0.60      0.65       266
+
+## SF
+                            precision    recall  f1-score   support
+                data_escrito    0.85      0.81      0.83       280
+             numero_contrato    0.95      0.82      0.88       351
+                processo_gdf    0.77      0.95      0.85       266
+
+### SUSPENSAO CONTRATO
+numero_licitacao 
+modalidade_licitacao 
+processo_gdf  
+
+## CRF
+                        precision    recall  f1-score   support
+modalidade_licitacao     0.92      0.63      0.75        19  
+    numero_licitacao     1.00      0.33      0.50        18
+        processo_gdf     0.00      0.00      0.00        13
+
+## SF + CRF 
+                        precision    recall  f1-score   support
+modalidade_licitacao       0.94      0.84      0.89        19
+    numero_licitacao       0.00      0.00      0.00        18
+        processo_gdf       1.00      0.69      0.82        13                          
+
+## SF       
+                        precision    recall  f1-score   support
+modalidade_licitacao       1.00      0.68      0.81        19
+    numero_licitacao       0.00      0.00      0.00        18
+        processo_gdf       0.85      0.85      0.85        13
+
+### ANULACAO E REVOGACAO LICITACAO
+numero_licitacao
+modalidade_licitacao 
+processo_gdf 
+data_escrito
+
+## CRF
+            precision    recall  f1-score   support
+
+            data_escrito       0.00      0.00      0.00         3
+identificacao_ocorrencia       0.00      0.00      0.00        12
+    modalidade_licitacao       0.00      0.00      0.00        11
+        nome_responsavel       0.00      0.00      0.00        10
+        numero_licitacao       0.00      0.00      0.00        13
+         orgao_licitante       0.00      0.00      0.00         6
+            processo_gdf       0.00      0.00      0.00         9
+
+## SF + CRF 
+            precision    recall  f1-score   support
+
+            data_escrito       1.00      1.00      1.00         3
+    modalidade_licitacao       0.83      0.91      0.87        11
+        numero_licitacao       0.00      0.00      0.00        13
+            processo_gdf       0.00      0.00      0.00         9
+
+## SF
+
+precision    recall  f1-score   support
+
+            data_escrito       1.00      1.00      1.00         3
+    modalidade_licitacao       0.83      0.91      0.87        11
+        numero_licitacao       0.00      0.00      0.00        13
+            processo_gdf       0.75      0.67      0.71         9
+
+
+### AVISO LICITACAO CRF
+
+processo_gdf   
+modalidade_licitacao  
+numero_licitacao 
+valor_estimado_contratacao  
+
+## CRF
+                                 precision    recall  f1-score   support
+
+codigo_licitacao_sistema_compras       1.00      0.78      0.88        91
+         data_abertura_licitacao       0.87      0.91      0.89       127
+            modalidade_licitacao       0.98      0.86      0.91       139
+                nome_responsavel       1.00      0.79      0.88       129
+                numero_licitacao       0.95      0.76      0.84       143
+                objeto_licitacao       0.59      0.63      0.61       111
+                 orgao_licitante       0.79      0.23      0.35       101
+                    processo_gdf       0.82      0.74      0.78       121
+                 sistema_compras       0.99      0.85      0.91       158
+                     tipo_objeto       0.00      0.00      0.00        31
+      valor_estimado_contratacao       0.89      0.93      0.91        98
+
+
+## CRF + SF
+
+            modalidade_licitacao       0.98      0.81      0.89       139
+                numero_licitacao       0.98      0.80      0.88       143
+                    processo_gdf       0.93      0.88      0.90       121
+      valor_estimado_contratacao       0.97      0.78      0.86        98
+
+## SF
+precision    recall  f1-score   support
+
+            modalidade_licitacao       0.99      0.82      0.90       139
+                numero_licitacao       0.99      0.87      0.93       143
+                    processo_gdf       0.95      0.99      0.97       121
+      valor_estimado_contratacao       0.97      0.86      0.91        98
+
+### EXTRATO CONVENIO CRF
+processo_gdf  
+valor_convenio  
+programa_trabalho 
+nota_empenho 
+fonte_recurso 
+unidade_orcamentaria 
+data_assinatura_contrato
+
+## CRF
+precision    recall  f1-score   support
+
+data_assinatura_convenio       0.00      0.00      0.00         3
+     entidade_convenente       0.00      0.00      0.00         7
+        nome_responsavel       0.00      0.00      0.00         2
+         numero_convenio       0.00      0.00      0.00         5
+         objeto_convenio       0.00      0.00      0.00         5
+        orgao_concedente       0.00      0.00      0.00         5
+            processo_gdf       0.00      0.00      0.00         5
+       vigencia_convenio       0.00      0.00      0.00         3
+
+
+
+
