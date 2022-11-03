@@ -161,13 +161,15 @@ precision    recall  f1-score   support
       valor_estimado_contratacao       0.97      0.86      0.91        98
 
 ### EXTRATO CONVENIO CRF
-processo_gdf  
+numero_convenio
+processo_gdf 
+data_assinatura_convenio 
 valor_convenio  
 programa_trabalho 
 nota_empenho 
 fonte_recurso 
 unidade_orcamentaria 
-data_assinatura_contrato
+
 
 ## CRF
 precision    recall  f1-score   support
