@@ -1,0 +1,942 @@
+---------------------------V2
+
+REL_EXTRATO_CONTRATO        1734
+REL_ADITAMENTO_CONTRATO     1551
+REL_AVISO_LICITACAO          639
+REL_SUSPENSAO_LICITACAO       82
+REL_ANUL_REVOG_LICITACAO      52
+REL_EXTRATO_CONVENIO          32
+Total	4090
+
+### EXTRATO CONTRATO 
+ROTULOS
+'data_assinatura_contrato'  
+'natureza_despesa'  
+'nota_empenho'  
+'numero_contrato'  
+'processo_gdf'  
+'programa_trabalho'  
+'unidade_orcamentaria'  
+'valor_contrato' 
+
+
+Token 416315
+Extrato_Contrato_Split
+
+['B-nota_empenho',
+ 'B-cnpj_orgao_contratante',
+ 'I-cnpj_orgao_contratante',
+ 'B-unidade_orcamentaria',
+ 'I-nome_responsavel',
+ 'I-orgao_contratante',
+ 'I-vigencia_contrato',
+ 'B-valor_contrato',
+ 'I-programa_trabalho',
+ 'I-natureza_despesa',
+ 'I-objeto_contrato',
+ 'B-codigo_siggo',
+ 'I-data_assinatura_contrato',
+ 'B-entidade_contratada',
+ 'B-natureza_despesa',
+ 'B-orgao_contratante',
+ 'B-numero_contrato',
+ 'I-codigo_siggo',
+ 'I-nota_empenho',
+ 'O',
+ 'B-cnpj_entidade_contratada',
+ 'B-processo_gdf',
+ 'B-data_assinatura_contrato',
+ 'I-numero_contrato',
+ 'I-fonte_recurso',
+ 'I-unidade_orcamentaria',
+ 'I-processo_gdf',
+ 'I-cnpj_entidade_contratada',
+ 'I-valor_contrato',
+ 'B-programa_trabalho',
+ 'B-vigencia_contrato',
+ 'I-entidade_contratada',
+ 'B-fonte_recurso',
+ 'B-nome_responsavel',
+ 'B-objeto_contrato']
+
+x_train 1387 
+x_test 347 
+total atos 1734
+
+### Split - 0 
+CRF
+0.877755866981368
+                            precision    recall  f1-score   support
+data_assinatura_contrato       0.59      0.86      0.70       248
+           fonte_recurso       0.83      0.86      0.85       288
+        natureza_despesa       0.98      0.70      0.82       236
+            nota_empenho       0.95      0.75      0.84       299
+         numero_contrato       0.77      0.74      0.76       380
+            processo_gdf       0.87      0.84      0.86       339
+       programa_trabalho       0.67      0.56      0.61       258
+    unidade_orcamentaria       0.84      0.76      0.80       188
+          valor_contrato       0.73      0.91      0.81       409
+       
+CRF + SF
+0.8583561758398841
+data_assinatura_contrato       0.66      0.84      0.74       248
+           fonte_recurso       0.00      0.00      0.00       288
+        natureza_despesa       0.95      0.85      0.90       236
+            nota_empenho       0.94      0.87      0.90       299
+         numero_contrato       0.96      0.81      0.88       380
+            processo_gdf       0.93      0.96      0.95       339
+       programa_trabalho       0.79      0.86      0.83       258
+    unidade_orcamentaria       0.71      0.93      0.81       188
+          valor_contrato       0.88      0.82      0.85       409
+
+SF
+data_assinatura_contrato       0.66      0.84      0.78       248
+           fonte_recurso       0.00      0.00      0.00       288
+        natureza_despesa       0.95      0.85      0.92       236
+            nota_empenho       0.94      0.87      0.93       299
+         numero_contrato       0.96      0.81      0.87       380
+            processo_gdf       0.93      0.96      0.94       339
+       programa_trabalho       0.79      0.86      0.82       258
+    unidade_orcamentaria       0.71      0.93      0.83       188
+          valor_contrato       0.88      0.82      0.86       409
+
+### Split - 1
+0.8822733200527381
+                            precision    recall  f1-score   support
+data_assinatura_contrato       0.55      0.81      0.65       229
+           fonte_recurso       0.85      0.83      0.84       279
+        natureza_despesa       0.99      0.70      0.82       230
+            nota_empenho       0.89      0.76      0.82       270
+         numero_contrato       0.77      0.74      0.76       383
+            processo_gdf       0.88      0.82      0.85       341
+       programa_trabalho       0.64      0.55      0.59       232
+    unidade_orcamentaria       0.82      0.71      0.76       161
+          valor_contrato       0.73      0.91      0.81       405
+
+CRF + SF
+0.8602266275400345
+                            precision    recall  f1-score   support
+data_assinatura_contrato       0.68      0.86      0.76       229
+           fonte_recurso       0.00      0.00      0.00       279
+        natureza_despesa       0.97      0.82      0.89       230
+            nota_empenho       0.96      0.89      0.92       270
+         numero_contrato       0.95      0.79      0.86       383
+            processo_gdf       0.92      0.92      0.92       341
+       programa_trabalho       0.77      0.89      0.82       232
+    unidade_orcamentaria       0.68      0.93      0.79       161
+          valor_contrato       0.81      0.88      0.85       405
+
+### Split - 2
+CRF
+ 0.8770734758131002
+
+data_assinatura_contrato       0.58      0.82      0.68       229
+           fonte_recurso       0.81      0.81      0.81       285
+        natureza_despesa       0.99      0.74      0.85       227
+            nota_empenho       0.88      0.77      0.82       259
+         numero_contrato       0.86      0.68      0.76       385
+            processo_gdf       0.84      0.70      0.76       335
+       programa_trabalho       0.64      0.53      0.58       233
+    unidade_orcamentaria       0.76      0.62      0.68       169
+          valor_contrato       0.72      0.92      0.81       400
+
+CRF + SF
+0.854866979860215
+data_assinatura_contrato       0.68      0.86      0.76       229
+           fonte_recurso       0.00      0.00      0.00       285
+        natureza_despesa       0.94      0.82      0.88       227
+            nota_empenho       0.93      0.91      0.92       259
+         numero_contrato       0.95      0.78      0.86       385
+            processo_gdf       0.92      0.95      0.93       335
+       programa_trabalho       0.75      0.83      0.79       233
+    unidade_orcamentaria       0.71      0.92      0.80       169
+          valor_contrato       0.81      0.91      0.86       400
+
+### Split - 3
+CRF
+0.900867110383289
+                            precision    recall  f1-score   support
+data_assinatura_contrato       0.59      0.88      0.71       239
+           fonte_recurso       0.83      0.83      0.83       299
+        natureza_despesa       0.98      0.71      0.82       253
+            nota_empenho       0.95      0.79      0.86       291
+         numero_contrato       0.79      0.70      0.74       371
+            processo_gdf       0.86      0.81      0.84       331
+       programa_trabalho       0.86      0.34      0.49       270
+    unidade_orcamentaria       0.75      0.74      0.75       187
+          valor_contrato       0.72      0.92      0.81       423
+
+CRF + SF
+data_assinatura_contrato       0.70      0.91      0.79       239
+           fonte_recurso       0.00      0.00      0.00       299
+        natureza_despesa       0.95      0.81      0.88       253
+            nota_empenho       0.94      0.88      0.91       291
+         numero_contrato       0.95      0.80      0.87       371
+            processo_gdf       0.92      0.95      0.93       331
+       programa_trabalho       0.78      0.76      0.77       270
+    unidade_orcamentaria       0.76      0.95      0.84       187
+          valor_contrato       0.82      0.88      0.85       423
+
+
+### Split - 4
+CRF
+0.8870236531812781
+data_assinatura_contrato       0.55      0.87      0.67       218
+           fonte_recurso       0.82      0.84      0.83       273
+        natureza_despesa       0.99      0.69      0.81       221
+            nota_empenho       0.98      0.75      0.85       271
+         numero_contrato       0.79      0.73      0.76       380
+            processo_gdf       0.86      0.86      0.86       337
+       programa_trabalho       0.66      0.51      0.58       251
+    unidade_orcamentaria       0.84      0.70      0.76       153
+          valor_contrato       0.76      0.90      0.83       419
+
+CRF + SF
+0.8621629837730088
+
+data_assinatura_contrato       0.67      0.89      0.76       218
+           fonte_recurso       0.00      0.00      0.00       273
+        natureza_despesa       0.96      0.81      0.88       221
+            nota_empenho       0.96      0.85      0.90       271
+         numero_contrato       0.93      0.79      0.86       380
+            processo_gdf       0.91      0.93      0.92       337
+       programa_trabalho       0.77      0.79      0.78       251
+    unidade_orcamentaria       0.69      0.93      0.79       153
+          valor_contrato       0.87      0.89      0.88       419
+
+### ADITAMENTO CONTRATUAL
+numero_contrato 
+processo_gdf 
+data_escrito
+
+Token 350042
+Aditamento_Contrato_Split
+
+['B-12',
+ 'I-orgao_contratante',
+ 'I-processo_gdf',
+ 'I-data_escrito',
+ 'O',
+ 'B-11',
+ 'I-numero_termo_aditivo',
+ 'B-processo_gdf',
+ 'I-objeto_aditamento_contratual',
+ 'I-numero_contrato',
+ 'B-codigo_siggo',
+ 'I-nome_responsavel',
+ 'B-data_escrito',
+ 'B-orgao_contratante',
+ 'B-numero_termo_aditivo',
+ 'B-numero_contrato',
+ 'B-nome_responsavel',
+ 'B-objeto_aditamento_contratual']
+
+    x_train 1240 
+    x_test 311 
+    total atos 1551
+
+### Split - 0
+CRF
+0.8553555072643868
+
+                data_escrito       0.67      0.69      0.68       293
+             numero_contrato       0.88      0.50      0.64       381
+                processo_gdf       0.81      0.47      0.59       287        
+
+CRF + SF
+0.7677158380237709
+                data_escrito       0.78      0.75      0.76       293
+             numero_contrato       0.94      0.67      0.79       381
+                processo_gdf       0.81      0.91      0.86       287
+
+SF
+                data_escrito       0.80      0.74      0.77       293
+             numero_contrato       0.92      0.73      0.82       381
+                processo_gdf       0.82      0.97      0.89       287
+
+### Split - 1
+CRF
+0.8452227509422562
+                data_escrito       0.68      0.67      0.68       301
+             numero_contrato       0.85      0.54      0.66       380
+                processo_gdf       0.75      0.48      0.59       289
+
+CRF + SF
+0.7638789386144278
+                                precision    recall  f1-score   support
+                data_escrito       0.80      0.77      0.79       301
+             numero_contrato       0.94      0.67      0.78       380
+                processo_gdf       0.77      0.90      0.83       289
+
+### Split - 2
+CRF
+0.8478869078434317
+
+                data_escrito       0.64      0.67      0.66       292
+             numero_contrato       0.76      0.61      0.67       379
+                processo_gdf       0.90      0.47      0.61       285
+CRF + SF
+0.7556117916136279
+                data_escrito       0.80      0.76      0.78       292
+             numero_contrato       0.94      0.67      0.78       379
+                processo_gdf       0.78      0.89      0.83       285
+
+### Split - 3
+CRF
+0.8413021542658922
+                data_escrito       0.53      0.73      0.61       303
+             numero_contrato       0.82      0.51      0.63       373
+                processo_gdf       0.79      0.45      0.58       284
+CRF + SF
+0.7881464893933496
+                data_escrito       0.82      0.78      0.80       303
+             numero_contrato       0.94      0.69      0.80       373
+                processo_gdf       0.78      0.92      0.84       284
+
+### Split - 4
+CRF
+                data_escrito       0.66      0.72      0.69       288
+             numero_contrato       0.78      0.67      0.72       357
+                processo_gdf       0.87      0.48      0.62       289
+CRF + SF
+0.7838503673417676
+                data_escrito       0.77      0.79      0.78       288
+             numero_contrato       0.93      0.71      0.81       357
+                processo_gdf       0.83      0.90      0.86       289
+
+
+## REL_AVISO_LICITACAO
+Token 111633
+Aviso_Licitacao_Split
+
+x_train 511 
+x_test 128 
+total atos 639
+
+### Split - 0
+CRF
+0.9143614707274972
+
+                                    precision    recall  f1-score   support
+         data_abertura_licitacao       0.91      0.80      0.85       133
+            modalidade_licitacao       0.98      0.86      0.92       140
+                numero_licitacao       0.95      0.79      0.86       138
+                    processo_gdf       0.81      0.68      0.74       121
+      valor_estimado_contratacao       0.77      0.94      0.84        95
+
+CRF + SF
+                                    precision    recall  f1-score   support
+            modalidade_licitacao       0.98      0.87      0.92       140
+                numero_licitacao       0.96      0.80      0.87       138
+                    processo_gdf       0.96      0.94      0.95       121
+      valor_estimado_contratacao       0.74      0.74      0.74        95
+
+SF
+            modalidade_licitacao       0.98      0.87      0.92       140
+                numero_licitacao       0.98      0.35      0.51       138
+                    processo_gdf       0.94      0.98      0.96       121
+      valor_estimado_contratacao       0.95      0.74      0.83        95
+
+### Split - 1
+CRF
+0.8671052379844616
+
+                                    precision    recall  f1-score   support
+         data_abertura_licitacao       0.84      0.79      0.82       135
+            modalidade_licitacao       0.99      0.77      0.86       149
+                numero_licitacao       0.88      0.77      0.82       144
+                    processo_gdf       0.86      0.66      0.75       116
+      valor_estimado_contratacao       0.93      0.94      0.93        98
+
+CRF + SF
+0.911544252229167
+            modalidade_licitacao       0.98      0.81      0.89       149
+                numero_licitacao       0.96      0.76      0.84       144
+                    processo_gdf       0.93      0.96      0.94       116
+      valor_estimado_contratacao       0.99      0.85      0.91        98
+
+SF
+         data_abertura_licitacao       0.00      0.00      0.00       135
+            modalidade_licitacao       0.98      0.81      0.89       149
+                nome_responsavel       0.00      0.00      0.00       127
+                numero_licitacao       0.00      0.00      0.00       144
+                objeto_licitacao       0.00      0.00      0.00        97
+                 orgao_licitante       0.00      0.00      0.00       101
+                    processo_gdf       0.93      0.97      0.95       116
+                 sistema_compras       0.00      0.00      0.00       146
+                     tipo_objeto       0.00      0.00      0.00        43
+      valor_estimado_contratacao       0.96      0.81      0.88        98
+      
+### Split - 2
+CRF
+0.8671052379844616
+precision    recall  f1-score   support
+
+            modalidade_licitacao       0.98      0.88      0.93       138
+                numero_licitacao       0.91      0.83      0.87       142
+                    processo_gdf       0.75      0.64      0.69       118
+      valor_estimado_contratacao       0.92      0.88      0.90        94
+
+CRF + SF
+0.9302650995865248
+            modalidade_licitacao       0.97      0.88      0.92       138
+                numero_licitacao       0.97      0.82      0.89       142
+                    processo_gdf       0.97      0.94      0.95       118
+      valor_estimado_contratacao       1.00      0.80      0.89        94
+
+SF
+            modalidade_licitacao       0.97      0.88      0.92       138
+                numero_licitacao       0.96      0.83      0.89       142
+                    processo_gdf       0.92      0.99      0.96       118
+      valor_estimado_contratacao       1.00      0.80      0.89        94
+
+### Split - 3
+CRF
+0.8822667311749178
+                                    precision    recall  f1-score   support
+            modalidade_licitacao       0.98      0.75      0.85       149
+                numero_licitacao       0.91      0.82      0.86       143
+                    processo_gdf       0.85      0.61      0.71       116
+      valor_estimado_contratacao       0.74      0.92      0.82       101
+
+CRF+ SF
+0.8838241331972089
+                                     precision    recall  f1-score   support
+            modalidade_licitacao       0.98      0.80      0.88       149
+                numero_licitacao       0.96      0.77      0.85       143
+                    processo_gdf       0.90      0.93      0.92       116
+      valor_estimado_contratacao       0.95      0.74      0.83       101
+
+SF
+            modalidade_licitacao       0.98      0.80      0.88       149
+                numero_licitacao       0.50      0.01      0.01       143
+                    processo_gdf       0.90      0.95      0.92       116
+            estimado_contratacao       0.95      0.74      0.83       101
+
+### Split - 4
+CRF 
+0.8540096157112551
+                                    precision    recall  f1-score   support
+            modalidade_licitacao       0.97      0.77      0.86       147
+                numero_licitacao       0.85      0.83      0.84       140
+                    processo_gdf       0.72      0.54      0.62       119
+      valor_estimado_contratacao       0.94      0.90      0.92        93
+
+CRF + SF
+0.8903593515139593
+                                    precision    recall  f1-score   support
+            modalidade_licitacao       0.96      0.81      0.88       147
+                numero_licitacao       0.97      0.80      0.88       140
+                    processo_gdf       0.92      0.92      0.92       119
+      valor_estimado_contratacao       0.96      0.78      0.86        93
+
+SF
+            modalidade_licitacao       0.97      0.82      0.89       147
+                numero_licitacao       0.00      0.00      0.00       140
+                    processo_gdf       0.94      0.97      0.95       119
+      valor_estimado_contratacao       0.96      0.77      0.86        93
+
+## SUSPENSAO CONTRATO
+Label
+'numero_licitacao'
+'modalidade_licitacao' 
+'processo_gdf' 
+
+token 10709
+Suspensao_Licitação_Split
+
+tags
+['I-processo_gdf',
+ 'B-orgao_licitante',
+ 'O',
+ 'B-objeto_licitacao',
+ 'I-decisao_tcdf',
+ 'B-decisao_tcdf',
+ 'I-numero_licitacao',
+ 'B-numero_licitacao',
+ 'I-nome_responsavel',
+ 'I-orgao_licitante',
+ 'B-processo_gdf',
+ 'I-objeto_licitacao',
+ 'B-nome_responsavel',
+ 'B-50',
+ 'B-modalidade_licitacao',
+ 'I-modalidade_licitacao']
+
+ x_train 65 
+ x_test 17 
+ total atos 82
+
+## Split - 0
+CRF
+0.5365943023984973
+                        precision    recall  f1-score   support
+modalidade_licitacao       1.00      0.46      0.63        24
+    numero_licitacao       1.00      0.50      0.67        22
+        processo_gdf       0.00      0.00      0.00        12
+
+CRF + SF
+0.8628708811617358
+
+modalidade_licitacao       0.84      0.88      0.86        24
+    numero_licitacao       0.80      0.55      0.65        22
+        processo_gdf       0.91      0.83      0.87        12
+
+SF
+modalidade_licitacao       1.00      0.67      0.80        24
+    numero_licitacao       0.00      0.00      0.00        22
+        processo_gdf       0.75      0.75      0.75        12
+
+
+### Split - 1
+CRF 
+0.5614973922714704
+
+                        precision    recall  f1-score   support
+modalidade_licitacao       1.00      0.40      0.57        20
+    numero_licitacao       1.00      0.50      0.67        20
+        processo_gdf       0.00      0.00      0.00        13
+
+CRF + SF
+0.9015955554304071
+modalidade_licitacao       0.76      0.80      0.78        20
+    numero_licitacao       1.00      0.85      0.92        20
+        processo_gdf       0.85      0.85      0.85        13
+
+SF
+modalidade_licitacao       0.94      0.75      0.83        20
+    numero_licitacao       0.00      0.00      0.00        20
+        processo_gdf       0.85      0.85      0.85        13
+
+## Split - 2
+CRF
+0.7483106281498468
+                        precision    recall  f1-score   support
+modalidade_licitacao       1.00      0.56      0.71        18
+    numero_licitacao       0.56      0.53      0.55        17
+        processo_gdf       0.00      0.00      0.00        14
+
+CRF + SF
+0.8946746191354034
+modalidade_licitacao       0.88      0.78      0.82        18
+    numero_licitacao       1.00      0.88      0.94        17
+        processo_gdf       0.92      0.79      0.85        14
+
+SF
+modalidade_licitacao       0.82      0.78      0.80        18
+    numero_licitacao       0.00      0.00      0.00        17
+        processo_gdf       0.92      0.86      0.89        14
+
+## Split - 3
+CRF
+0.6792644181595039
+                        precision    recall  f1-score   support
+modalidade_licitacao       1.00      0.48      0.65        21
+    numero_licitacao       1.00      0.41      0.58        22
+        processo_gdf       0.00      0.00      0.00        13
+
+CRF + SF
+0.9468646562638233
+modalidade_licitacao       0.95      0.90      0.93        21
+    numero_licitacao       1.00      0.77      0.87        22
+        processo_gdf       1.00      1.00      1.00        13
+SF
+modalidade_licitacao       1.00      0.71      0.83        21
+    numero_licitacao       0.00      0.00      0.00        22
+        processo_gdf       1.00      1.00      1.00        13
+
+### Split - 4
+CRF
+0.7297925975712135
+                        precision    recall  f1-score   support
+modalidade_licitacao       0.82      0.43      0.56        21
+    numero_licitacao       0.67      0.44      0.53        18
+        processo_gdf       1.00      0.25      0.40        12
+
+CRF + SF
+0.8217374089325309
+
+modalidade_licitacao       0.84      0.76      0.80        21
+    numero_licitacao       0.93      0.78      0.85        18
+        processo_gdf       0.89      0.67      0.76        12
+
+SF
+modalidade_licitacao       0.85      0.52      0.65        21
+    numero_licitacao       0.00      0.00      0.00        18
+        processo_gdf       0.92      0.92      0.92        12
+
+## REL_ANUL_REVOG_LICITACAO 
+token 6605
+Anul_Revog_Licitação_Split
+
+['I-processo_gdf',
+ 'I-data_escrito',
+ 'B-orgao_licitante',
+ 'O',
+ 'I-modalidade_licitacao',
+ 'I-numero_licitacao',
+ 'I-nome_responsavel',
+ 'B-processo_gdf',
+ 'I-orgao_licitante',
+ 'B-identificacao_ocorrencia',
+ 'B-data_escrito',
+ 'B-nome_responsavel',
+ 'B-modalidade_licitacao',
+ 'B-numero_licitacao']
+
+ x_train 41 
+ x_test 11 
+ total atos 52
+
+### Split - 0
+
+CRF
+0.040517811017000055
+                            precision    recall  f1-score   support
+            data_escrito       0.00      0.00      0.00         5
+    modalidade_licitacao       0.00      0.00      0.00        16
+        numero_licitacao       0.00      0.00      0.00        15
+            processo_gdf       0.00      0.00      0.00         9
+
+
+CRF + SF
+0.6849855443744896
+                            precision    recall  f1-score   support
+            data_escrito       0.67      0.80      0.73         5
+    modalidade_licitacao       0.92      0.75      0.83        16
+        numero_licitacao       0.00      0.00      0.00        15
+            processo_gdf       0.75      0.67      0.71         9
+
+SF
+            data_escrito       0.00      0.00      0.00         5
+    modalidade_licitacao       0.92      0.75      0.83        16
+        numero_licitacao       0.00      0.00      0.00        15
+            processo_gdf       0.71      0.56      0.63         9
+
+### Split - 1
+CRF
+ 0.0
+                            precision    recall  f1-score   support
+            data_escrito       0.00      0.00      0.00         5
+    modalidade_licitacao       0.00      0.00      0.00        11
+        numero_licitacao       0.00      0.00      0.00        13
+            processo_gdf       0.00      0.00      0.00         9
+
+CRF + SF
+0.7260515701526938
+                            precision    recall  f1-score   support
+            data_escrito       0.50      0.80      0.62         5
+    modalidade_licitacao       0.91      0.91      0.91        15
+        numero_licitacao       0.00      0.00      0.00        15
+            processo_gdf       0.86      0.67      0.75        10
+
+SF
+            data_escrito       0.00      0.00      0.00         5
+    modalidade_licitacao       0.91      0.91      0.91        11
+        numero_licitacao       1.00      0.08      0.14        13
+            processo_gdf       0.89      0.89      0.89         9
+
+### Split - 2
+ CRF
+ 0.07098931923616356
+                            precision    recall  f1-score   support
+            data_escrito       0.00      0.00      0.00         5
+    modalidade_licitacao       0.00      0.00      0.00        15
+        numero_licitacao       0.00      0.00      0.00        15
+            processo_gdf       0.00      0.00      0.00        10
+
+CRF + SF
+0.7067405528943991
+                            precision    recall  f1-score   support
+            data_escrito       0.80      0.80      0.80         5
+    modalidade_licitacao       1.00      0.67      0.80        15
+        numero_licitacao       0.00      0.00      0.00        15
+            processo_gdf       0.88      0.70      0.78        10
+
+SF
+            data_escrito       0.00      0.00      0.00         5
+    modalidade_licitacao       1.00      0.67      0.80        15
+        numero_licitacao       0.00      0.00      0.00        15
+            processo_gdf       0.89      0.80      0.84        10
+
+### Split - 3
+CRF
+0.0245411865130175
+                            precision    recall  f1-score   support
+            data_escrito       0.00      0.00      0.00         5
+    modalidade_licitacao       0.00      0.00      0.00        13
+        numero_licitacao       0.00      0.00      0.00        15
+            processo_gdf       0.00      0.00      0.00        10
+
+CRF + SF
+0.7045790753719142
+                            precision    recall  f1-score   support
+            data_escrito       0.80      0.80      0.80         5
+    modalidade_licitacao       0.92      0.85      0.88        13
+        numero_licitacao       0.00      0.00      0.00        15
+            processo_gdf       1.00      0.70      0.82        10
+
+SF
+            data_escrito       0.00      0.00      0.00         5
+    modalidade_licitacao       0.93      1.00      0.96        13
+        numero_licitacao       0.00      0.00      0.00        15
+            processo_gdf       1.00      0.70      0.82        10
+
+### Split - 4
+CRF
+0.061983471074380174
+                            precision    recall  f1-score   support
+            data_escrito       0.00      0.00      0.00         6
+    modalidade_licitacao       0.00      0.00      0.00        15
+        numero_licitacao       0.00      0.00      0.00        13
+            processo_gdf       0.00      0.00      0.00        11
+
+CRF + SF
+0.5764678766344322
+                            precision    recall  f1-score   support
+            data_escrito       0.50      0.50      0.50         6
+    modalidade_licitacao       0.90      0.60      0.72        15
+        numero_licitacao       0.00      0.00      0.00        13
+            processo_gdf       0.88      0.64      0.74        11
+
+SF
+            data_escrito       1.00      0.17      0.29         6
+    modalidade_licitacao       0.90      0.60      0.72        15
+        numero_licitacao       0.00      0.00      0.00        13
+            processo_gdf       0.80      0.36      0.50        11
+
+### REL_EXTRATO_CONVENIO
+numero_convenio
+processo_gdf 
+data_assinatura_convenio 
+valor_convenio  
+programa_trabalho 
+nota_empenho 
+fonte_recurso 
+unidade_orcamentaria 
+
+token 7006
+
+['B-cnpj_entidade_convenente',
+ 'I-cnpj_entidade_convenente',
+ 'B-nota_empenho',
+ 'B-cnpj_orgao_concedente',
+ 'I-data_assinatura_convenio',
+ 'B-unidade_orcamentaria',
+ 'I-nome_responsavel',
+ 'B-orgao_concedente',
+ 'B-valor_convenio',
+ 'I-vigencia_contrato',
+ 'I-objeto_contrato',
+ 'B-data_assinatura_convenio',
+ 'B-natureza_despesa',
+ 'I-nota_empenho',
+ 'B-objeto_convenio',
+ 'O',
+ 'I-objeto_convenio',
+ 'B-entidade_convenente',
+ 'I-vigencia_convenio',
+ 'B-processo_gdf',
+ 'I-entidade_convenente',
+ 'I-cnpj_orgao_concedente',
+ 'I-fonte_recurso',
+ 'I-numero_convenio',
+ 'B-numero_convenio',
+ 'I-unidade_orcamentaria',
+ 'I-processo_gdf',
+ 'I-orgao_concedente',
+ 'B-programa_trabalho',
+ 'B-vigencia_contrato',
+ 'B-fonte_recurso',
+ 'I-valor_convenio',
+ 'B-nome_responsavel',
+ 'B-objeto_contrato',
+ 'B-vigencia_convenio']
+
+x_train 25 
+x_test 7 
+total atos 32
+
+### Split - 0
+CRF
+0.19963581227173025
+                            precision    recall  f1-score   support
+data_assinatura_convenio       0.00      0.00      0.00         7
+           fonte_recurso       0.00      0.00      0.00         2
+        natureza_despesa       0.00      0.00      0.00         4
+            nota_empenho       0.00      0.00      0.00         4
+         numero_convenio       0.00      0.00      0.00         8
+            processo_gdf       0.00      0.00      0.00         7
+       programa_trabalho       0.00      0.00      0.00         3
+    unidade_orcamentaria       0.00      0.00      0.00         1
+          valor_convenio       0.00      0.00      0.00         4
+
+CRF + SF
+                            precision    recall  f1-score   support
+data_assinatura_convenio       0.00      0.00      0.00         7
+           fonte_recurso       0.00      0.00      0.00         2
+        natureza_despesa       1.00      0.75      0.86         4
+            nota_empenho       0.00      0.00      0.00         4
+         numero_convenio       0.50      0.12      0.20         8
+            processo_gdf       1.00      0.57      0.73         7
+       programa_trabalho       0.00      0.00      0.00         3
+    unidade_orcamentaria       0.50      1.00      0.67         1
+          valor_convenio       1.00      0.75      0.86         4
+
+SF
+data_assinatura_convenio       0.00      0.00      0.00         3
+         numero_convenio       1.00      0.40      0.57         5
+            processo_gdf       1.00      0.60      0.75         5
+
+### Split - 1
+
+CRF
+0.198494316141375
+                          precision    recall  f1-score   support
+data_assinatura_convenio       0.00      0.00      0.00         8
+           fonte_recurso       0.00      0.00      0.00         1
+            nota_empenho       0.00      0.00      0.00         1
+         numero_convenio       0.00      0.00      0.00         2
+            processo_gdf       0.00      0.00      0.00         7
+    unidade_orcamentaria       0.00      0.00      0.00         1
+          valor_convenio       0.00      0.00      0.00         2
+      
+
+
+CRF + SF
+0.563718820861678
+                            precision    recall  f1-score   support
+data_assinatura_convenio       0.50      0.12      0.20         8
+           fonte_recurso       0.00      0.00      0.00         1
+        natureza_despesa       0.00      0.00      0.00         0
+            nota_empenho       0.00      0.00      0.00         1
+         numero_convenio       0.50      0.50      0.50         2
+            processo_gdf       1.00      0.43      0.60         7
+    unidade_orcamentaria       1.00      1.00      1.00         1
+          valor_convenio       0.50      0.50      0.50         2
+       
+SF
+data_assinatura_convenio       0.50      0.12      0.20         8
+           fonte_recurso       0.00      0.00      0.00         1
+        natureza_despesa       0.00      0.00      0.00         0
+            nota_empenho       0.00      0.00      0.00         1
+         numero_convenio       0.00      0.00      0.00         2
+            processo_gdf       1.00      0.57      0.73         7
+    unidade_orcamentaria       0.00      0.00      0.00         1
+          valor_convenio       0.50      0.50      0.50         2
+
+### Split - 2
+
+CRF 
+0.2710602456870197
+
+                            precision    recall  f1-score   support
+data_assinatura_convenio       0.00      0.00      0.00         8
+           fonte_recurso       0.00      0.00      0.00         1
+        natureza_despesa       0.00      0.00      0.00         1
+            nota_empenho       0.00      0.00      0.00         1
+         numero_convenio       0.00      0.00      0.00         3
+            processo_gdf       0.00      0.00      0.00         6
+       programa_trabalho       0.00      0.00      0.00         1
+    unidade_orcamentaria       0.00      0.00      0.00         1
+          valor_convenio       0.00      0.00      0.00         3
+
+CRF + SF
+0.5531960531960533
+
+data_assinatura_convenio       1.00      0.12      0.22         8
+           fonte_recurso       0.00      0.00      0.00         1
+        natureza_despesa       1.00      1.00      1.00         1
+            nota_empenho       0.00      0.00      0.00         1
+         numero_convenio       0.00      0.00      0.00         3
+            processo_gdf       0.67      0.33      0.44         6
+       programa_trabalho       0.00      0.00      0.00         1
+    unidade_orcamentaria       0.50      1.00      0.67         1
+          valor_convenio       1.00      1.00      1.00         3
+
+SF
+data_assinatura_convenio       1.00      0.12      0.22         8
+           fonte_recurso       0.00      0.00      0.00         1
+        natureza_despesa       0.00      0.00      0.00         1
+            nota_empenho       0.00      0.00      0.00         1
+         numero_convenio       0.00      0.00      0.00         3
+            processo_gdf       1.00      0.17      0.29         6
+       programa_trabalho       0.00      0.00      0.00         1
+    unidade_orcamentaria       0.00      0.00      0.00         1
+          valor_convenio       1.00      0.67      0.80         3
+
+### Split - 3
+
+CRF
+0.0
+
+                            precision    recall  f1-score   support
+data_assinatura_convenio       0.00      0.00      0.00        12
+     entidade_convenente       0.00      0.00      0.00        11
+           fonte_recurso       0.00      0.00      0.00         1
+        natureza_despesa       0.00      0.00      0.00         1
+         numero_convenio       0.00      0.00      0.00         4
+            processo_gdf       0.00      0.00      0.00         4
+       programa_trabalho       0.00      0.00      0.00         1
+          valor_convenio       0.00      0.00      0.00         5
+
+CRF + SF
+0.5003465003465003
+                            precision    recall  f1-score   support
+data_assinatura_convenio       1.00      0.08      0.15        12
+           fonte_recurso       0.00      0.00      0.00         1
+        natureza_despesa       1.00      1.00      1.00         1
+         numero_convenio       0.50      0.50      0.50         4
+            processo_gdf       0.50      0.25      0.33         4
+       programa_trabalho       0.00      0.00      0.00         1
+          valor_convenio       1.00      1.00      1.00         5
+
+SF
+data_assinatura_convenio       1.00      0.08      0.15        12
+           fonte_recurso       0.00      0.00      0.00         1
+        natureza_despesa       1.00      1.00      1.00         1
+         numero_convenio       1.00      0.50      0.67         4
+            processo_gdf       0.67      0.50      0.57         4
+       programa_trabalho       0.00      0.00      0.00         1
+          valor_convenio       1.00      1.00      1.00         5
+
+### Split - 4
+CRF
+0.3730
+
+precision    recall  f1-score   support
+
+data_assinatura_convenio       0.00      0.00      0.00         6
+           fonte_recurso       0.00      0.00      0.00         2
+        natureza_despesa       0.00      0.00      0.00         2
+            nota_empenho       0.00      0.00      0.00         1
+         numero_convenio       0.00      0.00      0.00         5
+            processo_gdf       0.00      0.00      0.00         5
+       programa_trabalho       0.00      0.00      0.00         2
+    unidade_orcamentaria       0.00      0.00      0.00         2
+          valor_convenio       0.00      0.00      0.00         4
+
+CRF + SF
+0.5050420168067227
+ precision    recall  f1-score   support
+
+data_assinatura_convenio       0.00      0.00      0.00         6
+           fonte_recurso       0.00      0.00      0.00         2
+        natureza_despesa       1.00      1.00      1.00         2
+            nota_empenho       0.00      0.00      0.00         1
+         numero_convenio       0.33      0.20      0.25         5
+            processo_gdf       1.00      0.20      0.33         5
+       programa_trabalho       0.00      0.00      0.00         2
+    unidade_orcamentaria       0.67      1.00      0.80         2
+          valor_convenio       1.00      1.00      1.00         4
+
+SF
+data_assinatura_convenio       0.00      0.00      0.00         6
+           fonte_recurso       0.00      0.00      0.00         2
+        natureza_despesa       1.00      1.00      1.00         2
+            nota_empenho       0.00      0.00      0.00         1
+         numero_convenio       0.00      0.00      0.00         5
+            processo_gdf       0.00      0.00      0.00         5
+       programa_trabalho       0.00      0.00      0.00         2
+    unidade_orcamentaria       0.67      1.00      0.80         2
+          valor_convenio       1.00      0.75      0.86         4

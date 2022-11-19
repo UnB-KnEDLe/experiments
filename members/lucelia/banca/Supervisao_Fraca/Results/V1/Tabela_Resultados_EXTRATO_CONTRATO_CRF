@@ -1,0 +1,12 @@
+EXTRATO CONTRATO  CRF( MEAN  STD) CRF( MEAN  STD) + SF (MEAN  STD)  SF + GPT 
+
+numero contrato & 0.65 0.70 0.75 \\ 
+processo gdf & 0.82  \\ 
+data assinatura contrato & 0.69  \\ 
+unidade orcamentaria & 0.71  \\ 
+programa trabalho & 0.5  \\ 
+natureza despesa & 0.58  \\ 
+nota empenho & 0.88  \\ 
+valor contrato & 0.8  \\ 
+
+EXTRATO CONTRATO  0 1 2 3 4 MEAN  STD 3X CRF, CRF + SF , SF 
