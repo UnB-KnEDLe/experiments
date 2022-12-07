@@ -31,9 +31,29 @@ ActsExtractor.get_all_obj_sec3(file)
 
 Within each class object in the returned dictionary, there is a dataframe containing all the information about each act of that type found in the JSON.
 
-The DataFrame information follows the pattern:
+For each type of act, the DataFrame information follows the pattern:
 
-- numero_dodf
-- titulo
-- text
-- [The respective entities of each type of act]
+- Aditamento 
+
+| numero_dodf | titulo | text | PROCESSO | CONTRATANTE | OBJ_ADITIVO | DATA_ESCRITO | CODIGO_SIGGO |
+|-------------|--------|------|----------|-------------|-------------|--------------|--------------|
+
+- Licitação
+
+| numero_dodf | titulo | text | MODALIDADE_LICITACAO | OBJ_LICITACAO | DATA_ABERTURA | SISTEMA_COMPRAS | CODIGO_SISTEMA_COMPRAS | PROCESSO | VALOR_ESTIMADO | ORGAO_LICITANTE |
+|-------------|--------|------|----------------------|---------------|---------------|-----------------|------------------------|----------|----------------|-----------------|
+
+- Suspensão
+
+| numero_dodf | titulo | text | PROCESSO | OBJ_ADITIVO |
+|-------------|--------|------|----------|-------------|
+
+- Anulação e Revogação
+
+| numero_dodf | titulo | text | ORGAO_LICITANTE | MODALIDADE_LICITACAO | NUM_LICITACAO | IDENTIFICACAO_OCORRENCIA |
+|-------------|--------|------|-----------------|----------------------|---------------|--------------------------|
+
+- Contrato/Convênio
+
+| numero_dodf | titulo | text | NUM_AJUSTE | PROCESSO | CONTRATADA_ou_CONVENENTE | OBJ_AJUSTE | VALOR | NATUREZA_DESPESA | FONTE_RECURSO | NOTA_EMPENHO | VIGENCIA | DATA_ASSINATURA | CONTRATANTE_ou_CONCEDENTE | PROGRAMA_TRABALHO | CNPJ_CONTRATADA_ou_CONVENENTE | CODIGO_UO | CODIGO_SIGGO | CNPJ_CONTRATANTE_ou_CONCEDENTE | NOME_RESPONSAVEL |
+|-------------|--------|------|------------|----------|--------------------------|------------|-------|------------------|---------------|--------------|----------|-----------------|---------------------------|-------------------|-------------------------------|-----------|--------------|--------------------------------|------------------|
