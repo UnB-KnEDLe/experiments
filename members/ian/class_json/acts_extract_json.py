@@ -4,6 +4,7 @@ import requests
 import os
 from bs4 import BeautifulSoup
 import unidecode
+from datetime import datetime
 
 
 class Acts:
@@ -30,9 +31,13 @@ class DODFCorpus:
 
     def read(self):
         if self.dodf_file[self.dodf_file.index('.'):] == '.json':
-            return pd.DataFrame(self.read_from_json(), columns = ['link_dodf', 'date', 'nro', 'orgao', 'section', 'name', 'type_act', 'raw_txt'])
+            # return pd.DataFrame(self.read_from_json(), columns = ['link_dodf', 'date', 'nro', 'orgao', 'section', 'name', 'type_act', 'raw_txt'])
+            df = pd.DataFrame(self.read_from_json(), columns = ['linkJornal', 'dt_previsao_publicacao', 'nu_numero', 'orgao', 'secao', 'titulo', 'tipo', 'texto'])
+            df['processo'] = df['texto'].str.extract(r'''(?:(?:(?:P|p)rocesso(?:\s+)?(?:(?:\()?SEI(?:\)?))?(?:\s+)?(?:(?:no|n\.o)?)?)|(?:P|p)rocesso:|(?:P|p)rocesso|Processo.|(?:P|p)rocesso\s+no|(?:P|p)rocesso\s+n.? ?o.?|(?:P|p)rocesso\s+no:|(?:P|p)rocesso\s+SEI\s+no:|(?:P|p)rocesso\s+SEI:|(?:P|p)rocesso\s+nº|(?:P|p)rocesso:?\s*—?\s*-?|(?:P|p)rocesso\s+(?:N|n).?º?|(?:P|p)rocesso\s+SEI-GDF:|(?:P|p)rocesso\s+SEI-GDF|(?:P|p)rocesso\s+SEI\s+no|(?:P|p)rocesso\s+SEI\s+n|(?:P|p)rocesso\s+SEI|(?:P|p)rocesso-\s+SEI|(?:P|p)rocesso\s+SEI\s+no.|(?:P|p)rocesso\s+\(SEI\)\s+no.|(?:P|p)rocesso\s+SEI\.|(?:P|p)rocesso\s+\(SEI-DF\)\s+no.|(?:P|p)rocesso\s+SEI-GDF no|(?:P|p)rocesso\s+n|(?:P|p)rocesso\s+N|(?:P|p)rocesso\s+administrativo no|(?:P|p)rocesso\s+-\s+de\s+Licitação\s+n.º|(?:P|p)rocesso\s+n:|PROCESSO ?: ?N?o?|PROCES-? ?SO|PROCESSO.|PROCESSO\s+no|PROCESSO\s+No|PROCESSO\s+N.o:?|PROCESSO\s+no.|PROCESSO\s+no:|PROCESSO\s+No:|PROCESSO\s+SEI\s+no:|PROCESSO N.?º?:?|PROCESSO\s+SEI:|PROCESSO\s+SEI|PROCESSO\s+SEI-GDF:|PROCESSO\s+SEI-GDF|PROCESSO\s+SEI\s+no|PROCESSO\s+SEI\s+No|PROCESSO\s+SEI\s+no.|PROCESSO\s+SEI.|PROCESSO\s+TCB\s+(?:N|n).?º?)((?:(?!\s\d{2}.\d{3}.\d{3}/\d{4}-\d{2}))(?:(?:\s*)(?:(?:[\d.]+)|(?:[\d\s,]+))[.-]?(?:(?:\d)|(?:[.\d\sSEI-|]+))(?:/|-
+\b)(?:(?:(?:\d)+|(?:[\d\s]+)))?(?:-(?:(?:\d)+|(?:[\d\s]+)))?(?:-SECOM/DF|-?CEB|/CBMDF|F J Z B / D F)?))''').replace(r'[^0-9]', '', regex=True)
+            return df
         if self.dodf_file[self.dodf_file.index('.'):] == '.txt':
-            return self.read_from_txt()
+            pass
 
 
     def parse_html_text(self, text):
@@ -57,7 +62,8 @@ class DODFCorpus:
             for orgao in r_json["INFO"][section]:
                 for doc in r_json["INFO"][section][orgao]["documentos"]:
                     acts_info = r_json["INFO"][section][orgao]["documentos"][doc]
-                    dodf_obj.append([DODF(r_json["linkJornal"], r_json['dt_previsao_publicacao'][:10], r_json['nu_numero']), \
+                    data = datetime.strptime(r_json['dt_previsao_publicacao'][:10], '%Y-%m-%d').strftime("%d/%m/%Y")
+                    dodf_obj.append([DODF(r_json["linkJornal"], data, r_json['nu_numero']), \
                                       Acts(orgao, section, acts_info["titulo"], acts_info["tipo"], self.parse_html_text(acts_info["texto"]))])
 
         dodf_acts = []

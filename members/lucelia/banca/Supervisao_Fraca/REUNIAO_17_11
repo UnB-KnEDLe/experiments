@@ -68,7 +68,6 @@ CRF
 0.877755866981368
                             precision    recall  f1-score   support
 data_assinatura_contrato       0.59      0.86      0.70       248
-           fonte_recurso       0.83      0.86      0.85       288
         natureza_despesa       0.98      0.70      0.82       236
             nota_empenho       0.95      0.75      0.84       299
          numero_contrato       0.77      0.74      0.76       380
@@ -80,7 +79,6 @@ data_assinatura_contrato       0.59      0.86      0.70       248
 CRF + SF
 0.8583561758398841
 data_assinatura_contrato       0.66      0.84      0.74       248
-           fonte_recurso       0.00      0.00      0.00       288
         natureza_despesa       0.95      0.85      0.90       236
             nota_empenho       0.94      0.87      0.90       299
          numero_contrato       0.96      0.81      0.88       380
@@ -91,7 +89,6 @@ data_assinatura_contrato       0.66      0.84      0.74       248
 
 SF
 data_assinatura_contrato       0.66      0.84      0.78       248
-           fonte_recurso       0.00      0.00      0.00       288
         natureza_despesa       0.95      0.85      0.92       236
             nota_empenho       0.94      0.87      0.93       299
          numero_contrato       0.96      0.81      0.87       380
@@ -104,7 +101,6 @@ data_assinatura_contrato       0.66      0.84      0.78       248
 0.8822733200527381
                             precision    recall  f1-score   support
 data_assinatura_contrato       0.55      0.81      0.65       229
-           fonte_recurso       0.85      0.83      0.84       279
         natureza_despesa       0.99      0.70      0.82       230
             nota_empenho       0.89      0.76      0.82       270
          numero_contrato       0.77      0.74      0.76       383
@@ -117,7 +113,6 @@ CRF + SF
 0.8602266275400345
                             precision    recall  f1-score   support
 data_assinatura_contrato       0.68      0.86      0.76       229
-           fonte_recurso       0.00      0.00      0.00       279
         natureza_despesa       0.97      0.82      0.89       230
             nota_empenho       0.96      0.89      0.92       270
          numero_contrato       0.95      0.79      0.86       383
@@ -126,12 +121,22 @@ data_assinatura_contrato       0.68      0.86      0.76       229
     unidade_orcamentaria       0.68      0.93      0.79       161
           valor_contrato       0.81      0.88      0.85       405
 
+SF
+                            precision    recall  f1-score   support
+data_assinatura_contrato       0.68      0.88      0.77       229
+        natureza_despesa       0.96      0.82      0.89       230
+            nota_empenho       0.97      0.94      0.95       270
+         numero_contrato       0.96      0.85      0.91       383
+            processo_gdf       0.93      0.96      0.95       341
+       programa_trabalho       0.79      0.91      0.85       232
+    unidade_orcamentaria       0.72      0.93      0.81       161
+          valor_contrato       0.84      0.76      0.80       405
+
 ### Split - 2
 CRF
  0.8770734758131002
 
 data_assinatura_contrato       0.58      0.82      0.68       229
-           fonte_recurso       0.81      0.81      0.81       285
         natureza_despesa       0.99      0.74      0.85       227
             nota_empenho       0.88      0.77      0.82       259
          numero_contrato       0.86      0.68      0.76       385
@@ -143,7 +148,6 @@ data_assinatura_contrato       0.58      0.82      0.68       229
 CRF + SF
 0.854866979860215
 data_assinatura_contrato       0.68      0.86      0.76       229
-           fonte_recurso       0.00      0.00      0.00       285
         natureza_despesa       0.94      0.82      0.88       227
             nota_empenho       0.93      0.91      0.92       259
          numero_contrato       0.95      0.78      0.86       385
@@ -152,12 +156,21 @@ data_assinatura_contrato       0.68      0.86      0.76       229
     unidade_orcamentaria       0.71      0.92      0.80       169
           valor_contrato       0.81      0.91      0.86       400
 
+SF
+data_assinatura_contrato       0.68      0.89      0.77       229
+        natureza_despesa       0.92      0.82      0.87       227
+            nota_empenho       0.93      0.92      0.93       259
+         numero_contrato       0.97      0.86      0.91       385
+            processo_gdf       0.92      0.97      0.94       335
+       programa_trabalho       0.77      0.86      0.82       233
+    unidade_orcamentaria       0.75      0.94      0.83       169
+          valor_contrato       0.84      0.78      0.81       400
+
 ### Split - 3
 CRF
 0.900867110383289
                             precision    recall  f1-score   support
 data_assinatura_contrato       0.59      0.88      0.71       239
-           fonte_recurso       0.83      0.83      0.83       299
         natureza_despesa       0.98      0.71      0.82       253
             nota_empenho       0.95      0.79      0.86       291
          numero_contrato       0.79      0.70      0.74       371
@@ -168,7 +181,6 @@ data_assinatura_contrato       0.59      0.88      0.71       239
 
 CRF + SF
 data_assinatura_contrato       0.70      0.91      0.79       239
-           fonte_recurso       0.00      0.00      0.00       299
         natureza_despesa       0.95      0.81      0.88       253
             nota_empenho       0.94      0.88      0.91       291
          numero_contrato       0.95      0.80      0.87       371
@@ -177,12 +189,20 @@ data_assinatura_contrato       0.70      0.91      0.79       239
     unidade_orcamentaria       0.76      0.95      0.84       187
           valor_contrato       0.82      0.88      0.85       423
 
+SF
+data_assinatura_contrato       0.71      0.92      0.81       239
+        natureza_despesa       0.93      0.80      0.86       253
+            nota_empenho       0.95      0.91      0.93       291
+         numero_contrato       0.95      0.88      0.91       371
+            processo_gdf       0.94      0.98      0.96       331
+       programa_trabalho       0.78      0.81      0.80       270
+    unidade_orcamentaria       0.77      0.97      0.86       187
+          valor_contrato       0.84      0.74      0.79       423
 
 ### Split - 4
 CRF
 0.8870236531812781
 data_assinatura_contrato       0.55      0.87      0.67       218
-           fonte_recurso       0.82      0.84      0.83       273
         natureza_despesa       0.99      0.69      0.81       221
             nota_empenho       0.98      0.75      0.85       271
          numero_contrato       0.79      0.73      0.76       380
@@ -193,9 +213,7 @@ data_assinatura_contrato       0.55      0.87      0.67       218
 
 CRF + SF
 0.8621629837730088
-
 data_assinatura_contrato       0.67      0.89      0.76       218
-           fonte_recurso       0.00      0.00      0.00       273
         natureza_despesa       0.96      0.81      0.88       221
             nota_empenho       0.96      0.85      0.90       271
          numero_contrato       0.93      0.79      0.86       380
@@ -203,6 +221,16 @@ data_assinatura_contrato       0.67      0.89      0.76       218
        programa_trabalho       0.77      0.79      0.78       251
     unidade_orcamentaria       0.69      0.93      0.79       153
           valor_contrato       0.87      0.89      0.88       419
+
+SF
+data_assinatura_contrato       0.69      0.91      0.78       218
+        natureza_despesa       0.96      0.82      0.88       221
+            nota_empenho       0.98      0.90      0.94       271
+         numero_contrato       0.95      0.85      0.90       380
+            processo_gdf       0.94      0.98      0.96       337
+       programa_trabalho       0.79      0.82      0.81       251
+    unidade_orcamentaria       0.70      0.96      0.81       153
+          valor_contrato       0.93      0.76      0.84       419
 
 ### ADITAMENTO CONTRATUAL
 numero_contrato 
@@ -306,6 +334,11 @@ CRF + SF
 
 
 ## REL_AVISO_LICITACAO
+'processo_gdf'   
+'modalidade_licitacao'  
+'numero_licitacao'
+'valor_estimado_contratacao'  
+
 Token 111633
 Aviso_Licitacao_Split
 
@@ -566,6 +599,11 @@ modalidade_licitacao       0.85      0.52      0.65        21
         processo_gdf       0.92      0.92      0.92        12
 
 ## REL_ANUL_REVOG_LICITACAO 
+'numero_licitacao'
+'modalidade_licitacao' 
+'processo_gdf'
+'data_escrito'
+
 token 6605
 Anul_Revog_Licitação_Split
 
@@ -706,14 +744,13 @@ SF
             processo_gdf       0.80      0.36      0.50        11
 
 ### REL_EXTRATO_CONVENIO
-numero_convenio
-processo_gdf 
-data_assinatura_convenio 
-valor_convenio  
-programa_trabalho 
-nota_empenho 
-fonte_recurso 
-unidade_orcamentaria 
+'numero_convenio'
+'processo_gdf'
+'data_assinatura_convenio'
+'valor_convenio'  
+'nota_empenho' 
+'fonte_recurso' 
+'unidade_orcamentaria' 
 
 token 7006
 

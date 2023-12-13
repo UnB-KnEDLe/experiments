@@ -6,9 +6,12 @@ import spacy
 import skweak
 from spacy.tokens import DocBin
 import os
+import spacy
+from spacy_tokenizer import spacy_tokenizer
+import pickle
 
 
-class LabelFunctionsContratos:
+class LabelFunctionsConvenio:
     '''
     Classe que armazena as Label Functions para a aplicacao da supervisao fraca em contratos
 
@@ -21,15 +24,18 @@ class LabelFunctionsContratos:
         nlp = spacy.load('pt_core_news_sm', disable=["ner", "lemmatizer"])
         self.docs = list(nlp.pipe(dados))
 
-    def contrato_(self, doc):
+    def convenio_(self, doc):
         '''
-        label function para extracao de contratos usando regex
+        label function para extracao de convenio usando regex
 
         parametros:
             doc: uma string respresentando o texto de um dos contratos oferecidos no vetor da base de dados
         '''
-        expression = r"([C|c][O|o][N|n|][T|t][R|r][A|a][T|t][O|o][\s\S].*?[s|:]?.+?(?=[0-9]).*?|[C|c][O|o][N|n|][V|v][E|e|Ê|ê][N|n][I|i][O|o][\s\S].*?[s|:]?.+?(?=[0-9]).*?)(\d*[^;|,|a-zA-Z]*?)"
+
+        expression = r"([C|c][O|o][N|n|][V|v][E|e|Ê|ê][N|n][I|i][O|o])[\s\S][N|n][\s|o|º|.].+?(?=[0-9].*?)(\d*[^;|,|a-zA-Z]*?)"
+        
         match = re.search(expression, str(doc))
+        
         if match:
             flag = 0
             for token in doc:
@@ -44,10 +50,10 @@ class LabelFunctionsContratos:
                         end = doc[token.i-1]
                     else:
                         end = token
-                    yield start.i, end.i, "numero_contrato"
+                    yield start.i, end.i, "numero_convenio"
                     break
 
-    def contrato_detector_fun(self, doc):
+    def convenio_detector_fun(self, doc):
         '''
         label function para extracao de contrato com comparacoes de listas
 
@@ -57,7 +63,7 @@ class LabelFunctionsContratos:
         flag = 0
         for token in doc:
             #print("1 - token.text ", token.text)
-            if token.text in ['CONTRATO', 'Contrato', 'CONVÊNIO', 'CONVENIO', 'Convênio', 'Convenio']:
+            if token.text in ['CONVÊNIO', 'CONVENIO', 'Convênio', 'Convenio']:
                 if token.i+2 < len(doc):
                     
                     for x in range(1, len(doc)-token.i):
@@ -66,9 +72,7 @@ class LabelFunctionsContratos:
                             if token.i+x+1 < len(doc):
                                 if(doc[token.i+x+1].text[0].isdigit()):
                                     k = 1
-                                #print("2 - start token", doc[token.i+x].i)
-                                #print("3 - end token", doc[token.i+x].i+1+k)
-                                yield doc[token.i+x].i, doc[token.i+x].i+1+k, "numero_contrato",
+                                yield doc[token.i+x].i, doc[token.i+x].i+1+k, "numero_convenio",
                                 flag = 1
                                 break
                     if flag == 1:
@@ -81,25 +85,24 @@ class LabelFunctionsContratos:
         parametros:
             doc: uma string respresentando o texto de um dos contratos oferecidos no vetor da base de dados
         '''
-        expression = r"[P|p][R|r][O|o][C|c][E|e][S|s][S|s][O|o][\s\S].*?[s|:]?.+?(?=[0-9]).*?(\d*[^;|,|a-zA-Z]*)"
-        
+        expression = r"[P|p][R|r][O|o][C|c][E|e][S|s][S|s][O|o].*?[\s\S|:]?.+?(?=[0-9]).*?(\d*[^;|,|a-zA-Z]*)"    
         match = re.search(expression, str(doc))
         if match:
-            flag = 0
-            for token in doc:
-                if match.span(1)[0]+1 in range(token.idx, (token.idx+len(token))+1) and flag == 0:
-                    if(doc[token.i].text == ':'):
-                        start = doc[token.i+1]
-                    else:
-                        start = token
-                    flag = 1
-                if token.idx >= match.span(1)[1] and flag == 1 and token.i > start.i:
-                    if(doc[token.i-1].text in ['.', '-', '—', ':']):
-                        end = doc[token.i-1]
-                    else:
-                        end = token
-                    yield start.i, end.i, "processo_gdf"
-                    break
+                    flag = 0
+                    for token in doc:
+                        if match.span(1)[0]+1 in range(token.idx, (token.idx+len(token))+1) and flag == 0:
+                            if(doc[token.i].text == ':'):
+                                start = doc[token.i+1]
+                            else:
+                                start = token
+                            flag = 1
+                        if token.idx >= match.span(1)[1] and flag == 1 and token.i > start.i:
+                            if(doc[token.i-1].text in ['.', '-', '—', ':']):
+                                end = doc[token.i-1]
+                            else:
+                                end = token
+                            yield start.i, end.i, "processo_gdf"
+                            break  
 
     def data_assinatura_(self, doc):
         '''
@@ -108,8 +111,7 @@ class LabelFunctionsContratos:
         parametros:
             doc: uma string respresentando o texto de um dos contratos oferecidos no vetor da base de dados
         '''
-        #expression = r"[A|a][S|s][S|s][I|i][N|n][A|a][T|t][U|u][R|r][A|a]:.*?[\s\S](\d{2}\/\d{2}\/\d{4}|\d{2}[\s\S]\w+[\s\S]\w+[\s\S]\w+[\s\S]\d{4})"
-        expression = r"[A|a][S|s][S|s][I|i][N|n][A|a][T|t][U|u][R|r][A|a].*?[\s\S](\d{2}\/\d{2}\/\d{4}|\d{2}[\s\S]\w+[\s\S]\w+[\s\S]\w+[\s\S]\d{4}|\w{2}[\s\S]\w+[\s\S]\w+[\s\S]\w+[\s\S]\d{4}|[\s\S](\d{2}\.\d{2}\.\d{4})|\w{2}/\d{2}\/\d{4})"
+        expression = r"[A|a][S|s][S|s][I|i][N|n][A|a][T|t][U|u][R|r][A|a][\s\S].+?(\d{2}\/\d{2}\/\d{4}|\d{2}[\s\S]\w+[\s\S]\w+[\s\S]\w+[\s\S]\d{4}|\w{2}[\s\S]\w+[\s\S]\w+[\s\S]\w+[\s\S]\d{4}|[\s\S](\d{2}\.\d{2}\.\d{4})|\w{2}/\d{2}\/\d{4})"
 
         match = re.finditer(expression, str(doc))
         if match:
@@ -127,7 +129,7 @@ class LabelFunctionsContratos:
                             end = doc[token.i-1]
                         else:
                             end = token
-                        yield start.i, end.i, "data_assinatura_contrato"
+                        yield start.i, end.i, "data_assinatura_convenio"
                         break
 
     def valor_(self, doc):
@@ -137,8 +139,7 @@ class LabelFunctionsContratos:
         parametros:
             doc: uma string respresentando o texto de um dos contratos oferecidos no vetor da base de dados
         '''
-        #expression = r"[V|v][a|A][l|L][o|O][r|R].*?[\s\S].*?([\d\.]*,\d{2})"
-        expression = r"[V|v][a|A][l|L][o|O][r|R].*?[\s\S][D|d][O|o].*?[\s\S][C|c][O|o][N|n][T|t][R|r][A|a][T|t][O|o].*?[\s\S].*?([\d\.]*,\d{2})"
+        expression = r"[V|v][a|A][l|L][o|O][r|R].*?[\s\S][D|d][O|o].*?[\s\S][C|c][O|o][N|n][V|v][E|e][N|n][I|i][O|o].*?[\s\S].*?([\d\.]*,\d{2})"
         match = re.finditer(expression, str(doc))
         if match:
             for grupo in match:
@@ -155,9 +156,9 @@ class LabelFunctionsContratos:
                             end = doc[token.i-1]
                         else:
                             end = token
-                        yield start.i, end.i, "valor_contrato"
+                        yield start.i, end.i, "valor_convenio"
                         break
-        expression = r"[D|d][O|o][\s\S][V|v][a|A][l|L][o|O][r|R].*?[\s\S].*?([\d\.]*,\d{2})"
+        expression = r"[V|v][a|A][l|L][o|O][r|R].*?[\s\S].*?([\d\.]*,\d{2})"
         match = re.finditer(expression, str(doc))
         if match:
             for grupo in match:
@@ -174,7 +175,7 @@ class LabelFunctionsContratos:
                             end = doc[token.i-1]
                         else:
                             end = token
-                        yield start.i, end.i, "valor_contrato"
+                        yield start.i, end.i, "valor_convenio"
                         break
 
     def unidade_orcamento_(self, doc):
@@ -244,7 +245,28 @@ class LabelFunctionsContratos:
         parametros:
             doc: uma string respresentando o texto de um dos contratos oferecidos no vetor da base de dados
         '''
-        expression = r"[P|p][R|r][O|o][g|G][r|R][a|A][m|M][a|A][\s|\S][d|D][e|E|O|o|A|a][\s|\S][T|t][R|r][A|a][B|b][A|a][L|l][H|h][O|o].*?[:|;|[\s\S].*?(\d*[^;|,|–|a-zA-Z]*)"
+        #Programa de Tr a b a l h o :
+        expression = r"[P|p][R|r][O|o][g|G][r|R][a|A][m|M][a|A][\s|\S][d|D][e|E|O|o|A|a][\s|\S][T|t][R|r][\s][A|a][\s][B|b][\s][A|a][\s][L|l][\s][H|h][\s][O|o][\s|\S].*?[:|;|[\s\S].*?(\d*[^;|,|–|a-zA-Z]*)"
+        match = re.finditer(expression, str(doc))
+        if match:
+            for grupo in match:       
+                flag = 0
+                for token in doc:
+                    if grupo.span(1)[0]+1 in range(token.idx, (token.idx+len(token))+1) and flag == 0:
+                        if(doc[token.i].text == ':'):
+                            start = doc[token.i+1]
+                        else:
+                            start = token
+                        flag = 1
+                    if token.idx >= grupo.span(1)[1] and flag == 1 and token.i > start.i:
+                        if(doc[token.i-1].text in ['.', '-', '—', ':']):
+                            end = doc[token.i-1]
+                        else:
+                            end = token
+                        yield start.i, end.i, "programa_trabalho"
+                        break
+         #Programa de Trabalho - PT: 
+        expression = r"[P|p][R|r][O|o][g|G][r|R][a|A][m|M][a|A][\s|\S][d|D][e|E|O|o|A|a][\s|\S][T|t][R|r][A|a][B|b][A|a][L|l][H|h][O|o][\s\S][-][\s\S][P][T][\s|\S].*?[:|;|[\s\S].*?(\d*[^;|,|–|a-zA-Z]*)" 
         match = re.finditer(expression, str(doc))
         if match:
             for grupo in match:
@@ -261,9 +283,12 @@ class LabelFunctionsContratos:
                             end = doc[token.i-1]
                         else:
                             end = token
-                        yield start.i, end.i,  "programa_trabalho"
+                            
+                        yield start.i, end.i, "programa_trabalho"
                         break
-        expression = r"([P][.][T].*?[\s\S].*?|[P][T][\s|:].*?[\s\S].*?)(\d*[^;|,|–|a-zA-Z]*)"
+        #Programa de Trabalho:
+        expression = r"([P|p][R|r][O|o][g|G][r|R][a|A][m|M][a|A][\s|\S][d|D][e|E|O|o|A|a][\s|\S][T|t][R|r][A|a][B|b][A|a][L|l][H|h][O|o][:][\s\S]).*?(\d*[^;|,|–|a-zA-Z]*)"
+                                                
         match = re.finditer(expression, str(doc))
         if match:
             for grupo in match:
@@ -280,9 +305,8 @@ class LabelFunctionsContratos:
                             end = doc[token.i-1]
                         else:
                             end = token
-                        yield start.i, end.i,  "programa_trabalho"
+                        yield start.i, end.i, "programa_trabalho"
                         break
-
     def natureza_despesa_(self, doc):
         '''
         label function para extracao de natureza de despesa usando regex
@@ -356,29 +380,6 @@ class LabelFunctionsContratos:
                 # break
 
     
-
-    def processo_detector_fun(self, doc):
-        '''
-        label function para extracao de processos com comparacoes de listas
-
-        parametros:
-            doc: uma string respresentando o texto de um dos contratos oferecidos no vetor da base de dados
-        '''
-        for token in doc:
-            if token.text in ['Processo', 'PROCESSO', 'Processo:', 'PROCESSO:']:
-                if token.i+2 < len(doc):
-                    for x in range(1, len(doc)-token.i):
-                        if doc[token.i+x].text[0].isdigit() and doc[token.i+x].i < doc[token.i+x].i+1:
-                            k = 0
-                            if token.i+x+1 < len(doc):
-                                if(doc[token.i+x+1].text[0].isdigit()):
-                                    k = 1
-                            yield doc[token.i+x].i, doc[token.i+x].i+1+k, "processo_gdf"
-                            break
-
-
-  
-
     def valor_detector_fun(self, doc):
         '''
         label function para extracao de valor com comparacoes de listas
@@ -392,69 +393,10 @@ class LabelFunctionsContratos:
                     if y in token.text:
                         for x in range(1, len(doc)-token.i-2):
                             if (doc[token.i+x].text in ['R$', '$', '$$'] and doc[token.i+x+1].text[0].isdigit()) and doc[token.i+x].i+1 < doc[token.i+x].i+2:
-                                yield doc[token.i+x].i+1, doc[token.i+x].i+2,"valor_contrato",
+                                yield doc[token.i+x].i+1, doc[token.i+x].i+2,"valor_convenio",
                                 break
-            if token.i+4 < len(doc):
-                if token.text in ['Do', 'DO'] and doc[token.i+1].text in ['valor', 'valor:']:
-                    for x in range(2, len(doc)-token.i-2):
-                        if (doc[token.i+x].text in ['R$', '$', '$$'] and doc[token.i+x+1].text[0].isdigit()) and doc[token.i+x].i+1 < doc[token.i+x].i+2:
-                            yield doc[token.i+x].i+1, doc[token.i+x].i+2,"valor_contrato",
-                            break
-            if token.i+4 < len(doc):
-                if 'valor' in token.text and doc[token.i+1].text in ['TOTAL', 'Total', 'total', 'TOTAL:', 'Total:', 'total:']:
-                    for x in range(2, len(doc)-token.i-2):
-                        if (doc[token.i+x].text in ['R$', '$', '$$'] and doc[token.i+x+1].text[0].isdigit()) and doc[token.i+x].i+1 < doc[token.i+x].i+2:
-                            yield doc[token.i+x].i+1, doc[token.i+x].i+2,"valor_contrato",
-                            break
-            if token.i+5 < len(doc):
-                if 'valor' in token.text and doc[token.i+1].text in ['DO', 'Do', 'do'] and doc[token.i+2].text in ['CONTRATO', 'Contrato', 'contrato', 'CONTRATO:', 'Contrato:', 'contrato:']:
-                    for x in range(3, len(doc)-token.i-2):
-                        if (doc[token.i+x].text in ['R$', '$', '$$'] and doc[token.i+x+1].text[0].isdigit()) and doc[token.i+x].i+1 < doc[token.i+x].i+2:
-                            yield doc[token.i+x].i+1, doc[token.i+x].i+2,"valor_contrato",
-                            break
-
-    def unidade_orc_detector_fun(self, doc):
-        '''
-        label function para extracao de unidade orcamentaria com comparacoes de listas
-
-        parametros:
-            doc: uma string respresentando o texto de um dos contratos oferecidos no vetor da base de dados
-        '''
-        for token in doc:
-            if token.i+4 < len(doc):
-                for y in ['Unidade', 'UNIDADE', 'unidade']:
-                    if y in token.text and doc[token.i+1].text in ['Orçamentária', 'Orcamentaria', 'ORÇAMENTÁRIA', 'ORCAMENTARIA', 'orcamentaria', 'orçamentária', 'Orçamentária:', 'Orcamentaria:', 'ORÇAMENTÁRIA:', 'ORCAMENTARIA:', 'orcamentaria:', 'orçamentária:']:
-                        k = 0
-                        if(len(doc[token.i+2].text) <= 2):
-                            k += 1
-                        if(k >= 1 and len(doc[token.i+3].text) <= 2):
-                            k += 1
-                        if(doc[token.i+2+k].text.isalpha()):
-                            break
-                        for x in range(2+k, len(doc)-token.i):
-                            if (doc[token.i+x].text.isalpha() or doc[token.i+x].text in ['.', ',', ';'] and token.i+2+k < token.i+x):
-                                yield token.i+2+k, token.i+x, "unidade_orcamentaria"
-                                break
-                            elif token.i+x+1 >= len(doc) and token.i+1+k < token.i+x+1:
-                                yield token.i+1+k, token.i+x+1, "unidade_orcamentaria"
-                                break
-            if token.i+3 < len(doc):
-                for y in ["U.O", "UO"]:
-                    if y == token.text:
-                        k = 0
-                        if(len(doc[token.i+1].text) <= 2):
-                            k += 1
-                        if(k >= 1 and len(doc[token.i+2].text) <= 2):
-                            k += 1
-                        if(doc[token.i+1+k].text.isalpha()):
-                            break
-                        for x in range(1+k, len(doc)-token.i):
-                            if (doc[token.i+x].text.isalpha() or doc[token.i+x].text in ['.', ',', ';']) and token.i+1+k < token.i+x:
-                                yield token.i+1+k, token.i+x, "unidade_orcamentaria"
-                                break
-                            elif token.i+x+1 >= len(doc) and token.i+1+k < token.i+x+1:
-                                yield token.i+1+k, token.i+x+1, "unidade_orcamentaria"
-                                break
+            
+   
 
     def programa_trab_detector_fun(self, doc):
         '''
@@ -466,7 +408,7 @@ class LabelFunctionsContratos:
         for token in doc:
             if token.i+5 < len(doc):
                 for y in ['Programa', 'PROGRAMA', 'programa']:
-                    if y in token.text and doc[token.i+1].text in ['de', 'do', 'da', 'DE', 'DO', 'DA'] and doc[token.i+2].text in ['trabalho', 'Trabalho', 'TRABALHO', 'trabalho:', 'Trabalho:', 'TRABALHO:']:
+                    if y in token.text and doc[token.i+1].text in ['de', 'do', 'da', 'DE', 'DO', 'DA'] and doc[token.i+2].text in ['trabalho', 'Trabalho', 'Tr a b a l h o', 'Tr a b a l h o :', 'TRABALHO', 'trabalho:', 'Trabalho:', 'TRABALHO:']:
                         k = 0
                         if(len(doc[token.i+3].text) <= 2):
                             k += 1
@@ -542,56 +484,6 @@ class LabelFunctionsContratos:
                                 yield token.i+1+k, token.i+x+1, "natureza_despesa"
                                 break
 
-
-    def data_detector_fun(self, doc):
-        '''
-        label function para extracao de data de assinatura com comparacoes de listas
-
-        parametros:
-            doc: uma string respresentando o texto de um dos contratos oferecidos no vetor da base de dados
-        '''
-        for token in doc:
-            if token.i+5 < len(doc):
-                for y in ['DATA', 'Data', 'data', 'Da', 'DA']:
-                    if y in token.text and doc[token.i+1].text in ['Assinatura', 'ASSINATURA', 'assinatura:', 'Assinatura:', 'ASSINATURA:', 'assinatura'] and doc[token.i+2].text in ['Do', 'DO', 'do'] and doc[token.i+3].text in ['CONTRATO', 'Contrato', 'contrato', 'Contrato:', 'contrato:', 'CONVÊNIO', 'CONVENIO', 'Convênio', 'Convenio', 'convênio', 'convenio', 'Convênio:', 'Convenio:', 'convênio:', 'convenio:']:
-                        k = 0
-                        if(doc[token.i+4].text == ':'):
-                            k += 1
-                        for x in range(4, len(doc)-token.i):
-                            if (doc[token.i+x].text in ['.', ',', ';'] or (doc[token.i+x].text in ['Partes', 'PARTES', 'partes:', 'Objeto', 'OBJETO', 'Valor', 'VALOR', 'Valor:', 'VALOR:', 'valor:', 'Assinatura', 'ASSINATURA', 'assinatura:', 'Assinatura:', 'ASSINATURA:', 'SIGNATÁRIOS', 'SIGNATARIOS', 'Signatários:', 'SIGNATÁRIOS:', 'SIGNATARIOS:', 'Signatarios:', 'Signatarios', 'Assinantes', 'ASSINANTES', 'Assinantes:', 'ASSINANTES:', '<>END OF BLOCK<>', 'END OF BLOCK', 'EOB']) or ((doc[token.i+x].i+1 < len(doc)) and (doc[token.i+x].text in ['Dotação', 'DOTAÇÃO', 'dotação', 'DOTACAO', 'Dotacao', 'dotacao:',  'Unidade', 'UNIDADE'] and doc[token.i+x+1].text in ['Orçamentária', 'Orcamentaria', 'ORÇAMENTÁRIA', 'ORCAMENTARIA', 'orcamentaria', 'orçamentária', 'Orçamentária:', 'Orcamentaria:', 'ORÇAMENTÁRIA:', 'ORCAMENTARIA:', 'orcamentaria:', 'orçamentária:'])) or ((doc[token.i+x].i+2 < len(doc)) and (doc[token.i+x].text in ['Programa', 'PROGRAMA', 'Natureza', 'NATUREZA', 'Data', 'DATA'] and doc[token.i+x+1].text in ['de', 'do', 'da', 'DE', 'DO', 'DA'] and doc[token.i+x+2].text in ['trabalho', 'Trabalho', 'TRABALHO', 'trabalho:', 'Trabalho:', 'TRABALHO:', 'despesa', 'Despesa', 'DESPESA', 'despesa:', 'Despesa:', 'DESPESA:', 'despesas', 'Despesas', 'DESPESAS', 'despesas:', 'Despesas:', 'DESPESAS:', 'Assinatura', 'ASSINATURA', 'assinatura:', 'Assinatura:', 'ASSINATURA:']))) and token.i+4+k < token.i+x:
-                                yield token.i+4+k, token.i+x, "data_assinatura_contrato"
-                                break
-                            elif token.i+x+1 >= len(doc) and token.i+4+k < token.i+x+1:
-                                yield token.i+4+k, token.i+x+1, "data_assinatura_contrato"
-                                break
-            if token.i+4 < len(doc):
-                for y in ['DATA', 'Data', 'data']:
-                    if y in token.text and doc[token.i+1].text in ['de', 'da', 'De', 'Da', 'DE', 'DA'] and doc[token.i+2].text in ['Assinatura', 'ASSINATURA', 'assinatura:', 'Assinatura:', 'ASSINATURA:']:
-                        k = 0
-                        if(doc[token.i+3].text == ':'):
-                            k += 1
-                        for x in range(3, len(doc)-token.i):
-                            if (doc[token.i+x].text in ['.', ',', ';'] or (doc[token.i+x].text in ['Partes', 'PARTES', 'partes:', 'Objeto', 'OBJETO', 'Valor', 'VALOR', 'Valor:', 'VALOR:', 'valor:', 'Assinatura', 'ASSINATURA', 'assinatura:', 'Assinatura:', 'ASSINATURA:', 'SIGNATÁRIOS', 'SIGNATARIOS', 'Signatários:', 'SIGNATÁRIOS:', 'SIGNATARIOS:', 'Signatarios:', 'Signatarios', 'Assinantes', 'ASSINANTES', 'Assinantes:', 'ASSINANTES:', '<>END OF BLOCK<>', 'END OF BLOCK', 'EOB']) or ((doc[token.i+x].i+1 < len(doc)) and (doc[token.i+x].text in ['Dotação', 'DOTAÇÃO', 'dotação', 'DOTACAO', 'Dotacao', 'dotacao:',  'Unidade', 'UNIDADE'] and doc[token.i+x+1].text in ['Orçamentária', 'Orcamentaria', 'ORÇAMENTÁRIA', 'ORCAMENTARIA', 'orcamentaria', 'orçamentária', 'Orçamentária:', 'Orcamentaria:', 'ORÇAMENTÁRIA:', 'ORCAMENTARIA:', 'orcamentaria:', 'orçamentária:'])) or ((doc[token.i+x].i+2 < len(doc)) and (doc[token.i+x].text in ['Programa', 'PROGRAMA', 'Natureza', 'NATUREZA', 'Data', 'DATA'] and doc[token.i+x+1].text in ['de', 'do', 'da', 'DE', 'DO', 'DA'] and doc[token.i+x+2].text in ['trabalho', 'Trabalho', 'TRABALHO', 'trabalho:', 'Trabalho:', 'TRABALHO:', 'despesa', 'Despesa', 'DESPESA', 'despesa:', 'Despesa:', 'DESPESA:', 'despesas', 'Despesas', 'DESPESAS', 'despesas:', 'Despesas:', 'DESPESAS:', 'Assinatura', 'ASSINATURA', 'assinatura:', 'Assinatura:', 'ASSINATURA:']))) and token.i+3+k < token.i+x:
-                                yield token.i+3+k, token.i+x, "data_assinatura_contrato"
-                                break
-                            elif token.i+x+1 >= len(doc) and token.i+3+k < token.i+x+1:
-                                yield token.i+3+k, token.i+x+1, "data_assinatura_contrato"
-                                break
-            if token.i+2 < len(doc):
-                for y in ['Assinatura', 'ASSINATURA', 'assinatura:', 'Assinatura:', 'ASSINATURA:']:
-                    if y in token.text:
-                        k = 0
-                        if(doc[token.i+1].text == ':'):
-                            k += 1
-                        for x in range(1, len(doc)-token.i):
-                            if (doc[token.i+x].text in ['.', ',', ';'] or (doc[token.i+x].text in ['Partes', 'PARTES', 'partes:', 'Objeto', 'OBJETO', 'Valor', 'VALOR', 'Valor:', 'VALOR:', 'valor:', 'Assinatura', 'ASSINATURA', 'assinatura:', 'Assinatura:', 'ASSINATURA:', 'SIGNATÁRIOS', 'SIGNATARIOS', 'Signatários:', 'SIGNATÁRIOS:', 'SIGNATARIOS:', 'Signatarios:', 'Signatarios', 'Assinantes', 'ASSINANTES', 'Assinantes:', 'ASSINANTES:', '<>END OF BLOCK<>', 'END OF BLOCK', 'EOB']) or ((doc[token.i+x].i+1 < len(doc)) and (doc[token.i+x].text in ['Dotação', 'DOTAÇÃO', 'dotação', 'DOTACAO', 'Dotacao', 'dotacao:',  'Unidade', 'UNIDADE'] and doc[token.i+x+1].text in ['Orçamentária', 'Orcamentaria', 'ORÇAMENTÁRIA', 'ORCAMENTARIA', 'orcamentaria', 'orçamentária', 'Orçamentária:', 'Orcamentaria:', 'ORÇAMENTÁRIA:', 'ORCAMENTARIA:', 'orcamentaria:', 'orçamentária:'])) or ((doc[token.i+x].i+2 < len(doc)) and (doc[token.i+x].text in ['Programa', 'PROGRAMA', 'Natureza', 'NATUREZA', 'Data', 'DATA'] and doc[token.i+x+1].text in ['de', 'do', 'da', 'DE', 'DO', 'DA'] and doc[token.i+x+2].text in ['trabalho', 'Trabalho', 'TRABALHO', 'trabalho:', 'Trabalho:', 'TRABALHO:', 'despesa', 'Despesa', 'DESPESA', 'despesa:', 'Despesa:', 'DESPESA:', 'despesas', 'Despesas', 'DESPESAS', 'despesas:', 'Despesas:', 'DESPESAS:', 'Assinatura', 'ASSINATURA', 'assinatura:', 'Assinatura:', 'ASSINATURA:']))) and token.i+1+k < token.i+x:
-                                yield token.i+1+k, token.i+x, "data_assinatura_contrato"
-                                break
-                            elif token.i+x+1 >= len(doc) and token.i+1+k < token.i+x+1:
-                                yield token.i+1+k, token.i+x+1, "data_assinatura_contrato"
-                                break
-
-
     def nota_emp_detector_fun(self, doc):
         '''
         label function para extracao de nota de empenho com comparacoes de listas
@@ -623,9 +515,144 @@ class LabelFunctionsContratos:
                             elif token.i+x+1 >= len(doc) and token.i+1+k < token.i+x+1:
                                 yield token.i+1+k, token.i+x+1, "nota_empenho"
                                 break
+    
+    def unidade_orc_detector_fun(self, doc):
+        '''
+        label function para extracao de unidade orcamentaria com comparacoes de listas
 
+        parametros:
+            doc: uma string respresentando o texto de um dos contratos oferecidos no vetor da base de dados
+        '''
+        for token in doc:
+            if token.i+4 < len(doc):
+                for y in ['Unidade', 'UNIDADE', 'unidade']:
+                    if y in token.text and doc[token.i+1].text in ['Orçamentária', 'Orcamentaria', 'ORÇAMENTÁRIA', 'ORCAMENTARIA', 'orcamentaria', 'orçamentária', 'Orçamentária:', 'Orcamentaria:', 'ORÇAMENTÁRIA:', 'ORCAMENTARIA:', 'orcamentaria:', 'orçamentária:']:
+                        k = 0
+                        if(len(doc[token.i+2].text) <= 2):
+                            k += 1
+                        if(k >= 1 and len(doc[token.i+3].text) <= 2):
+                            k += 1
+                        if(doc[token.i+2+k].text.isalpha()):
+                            break
+                        for x in range(2+k, len(doc)-token.i):
+                            if (doc[token.i+x].text.isalpha() or doc[token.i+x].text in ['.', ',', ';', " "] and token.i+2+k < token.i+x):
+                                yield token.i+2+k, token.i+x, "unidade_orcamentaria"
+                                break
+                            ''' elif token.i+x+1 >= len(doc) and token.i+1+k < token.i+x+1:
+                                yield token.i+1+k, token.i+x+1, "unidade_orcamentaria"
+                                break '''
+            if token.i+3 < len(doc):
+                for y in ["U.O", "UO", "UO:", "U.O:"]:
+                    if y == token.text:
+                        k = 0
+                        if(len(doc[token.i+1].text) <= 2):
+                            k += 1
+                        if(k >= 1 and len(doc[token.i+2].text) <= 2):
+                            k += 1
+                        if(doc[token.i+1+k].text.isalpha()):
+                            break
+                        for x in range(1+k, len(doc)-token.i):
+                            if (doc[token.i+x].text.isalpha() or doc[token.i+x].text in ['.', ',', ';'," "]) and token.i+1+k < token.i+x:
+                                yield token.i+1+k, token.i+x, "unidade_orcamentaria"
+                                break
+                            ''' elif token.i+x+1 >= len(doc) and token.i+1+k < token.i+x+1:
+                                yield token.i+1+k, token.i+x+1, "unidade_orcamentaria"
+                                break '''
 
-class SkweakContratos(LabelFunctionsContratos):
+    def processo_detector_fun(self, doc):
+        '''
+        label function para extracao de processos com comparacoes de listas parametros:
+                doc: uma string respresentando o texto de um dos contratos oferecidos no vetor da base de dados
+        '''
+        for token in doc:
+            if token.text in ['Processo', 'PROCESSO', 'Processo:', 'PROCESSO:']:
+                if token.i+2 < len(doc):
+                    for x in range(1, len(doc)-token.i):
+                        if doc[token.i+x].text[0].isdigit() and doc[token.i+x].i < doc[token.i+x].i+1:
+                            k = 0
+                            if token.i+x+1 < len(doc):
+                                if(doc[token.i+x+1].text[0].isdigit()):
+                                    k = 1
+                            yield doc[token.i+x].i, doc[token.i+x].i+1+k, "processo_gdf"
+                            break    
+                                
+    def processo_ml_fun(self, doc):
+            #Extrai as features do CRF
+            def _get_features(sentence):
+                """Create features for each word in act.
+                Create a list of dict of words features to be used in the predictor module.
+                Args:
+                    act (list): List of words in an act.
+                Returns:
+                    A list with a dictionary of features for each of the words.
+                """
+                sent_features = []
+                
+                for i in range(len(sentence)):
+                    word_feat = {
+                        'word': sentence[i].lower(),
+                        'capital_letter': sentence[i][0].isupper(),
+                        'all_capital': sentence[i].isupper(),
+                        'isdigit': sentence[i].isdigit(),
+                        'word_before': sentence[i].lower() if i == 0 else sentence[i-1].lower(),
+                        'word_after:': sentence[i].lower() if i+1 >= len(sentence) else sentence[i+1].lower(),
+                        'BOS': i == 0,
+                        'EOS': i == len(sentence)-1
+                    }
+                    sent_features.append(word_feat)
+                return sent_features
+        
+            # Carregar modelo
+            with open('./crf_modelo_extrato_contrato.pkl', 'rb') as f:
+                model = pickle.load(f)
+            
+            #print([token.text for token in doc])  # ['Hello', 'world', '!']
+            #print(doc.text)  # 'Hello world!'
+            #validacao=[token.text for token in doc]
+            validacao = []
+            
+            for token in doc:
+                #print("token",token)
+                #print("len(doc)",len(doc))
+                #print("doc[token].text",token.text)
+                validacao = _get_features(token.text)
+                #for i in range(len(doc)):
+                
+                #    validacao[i] = _get_features(doc[token].text)
+                
+            processo_lb = model.predict(validacao)
+            
+            resultados = []
+            comeco_tag = 0
+            final_tag = 0
+            
+            
+            #pega a posicao do token de inicio e fim
+            for token_list, tag_list in zip(token.text, processo_lb):
+                for (idx_token, token),(idx_tag, tag) in zip(enumerate(token_list), enumerate(tag_list)):
+                    #print(token, tag, idx_tag)
+                    if tag == 'B-processo_gdf':
+                        #print(tag)
+                        acumulador = 0
+                        comeco_tag = idx_tag
+                        for tag_seguinte in tag_list[idx_tag+1:]:
+                            if tag_seguinte == 'I-processo_gdf':
+                                acumulador+=1        
+                            else:
+                                break
+                        #print(acumulador)
+                        final_tag = comeco_tag + acumulador
+                        yield comeco_tag, final_tag, 'processo_gdf'
+                        break
+                
+            #Apenas para validar o token mais a tag extraida do modelo
+            #resultados = []
+            #for token_list, tag_list in zip(tokens_validacao, processo_lb):
+            #    for token, tag in zip(token_list, tag_list):
+            #        resultados.append((token, tag))
+            #return resultados   
+        
+class SkweakConvenio(LabelFunctionsConvenio):
     '''
     Classe que aplica as Label Functions e realiza o processo de supervisao fraca
     Para seu funcionamento idel, eh necessario inicializa-da com um dataset de contratos
@@ -638,8 +665,7 @@ class SkweakContratos(LabelFunctionsContratos):
     def __init__(self, dados):
         ''' Inicializa o docs e o dataframe '''
         super().__init__(dados)
-        self.df = pd.DataFrame(columns=["numero_contrato", "processo_gdf",  "valor_contrato", "unidade_orcamentaria",
-                                        "programa_trabalho", "natureza_despesa", "nota_empenho", "data_assinatura_contrato", "text", "labels"])
+        self.df = pd.DataFrame(columns=["numero_convenio", "processo_gdf",  "valor_convenio", "unidade_orcamentaria", "programa_trabalho", "natureza_despesa", "nota_empenho", "data_assinatura_convenio", "text", "labels"])
 
     def apply_label_functions(self):
         '''
@@ -647,9 +673,9 @@ class SkweakContratos(LabelFunctionsContratos):
         '''
         doc = self.docs
 
-        detec_contrato = skweak.heuristics.FunctionAnnotator(
-            "detec_contrato", self.contrato_)
-        doc = list(detec_contrato.pipe(doc))
+        detec_convenio = skweak.heuristics.FunctionAnnotator(
+            "detec_convenio", self.convenio_)
+        doc = list(detec_convenio.pipe(doc))
 
         detec_processo = skweak.heuristics.FunctionAnnotator(
             "detec_processo", self.processo_)
@@ -680,24 +706,24 @@ class SkweakContratos(LabelFunctionsContratos):
             "detec_nota", self.nota_empenho_)
         doc = list(detec_nota.pipe(doc))
 
-        contrato_detector = skweak.heuristics.FunctionAnnotator(
-            "contrato_detector", self.contrato_detector_fun)
-        doc = list(contrato_detector.pipe(doc))
+        convenio_detector = skweak.heuristics.FunctionAnnotator(
+            "contrato_detector", self.convenio_detector_fun)
+        doc = list(convenio_detector.pipe(doc))
 
-        unidade_orc_detector = skweak.heuristics.FunctionAnnotator(
+        unidade_orc_detector = skweak.heuristics.FunctionAnnotator(  
             "unidade_orc_detector", self.unidade_orc_detector_fun)
         doc = list(unidade_orc_detector.pipe(doc)) 
         
         #LB de posição
-        data_detector = skweak.heuristics.FunctionAnnotator(
-            "data_detector", self.data_detector_fun)
-        doc = list(data_detector.pipe(doc))
+        #data_detector = skweak.heuristics.FunctionAnnotator(
+        #    "data_detector", self.data_detector_fun)
+        #doc = list(data_detector.pipe(doc))
         
+        #LB de posição
         processo_detector = skweak.heuristics.FunctionAnnotator(
             "processo_detector", self.processo_detector_fun)
         doc = list(processo_detector.pipe(doc))
         
-
         valor_detector = skweak.heuristics.FunctionAnnotator(
             "valor_detector", self.valor_detector_fun)
         doc = list(valor_detector.pipe(doc))
@@ -713,7 +739,12 @@ class SkweakContratos(LabelFunctionsContratos):
         nota_emp_detector = skweak.heuristics.FunctionAnnotator(
             "nota_emp_detector", self.nota_emp_detector_fun)
         doc = list(nota_emp_detector.pipe(doc))
-     
+
+         ##ML
+        detec_processo_ml = skweak.heuristics.FunctionAnnotator(
+            "detec_processo_ml", self.processo_ml_fun)
+        doc = list(detec_processo_ml.pipe(doc))
+        
         self.docs = doc
 
         
@@ -723,8 +754,7 @@ class SkweakContratos(LabelFunctionsContratos):
         treina o modelo HMM para refinar e agregar a entidades extraidas pelas label functions
         '''
 
-        model = skweak.aggregation.HMM("hmm", ["numero_contrato", "processo_gdf", "valor_contrato", "unidade_orcamentaria", "programa_trabalho",
-                                               "natureza_despesa", "nota_empenho", "data_assinatura_contrato"], sequence_labelling=True)
+        model = skweak.aggregation.HMM("hmm", ["numero_convenio", "processo_gdf", "valor_convenio", "unidade_orcamentaria", "programa_trabalho","natureza_despesa", "nota_empenho", "data_assinatura_convenio"], sequence_labelling=True)
 
         self.docs = model.fit_and_aggregate(self.docs)
 
@@ -736,17 +766,17 @@ class SkweakContratos(LabelFunctionsContratos):
 
         ''' Salvando modelo HMM em uma pasta data '''
         if os.path.isdir("./data"):
-            skweak.utils.docbin_writer(self.docs, "./data/reuters_small.spacy")
+            skweak.utils.docbin_writer(self.docs, "./data/convenio.spacy")
         else:
             os.mkdir("./data")
-            skweak.utils.docbin_writer(self.docs, "./data/reuters_small.spacy")
+            skweak.utils.docbin_writer(self.docs, "./data/convenio.spacy")
 
     def get_IOB(self):
         '''
         retorna os resultados das entidades extraidas em IOB
         '''
         nlp = spacy.blank("pt")
-        doc_bin = DocBin().from_disk("./data/reuters_small.spacy")
+        doc_bin = DocBin().from_disk("./data/convenio.spacy")
         examples = []
 
         for doc in doc_bin.get_docs(nlp.vocab):
@@ -788,11 +818,10 @@ class SkweakContratos(LabelFunctionsContratos):
         Retorna o dataframe final com todas as entidades, textos e labels-IOB para cada documento da base de dados
         '''
         nlp = spacy.blank("pt")
-        doc_bin = DocBin().from_disk("./data/reuters_small.spacy")
+        doc_bin = DocBin().from_disk("./data/convenio.spacy")
 
         for doc in doc_bin.get_docs(nlp.vocab):
-            aux = {"numero_contrato": "", "processo_gdf": "", "PARTES": "", "CONTRATANTE": "", "CONTRATADA": "", "OBJETO": "", "valor_contrato": "", "unidade_orcamentaria": "", "programa_trabalho": "",
-                   "natureza_despesa": "", "nota_empenho": "", "data_assinatura_contrato": "", "VIGENCIA": "", "text": "", "labels": ""}
+            aux = {"numero_convenio": "", "processo_gdf": "", "valor_contrato": "", "unidade_orcamentaria": "", "programa_trabalho": "","natureza_despesa": "", "nota_empenho": "", "data_assinatura_convenio": "", "text": "", "labels": ""}
 
             for entity in doc.ents:
                 aux[entity[0].ent_type_] = entity.text

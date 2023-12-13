@@ -111,14 +111,14 @@ class LabelFunctionsAnulRevog:
                     flag = 0
                     for token in doc:
                         if grupo.span(2)[0]+1 in range(token.idx, (token.idx+len(token))+1) and flag == 0:
-                            print(token, "1")
+                           # print(token, "1")
                             
                             if(doc[token.i].text == ':'):
                                 start = doc[token.i+1]
-                                print(token, "2")
+                               # print(token, "2")
                             else:
                                 start = token
-                                print(token, "3")
+                               # print(token, "3")
                             flag = 1
                         if token.idx >= grupo.span(2)[1] and flag == 1 and token.i > start.i:
                             if(doc[token.i-1].text in ['.', '-', '—', ':']):
@@ -407,16 +407,17 @@ class SkweakAnulRevog(LabelFunctionsAnulRevog):
         parametros:
             x: inteiro representano a posicao do doc no vetor de contratos da base de dados
         '''
-        print(self.docs[x].spans["hmm"])
+        #print(self.docs[x].spans["hmm"])
 
     def list_spans_all(self):
         '''
         Mostra os spans HMM (entidades finais resultantes da aplicacao do HMM ) de toda a base de dados
         '''
         for doc in self.docs:
-            print(doc.spans["hmm"])
+            #print(doc.spans["hmm"])
 
     # Retorna o dataframe com todas as entidades, textos e IOB para cada documento
+    
     def get_hmm_dataframe(self):
         '''
         Retorna o dataframe final com todas as entidades, textos e labels-IOB para cada documento da base de dados

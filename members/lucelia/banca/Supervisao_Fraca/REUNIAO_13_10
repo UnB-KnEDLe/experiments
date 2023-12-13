@@ -91,10 +91,10 @@ modalidade_licitacao       1.00      0.68      0.81        19
         processo_gdf       0.85      0.85      0.85        13
 
 ### ANULACAO E REVOGACAO LICITACAO
-numero_licitacao
-modalidade_licitacao 
-processo_gdf 
-data_escrito
+'numero_licitacao'
+'modalidade_licitacao' 
+'processo_gdf'
+'data_escrito'
 
 ## CRF
             precision    recall  f1-score   support
